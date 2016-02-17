@@ -1,0 +1,364 @@
+$icon-font-path: "../fonts/";
+
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "font-awesome/scss/font-awesome.scss";
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    border-bottom: 1px solid #e5e5e5;
+
+    /* Make the masthead heading the same height as the navigation */
+    h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 40px;
+        padding-bottom: 19px;
+    }
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+    }
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 40px 0;
+    p + h4 {
+        margin-top: 28px;
+    }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-size: 13px;
+    line-height: 20px;
+}
+
+/* transit */
+.slide-enter {
+    transform: translate(100%);
+}
+
+.slide-enter.slide-enter-active {
+    transform: translate(0%);
+    transition: transform  500ms ease-in-out;
+}
+
+.slide-leave {
+    transform: translate(0%);
+}
+
+.slide-leave.slide-leave-active {
+    transform: translate(-100%);
+    transition: transform 500ms ease-in-out;
+}
+
+
+
+.fade-enter {
+    opacity: 0.01;
+    transition: opacity 500ms ease-in;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+}
+
+.fade-leave {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+}
+
+.fade-leave.fade-leave-active {
+    opacity: 0;
+}
+
+.appdiv{
+    //position: absolute;
+    padding-left: 0px;
+    .container-fluid{
+        padding-left: 0px;
+    }
+}
+
+@media screen and (min-width:$screen-sm)
+{
+    .container{
+        width:930px;
+        max-width:930px
+    }
+}
+
+
+
+$menubar_bg:black;
+$usermanu_bg:grayscale($menubar_bg);
+$money_color:#D50000;
+$defaultfont_color:#303030;
+$wager_bkcolor: #424242;
+
+.menubar{
+    background-color: $menubar_bg;
+    .navbar {
+        min-height: 48px;
+        line-height: 48px;
+        border: 0px;
+        .container-fluid {
+            padding: 0;
+        };
+        margin-bottom:0;
+    }
+    ul{
+        width: 100%;
+    }
+    li{
+        width: 16%;
+    }
+    li:first-child{
+        @media (max-width: $screen-sm-min) {
+            width: 188px;
+        }
+        @media (min-width: $screen-md-min) {  width: 20%; }
+
+    }
+
+}
+
+.menubar-tabs{
+    font-size: 20px;
+    background-color: $menubar_bg;
+    line-height: 48px;
+
+}
+.usermenu{
+    background-color: white;
+    box-shadow: 0px 2px rgba(0,0,0,0.12),0px 1px rgba(0,0,0,0.2);
+    div{
+        display: inline-block;
+    }
+}
+
+#usertitle{
+    color: $defaultfont_color;
+    .money{
+        color:$money_color;font-size:20px
+    }
+    .fa-jpy{
+        color: $money_color;
+    }
+}
+
+.login-mm{
+    /***** iPad Smaller than 959px *****/
+    width: 100%;
+    margin:0 auto;
+    height:800px;
+
+    position: absolute;
+    background: url(../images/mm0-l.jpg) repeat;
+    //background-color: #fdd9dd;
+    z-index: -99;
+    img {
+        margin-left: 100px;
+        -webkit-filter: drop-shadow(-5px 5px 10px #d799a1);
+        filter:drop-shadow(-5px 5px 10px #d799a1);
+    }
+}
+
+.login-title {
+    height: 80px;
+    line-height: 100px;
+    font-size: 20px;
+    text-align: center;
+    background: url(../images/dices.png) no-repeat;
+}
+
+.login-diag{
+    width: 320px;
+    float: right;
+    margin-top: 20px;
+}
+.login-bg{
+    padding-right:50px;
+    .row{
+        line-height: 50px;
+    }
+}
+
+
+.wanfaLine{
+    font-size: 14px;
+    color: gray;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+
+}
+.ballLine{
+    font-size: 12px;
+    color: black;
+    margin-top: 5px;
+    padding: 0px;
+    padding-left: 3px;
+    div{
+        display: inline-block;
+    }
+    .col-sm-8{
+        padding: 0px;
+    }
+    .divctl{
+        padding-top: 8px;
+    }
+}
+
+.vdivider {
+    border-left: 1px solid lightgray;
+    width: 1px;
+    height: 10px;
+}
+
+.gamearea{
+    outline: 1px solid lightgray;
+    .row{
+        margin-left:0px;
+        margin-right:0px;
+        div{
+            display: inline-block;
+        }
+    }
+
+}
+
+.wagerarea{
+    background-color: lightgray;
+    margin-top: 20px;
+    padding-left: 0px;
+    margin-bottom: 20px;
+    margin: 10px 10px 10px 10px !important;
+    margin-right: 10px !important;
+
+
+
+    .wagertotal{
+        margin-top: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right:0px;
+        color: whitesmoke;
+        line-height: 30px;
+        background-color: $wager_bkcolor;
+        b{
+            color: $money_color;
+        }
+        .col-sm-3{
+            padding-right: 10px;
+        }
+    }
+
+}
+
+.wagersum{
+    border: 1px solid red;
+    width: 100%;
+    padding: 10px;
+    b{
+        color: $money_color;
+    }
+    .col-sm-12
+    {
+        padding: 0px;
+    }
+    .col-sm-3{
+        height: 30px;
+        line-height: 30px;
+        padding-right: 0px;
+    }
+
+    .selectbg{
+        position: absolute;
+        background-color: white;
+        z-index: 0;
+        width: 58px;
+        height: 30px;
+        line-height: 30px;
+        margin-left: -53px;
+    }
+    input{
+        height:30px;
+    }
+    .sel{
+        marginLeft:5px;
+    }
+
+
+    #multi{
+
+    }
+}
+
