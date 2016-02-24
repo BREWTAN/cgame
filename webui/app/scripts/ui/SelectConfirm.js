@@ -1,4 +1,4 @@
-var MenuItem, RaisedButton, React, SelectField, TextField, WagerOverviews, injectTapEventPlugin;
+var MenuItem, RaisedButton, React, SelectConfirm, SelectField, TextField, injectTapEventPlugin;
 
 React = require("react");
 
@@ -12,7 +12,7 @@ TextField = require('material-ui/lib/text-field');
 
 RaisedButton = require('material-ui/lib/raised-button');
 
-WagerOverviews = React.createClass({
+SelectConfirm = React.createClass({
   getInitialState: function() {
     return {
       totalMoney: 1,
@@ -63,7 +63,8 @@ WagerOverviews = React.createClass({
         marginTop: "-12px"
       },
       confirmbtn: {
-        float: "right"
+        float: "right",
+        marginTop: "-3px"
       }
     };
     console.log("render:wagerOverviews");
@@ -72,10 +73,8 @@ WagerOverviews = React.createClass({
     }, React.createElement("div", {
       "className": "row col-sm-12"
     }, React.createElement("div", {
-      "className": "col-sm-3"
-    }, "您共选择了 ", React.createElement("b", null, "0"), " 注  "), React.createElement("div", {
-      "className": "col-sm-3"
-    }, " 投注模式为 ", React.createElement("div", {
+      "className": "col-sm-9"
+    }, "您共选择了 ", React.createElement("b", null, "0"), " 注\n投注模式为 ", React.createElement("div", {
       "className": "sel"
     }), " ", React.createElement("b", null, React.createElement(SelectField, {
       "value": this.state.moneyType,
@@ -102,28 +101,22 @@ WagerOverviews = React.createClass({
       "primaryText": "厘"
     })), React.createElement("div", {
       "className": "selectbg"
-    }))), React.createElement("div", {
-      "className": "col-sm-3"
-    }, React.createElement("div", {
-      "className": "vdivider"
-    }), "投注倍数为  ", React.createElement("b", null, React.createElement("input", {
+    })), "投注倍数为  ", React.createElement("b", null, React.createElement("input", {
       "id": "multi",
       "value": this.state.multi,
       "size": 3,
       "onChange": this.handleWagerOChange
-    })), " 倍"), React.createElement("div", {
-      "className": "col-sm-3"
-    }, "共 ", React.createElement("b", {
+    })), " 倍\n共 ", React.createElement("b", {
       "id": "money_total"
-    }, this.state.totalMoney), " 元")), React.createElement("div", {
-      "className": "row col-sm-12"
+    }, this.state.totalMoney), " 元"), React.createElement("div", {
+      "className": "row col-sm-3"
     }, React.createElement(RaisedButton, {
       "label": "确认选号",
       "style": styles.confirmbtn,
       "primary": true,
       "onTouchTap": this.handleOpen
-    })));
+    }))));
   }
 });
 
-module.exports = WagerOverviews;
+module.exports = SelectConfirm;

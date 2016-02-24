@@ -20,7 +20,9 @@ Divider =require( 'material-ui/lib/divider');
 
 InkBar  = require("material-ui/lib/ink-bar");
 
-WagerOverviews  = require("./WagerOverviews.js");
+SelectConfirm  = require("./SelectConfirm.js");
+SelectList = require("./SelectList.js");
+
 TotalWagers = require("./TotalWagers.js")
 
 wanfaList = ['五星 ','四星 ','后三码','前三码','中三码','二码 ','定位胆','不定胆','大小单双','趣味 '];
@@ -225,14 +227,13 @@ gm_CQSSC = React.createClass(
                           {ballLines}
                     </div>
                     <div className="row wagerarea">
-                        <WagerOverviews />
+                        <SelectConfirm />
+                        <SelectList />
                         <TotalWagers />
 
                     </div>
 
                     <Divider />
-
-
                 </div>
             </div>
             <div className="col-md-3">

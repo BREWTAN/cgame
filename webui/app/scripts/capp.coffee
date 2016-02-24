@@ -69,7 +69,7 @@ CAPP = React.createClass(
 #            , React.createElement(CommentBox, null)
         console.log("render app:"+@props.location.pathname)
         React.createElement(ReactCSSTransitionGroup,
-                transitionName:"fade",
+                transitionName:"slide",
                 transitionEnterTimeout:500,
 #                transitionAppear:true,
 #                transitionAppearTimeout:2000,
@@ -89,7 +89,19 @@ TopMenu = React.createClass(
         text: ""
     render: ->
         console.log("topmenuRender:"+@props.location.pathname)
-        React.createElement("div",className:"",key:@props.location.pathname,@props.children)
+        #React.createElement("div",className:"",key:@props.location.pathname,@props.children)
+        React.createElement(ReactCSSTransitionGroup,
+            transitionName:"fade",
+            transitionEnterTimeout:500,
+#                transitionAppear:true,
+#                transitionAppearTimeout:2000,
+            transitionLeaveTimeout:500,
+            React.createElement("div",className:"",key:@props.location.pathname,@props.children)
+#                React.cloneElement(@props.children, {
+#                  key: @props.location.pathname
+#                })
+        )
+
 )
 
 routeConfig = {

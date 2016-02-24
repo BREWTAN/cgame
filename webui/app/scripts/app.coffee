@@ -66,7 +66,7 @@ WAPP = React.createClass(
 #            , React.createElement(CommentBox, null)
         console.log("render app:"+@props.location.pathname)
         React.createElement(ReactCSSTransitionGroup,
-                transitionName:"fade",
+                transitionName:"slide",
                 transitionEnterTimeout:500,
 #                transitionAppear:true,
 #                transitionAppearTimeout:2000,

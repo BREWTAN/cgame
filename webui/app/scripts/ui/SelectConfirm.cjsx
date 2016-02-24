@@ -9,7 +9,7 @@ MenuItem  = require( 'material-ui/lib/menus/menu-item');
 TextField = require( 'material-ui/lib/text-field' );
 RaisedButton = require('material-ui/lib/raised-button');
 
-WagerOverviews = React.createClass(
+SelectConfirm = React.createClass(
 
     getInitialState:() ->
         totalMoney: 1
@@ -62,6 +62,7 @@ WagerOverviews = React.createClass(
         },
         confirmbtn:{
             float:"right"
+            marginTop:"-3px"
         }
         };
         console.log("render:wagerOverviews")
@@ -69,9 +70,9 @@ WagerOverviews = React.createClass(
 
          <div className="wagersum col-sm-12">
              <div className="row col-sm-12">
-                 <div className="col-sm-3">您共选择了 <b>0</b> 注  </div>
-                 <div className="col-sm-3"> 投注模式为 <div className="sel"/> <b>
-                 <SelectField value={@state.moneyType} style={styles.moneySel}
+                 <div className="col-sm-9">您共选择了 <b>0</b> 注
+                     投注模式为 <div className="sel"/> <b>
+                    <SelectField value={@state.moneyType} style={styles.moneySel}
                          labelStyle={styles.moneySelLabel}
                          iconStyle={styles.moneyIcon}
                          underlineStyle={styles.moneyUnderLine}
@@ -81,24 +82,20 @@ WagerOverviews = React.createClass(
                                      <MenuItem data-v={0.01} value={0.01}  primaryText="分"/>
                                      <MenuItem data-v={0.001} value={0.001}  primaryText="厘"/>
                      </SelectField><div className="selectbg" ></div></b>
-                 </div>
-                 <div className="col-sm-3">
-
-                        <div className="vdivider" />投注倍数为  <b><input id="multi" value={@state.multi}
+                    投注倍数为  <b><input id="multi" value={@state.multi}
                                      size=3 onChange={@handleWagerOChange}
                                     /></b> 倍
+                 共 <b id="money_total">{@state.totalMoney}</b> 元
                 </div>
-                 <div className="col-sm-3">共 <b id="money_total">{@state.totalMoney}</b> 元
-                 </div>
-             </div>
-             <div className="row col-sm-12">
-                  <RaisedButton label="确认选号"  style={styles.confirmbtn}
-                    primary={true} onTouchTap={this.handleOpen}/>
+                 <div className="row col-sm-3">
+                      <RaisedButton label="确认选号"  style={styles.confirmbtn}
+                        primary={true} onTouchTap={this.handleOpen}/>
 
+                 </div>
              </div>
           </div>
         );
 )
 
-module.exports = WagerOverviews
+module.exports = SelectConfirm
 

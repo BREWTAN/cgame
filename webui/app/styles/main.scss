@@ -1,7 +1,10 @@
 $icon-font-path: "../fonts/";
 
+
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 @import "font-awesome/scss/font-awesome.scss";
+
+$max_gamewidth: 960px;
 
 .browsehappy {
     margin: 0.2em 0;
@@ -102,20 +105,25 @@ body {
 
 /* transit */
 .slide-enter {
-    transform: translate(100%);
+    transform: translate(100%,0);
+    position: absolute;
+    //top: 0; right: 0; bottom: 0; left: 0;
+    //left:200px;
+    left: calc( 50% - $max_gamewidth /2);
+
 }
 
 .slide-enter.slide-enter-active {
-    transform: translate(0%);
+    transform: translate(0%,0);
     transition: transform  500ms ease-in-out;
 }
 
 .slide-leave {
-    transform: translate(0%);
+    transform: translate(0%,0);
 }
 
 .slide-leave.slide-leave-active {
-    transform: translate(-100%);
+    transform: translate(-100%,0);
     transition: transform 500ms ease-in-out;
 }
 
@@ -124,6 +132,9 @@ body {
 .fade-enter {
     opacity: 0.01;
     transition: opacity 500ms ease-in;
+    position: absolute;
+    left: calc( 50% - $max_gamewidth /2);
+    z-index: 10;
 }
 
 .fade-enter.fade-enter-active {
@@ -150,8 +161,8 @@ body {
 @media screen and (min-width:$screen-sm)
 {
     .container{
-        width:930px;
-        max-width:930px
+        width:$max_gamewidth;
+        max-width:$max_gamewidth;
     }
 }
 
@@ -361,4 +372,40 @@ $wager_bkcolor: #424242;
 
     }
 }
+
+.selbox{
+    border-top: 1px #8d8d8d solid;
+    border-left: 1px #8d8d8d solid;
+    border-right: 1px #d7d7d7 solid;
+    border-bottom: 1px #d7d7d7 solid;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height:113px;
+
+    span > div{
+            width:100%
+    }
+
+    span.sel{
+        background-color:#eeff41 !important;
+    }
+
+}
+
+.betbox-left{
+    width: 70% !important;
+}
+.betbox-right{
+    width: 30% !important;
+}
+#boxs::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 3px;
+}
+#boxs::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
 

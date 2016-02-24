@@ -1,4 +1,4 @@
-var AppBar, Divider, DropDownMenu, FlatButton, FontAwesome, IconButton, IconMenu, InkBar, List, ListItem, RaisedButton, React, TotalWagers, WagerOverviews, gm_CQSSC, injectTapEventPlugin, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
+var AppBar, Divider, DropDownMenu, FlatButton, FontAwesome, IconButton, IconMenu, InkBar, List, ListItem, RaisedButton, React, SelectConfirm, SelectList, TotalWagers, gm_CQSSC, injectTapEventPlugin, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
 
 React = require("react");
 
@@ -28,7 +28,9 @@ Divider = require('material-ui/lib/divider');
 
 InkBar = require("material-ui/lib/ink-bar");
 
-WagerOverviews = require("./WagerOverviews.js");
+SelectConfirm = require("./SelectConfirm.js");
+
+SelectList = require("./SelectList.js");
 
 TotalWagers = require("./TotalWagers.js");
 
@@ -331,7 +333,7 @@ gm_CQSSC = React.createClass({
       "className": "row ballLine"
     }, ballLines), React.createElement("div", {
       "className": "row wagerarea"
-    }, React.createElement(WagerOverviews, null), React.createElement(TotalWagers, null)), React.createElement(Divider, null))), React.createElement("div", {
+    }, React.createElement(SelectConfirm, null), React.createElement(SelectList, null), React.createElement(TotalWagers, null)), React.createElement(Divider, null))), React.createElement("div", {
       "className": "col-md-3"
     }, React.createElement("div", {
       "className": "row"
