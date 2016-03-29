@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0698c81-4666-4961-96bd-efe56520ee0b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_BallsDiv.cjsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/OrderChaseItem.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/OrderChaseItem.cjsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/OrderChaseItem.js" afterPath="$PROJECT_DIR$/app/scripts/ui/OrderChaseItem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/OrderChaseList.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/OrderChaseList.cjsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/SelectConfirm.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/SelectConfirm.cjsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/SelectConfirm.js" afterPath="$PROJECT_DIR$/app/scripts/ui/SelectConfirm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/SelectItem.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/SelectItem.cjsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/SelectItem.js" afterPath="$PROJECT_DIR$/app/scripts/ui/SelectItem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/SelectList.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/SelectList.cjsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/SelectList.js" afterPath="$PROJECT_DIR$/app/scripts/ui/SelectList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/TotalWagers.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/TotalWagers.cjsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/TotalWagers.js" afterPath="$PROJECT_DIR$/app/scripts/ui/TotalWagers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.cjsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.js" afterPath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/main.scss" afterPath="$PROJECT_DIR$/app/styles/main.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.coffee" afterPath="$PROJECT_DIR$/gulpfile.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="$PROJECT_DIR$/npm-debug.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx" afterPath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.js" afterPath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.js" />
     </list>
     <ignored path="webui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,8 +78,8 @@
       <file leaf-file-name="gl_CQSSC.cjsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28057554">
-              <caret line="190" column="54" selection-start-line="190" selection-start-column="54" selection-end-line="190" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.7122302">
+              <caret line="196" column="65" selection-start-line="196" selection-start-column="65" selection-end-line="196" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -987,8 +971,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28057554">
-          <caret line="190" column="54" selection-start-line="190" selection-start-column="54" selection-end-line="190" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.7122302">
+          <caret line="196" column="65" selection-start-line="196" selection-start-column="65" selection-end-line="196" selection-end-column="65" />
           <folding />
         </state>
       </provider>

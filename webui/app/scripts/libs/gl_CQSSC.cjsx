@@ -189,6 +189,12 @@ GL_CQSSC = {
                   "五星组选20": @genBallLines(["三重号","单    号"])
                   "五星组选10": @genBallLines(["三重号","二重号"])
                   "五星组选5": @genBallLines(["四重号","单    号"])
+                  "四星组合": @genBallLines(["千位","百位","十位","个位"])
+                  "四星复式": @genBallLines(["千位","百位","十位","个位"])
+
+
+
+                  "后三码直选和值": @genBallWithOnlyTitle("直选和值",[0...28])
 
             }
 

@@ -240,7 +240,7 @@ GL_CQSSC = {
     return linesdiv;
   },
   genBallsWithName: function(wanfa, wanfaline2, wanfaline3) {
-    var wanfaname;
+    var i, results, wanfaname;
     console.log("genBallsWithName:" + wanfa + "," + wanfaline2 + "," + wanfaline3);
     wanfaname = wanfaList[wanfa].trim();
     if (wanfaline2 === -1) {
@@ -258,7 +258,14 @@ GL_CQSSC = {
         "五星组选30": this.genBallLines(["二重号", "单    号"]),
         "五星组选20": this.genBallLines(["三重号", "单    号"]),
         "五星组选10": this.genBallLines(["三重号", "二重号"]),
-        "五星组选5": this.genBallLines(["四重号", "单    号"])
+        "五星组选5": this.genBallLines(["四重号", "单    号"]),
+        "四星组合": this.genBallLines(["千位", "百位", "十位", "个位"]),
+        "四星复式": this.genBallLines(["千位", "百位", "十位", "个位"]),
+        "后三码直选和值": this.genBallWithOnlyTitle("直选和值", (function() {
+          results = [];
+          for (i = 0; i < 28; i++){ results.push(i); }
+          return results;
+        }).apply(this))
       };
     }
     return ballDivByWanfa[wanfaname];
