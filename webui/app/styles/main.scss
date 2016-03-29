@@ -367,10 +367,12 @@ $wager_bkcolor: #424242;
         marginLeft:5px;
     }
 
-
     #multi{
 
     }
+}
+.notop{
+    border-top: 0px;
 }
 
 .selbox{
@@ -406,6 +408,51 @@ $wager_bkcolor: #424242;
     border-radius: 4px;
     background-color: rgba(0, 0, 0, .5);
     -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+.zhuihao{
+   padding-left: 0px;
+   border-width: 1px 1px 3px;
+   background: #474747;
+   color: #ccc;
+}
+.chaserb{
+    height: 22px;
+}
+.chaselist{
+    margin-top: 10px;
+    padding-left: 0px;
+    input[type=text]{
+        height: 16px;
+        line-height: 13px;
+        padding: 0px;
+        border: 0px;
+        font-size: 13px;
+        color: red;
+        font-weight: bold;
+        text-align: center;
+    }
+    input[type=checkbox]{
+        height: 12px;
+
+    }
+    th{
+        background-color: #ccc;
+        border:0px;
+    }
+    tr{
+        height: 22px;
+        line-height: 22px;
+        overflow: hidden;
+        border: 1px solid #f5d314;
+        border-color: #f5d314 #b77e3b #b77e3b #f5d314;
+        background: #ebab00;
+        color: #000;
+    }
+    tr, td,th {
+        height:22px;
+        line-height: 22px;
+    }
 }
 
 

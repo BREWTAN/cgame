@@ -62,6 +62,7 @@ SelectList = React.createClass({
         marginTop: "-3px"
       }
     };
+    console.log("render:wagerOverviews");
     itemprops = {
       changeSel: this.handleChangeItem,
       deleteItem: this.deleteItem,

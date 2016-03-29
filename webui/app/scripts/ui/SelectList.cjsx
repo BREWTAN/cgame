@@ -10,26 +10,18 @@ SelectItem = require('./SelectItem.js');
 RaisedButton = require('material-ui/lib/raised-button');
 
 SelectList = React.createClass(
-    getDefaultProps:() ->
-        selidx: 1
 
     getInitialState:() ->
         totalMoney: 1
         moneyType: 1
         multi:1
+        selidx:1
 
 
-    handleWagerOChange:(e) ->
-        #console.log("changeWagerInfo:"+e.target.value)
+    handleChangeItem:(idx) ->
+        console.log("handleChangeItem:"+idx)
         @setState
-            multi: e.target.value
-            totalMoney: e.target.value*@state.moneyType
-
-    handleWagerSelChange:(e) ->
-        #console.log("handleWagerSelChange:"+e.currentTarget.dataset.v)
-        @setState
-            moneyType: parseFloat(e.currentTarget.dataset.v)
-            totalMoney: @state.multi*e.currentTarget.dataset.v
+            selidx:idx
 
     deleteItem:(idx) ->
         console.log("idx=="+idx)
@@ -66,17 +58,18 @@ SelectList = React.createClass(
             marginTop:"-3px"
         }
         };
-        console.log("render:wagerOverviews")
+       # console.log("render:wagerOverviews")
+        itemprops={ changeSel:@handleChangeItem,deleteItem:@deleteItem,selidx:@state.selidx }
         return (
-         <div className="wagersum col-sm-12">
+         <div className="wagersum notop col-sm-12">
              <List style = {styles.list} className="selbox" id="boxs">
-                   <SelectItem {...@props} primaryText="1" deleteItem={@deleteItem} idx={1}/>
-                   <SelectItem {...@props} primaryText="2" deleteItem={@deleteItem} idx={2}/>
-                   <SelectItem {...@props} primaryText="3" deleteItem={@deleteItem} idx={3}/>
-                   <SelectItem {...@props} primaryText="3" deleteItem={@deleteItem} idx={4}/>
-                   <SelectItem {...@props} primaryText="3" deleteItem={@deleteItem} idx={5}/>
-                   <SelectItem {...@props} primaryText="3" deleteItem={@deleteItem} idx={6}/>
-                   <SelectItem {...@props} primaryText="3" deleteItem={@deleteItem} idx={7}/>
+                   <SelectItem {...itemprops} idx={1}/>
+                   <SelectItem {...itemprops} idx={2}/>
+                   <SelectItem {...itemprops} idx={3}/>
+                   <SelectItem {...itemprops} idx={4}/>
+                   <SelectItem {...itemprops} idx={5}/>
+                   <SelectItem {...itemprops} idx={6}/>
+                   <SelectItem {...itemprops} idx={7}/>
              </List>
           </div>
         );

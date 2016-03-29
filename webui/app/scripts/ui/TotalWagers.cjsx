@@ -12,11 +12,12 @@ RaisedButton = require('material-ui/lib/raised-button');
 List = require('material-ui/lib/lists/list');
 ListItem = require('material-ui/lib/lists/list-item');
 Checkbox  = require('material-ui/lib/checkbox');
+OrderChaseList = require("./OrderChaseList.js");
 
 TotalWagers = React.createClass(
 
     getInitialState:() ->
-        zhuihao: false
+        zhuihao: true
         totalWagerCount: 1
         totalWagerMoney: 1000
 
@@ -55,24 +56,33 @@ TotalWagers = React.createClass(
                 height:"36px"
             }
         };
+        if @state.zhuihao
+            comZhuiHao = <div className="col-sm-12"><OrderChaseList /> </div>
+        else
+            comZhuiHao=  <div></div>
         return (
          <div className="wagertotal col-sm-12">
-             <div className="col-sm-9">您已确认 <b>{@state.totalWagerCount}</b> 注, 总金额 <b id="money_total">{@state.totalMoney}</b> 元
+            <div className="col-sm-12">
+                 <div className="col-sm-9">您已确认 <b>{@state.totalWagerCount}</b> 注, 总金额 <b id="money_total">{@state.totalMoney}</b> 元
 
-                 <ListItem style={styles.listcs}
+                     <ListItem style={styles.listcs}
 
-                          leftCheckbox={<Checkbox checked={@state.zhuihao} onCheck={@handleClickZhuihao} style={styles.checkbox} iconStyle={styles.checkboxi} />}
-                          primaryText="发起追号"
-                        />
-                 <ListItem style={styles.listcs}
-                          leftCheckbox={<Checkbox disabled={!@state.zhuihao} onCheck={@handleClickZhuihaoStop}   style={styles.checkbox} iconStyle={styles.checkboxi} />}
-                          primaryText="中奖后停止追号"
-                        />
+                              leftCheckbox={<Checkbox checked={@state.zhuihao} onCheck={@handleClickZhuihao} style={styles.checkbox} iconStyle={styles.checkboxi} />}
+                              primaryText="发起追号"
+                            />
+                     <ListItem style={styles.listcs}
+                              leftCheckbox={<Checkbox disabled={!@state.zhuihao} onCheck={@handleClickZhuihaoStop}   style={styles.checkbox} iconStyle={styles.checkboxi} />}
+                              primaryText="中奖后停止追号"
+                            />
+                 </div>
+
+                 <div className="row col-sm-3">
+                      <RaisedButton label="提交注单" style={styles.confirmbtn}
+                        primary={true} onTouchTap={this.handleOpen}/>
+                 </div>
              </div>
-
-             <div className="row col-sm-3">
-                  <RaisedButton label="提交注单" style={styles.confirmbtn}
-                    primary={true} onTouchTap={this.handleOpen}/>
+             <div className="zhuihao col-md-12">
+                    {comZhuiHao}
              </div>
           </div>
         );

@@ -67,6 +67,7 @@ SelectConfirm = React.createClass({
         marginTop: "-3px"
       }
     };
+    console.log("render:wagerOverviews");
     return React.createElement("div", {
       "className": "wagersum col-sm-12"
     }, React.createElement("div", {

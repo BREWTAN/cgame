@@ -6,7 +6,7 @@ injectTapEventPlugin = require("react-tap-event-plugin");
 FlatButton = require('material-ui/lib/flat-button');
 EnhancedButton = require('material-ui/lib//enhanced-button');
 
-SelectItem = React.createClass(
+OrderChaseItem = React.createClass(
 
     getInitialState:() ->
         wname: "组三单式"
@@ -47,20 +47,20 @@ SelectItem = React.createClass(
         };
 
         cn = if @props.selidx==@props.idx then "sel" else "";
-        console.log("render:selectItem:cn="+cn+",idx="+@props.idx)
+
         return (
-            <EnhancedButton style={styles.btn} className={cn} linkButton={true} onTouchTap={@onTouchTap} >
-                    <div className="pull-left"> {@state.wname} &nbsp; &nbsp; <b color="red"> {@state.balls} </b>&nbsp; [{@state.count}注,{@state.money},{@state.moneyUnit}]</div>
-                    <div className="pull-right">
-                        <div className=""> [{@state.multi}倍] &nbsp;&nbsp;</div>
-                        <EnhancedButton className="" onTouchTap={@onDelete} style={styles.delbtn} >
-                            删除
-                        </EnhancedButton>
-                    </div>
-            </EnhancedButton>
+            <tr>
+                <td><input type="checkbox"/> </td>
+                <td>20110203</td>
+                <td><input type="text" size=4 /></td>
+                <td>￥50</td>
+                <td>￥100</td>
+                <td>￥200</td>
+                <td>￥100</td>
+            </tr>
 
         );
 )
 
-module.exports = SelectItem
+module.exports = OrderChaseItem
 

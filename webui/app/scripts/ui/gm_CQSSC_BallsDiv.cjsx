@@ -16,10 +16,8 @@ IconButton =require('material-ui/lib/icon-button');
 
 List =require( 'material-ui/lib/lists/list');
 ListItem =require( 'material-ui/lib/lists/list-item');
-Divider = require( 'material-ui/lib/divider');
+Divider =require( 'material-ui/lib/divider');
 
-
-GL_CQSSC = require( '../libs/gl_CQSSC.js');
 InkBar  = require("material-ui/lib/ink-bar");
 
 SelectConfirm  = require("./SelectConfirm.js");
@@ -50,9 +48,7 @@ wanfaLine3EleText = [['组选120','组选60','组选30','组选20','组选10','�
                 ['前二组选(复式)','前二组选(单式)','前二组选和值','后二组选(复式)','后二组选(单式)','后二组选和值'],
               ];
 
-
-
-gm_CQSSC = React.createClass(
+gm_CQSSC_BallsDiv = React.createClass(
 
     getInitialState:() ->
         wanfa:0
@@ -188,11 +184,31 @@ gm_CQSSC = React.createClass(
                           <div className="clearfix"></div>
                      )
 
-       # ballLines = GL_CQSSC.genBallLines(["万位","千位","百位"," "]);
-       # ballLines = GL_CQSSC.genOnlyBalls([0...19])
-        # ballLines = GL_CQSSC.genBallWithOnlyTitle("组选和值", [0...27]);
-        ballLines = GL_CQSSC.genBallsWithName(@state.wanfa,@state.wanfaLine2,@state.wanfaLine3)
-
+        ballOneLine = (<FlatButton ref={"wf_"+index} label={""+index} key={index} data-id={index} onTouchTap={@handleClickBall} labelStyle={styles.balltext} style={styles.ball} /> for index in [0..9] )
+        ballFuncOneLine = (<FlatButton ref={"wf_f_"+index} label={text} key={index} data-id={index} onTouchTap={@handleClickBall} labelStyle={styles.ballfunctitle} style={styles.ballfunc} /> for text,index in ['全','大','小','奇','偶','清'] )
+        ballLines = (<div>
+            <div className="row ballLine  col-sm-12" >
+                  <div className="col-sm-8"> <FlatButton label="万位" style={styles.balltitle} key={index} labelStyle={styles.wanfaLine2} />{ballOneLine} </div>
+                  <div className="col-sm-4 divctl">{ballFuncOneLine}</div>
+            </div>
+            <div className="row ballLine  col-sm-12" >
+                  <div className="col-sm-8"> <FlatButton label="千位" style={styles.balltitle} key={index} labelStyle={styles.wanfaLine2} />{ballOneLine} </div>
+                  <div className="col-sm-4 divctl">{ballFuncOneLine}</div>
+            </div>
+            <div className="row ballLine  col-sm-12" >
+                  <div className="col-sm-8"> <FlatButton label="百位" style={styles.balltitle} key={index} labelStyle={styles.wanfaLine2} />{ballOneLine} </div>
+                  <div className="col-sm-4 divctl">{ballFuncOneLine}</div>
+            </div>
+            <div className="row ballLine  col-sm-12" >
+                  <div className="col-sm-8"> <FlatButton label="十位" style={styles.balltitle} key={index} labelStyle={styles.wanfaLine2} />{ballOneLine} </div>
+                  <div className="col-sm-4 divctl">{ballFuncOneLine}</div>
+            </div>
+            <div className="row ballLine  col-sm-12" >
+                  <div className="col-sm-8"> <FlatButton label="个位" style={styles.balltitle} key={index} labelStyle={styles.wanfaLine2} />{ballOneLine} </div>
+                  <div className="col-sm-4 divctl">{ballFuncOneLine}</div>
+            </div>
+            </div>
+        )
         return (
             <div className="container">
             <div className="row">
@@ -231,5 +247,5 @@ gm_CQSSC = React.createClass(
         );
 )
 
-module.exports = gm_CQSSC
+module.exports = gm_CQSSC_BallsDiv
 

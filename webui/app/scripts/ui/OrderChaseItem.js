@@ -48,7 +48,6 @@ OrderChaseItem = React.createClass({
       }
     };
     cn = this.props.selidx === this.props.idx ? "sel" : "";
-    console.log("render:selectItem:cn=" + cn + ",idx=" + this.props.idx);
     return React.createElement("tr", null, React.createElement("td", null, React.createElement("input", {
       "type": "checkbox"
     }), " "), React.createElement("td", null, "20110203"), React.createElement("td", null, React.createElement("input", {

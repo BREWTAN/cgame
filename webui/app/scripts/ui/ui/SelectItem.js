@@ -48,6 +48,7 @@ SelectItem = React.createClass({
       }
     };
     cn = this.props.selidx === this.props.idx ? "sel" : "";
+    console.log("render:selectItem:cn=" + cn + ",idx=" + this.props.idx);
     return React.createElement(EnhancedButton, {
       "style": styles.btn,
       "className": cn,

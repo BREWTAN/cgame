@@ -65,7 +65,7 @@ SelectConfirm = React.createClass(
             marginTop:"-3px"
         }
         };
-        console.log("render:wagerOverviews")
+
         return (
 
          <div className="wagersum col-sm-12">
@@ -82,10 +82,10 @@ SelectConfirm = React.createClass(
                                      <MenuItem data-v={0.01} value={0.01}  primaryText="分"/>
                                      <MenuItem data-v={0.001} value={0.001}  primaryText="厘"/>
                      </SelectField><div className="selectbg" ></div></b>
-                    投注倍数为  <b><input id="multi" value={@state.multi}
+                        <div>投注倍数为  <b><input id="multi" value={@state.multi}
                                      size=3 onChange={@handleWagerOChange}
-                                    /></b> 倍
-                 共 <b id="money_total">{@state.totalMoney}</b> 元
+                                    /></b> 倍 共 <b id="money_total">{@state.totalMoney}</b> 元
+                        </div>
                 </div>
                  <div className="row col-sm-3">
                       <RaisedButton label="确认选号"  style={styles.confirmbtn}

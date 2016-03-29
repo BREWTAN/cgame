@@ -1,4 +1,4 @@
-var AppBar, Divider, DropDownMenu, FlatButton, FontAwesome, GL_CQSSC, IconButton, IconMenu, InkBar, List, ListItem, RaisedButton, React, SelectConfirm, SelectList, TotalWagers, gm_CQSSC, injectTapEventPlugin, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
+var AppBar, Divider, DropDownMenu, FlatButton, FontAwesome, IconButton, IconMenu, InkBar, List, ListItem, RaisedButton, React, SelectConfirm, SelectList, TotalWagers, gm_CQSSC, injectTapEventPlugin, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
 
 React = require("react");
 
@@ -25,8 +25,6 @@ List = require('material-ui/lib/lists/list');
 ListItem = require('material-ui/lib/lists/list-item');
 
 Divider = require('material-ui/lib/divider');
-
-GL_CQSSC = require('../libs/gl_CQSSC.js');
 
 InkBar = require("material-ui/lib/ink-bar");
 
@@ -94,7 +92,7 @@ gm_CQSSC = React.createClass({
     });
   },
   render: function() {
-    var ballLines, index, inkBarStyle, styles, text, wanfaLine2Element, wanfaLine3, wanfaLine3Element, wanfaListElement;
+    var ballFuncOneLine, ballLines, ballOneLine, index, inkBarStyle, styles, text, wanfaLine2Element, wanfaLine3, wanfaLine3Element, wanfaListElement;
     styles = {
       wanfa: {
         fontSize: "14px",
@@ -229,7 +227,96 @@ gm_CQSSC = React.createClass({
     }, React.createElement("span", null, wanfaLine3Text[this.state.wanfa], ":"), " ", wanfaLine3Element)) : React.createElement("div", {
       "className": "clearfix"
     }));
-    ballLines = GL_CQSSC.genBallsWithName(this.state.wanfa, this.state.wanfaLine2, this.state.wanfaLine3);
+    ballOneLine = (function() {
+      var i, results;
+      results = [];
+      for (index = i = 0; i <= 9; index = ++i) {
+        results.push(React.createElement(FlatButton, {
+          "ref": "wf_" + index,
+          "label": "" + index,
+          "key": index,
+          "data-id": index,
+          "onTouchTap": this.handleClickBall,
+          "labelStyle": styles.balltext,
+          "style": styles.ball
+        }));
+      }
+      return results;
+    }).call(this);
+    ballFuncOneLine = (function() {
+      var i, len, ref, results;
+      ref = ['全', '大', '小', '奇', '偶', '清'];
+      results = [];
+      for (index = i = 0, len = ref.length; i < len; index = ++i) {
+        text = ref[index];
+        results.push(React.createElement(FlatButton, {
+          "ref": "wf_f_" + index,
+          "label": text,
+          "key": index,
+          "data-id": index,
+          "onTouchTap": this.handleClickBall,
+          "labelStyle": styles.ballfunctitle,
+          "style": styles.ballfunc
+        }));
+      }
+      return results;
+    }).call(this);
+    ballLines = React.createElement("div", null, React.createElement("div", {
+      "className": "row ballLine  col-sm-12"
+    }, React.createElement("div", {
+      "className": "col-sm-8"
+    }, " ", React.createElement(FlatButton, {
+      "label": "万位",
+      "style": styles.balltitle,
+      "key": index,
+      "labelStyle": styles.wanfaLine2
+    }), ballOneLine, " "), React.createElement("div", {
+      "className": "col-sm-4 divctl"
+    }, ballFuncOneLine)), React.createElement("div", {
+      "className": "row ballLine  col-sm-12"
+    }, React.createElement("div", {
+      "className": "col-sm-8"
+    }, " ", React.createElement(FlatButton, {
+      "label": "千位",
+      "style": styles.balltitle,
+      "key": index,
+      "labelStyle": styles.wanfaLine2
+    }), ballOneLine, " "), React.createElement("div", {
+      "className": "col-sm-4 divctl"
+    }, ballFuncOneLine)), React.createElement("div", {
+      "className": "row ballLine  col-sm-12"
+    }, React.createElement("div", {
+      "className": "col-sm-8"
+    }, " ", React.createElement(FlatButton, {
+      "label": "百位",
+      "style": styles.balltitle,
+      "key": index,
+      "labelStyle": styles.wanfaLine2
+    }), ballOneLine, " "), React.createElement("div", {
+      "className": "col-sm-4 divctl"
+    }, ballFuncOneLine)), React.createElement("div", {
+      "className": "row ballLine  col-sm-12"
+    }, React.createElement("div", {
+      "className": "col-sm-8"
+    }, " ", React.createElement(FlatButton, {
+      "label": "十位",
+      "style": styles.balltitle,
+      "key": index,
+      "labelStyle": styles.wanfaLine2
+    }), ballOneLine, " "), React.createElement("div", {
+      "className": "col-sm-4 divctl"
+    }, ballFuncOneLine)), React.createElement("div", {
+      "className": "row ballLine  col-sm-12"
+    }, React.createElement("div", {
+      "className": "col-sm-8"
+    }, " ", React.createElement(FlatButton, {
+      "label": "个位",
+      "style": styles.balltitle,
+      "key": index,
+      "labelStyle": styles.wanfaLine2
+    }), ballOneLine, " "), React.createElement("div", {
+      "className": "col-sm-4 divctl"
+    }, ballFuncOneLine)));
     return React.createElement("div", {
       "className": "container"
     }, React.createElement("div", {

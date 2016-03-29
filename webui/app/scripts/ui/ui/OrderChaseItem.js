@@ -1,4 +1,4 @@
-var EnhancedButton, FlatButton, React, SelectItem, injectTapEventPlugin;
+var EnhancedButton, FlatButton, OrderChaseItem, React, injectTapEventPlugin;
 
 React = require("react");
 
@@ -8,7 +8,7 @@ FlatButton = require('material-ui/lib/flat-button');
 
 EnhancedButton = require('material-ui/lib//enhanced-button');
 
-SelectItem = React.createClass({
+OrderChaseItem = React.createClass({
   getInitialState: function() {
     return {
       wname: "组三单式",
@@ -48,25 +48,14 @@ SelectItem = React.createClass({
       }
     };
     cn = this.props.selidx === this.props.idx ? "sel" : "";
-    return React.createElement(EnhancedButton, {
-      "style": styles.btn,
-      "className": cn,
-      "linkButton": true,
-      "onTouchTap": this.onTouchTap
-    }, React.createElement("div", {
-      "className": "pull-left"
-    }, " ", this.state.wname, "     ", React.createElement("b", {
-      "color": "red"
-    }, " ", this.state.balls, " "), "  [", this.state.count, "注,", this.state.money, ",", this.state.moneyUnit, "]"), React.createElement("div", {
-      "className": "pull-right"
-    }, React.createElement("div", {
-      "className": ""
-    }, " [", this.state.multi, "倍]   "), React.createElement(EnhancedButton, {
-      "className": "",
-      "onTouchTap": this.onDelete,
-      "style": styles.delbtn
-    }, "删除")));
+    console.log("render:selectItem:cn=" + cn + ",idx=" + this.props.idx);
+    return React.createElement("tr", null, React.createElement("td", null, React.createElement("input", {
+      "type": "checkbox"
+    }), " "), React.createElement("td", null, "20110203"), React.createElement("td", null, React.createElement("input", {
+      "type": "text",
+      "size": 4
+    })), React.createElement("td", null, "￥50"), React.createElement("td", null, "￥100"), React.createElement("td", null, "￥200"), React.createElement("td", null, "￥100"));
   }
 });
 
-module.exports = SelectItem;
+module.exports = OrderChaseItem;
