@@ -304,6 +304,23 @@ $wager_bkcolor: #424242;
         }
     }
 
+
+
+}
+
+.inputarea{
+    div {
+        textarea:nth-child(2) {
+            border: 1px solid #e7e7e7 !important;
+            box-shadow: 2px 2px 2px #e7e7e7 inset;
+            padding: 3px 10px 10px 10px !important;
+            overflow-y: scroll !important;
+        }
+    }
+
+    div:nth-child(4){
+        display: block;
+    }
 }
 
 .wagerarea{
@@ -393,7 +410,11 @@ $wager_bkcolor: #424242;
     }
 
 }
+.selectedBall {
+    background-color : #a20b2a;
+    color: white;
 
+}
 .betbox-left{
     width: 70% !important;
 }
@@ -453,6 +474,7 @@ $wager_bkcolor: #424242;
         height:22px;
         line-height: 22px;
     }
+
 }
 
 
