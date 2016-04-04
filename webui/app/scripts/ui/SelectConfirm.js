@@ -17,7 +17,8 @@ SelectConfirm = React.createClass({
     return {
       totalMoney: 1,
       moneyType: 1,
-      multi: 1
+      multi: 1,
+      wagercount: 0
     };
   },
   handleWagerOChange: function(e) {
@@ -33,7 +34,7 @@ SelectConfirm = React.createClass({
     });
   },
   render: function() {
-    var styles;
+    var money_total, styles;
     styles = {
       moneySel: {
         color: "black",
@@ -67,13 +68,15 @@ SelectConfirm = React.createClass({
         marginTop: "-3px"
       }
     };
+    money_total = this.state.wagercount * this.state.multi * this.state.moneyType;
+    money_total = money_total.toFixed(3);
     return React.createElement("div", {
       "className": "wagersum col-sm-12"
     }, React.createElement("div", {
       "className": "row col-sm-12"
     }, React.createElement("div", {
       "className": "col-sm-9"
-    }, "您共选择了 ", React.createElement("b", null, "0"), " 注\n投注模式为 ", React.createElement("div", {
+    }, "您共选择了 ", React.createElement("b", null, this.state.wagercount), " 注\n投注模式为 ", React.createElement("div", {
       "className": "sel"
     }), " ", React.createElement("b", null, React.createElement(SelectField, {
       "value": this.state.moneyType,
@@ -107,7 +110,7 @@ SelectConfirm = React.createClass({
       "onChange": this.handleWagerOChange
     })), " 倍 共 ", React.createElement("b", {
       "id": "money_total"
-    }, this.state.totalMoney), " 元")), React.createElement("div", {
+    }, money_total), " 元")), React.createElement("div", {
       "className": "row col-sm-3"
     }, React.createElement(RaisedButton, {
       "label": "确认选号",

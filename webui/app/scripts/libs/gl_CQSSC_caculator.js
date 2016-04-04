@@ -138,13 +138,25 @@ GL_CQSSC_Caculator = {
     });
     return counter;
   },
+  wgCountByTexts: function(playballs, ballcount) {
+    var balls, count, j, len, line;
+    balls = playballs.split(",");
+    count = 0;
+    for (j = 0, len = balls.length; j < len; j++) {
+      line = balls[j];
+      if (GL_CQSSC_Caculator.getLineCount(line) === ballcount) {
+        count++;
+      }
+    }
+    return count;
+  },
   getWagerCount: function(wagername, playballs) {
     var method, numwager, params, pc;
     console.log("wagername=" + wagername + ",playballs=" + playballs);
     if (gl_playChecker === null) {
       gl_playChecker = {
         "五星复式": [this.wgCountByFushi, 5],
-        "五星单式": "",
+        "五星单式": [this.wgCountByTexts, 5],
         "五星组合": [this.wgCountByFushi, 5],
         "五星组选120": [this.wgCountByZuhe, 5],
         "五星组选60": [this.wgCountByDoubleZuhe, [1, 3]],
@@ -153,37 +165,37 @@ GL_CQSSC_Caculator = {
         "五星组选10": [this.wgCountByDoubleZuhe, [1, 1]],
         "五星组选5": [this.wgCountByDoubleZuhe, [1, 1]],
         "四星组合": [this.wgCountByFushi, 4],
-        "四星单式": "",
+        "四星单式": [this.wgCountByTexts, 4],
         "四星复式": [this.wgCountByFushi, 4],
         "四星组选24": [this.wgCountByZuhe, 4],
         "四星组选12": [this.wgCountByDoubleZuhe, [1, 2]],
         "四星组选6": [this.wgCountByZuhe, 2],
         "四星组选4": [this.wgCountByDoubleZuhe, [1, 1]],
         "后三码复式": [this.wgCountByFushi, 3],
-        "后三码单式": [this.wgCountByFushi, 3],
+        "后三码单式": [this.wgCountByTexts, 3],
         "后三码直选和值": [this.wgCountByHezhi, 3],
         "后三码组三": [this.wgCountByZuhe, 2, 2],
         "后三码组六": [this.wgCountByZuhe, 3],
         "后三码混合组选": "",
         "后三码组选和值": [this.wgCountByManu, [0, 1, 2, 2, 4, 5, 6, 8, 10, 11, 13, 14, 14, 15, 15, 14, 14, 13, 11, 10, 8, 6, 5, 4, 2, 2, 1, 0]],
         "前三码复式": [this.wgCountByFushi, 3],
-        "前三码单式": [this.wgCountByFushi, 3],
+        "前三码单式": [this.wgCountByTexts, 3],
         "前三码直选和值": [this.wgCountByHezhi, 3],
         "前三码组三": [this.wgCountByZuhe, 2, 2],
         "前三码组六": [this.wgCountByZuhe, 3],
         "前三码混合组选": "",
         "前三码组选和值": [this.wgCountByManu, [0, 1, 2, 2, 4, 5, 6, 8, 10, 11, 13, 14, 14, 15, 15, 14, 14, 13, 11, 10, 8, 6, 5, 4, 2, 2, 1, 0]],
         "中三码复式": [this.wgCountByFushi, 3],
-        "中三码单式": [this.wgCountByFushi, 3],
+        "中三码单式": [this.wgCountByTexts, 3],
         "中三码直选和值": [this.wgCountByHezhi, 3],
         "中三码组三": [this.wgCountByZuhe, 2, 2],
         "中三码组六": [this.wgCountByZuhe, 3],
         "中三码混合组选": "",
         "中三码组选和值": [this.wgCountByManu, [0, 1, 2, 2, 4, 5, 6, 8, 10, 11, 13, 14, 14, 15, 15, 14, 14, 13, 11, 10, 8, 6, 5, 4, 2, 2, 1, 0]],
         "二码后二直选(复式)": [this.wgCountByFushi, 2],
-        "二码后二直选(单式)": "",
+        "二码后二直选(单式)": [this.wgCountByTexts, 2],
         "二码前二直选(复式)": [this.wgCountByFushi, 2],
-        "二码前二直选(单式)": "",
+        "二码前二直选(单式)": [this.wgCountByTexts, 2],
         "二码后二直选和值": [this.wgCountByHezhi, 2],
         "二码前二直选和值": [this.wgCountByHezhi, 2],
         "二码后二组选(复式)": [this.wgCountByZuhe, 2],

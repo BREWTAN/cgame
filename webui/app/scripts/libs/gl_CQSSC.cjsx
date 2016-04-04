@@ -4,6 +4,7 @@ FlatButton = require('material-ui/lib/flat-button');
 _ = require('underscore');
 TextField = require('material-ui/lib/text-field');
 RaisedButton = require('material-ui/lib/raised-button');
+GL_CQSSC_Caculator = require( './gl_CQSSC_caculator.js');
 
 wanfaList = ['五星 ','四星 ','后三码','前三码','中三码','二码 ','定位胆','不定胆','大小单双','趣味 '];
 
@@ -133,6 +134,8 @@ ballarea = null
 
 gl_selectedBalls = []
 
+gl_func_changeWagerCount = null
+gl_handleDiagOpen = null
 
 GL_CQSSC = {
 
@@ -145,13 +148,17 @@ GL_CQSSC = {
         @changeBallState(ballcom,!ballcom.state.selected)
         @checkWager();
 
-    checkWager:() ->
-        @getSelectedBall();
+    checkWager:(playballs) ->
+        if !playballs
+            playballs = @getSelectedBall();
+        wagercount = GL_CQSSC_Caculator.getWagerCount(gl_wanfaname,playballs);
+        if gl_func_changeWagerCount then gl_func_changeWagerCount(wagercount,gl_wanfaname,playballs)
+
 
   #      console.log("refs="+refs+",lineno="+lineno+",index="+index+",selected="+refs[lineno+"_"+index].state["selected"])
         #self.upstate({"selected":true})
     changeBallState:(ballcom,selected) ->
-        console.log("ballcom=.newstate = "+selected+",old = "+ballcom.state.selected)
+        #console.log("ballcom=.newstate = "+selected+",old = "+ballcom.state.selected)
         ballcom.setState({"selected":selected})
         balldom = ReactDOM.findDOMNode(ballcom)
         if selected
@@ -203,8 +210,11 @@ GL_CQSSC = {
             linenum++
             lines.sort();
             if linenum > 0 then playballs+=","
-            for ball in lines
-                playballs+=ball
+            playballs+=lines.join("|")
+            #for ball in lines
+            #    playballs+=ball
+            #    playballs+="|"
+
 
                 #console.log("sortedball=.lines="+linenum+","+ball)
         console.log("玩法="+gl_wanfaname+",playballs="+playballs)
@@ -246,7 +256,7 @@ GL_CQSSC = {
 
 
     genOnlyBalls:(balls) -> #只有一行的
-        refsbb = @genBalls(balls,0)
+        refsbb = @genBalls(balls,0,ballstyles.ballwithmargintop)
         ballOneLine = refsbb[1]
         refs = refsbb[0]
         return (<div className="row ballLine  col-sm-12" >
@@ -263,26 +273,106 @@ GL_CQSSC = {
            <div className="col-sm-10"> {ballOneLine} </div>
          </div>)
 
-    handleRemoveDupl:() ->{
+    handleRemoveDupl:(tfRef) ->
+       console.log("tfRef="+tfRef[0].getValue())
+       playballs = @formatTextInput(tfRef[0].getValue())
+       cleanballs = []
+       emitballs = []
+       for ball in playballs.split(",")
+            v = ball.replace(/\|/g,"")
+            if cleanballs[v] then emitballs[v] = v else cleanballs[v] = v
+       #console.log("emitballs="+emitballs+",cleanballs="+cleanballs)
+       resulttext = ""
+       for k,v of cleanballs
+            resulttext+= k+" "
+       tfRef[0].setValue(resulttext)
 
-    }
+       emittext = ""
+       for k,v of emitballs
+           if emittext.length > 0 then emittext+= " , "
+           emittext+= k
+       if emittext.length == 0 then emittext = "无重复内容" else emittext = "删除重复内容:"+emittext
+
+       if gl_handleDiagOpen then gl_handleDiagOpen(emittext)
+
+    handleImportFile:(tfRef,event) ->
+        filedom = event.currentTarget[1];
+        filedom.click()
+
+    handlerFileChoosed:(tfRef,event) ->
+        console.log("handlerFileChoosed=="+event.currentTarget)
+        file = event.currentTarget.files[0]
+        reader = new FileReader();
+        reader.onload = (e) ->
+            text = reader.result;
+            console.log("inputFile.Text="+text)
+            tfRef[0].setValue(text)
+        reader.readAsText(file, "ASCII");
+        event.currentTarget.value = ""
+        return true
+
+    handleClear:(tfRef,event) ->
+        #tfRef[0].setValue("");
+
+
+    formatTextInput:(str) ->
+        balls = str.split(/,| |\||\r\n|\r|\n/)
+        playballs = ""
+        for line in balls
+            linecc = 0
+            for v in line.split("")
+                if v >= '0' && v <= '9' then playballs+=v+"|" else console.log("unknow char:"+v)
+            playballs+=","
+        return playballs;
+
+
+    handleInputChange: (event) ->
+        console.log("handle change:"+event.currentTarget.value)
+        @checkWager(@formatTextInput(event.currentTarget.value))
+
+
+
+
+
     genInputBox:() -> #只有title和球
+
+        tfRef = []
+        textfield = <TextField
+            ref={ (ref) =>
+                if ref
+                   tfRef[0] = ref
+            }
+            multiLine=true floatingLabelText="每注号码之间请用一个 空格[ ]、逗号[,] 或者 分号[;] 隔开"
+                                                rows=5 rowsMax=8  fullWidth=true className = "inputarea" onChange = {@handleInputChange.bind(@)}
+                                              hintText="请输入号码" inputStyle={ballstyles.textar}
+                                            />
+
         return (<div className="col-md-12" >
                 <div className="col-md-9" >
-                    <TextField multiLine=true floatingLabelText="每注号码之间请用一个 空格[ ]、逗号[,] 或者 分号[;] 隔开"
-                            rows=5 rowsMax=8  fullWidth=true className = "inputarea"
-                          hintText="请输入号码" inputStyle={ballstyles.textar}
-                        />
+                    {textfield}
                 </div>
                 <div className="col-md-3">
                     <div className="row" style={marginTop:"32px"}>
-                          <RaisedButton label="删除重复号" primary={true} style={ballstyles.inputbtn} onTouchTap={@handleRemoveDupl} />
+                          <RaisedButton
+                           ref={ (ref) =>
+                                if ref
+                                    tfRef[1] = ref
+                           }
+                           label="删除重复号" primary={true} style={ballstyles.inputbtn} onTouchTap={@handleRemoveDupl.bind(@,tfRef)} />
                     </div>
                     <div className="row">
-                          <RaisedButton label="导入文件" primary={true} style={ballstyles.inputbtn} onTouchTap={@handleRemoveDupl} />
+                          <form onSubmit={@handleImportFile.bind(@,tfRef)} >
+                              <RaisedButton type="submit" ref={ (ref) =>
+                                    if ref
+                                        tfRef[2] = ref
+                               }  label="导入文件"  primary={true} style={ballstyles.inputbtn} >
+                                <input type="file" style={display:"none"} onChange = {@handlerFileChoosed.bind(@,tfRef)} hidden="true"/>
+                              </RaisedButton>
+                         </form>
+
                     </div>
                     <div className="row">
-                          <RaisedButton label="清空" primary={true}style={ballstyles.inputbtn}  onTouchTap={@handleRemoveDupl}  />
+                          <RaisedButton label="清空" primary={true} style={ballstyles.inputbtn}  onTouchTap={@handleClear.bind(@,tfRef)}  />
                     </div>
                 </div>
             </div>)
@@ -292,12 +382,19 @@ GL_CQSSC = {
         return linesdiv
 
     genTextLines:(linetitles,balltexts,funbtntexts) -> #只有一行的
-        linesdiv = (@genTextOneLine(title,balltexts,funbtntexts)  for title,index in  linetitles)
+        linesdiv = (@genTextOneLine(title,balltexts,funbtntexts,index)  for title,index in  linetitles)
         return linesdiv
 
-    genTextOneLine:(lefttitle,balltexts,funbtntexts) -> #只有一行的
-        ballOneLine = (<FlatButton ref={"wf_"+index} label={""+index} key={index} data-id={index} onTouchTap={@handleClickBall} labelStyle={ballstyles.balltext} style={ballstyles.ball} /> for index in balltexts )
-        ballFuncOneLine = (<FlatButton ref={"wf_f_"+index} label={text} key={index} data-id={index} onTouchTap={@handleClickBall} labelStyle={ballstyles.ballfunctitle} style={ballstyles.ballfunc} /> for text,index in funbtntexts )
+    genTextOneLine:(lefttitle,balltexts,funbtntexts,lineno) -> #只有一行的
+        #ballOneLine = (<FlatButton ref={"wf_"+index} label={""+index} key={index} data-id={index} onTouchTap={@handleClickBall.bind(@,refs,lineno,index)} labelStyle={ballstyles.balltext} style={ballstyles.ball} /> for index in balltexts )
+        refsbb = @genBalls(balltexts,lineno)
+        ballOneLine = refsbb[1]
+        refs = refsbb[0]
+        #ballFuncOneLine = (<FlatButton ref={"wf_f_"+index} label={text} key={index} data-id={index} onTouchTap={@handleClickBall} labelStyle={ballstyles.ballfunctitle} style={ballstyles.ballfunc} /> for text,index in funbtntexts )
+        ballFuncOneLine = (<FlatButton refline={ballOneLine} label={text} key={"wf_func_"+lineno+"_"+index}
+                        data-text={text} data-id={index} onTouchTap={@handleFuncClickBall.bind(@,refs,lineno)}
+                        labelStyle={ballstyles.ballfunctitle} style={ballstyles.ballfunc} /> for text,index in funbtntexts)
+
         if (lefttitle == " ")
             titleStyle =  _.extend({},ballstyles.balltitle,{backgroundColor: "#FFFFFF",marginRight:"10px"})
         else
@@ -310,15 +407,17 @@ GL_CQSSC = {
         </div>)
 
 
-    genBallsWithName:(wanfa,wanfaline2,wanfaline3) ->
-        console.log("genBallsWithName:"+wanfa+","+wanfaline2+","+wanfaline3)
+    genBallsWithName:(wanfa,wanfaline2,wanfaline3,callback,handleDiagOpen) ->
+        #console.log("genBallsWithName:"+wanfa+","+wanfaline2+","+wanfaline3)
         wanfaname = wanfaList[wanfa].trim()
+        gl_func_changeWagerCount = callback
         if ( wanfaline2 == -1 )
             wanfaname += wanfaLine3EleText[wanfa][wanfaline3].trim()
         else
             wanfaname += wanfaLine2EleText[wanfa][wanfaline2].trim()
 
-        console.log("wanfaname="+wanfaname)
+        gl_handleDiagOpen = handleDiagOpen
+        #console.log("wanfaname="+wanfaname)
 
         gl_wanfaname = wanfaname
 

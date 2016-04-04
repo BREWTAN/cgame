@@ -1,4 +1,4 @@
-var AppBar, Divider, DropDownMenu, FlatButton, FontAwesome, GL_CQSSC, IconButton, IconMenu, InkBar, List, ListItem, RaisedButton, React, SelectConfirm, SelectList, TotalWagers, gm_CQSSC, injectTapEventPlugin, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
+var AppBar, Dialog, Divider, DropDownMenu, FlatButton, FontAwesome, GL_CQSSC, IconButton, IconMenu, InkBar, List, ListItem, RaisedButton, React, SelectConfirm, SelectList, TotalWagers, gm_CQSSC, injectTapEventPlugin, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
 
 React = require("react");
 
@@ -34,6 +34,8 @@ SelectConfirm = require("./SelectConfirm.js");
 
 SelectList = require("./SelectList.js");
 
+Dialog = require('material-ui/lib/dialog');
+
 TotalWagers = require("./TotalWagers.js");
 
 wanfaList = ['五星 ', '四星 ', '后三码', '前三码', '中三码', '二码 ', '定位胆', '不定胆', '大小单双', '趣味 '];
@@ -53,7 +55,9 @@ gm_CQSSC = React.createClass({
       wanfaLine2: 0,
       wanfaLine3: -1,
       gameIndex: 0,
-      username: '张三'
+      username: '张三',
+      diagopen: false,
+      diagmessage: ""
     };
   },
   handleChangeWanfa: function(e, item, v) {
@@ -93,8 +97,30 @@ gm_CQSSC = React.createClass({
       "primaryText": text
     });
   },
+  changeWagerCount: function(wagercount, gl_wanfaname, playballs) {
+    var selectconfirmCom;
+    console.log("change wagercount:" + wagercount + "," + gl_wanfaname + "," + playballs);
+    selectconfirmCom = this.refs["selectconfirm"];
+    if (selectconfirmCom) {
+      return selectconfirmCom.setState({
+        wagercount: wagercount
+      });
+    }
+  },
+  handleDiagClose: function() {
+    console.log("handleDiagClose");
+    return this.setState({
+      diagopen: false
+    });
+  },
+  handleDiagOpen: function(message) {
+    return this.setState({
+      diagopen: true,
+      diagmessage: message
+    });
+  },
   render: function() {
-    var ballLines, index, inkBarStyle, styles, text, wanfaLine2Element, wanfaLine3, wanfaLine3Element, wanfaListElement;
+    var ballLines, index, inkBarStyle, selectconfirmCom, styles, text, wanfaLine2Element, wanfaLine3, wanfaLine3Element, wanfaListElement;
     styles = {
       wanfa: {
         fontSize: "14px",
@@ -229,7 +255,10 @@ gm_CQSSC = React.createClass({
     }, React.createElement("span", null, wanfaLine3Text[this.state.wanfa], ":"), " ", wanfaLine3Element)) : React.createElement("div", {
       "className": "clearfix"
     }));
-    ballLines = GL_CQSSC.genBallsWithName(this.state.wanfa, this.state.wanfaLine2, this.state.wanfaLine3);
+    ballLines = GL_CQSSC.genBallsWithName(this.state.wanfa, this.state.wanfaLine2, this.state.wanfaLine3, this.changeWagerCount, this.handleDiagOpen);
+    selectconfirmCom = React.createElement(SelectConfirm, {
+      "ref": "selectconfirm"
+    });
     return React.createElement("div", {
       "className": "container"
     }, React.createElement("div", {
@@ -246,11 +275,22 @@ gm_CQSSC = React.createClass({
       "className": "row ballLine"
     }, ballLines), React.createElement("div", {
       "className": "row wagerarea"
-    }, React.createElement(SelectConfirm, null), React.createElement(SelectList, null), React.createElement(TotalWagers, null)), React.createElement(Divider, null))), React.createElement("div", {
+    }, selectconfirmCom, React.createElement(SelectList, null), React.createElement(TotalWagers, null)), React.createElement(Divider, null))), React.createElement("div", {
       "className": "col-md-3"
     }, React.createElement("div", {
       "className": "row"
-    }, "游戏状态"))));
+    }, "游戏状态"))), React.createElement(Dialog, {
+      "title": "提示",
+      "actions": React.createElement(FlatButton, {
+        "label": "Ok",
+        "primary": true,
+        "keyboardFocused": true,
+        "onTouchTap": this.handleDiagClose
+      }),
+      "modal": false,
+      "open": this.state.diagopen,
+      "onRequestClose": this.handleDiagClose
+    }, this.state.diagmessage));
   }
 });
 

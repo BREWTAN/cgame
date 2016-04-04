@@ -24,6 +24,7 @@ InkBar  = require("material-ui/lib/ink-bar");
 
 SelectConfirm  = require("./SelectConfirm.js");
 SelectList = require("./SelectList.js");
+Dialog  = require('material-ui/lib/dialog');
 
 TotalWagers = require("./TotalWagers.js")
 
@@ -55,12 +56,15 @@ wanfaLine3EleText = [['组选120','组选60','组选30','组选20','组选10','�
 
 gm_CQSSC = React.createClass(
 
+
     getInitialState:() ->
         wanfa:0
         wanfaLine2:0
         wanfaLine3: -1
         gameIndex: 0,
         username:'张三'
+        diagopen: false
+        diagmessage: ""
 
 
     handleChangeWanfa:(e,item,v) ->
@@ -93,6 +97,24 @@ gm_CQSSC = React.createClass(
 
     genitem:(text,index) ->
         return <MenuItem value={index} primaryText={text} />
+
+    changeWagerCount: (wagercount,gl_wanfaname,playballs) ->
+        console.log("change wagercount:"+wagercount+","+gl_wanfaname+","+playballs)
+        selectconfirmCom = @refs["selectconfirm"]
+        if selectconfirmCom
+           selectconfirmCom.setState
+                wagercount: wagercount
+
+
+    handleDiagClose: () ->
+        console.log("handleDiagClose")
+        @setState
+            diagopen:false
+
+    handleDiagOpen: (message) ->
+        @setState
+            diagopen:true
+            diagmessage:message
 
     render:() ->
         styles = {
@@ -192,42 +214,56 @@ gm_CQSSC = React.createClass(
        # ballLines = GL_CQSSC.genBallLines(["万位","千位","百位"," "]);
        # ballLines = GL_CQSSC.genOnlyBalls([0...19])
         # ballLines = GL_CQSSC.genBallWithOnlyTitle("组选和值", [0...27]);
-        ballLines = GL_CQSSC.genBallsWithName(@state.wanfa,@state.wanfaLine2,@state.wanfaLine3)
-
+        ballLines = GL_CQSSC.genBallsWithName(@state.wanfa,@state.wanfaLine2,@state.wanfaLine3,@changeWagerCount,@handleDiagOpen)
+        selectconfirmCom =  (<SelectConfirm ref="selectconfirm"/>)
         return (
             <div className="container">
-            <div className="row">
-            <div className="col-md-9">
-                <div className="gamearea">
-                    <div className="row">
-                        {wanfaListElement}
-                    </div>
-                    <Divider />
-                    <div className="row wanfaLine " >
-                       <span>{wanfaLine2Text[@state.wanfa]}:</span> {wanfaLine2Element}
-                    </div>
-                     {wanfaLine3}
-                    <Divider />
-                    <div className="row ballLine" >
-                          {ballLines}
-                    </div>
-                    <div className="row wagerarea">
-                        <SelectConfirm />
-                        <SelectList />
-
-                        <TotalWagers />
-
-                    </div>
-
-                    <Divider />
-                </div>
-            </div>
-            <div className="col-md-3">
                 <div className="row">
-                    游戏状态
+                <div className="col-md-9">
+                    <div className="gamearea">
+                        <div className="row">
+                            {wanfaListElement}
+                        </div>
+                        <Divider />
+                        <div className="row wanfaLine " >
+                           <span>{wanfaLine2Text[@state.wanfa]}:</span> {wanfaLine2Element}
+                        </div>
+                         {wanfaLine3}
+                        <Divider />
+                        <div className="row ballLine" >
+                              {ballLines}
+                        </div>
+                        <div className="row wagerarea">
+                           { selectconfirmCom }
+                            <SelectList />
+
+                            <TotalWagers />
+
+                        </div>
+
+                        <Divider />
+                    </div>
                 </div>
-            </div>
-            </div>
+                <div className="col-md-3">
+                    <div className="row">
+                        游戏状态
+                    </div>
+                </div>
+                </div>
+                <Dialog
+                          title="提示"
+                          actions={<FlatButton
+                                           label="Ok"
+                                           primary={true}
+                                           keyboardFocused={true}
+                                           onTouchTap={@handleDiagClose}
+                                         />}
+                          modal={false}
+                          open={@state.diagopen}
+                          onRequestClose={@handleDiagClose}
+                        >
+                          {@state.diagmessage}
+                </Dialog>
             </div>
         );
 )

@@ -64,9 +64,9 @@ gulp.task "scripts", rebundle
 
 gulp.task "buildCJSX", ->
     gulp.src("app/scripts/ui/*.cjsx") .pipe(cjsx({bare: true})).on('error', gutil.log)
-    .pipe(gulp.dest('app/scripts/ui/'))
+    .pipe(gulp.dest('app/scripts/ui/')).on('error', gutil.log)
     gulp.src("app/scripts/libs/*.cjsx") .pipe(cjsx({bare: true})).on('error', gutil.log)
-    .pipe(gulp.dest('app/scripts/libs/'))
+    .pipe(gulp.dest('app/scripts/libs/')).on('error', gutil.log)
 
 
 gulp.task "buildScripts",['buildCJSX'], ->

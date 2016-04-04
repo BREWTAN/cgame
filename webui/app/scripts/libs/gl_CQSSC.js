@@ -1,4 +1,4 @@
-var FlatButton, GL_CQSSC, RaisedButton, React, ReactDOM, TextField, _, ballDivByWanfa, ballarea, ballstyles, gl_selectedBalls, gl_wanfaname, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
+var FlatButton, GL_CQSSC, GL_CQSSC_Caculator, RaisedButton, React, ReactDOM, TextField, _, ballDivByWanfa, ballarea, ballstyles, gl_func_changeWagerCount, gl_handleDiagOpen, gl_selectedBalls, gl_wanfaname, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
 
 React = require("react");
 
@@ -11,6 +11,8 @@ _ = require('underscore');
 TextField = require('material-ui/lib/text-field');
 
 RaisedButton = require('material-ui/lib/raised-button');
+
+GL_CQSSC_Caculator = require('./gl_CQSSC_caculator.js');
 
 wanfaList = ['五星 ', '四星 ', '后三码', '前三码', '中三码', '二码 ', '定位胆', '不定胆', '大小单双', '趣味 '];
 
@@ -119,6 +121,10 @@ ballarea = null;
 
 gl_selectedBalls = [];
 
+gl_func_changeWagerCount = null;
+
+gl_handleDiagOpen = null;
+
 GL_CQSSC = {
   init: function(a, b) {
     return console.log("a==" + a + ",b==" + b);
@@ -129,12 +135,18 @@ GL_CQSSC = {
     this.changeBallState(ballcom, !ballcom.state.selected);
     return this.checkWager();
   },
-  checkWager: function() {
-    return this.getSelectedBall();
+  checkWager: function(playballs) {
+    var wagercount;
+    if (!playballs) {
+      playballs = this.getSelectedBall();
+    }
+    wagercount = GL_CQSSC_Caculator.getWagerCount(gl_wanfaname, playballs);
+    if (gl_func_changeWagerCount) {
+      return gl_func_changeWagerCount(wagercount, gl_wanfaname, playballs);
+    }
   },
   changeBallState: function(ballcom, selected) {
     var balldom;
-    console.log("ballcom=.newstate = " + selected + ",old = " + ballcom.state.selected);
     ballcom.setState({
       "selected": selected
     });
@@ -184,7 +196,7 @@ GL_CQSSC = {
     return this.checkWager();
   },
   getSelectedBall: function() {
-    var ball, ballcom, j, k, len, len1, linenum, lines, name, playballs, sortedball;
+    var ballcom, j, len, linenum, lines, name, playballs, sortedball;
     sortedball = [[], [], [], [], []];
     for (name in gl_selectedBalls) {
       ballcom = gl_selectedBalls[name];
@@ -199,10 +211,7 @@ GL_CQSSC = {
       if (linenum > 0) {
         playballs += ",";
       }
-      for (k = 0, len1 = lines.length; k < len1; k++) {
-        ball = lines[k];
-        playballs += ball;
-      }
+      playballs += lines.join("|");
     }
     console.log("玩法=" + gl_wanfaname + ",playballs=" + playballs);
     return playballs;
@@ -296,7 +305,7 @@ GL_CQSSC = {
   },
   genOnlyBalls: function(balls) {
     var ballOneLine, refs, refsbb;
-    refsbb = this.genBalls(balls, 0);
+    refsbb = this.genBalls(balls, 0, ballstyles.ballwithmargintop);
     ballOneLine = refsbb[1];
     refs = refsbb[0];
     return React.createElement("div", {
@@ -323,24 +332,116 @@ GL_CQSSC = {
       "className": "col-sm-10"
     }, " ", ballOneLine, " "));
   },
-  handleRemoveDupl: function() {
-    return {};
+  handleRemoveDupl: function(tfRef) {
+    var ball, cleanballs, emitballs, emittext, j, k, len, playballs, ref1, resulttext, v;
+    console.log("tfRef=" + tfRef[0].getValue());
+    playballs = this.formatTextInput(tfRef[0].getValue());
+    cleanballs = [];
+    emitballs = [];
+    ref1 = playballs.split(",");
+    for (j = 0, len = ref1.length; j < len; j++) {
+      ball = ref1[j];
+      v = ball.replace(/\|/g, "");
+      if (cleanballs[v]) {
+        emitballs[v] = v;
+      } else {
+        cleanballs[v] = v;
+      }
+    }
+    resulttext = "";
+    for (k in cleanballs) {
+      v = cleanballs[k];
+      resulttext += k + " ";
+    }
+    tfRef[0].setValue(resulttext);
+    emittext = "";
+    for (k in emitballs) {
+      v = emitballs[k];
+      if (emittext.length > 0) {
+        emittext += " , ";
+      }
+      emittext += k;
+    }
+    if (emittext.length === 0) {
+      emittext = "无重复内容";
+    } else {
+      emittext = "删除重复内容:" + emittext;
+    }
+    if (gl_handleDiagOpen) {
+      return gl_handleDiagOpen(emittext);
+    }
+  },
+  handleImportFile: function(tfRef, event) {
+    var filedom;
+    filedom = event.currentTarget[1];
+    return filedom.click();
+  },
+  handlerFileChoosed: function(tfRef, event) {
+    var file, reader;
+    console.log("handlerFileChoosed==" + event.currentTarget);
+    file = event.currentTarget.files[0];
+    reader = new FileReader();
+    reader.onload = function(e) {
+      var text;
+      text = reader.result;
+      console.log("inputFile.Text=" + text);
+      return tfRef[0].setValue(text);
+    };
+    reader.readAsText(file, "ASCII");
+    event.currentTarget.value = "";
+    return true;
+  },
+  handleClear: function(tfRef, event) {},
+  formatTextInput: function(str) {
+    var balls, j, l, len, len1, line, linecc, playballs, ref1, v;
+    balls = str.split(/,| |\||\r\n|\r|\n/);
+    playballs = "";
+    for (j = 0, len = balls.length; j < len; j++) {
+      line = balls[j];
+      linecc = 0;
+      ref1 = line.split("");
+      for (l = 0, len1 = ref1.length; l < len1; l++) {
+        v = ref1[l];
+        if (v >= '0' && v <= '9') {
+          playballs += v + "|";
+        } else {
+          console.log("unknow char:" + v);
+        }
+      }
+      playballs += ",";
+    }
+    return playballs;
+  },
+  handleInputChange: function(event) {
+    console.log("handle change:" + event.currentTarget.value);
+    return this.checkWager(this.formatTextInput(event.currentTarget.value));
   },
   genInputBox: function() {
-    return React.createElement("div", {
-      "className": "col-md-12"
-    }, React.createElement("div", {
-      "className": "col-md-9"
-    }, React.createElement(TextField, {
+    var textfield, tfRef;
+    tfRef = [];
+    textfield = React.createElement(TextField, {
+      "ref": ((function(_this) {
+        return function(ref) {
+          if (ref) {
+            return tfRef[0] = ref;
+          }
+        };
+      })(this)),
       "multiLine": true,
       "floatingLabelText": "每注号码之间请用一个 空格[ ]、逗号[,] 或者 分号[;] 隔开",
       "rows": 5,
       "rowsMax": 8,
       "fullWidth": true,
       "className": "inputarea",
+      "onChange": this.handleInputChange.bind(this),
       "hintText": "请输入号码",
       "inputStyle": ballstyles.textar
-    })), React.createElement("div", {
+    });
+    return React.createElement("div", {
+      "className": "col-md-12"
+    }, React.createElement("div", {
+      "className": "col-md-9"
+    }, textfield), React.createElement("div", {
       "className": "col-md-3"
     }, React.createElement("div", {
       "className": "row",
@@ -348,24 +449,47 @@ GL_CQSSC = {
         marginTop: "32px"
       }
     }, React.createElement(RaisedButton, {
+      "ref": ((function(_this) {
+        return function(ref) {
+          if (ref) {
+            return tfRef[1] = ref;
+          }
+        };
+      })(this)),
       "label": "删除重复号",
       "primary": true,
       "style": ballstyles.inputbtn,
-      "onTouchTap": this.handleRemoveDupl
+      "onTouchTap": this.handleRemoveDupl.bind(this, tfRef)
     })), React.createElement("div", {
       "className": "row"
+    }, React.createElement("form", {
+      "onSubmit": this.handleImportFile.bind(this, tfRef)
     }, React.createElement(RaisedButton, {
+      "type": "submit",
+      "ref": ((function(_this) {
+        return function(ref) {
+          if (ref) {
+            return tfRef[2] = ref;
+          }
+        };
+      })(this)),
       "label": "导入文件",
       "primary": true,
-      "style": ballstyles.inputbtn,
-      "onTouchTap": this.handleRemoveDupl
-    })), React.createElement("div", {
+      "style": ballstyles.inputbtn
+    }, React.createElement("input", {
+      "type": "file",
+      "style": {
+        display: "none"
+      },
+      "onChange": this.handlerFileChoosed.bind(this, tfRef),
+      "hidden": "true"
+    })))), React.createElement("div", {
       "className": "row"
     }, React.createElement(RaisedButton, {
       "label": "清空",
       "primary": true,
       "style": ballstyles.inputbtn,
-      "onTouchTap": this.handleRemoveDupl
+      "onTouchTap": this.handleClear.bind(this, tfRef)
     }))));
   },
   genBallLines: function(linetitles) {
@@ -388,42 +512,29 @@ GL_CQSSC = {
       results = [];
       for (index = j = 0, len = linetitles.length; j < len; index = ++j) {
         title = linetitles[index];
-        results.push(this.genTextOneLine(title, balltexts, funbtntexts));
+        results.push(this.genTextOneLine(title, balltexts, funbtntexts, index));
       }
       return results;
     }).call(this);
     return linesdiv;
   },
-  genTextOneLine: function(lefttitle, balltexts, funbtntexts) {
-    var ballFuncOneLine, ballOneLine, index, text, titleStyle;
-    ballOneLine = (function() {
-      var j, len, results;
-      results = [];
-      for (j = 0, len = balltexts.length; j < len; j++) {
-        index = balltexts[j];
-        results.push(React.createElement(FlatButton, {
-          "ref": "wf_" + index,
-          "label": "" + index,
-          "key": index,
-          "data-id": index,
-          "onTouchTap": this.handleClickBall,
-          "labelStyle": ballstyles.balltext,
-          "style": ballstyles.ball
-        }));
-      }
-      return results;
-    }).call(this);
+  genTextOneLine: function(lefttitle, balltexts, funbtntexts, lineno) {
+    var ballFuncOneLine, ballOneLine, index, refs, refsbb, text, titleStyle;
+    refsbb = this.genBalls(balltexts, lineno);
+    ballOneLine = refsbb[1];
+    refs = refsbb[0];
     ballFuncOneLine = (function() {
       var j, len, results;
       results = [];
       for (index = j = 0, len = funbtntexts.length; j < len; index = ++j) {
         text = funbtntexts[index];
         results.push(React.createElement(FlatButton, {
-          "ref": "wf_f_" + index,
+          "refline": ballOneLine,
           "label": text,
-          "key": index,
+          "key": "wf_func_" + lineno + "_" + index,
+          "data-text": text,
           "data-id": index,
-          "onTouchTap": this.handleClickBall,
+          "onTouchTap": this.handleFuncClickBall.bind(this, refs, lineno),
           "labelStyle": ballstyles.ballfunctitle,
           "style": ballstyles.ballfunc
         }));
@@ -451,16 +562,16 @@ GL_CQSSC = {
       "className": "col-sm-4 divctl"
     }, ballFuncOneLine));
   },
-  genBallsWithName: function(wanfa, wanfaline2, wanfaline3) {
-    var j, k, l, m, n, o, results, results1, results2, results3, results4, results5, wanfaname;
-    console.log("genBallsWithName:" + wanfa + "," + wanfaline2 + "," + wanfaline3);
+  genBallsWithName: function(wanfa, wanfaline2, wanfaline3, callback, handleDiagOpen) {
+    var j, l, m, n, o, p, results, results1, results2, results3, results4, results5, wanfaname;
     wanfaname = wanfaList[wanfa].trim();
+    gl_func_changeWagerCount = callback;
     if (wanfaline2 === -1) {
       wanfaname += wanfaLine3EleText[wanfa][wanfaline3].trim();
     } else {
       wanfaname += wanfaLine2EleText[wanfa][wanfaline2].trim();
     }
-    console.log("wanfaname=" + wanfaname);
+    gl_handleDiagOpen = handleDiagOpen;
     gl_wanfaname = wanfaname;
     if (ballDivByWanfa === null) {
       ballDivByWanfa = {
@@ -492,14 +603,14 @@ GL_CQSSC = {
         "后三码混合组选": this.genInputBox(),
         "后三码组选和值": this.genBallWithOnlyTitle("组选和值", (function() {
           results1 = [];
-          for (k = 1; k < 27; k++){ results1.push(k); }
+          for (l = 1; l < 27; l++){ results1.push(l); }
           return results1;
         }).apply(this)),
         "前三码复式": this.genBallLines(["万位", "千位", "百位"]),
         "前三码单式": this.genInputBox(),
         "前三码直选和值": this.genBallWithOnlyTitle("直选和值", (function() {
           results2 = [];
-          for (l = 0; l < 28; l++){ results2.push(l); }
+          for (m = 0; m < 28; m++){ results2.push(m); }
           return results2;
         }).apply(this)),
         "前三码组三": this.genBallLines(["组三"]),
@@ -507,14 +618,14 @@ GL_CQSSC = {
         "前三码混合组选": this.genInputBox(),
         "前三码组选和值": this.genBallWithOnlyTitle("组选和值", (function() {
           results3 = [];
-          for (m = 1; m < 27; m++){ results3.push(m); }
+          for (n = 1; n < 27; n++){ results3.push(n); }
           return results3;
         }).apply(this)),
         "中三码复式": this.genBallLines(["千位", "百位", "十位"]),
         "中三码单式": this.genInputBox(),
         "中三码直选和值": this.genBallWithOnlyTitle("直选和值", (function() {
           results4 = [];
-          for (n = 0; n < 28; n++){ results4.push(n); }
+          for (o = 0; o < 28; o++){ results4.push(o); }
           return results4;
         }).apply(this)),
         "中三码组三": this.genBallLines(["组三"]),
@@ -522,7 +633,7 @@ GL_CQSSC = {
         "中三码混合组选": this.genInputBox(),
         "中三码组选和值": this.genBallWithOnlyTitle("组选和值", (function() {
           results5 = [];
-          for (o = 1; o < 27; o++){ results5.push(o); }
+          for (p = 1; p < 27; p++){ results5.push(p); }
           return results5;
         }).apply(this)),
         "二码后二直选(复式)": this.genBallLines(["十位", "个位"]),

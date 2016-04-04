@@ -15,6 +15,7 @@ SelectConfirm = React.createClass(
         totalMoney: 1
         moneyType: 1
         multi:1
+        wagercount: 0
 
     handleWagerOChange:(e) ->
         #console.log("changeWagerInfo:"+e.target.value)
@@ -66,11 +67,13 @@ SelectConfirm = React.createClass(
         }
         };
 
+        money_total = (@state.wagercount*@state.multi*@state.moneyType)
+        money_total = money_total.toFixed(3)
         return (
 
          <div className="wagersum col-sm-12">
              <div className="row col-sm-12">
-                 <div className="col-sm-9">您共选择了 <b>0</b> 注
+                 <div className="col-sm-9">您共选择了 <b>{@state.wagercount}</b> 注
                      投注模式为 <div className="sel"/> <b>
                     <SelectField value={@state.moneyType} style={styles.moneySel}
                          labelStyle={styles.moneySelLabel}
@@ -84,7 +87,7 @@ SelectConfirm = React.createClass(
                      </SelectField><div className="selectbg" ></div></b>
                         <div>投注倍数为  <b><input id="multi" value={@state.multi}
                                      size=3 onChange={@handleWagerOChange}
-                                    /></b> 倍 共 <b id="money_total">{@state.totalMoney}</b> 元
+                                    /></b> 倍 共 <b id="money_total">{money_total}</b> 元
                         </div>
                 </div>
                  <div className="row col-sm-3">
