@@ -28,9 +28,7 @@ wanfaLine3EleText = [['组选120','组选60','组选30','组选20','组选10','�
                 ['后二组选(复式)','后二组选(单式)','前二组选(复式)','前二组选(单式)','后二组选和值','前二组选和值'],
               ];
 
-
-
-
+gl_wanfaname = ""
 ballstyles = {
       wanfa: {
           fontSize: "14px",
@@ -133,36 +131,45 @@ ballDivByWanfa = null
 
 ballarea = null
 
+gl_selectedBalls = []
+
+
 GL_CQSSC = {
 
     init:(a,b) ->
         console.log("a=="+a+",b=="+b)
 
-
-
-
-    genBalls:(playtype) ->
-        console.log("playtype="+playtype)
-
     handleClickBall :(refs,lineno,index,event) ->
  #       console.log("clickball:"+event.currentTarget.dataset.id+",seletec:"+event.currentTarget.dataset.selected)
         ballcom = refs[lineno+"_"+index];
         @changeBallState(ballcom,!ballcom.state.selected)
+        @checkWager();
+
+    checkWager:() ->
+        @getSelectedBall();
+
   #      console.log("refs="+refs+",lineno="+lineno+",index="+index+",selected="+refs[lineno+"_"+index].state["selected"])
         #self.upstate({"selected":true})
     changeBallState:(ballcom,selected) ->
         console.log("ballcom=.newstate = "+selected+",old = "+ballcom.state.selected)
-
         ballcom.setState({"selected":selected})
         balldom = ReactDOM.findDOMNode(ballcom)
         if selected
             balldom.style.backgroundColor = '#a20b2a';
             balldom.style.color = "white"
+            gl_selectedBalls[ballcom.props["data-id"]] = ballcom
         else
             balldom.style.backgroundColor = '#E0E0E0';
             balldom.style.color = "rgba(0, 0, 0, 0.87)"
+            delete gl_selectedBalls[ballcom.props["data-id"]]
 
    #     console.log("afterchange..clickball:" + event.currentTarget.dataset.id + "seletec:"+event.currentTarget.dataset.selected)
+    cleanSelectBalls:() ->
+        for name,ballcom of gl_selectedBalls
+            balldom = ReactDOM.findDOMNode(ballcom)
+            balldom.style.backgroundColor = '#E0E0E0';
+            balldom.style.color = "rgba(0, 0, 0, 0.87)"
+            delete gl_selectedBalls[ballcom.props["data-id"]]
 
     handleFuncClickBall:(refs,lineno,event) ->
         console.log("clickball:"+event.currentTarget.dataset.id+",seletec:"+event.currentTarget.dataset.text)
@@ -181,9 +188,32 @@ GL_CQSSC = {
             sel = if statefor.substring(i,i+1) == "1" then true else false
             @changeBallState(line,sel)
             i++
+        @checkWager();
 
-    genBallOneLine:(lefttitle,lineno) -> #只有一行的
+    getSelectedBall:() ->
+        sortedball = [[],[],[],[],[]];
+        for name,ballcom of gl_selectedBalls
+            sortedball[name.substring(0,1)].push(name.substring(2,name.length))
+           # console.log("selectedBall:"+name+",ballcom="+ballcom)
+
+        linenum = -1
+
+        playballs = ""
+        for lines in sortedball
+            linenum++
+            lines.sort();
+            if linenum > 0 then playballs+=","
+            for ball in lines
+                playballs+=ball
+
+                #console.log("sortedball=.lines="+linenum+","+ball)
+        console.log("玩法="+gl_wanfaname+",playballs="+playballs)
+        return playballs
+
+    genBalls:(balls,lineno,ballstyle ) ->
         refs = []
+        if !ballstyle
+            ballstyle = ballstyles.ball
         ballOneLine = (<FlatButton ref={ (ref) =>
             if ref
                 dataid = ref.props["data-id"]
@@ -191,14 +221,23 @@ GL_CQSSC = {
                 ref.setState({"selected":false})
           }
           label={""+index} key={"wf_"+lineno+"_"+index} data-id={lineno+"_"+index}
-          data-selected="false" onTouchTap={@handleClickBall.bind(@,refs,lineno,index)} labelStyle={ballstyles.balltext} style={ballstyles.ball} /> for index in [0..9] )
+          data-selected="false" onTouchTap={@handleClickBall.bind(@,refs,lineno,index)} labelStyle={ballstyles.balltext} style={ballstyle} /> for index in balls )
+        return [refs,ballOneLine]
 
-        ballFuncOneLine = (<FlatButton refline={ballOneLine} label={text} key={"wf_func_"+lineno+"_"+index} data-text={text} data-id={index} onTouchTap={@handleFuncClickBall.bind(@,refs,lineno)} labelStyle={ballstyles.ballfunctitle} style={ballstyles.ballfunc} /> for text,index in ['全','大','小','奇','偶','清'] )
+    genBallOneLine:(lefttitle,lineno) -> #只有一行的
+        refsbb = @genBalls([0..9],lineno)
+        ballOneLine = refsbb[1]
+        refs = refsbb[0]
+        ballFuncOneLine = (<FlatButton refline={ballOneLine} label={text} key={"wf_func_"+lineno+"_"+index}
+                data-text={text} data-id={index} onTouchTap={@handleFuncClickBall.bind(@,refs,lineno)}
+                labelStyle={ballstyles.ballfunctitle} style={ballstyles.ballfunc} /> for text,index in ['全','大','小','奇','偶','清'] )
         if (lefttitle == " ")
             titleStyle =  _.extend({},ballstyles.balltitle,{backgroundColor: "#FFFFFF",marginRight:"10px"})
         else
             titleStyle =  ballstyles.balltitle
 
+        if (lefttitle.length == 3 )
+            titleStyle = _.extend(titleStyle,{minWidth:"64px"})
 
         return (<div className="row ballLine col-sm-12" >
               <div className="col-sm-8"> <FlatButton label={lefttitle} style={titleStyle} key={index} labelStyle={ballstyles.wanfaLine2} />{ballOneLine} </div>
@@ -207,17 +246,20 @@ GL_CQSSC = {
 
 
     genOnlyBalls:(balls) -> #只有一行的
-        ballOneLine = (<FlatButton ref={"wf_"+index} label={""+index} key={index} data-id={index} onTouchTap={@handleClickBall.bind(@)} labelStyle={ballstyles.balltext} style={ballstyles.ballwithmargintop} /> for index in balls )
-
+        refsbb = @genBalls(balls,0)
+        ballOneLine = refsbb[1]
+        refs = refsbb[0]
         return (<div className="row ballLine  col-sm-12" >
              {ballOneLine}
         </div>)
 
     genBallWithOnlyTitle:(lefttitle,balls) -> #只有title和球
         titleStyle = _.extend(ballstyles.balltitle,{marginBottom:"8px"})
-        ballOneLine = (<FlatButton ref={"wf_"+index} label={""+index} key={index} data-id={index} onTouchTap={@handleClickBall} labelStyle={ballstyles.balltext} style={ballstyles.ballwithmargintop} /> for index in balls )
+        #ballOneLine = (<FlatButton ref={"wf_"+index} label={""+index} key={index} data-id={index} onTouchTap={@handleClickBall} labelStyle={ballstyles.balltext} style={ballstyles.ballwithmargintop} /> for index in balls )
+        refsbb = @genBalls(balls,0,ballstyles.ballwithmargintop)
+        ballOneLine = refsbb[1]
         return (<div className="row ballLine  col-sm-12" >
-           <div className="col-sm-2"> <FlatButton label={lefttitle} style={ballstyles.balltitle} key={index} labelStyle={ballstyles.wanfaLine2} /></div>
+           <div className="col-sm-2"> <FlatButton label={lefttitle} style={ballstyles.balltitle} key={lefttitle} labelStyle={ballstyles.wanfaLine2} /></div>
            <div className="col-sm-10"> {ballOneLine} </div>
          </div>)
 
@@ -278,15 +320,17 @@ GL_CQSSC = {
 
         console.log("wanfaname="+wanfaname)
 
+        gl_wanfaname = wanfaname
+
         if ballDivByWanfa == null
             ballDivByWanfa = {
                   "五星复式": @genBallLines(["万位","千位","百位","十位","个位"])
                   "五星单式": @genInputBox()
                   "五星组合": @genBallLines(["万位","千位","百位","十位","个位"])
                   "五星组选120": @genBallLines([" "])
-                  "五星组选60": @genBallLines(["二重号","单    号"])
-                  "五星组选30": @genBallLines(["二重号","单    号"])
-                  "五星组选20": @genBallLines(["三重号","单    号"])
+                  "五星组选60": @genBallLines(["二重号","单 号"])
+                  "五星组选30": @genBallLines(["二重号","单 号"])
+                  "五星组选20": @genBallLines(["三重号","单 号"])
                   "五星组选10": @genBallLines(["三重号","二重号"])
                   "五星组选5": @genBallLines(["四重号","单    号"])
 
@@ -294,9 +338,9 @@ GL_CQSSC = {
                   "四星单式": @genInputBox()
                   "四星复式": @genBallLines(["千位","百位","十位","个位"])
                   "四星组选24": @genBallLines([" "])
-                  "四星组选12": @genBallLines(["二重号","单    号"])
+                  "四星组选12": @genBallLines(["二重号","单 号"])
                   "四星组选6": @genBallLines(["二重号"])
-                  "四星组选4": @genBallLines(["三重号","单    号"])
+                  "四星组选4": @genBallLines(["三重号","单 号"])
 
                   "后三码复式": @genBallLines(["百位","十位","个位"])
                   "后三码单式": @genInputBox()
@@ -353,6 +397,7 @@ GL_CQSSC = {
 
             }
 
+        @cleanSelectBalls();
         return ballDivByWanfa[wanfaname]
 
 

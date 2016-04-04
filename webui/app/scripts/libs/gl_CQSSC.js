@@ -1,4 +1,4 @@
-var FlatButton, GL_CQSSC, RaisedButton, React, ReactDOM, TextField, _, ballDivByWanfa, ballarea, ballstyles, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
+var FlatButton, GL_CQSSC, RaisedButton, React, ReactDOM, TextField, _, ballDivByWanfa, ballarea, ballstyles, gl_selectedBalls, gl_wanfaname, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
 
 React = require("react");
 
@@ -21,6 +21,8 @@ wanfaLine2EleText = [['复式', '单式', '组合'], ['复式', '单式', '组�
 wanfaLine3Text = ['五星组选', '四星组选', '后三组选', '前三组选', '中三组选', '二星组选'];
 
 wanfaLine3EleText = [['组选120', '组选60', '组选30', '组选20', '组选10', '组选5'], ['组选24', '组选12', '组选6', '组选4'], ['组三', '组六', '混合组选', '组选和值'], ['组三', '组六', '混合组选', '组选和值'], ['组三', '组六', '混合组选', '组选和值'], ['后二组选(复式)', '后二组选(单式)', '前二组选(复式)', '前二组选(单式)', '后二组选和值', '前二组选和值']];
+
+gl_wanfaname = "";
 
 ballstyles = {
   wanfa: {
@@ -115,17 +117,20 @@ ballDivByWanfa = null;
 
 ballarea = null;
 
+gl_selectedBalls = [];
+
 GL_CQSSC = {
   init: function(a, b) {
     return console.log("a==" + a + ",b==" + b);
   },
-  genBalls: function(playtype) {
-    return console.log("playtype=" + playtype);
-  },
   handleClickBall: function(refs, lineno, index, event) {
     var ballcom;
     ballcom = refs[lineno + "_" + index];
-    return this.changeBallState(ballcom, !ballcom.state.selected);
+    this.changeBallState(ballcom, !ballcom.state.selected);
+    return this.checkWager();
+  },
+  checkWager: function() {
+    return this.getSelectedBall();
   },
   changeBallState: function(ballcom, selected) {
     var balldom;
@@ -136,14 +141,28 @@ GL_CQSSC = {
     balldom = ReactDOM.findDOMNode(ballcom);
     if (selected) {
       balldom.style.backgroundColor = '#a20b2a';
-      return balldom.style.color = "white";
+      balldom.style.color = "white";
+      return gl_selectedBalls[ballcom.props["data-id"]] = ballcom;
     } else {
       balldom.style.backgroundColor = '#E0E0E0';
-      return balldom.style.color = "rgba(0, 0, 0, 0.87)";
+      balldom.style.color = "rgba(0, 0, 0, 0.87)";
+      return delete gl_selectedBalls[ballcom.props["data-id"]];
     }
   },
+  cleanSelectBalls: function() {
+    var ballcom, balldom, name, results;
+    results = [];
+    for (name in gl_selectedBalls) {
+      ballcom = gl_selectedBalls[name];
+      balldom = ReactDOM.findDOMNode(ballcom);
+      balldom.style.backgroundColor = '#E0E0E0';
+      balldom.style.color = "rgba(0, 0, 0, 0.87)";
+      results.push(delete gl_selectedBalls[ballcom.props["data-id"]]);
+    }
+    return results;
+  },
   handleFuncClickBall: function(refs, lineno, event) {
-    var ds, i, line, name, results, sel, statefor, statemap;
+    var ds, i, line, name, sel, statefor, statemap;
     console.log("clickball:" + event.currentTarget.dataset.id + ",seletec:" + event.currentTarget.dataset.text);
     ds = event.currentTarget.dataset;
     statemap = {
@@ -156,22 +175,49 @@ GL_CQSSC = {
     };
     statefor = statemap[ds.text];
     i = 0;
-    results = [];
     for (name in refs) {
       line = refs[name];
       sel = statefor.substring(i, i + 1) === "1" ? true : false;
       this.changeBallState(line, sel);
-      results.push(i++);
+      i++;
     }
-    return results;
+    return this.checkWager();
   },
-  genBallOneLine: function(lefttitle, lineno) {
-    var ballFuncOneLine, ballOneLine, index, refs, text, titleStyle;
+  getSelectedBall: function() {
+    var ball, ballcom, j, k, len, len1, linenum, lines, name, playballs, sortedball;
+    sortedball = [[], [], [], [], []];
+    for (name in gl_selectedBalls) {
+      ballcom = gl_selectedBalls[name];
+      sortedball[name.substring(0, 1)].push(name.substring(2, name.length));
+    }
+    linenum = -1;
+    playballs = "";
+    for (j = 0, len = sortedball.length; j < len; j++) {
+      lines = sortedball[j];
+      linenum++;
+      lines.sort();
+      if (linenum > 0) {
+        playballs += ",";
+      }
+      for (k = 0, len1 = lines.length; k < len1; k++) {
+        ball = lines[k];
+        playballs += ball;
+      }
+    }
+    console.log("玩法=" + gl_wanfaname + ",playballs=" + playballs);
+    return playballs;
+  },
+  genBalls: function(balls, lineno, ballstyle) {
+    var ballOneLine, index, refs;
     refs = [];
+    if (!ballstyle) {
+      ballstyle = ballstyles.ball;
+    }
     ballOneLine = (function() {
-      var j, results;
+      var j, len, results;
       results = [];
-      for (index = j = 0; j <= 9; index = ++j) {
+      for (j = 0, len = balls.length; j < len; j++) {
+        index = balls[j];
         results.push(React.createElement(FlatButton, {
           "ref": ((function(_this) {
             return function(ref) {
@@ -191,11 +237,18 @@ GL_CQSSC = {
           "data-selected": "false",
           "onTouchTap": this.handleClickBall.bind(this, refs, lineno, index),
           "labelStyle": ballstyles.balltext,
-          "style": ballstyles.ball
+          "style": ballstyle
         }));
       }
       return results;
     }).call(this);
+    return [refs, ballOneLine];
+  },
+  genBallOneLine: function(lefttitle, lineno) {
+    var ballFuncOneLine, ballOneLine, index, refs, refsbb, text, titleStyle;
+    refsbb = this.genBalls([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], lineno);
+    ballOneLine = refsbb[1];
+    refs = refsbb[0];
     ballFuncOneLine = (function() {
       var j, len, ref1, results;
       ref1 = ['全', '大', '小', '奇', '偶', '清'];
@@ -223,6 +276,11 @@ GL_CQSSC = {
     } else {
       titleStyle = ballstyles.balltitle;
     }
+    if (lefttitle.length === 3) {
+      titleStyle = _.extend(titleStyle, {
+        minWidth: "64px"
+      });
+    }
     return React.createElement("div", {
       "className": "row ballLine col-sm-12"
     }, React.createElement("div", {
@@ -237,50 +295,21 @@ GL_CQSSC = {
     }, ballFuncOneLine));
   },
   genOnlyBalls: function(balls) {
-    var ballOneLine, index;
-    ballOneLine = (function() {
-      var j, len, results;
-      results = [];
-      for (j = 0, len = balls.length; j < len; j++) {
-        index = balls[j];
-        results.push(React.createElement(FlatButton, {
-          "ref": "wf_" + index,
-          "label": "" + index,
-          "key": index,
-          "data-id": index,
-          "onTouchTap": this.handleClickBall.bind(this),
-          "labelStyle": ballstyles.balltext,
-          "style": ballstyles.ballwithmargintop
-        }));
-      }
-      return results;
-    }).call(this);
+    var ballOneLine, refs, refsbb;
+    refsbb = this.genBalls(balls, 0);
+    ballOneLine = refsbb[1];
+    refs = refsbb[0];
     return React.createElement("div", {
       "className": "row ballLine  col-sm-12"
     }, ballOneLine);
   },
   genBallWithOnlyTitle: function(lefttitle, balls) {
-    var ballOneLine, index, titleStyle;
+    var ballOneLine, refsbb, titleStyle;
     titleStyle = _.extend(ballstyles.balltitle, {
       marginBottom: "8px"
     });
-    ballOneLine = (function() {
-      var j, len, results;
-      results = [];
-      for (j = 0, len = balls.length; j < len; j++) {
-        index = balls[j];
-        results.push(React.createElement(FlatButton, {
-          "ref": "wf_" + index,
-          "label": "" + index,
-          "key": index,
-          "data-id": index,
-          "onTouchTap": this.handleClickBall,
-          "labelStyle": ballstyles.balltext,
-          "style": ballstyles.ballwithmargintop
-        }));
-      }
-      return results;
-    }).call(this);
+    refsbb = this.genBalls(balls, 0, ballstyles.ballwithmargintop);
+    ballOneLine = refsbb[1];
     return React.createElement("div", {
       "className": "row ballLine  col-sm-12"
     }, React.createElement("div", {
@@ -288,7 +317,7 @@ GL_CQSSC = {
     }, " ", React.createElement(FlatButton, {
       "label": lefttitle,
       "style": ballstyles.balltitle,
-      "key": index,
+      "key": lefttitle,
       "labelStyle": ballstyles.wanfaLine2
     })), React.createElement("div", {
       "className": "col-sm-10"
@@ -432,24 +461,25 @@ GL_CQSSC = {
       wanfaname += wanfaLine2EleText[wanfa][wanfaline2].trim();
     }
     console.log("wanfaname=" + wanfaname);
+    gl_wanfaname = wanfaname;
     if (ballDivByWanfa === null) {
       ballDivByWanfa = {
         "五星复式": this.genBallLines(["万位", "千位", "百位", "十位", "个位"]),
         "五星单式": this.genInputBox(),
         "五星组合": this.genBallLines(["万位", "千位", "百位", "十位", "个位"]),
         "五星组选120": this.genBallLines([" "]),
-        "五星组选60": this.genBallLines(["二重号", "单    号"]),
-        "五星组选30": this.genBallLines(["二重号", "单    号"]),
-        "五星组选20": this.genBallLines(["三重号", "单    号"]),
+        "五星组选60": this.genBallLines(["二重号", "单 号"]),
+        "五星组选30": this.genBallLines(["二重号", "单 号"]),
+        "五星组选20": this.genBallLines(["三重号", "单 号"]),
         "五星组选10": this.genBallLines(["三重号", "二重号"]),
         "五星组选5": this.genBallLines(["四重号", "单    号"]),
         "四星组合": this.genBallLines(["千位", "百位", "十位", "个位"]),
         "四星单式": this.genInputBox(),
         "四星复式": this.genBallLines(["千位", "百位", "十位", "个位"]),
         "四星组选24": this.genBallLines([" "]),
-        "四星组选12": this.genBallLines(["二重号", "单    号"]),
+        "四星组选12": this.genBallLines(["二重号", "单 号"]),
         "四星组选6": this.genBallLines(["二重号"]),
-        "四星组选4": this.genBallLines(["三重号", "单    号"]),
+        "四星组选4": this.genBallLines(["三重号", "单 号"]),
         "后三码复式": this.genBallLines(["百位", "十位", "个位"]),
         "后三码单式": this.genInputBox(),
         "后三码直选和值": this.genBallWithOnlyTitle("直选和值", (function() {
@@ -520,6 +550,7 @@ GL_CQSSC = {
         "趣味四季发财": this.genBallLines([" "])
       };
     }
+    this.cleanSelectBalls();
     return ballDivByWanfa[wanfaname];
   }
 };
