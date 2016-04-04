@@ -1,4 +1,4 @@
-var AppBar, Dialog, Divider, DropDownMenu, FlatButton, FontAwesome, GL_CQSSC, IconButton, IconMenu, InkBar, List, ListItem, RaisedButton, React, SelectConfirm, SelectList, TotalWagers, gm_CQSSC, injectTapEventPlugin, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
+var AppBar, Divider, DropDownMenu, FlatButton, FontAwesome, GL_CQSSC, IconButton, IconMenu, InkBar, List, ListItem, PopupDiag, RaisedButton, React, SelectConfirm, SelectList, TotalWagers, gm_CQSSC, injectTapEventPlugin, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
 
 React = require("react");
 
@@ -11,6 +11,8 @@ DropDownMenu = require('material-ui/lib/DropDownMenu');
 FlatButton = require('material-ui/lib/flat-button');
 
 RaisedButton = require('material-ui/lib/raised-button');
+
+Divider = require('material-ui/lib/divider');
 
 FontAwesome = require('react-fontawesome');
 
@@ -34,7 +36,7 @@ SelectConfirm = require("./SelectConfirm.js");
 
 SelectList = require("./SelectList.js");
 
-Dialog = require('material-ui/lib/dialog');
+PopupDiag = require("./PopupDialog.js");
 
 TotalWagers = require("./TotalWagers.js");
 
@@ -62,28 +64,31 @@ gm_CQSSC = React.createClass({
   },
   handleChangeWanfa: function(e, item, v) {
     console.log("changeSlide:" + e.currentTarget.dataset.id);
-    return this.setState({
+    this.setState({
       wanfa: e.currentTarget.dataset.id,
       wanfaLine2: 0,
       wanfaLine3: -1
     });
+    return this.changeWagerCount(0);
   },
   handleMoneyTypeChange: function(e) {
     return console.log("change money:" + e);
   },
   handleChangeWanfaLine2: function(e, item, v) {
     console.log("handleChangeWanfaLine2:" + e.currentTarget.dataset.id);
-    return this.setState({
+    this.setState({
       wanfaLine2: e.currentTarget.dataset.id,
       wanfaLine3: -1
     });
+    return this.changeWagerCount(0);
   },
   handleChangeWanfaLine3: function(e, item, v) {
     console.log("handleChangeWanfaLine3:" + e.currentTarget.dataset.id);
-    return this.setState({
+    this.setState({
       wanfaLine2: -1,
       wanfaLine3: e.currentTarget.dataset.id
     });
+    return this.changeWagerCount(0);
   },
   handleRefreshUserTitle: function(event, index, value) {
     return console.log("handleChangeGame:index=" + index + ",value=" + value);
@@ -99,25 +104,44 @@ gm_CQSSC = React.createClass({
   },
   changeWagerCount: function(wagercount, gl_wanfaname, playballs) {
     var selectconfirmCom;
-    console.log("change wagercount:" + wagercount + "," + gl_wanfaname + "," + playballs);
     selectconfirmCom = this.refs["selectconfirm"];
     if (selectconfirmCom) {
       return selectconfirmCom.setState({
-        wagercount: wagercount
+        wagercount: wagercount,
+        wagerballs: playballs
       });
     }
   },
-  handleDiagClose: function() {
-    console.log("handleDiagClose");
-    return this.setState({
-      diagopen: false
-    });
-  },
   handleDiagOpen: function(message) {
-    return this.setState({
-      diagopen: true,
-      diagmessage: message
-    });
+    if (this.refs["popupDiag"]) {
+      return this.refs["popupDiag"].handleDiagOpen(message);
+    }
+  },
+  handleSelectConfirm: function() {
+    var bonnerMoney, countAnMoney, money, scCOM, scState, selectList, totalWagers, v, wname;
+    wname = GL_CQSSC.getWanfaName(this.state.wanfa, this.state.wanfaLine2, this.state.wanfaLine3);
+    scCOM = this.refs["selectconfirm"];
+    scState = scCOM.state;
+    if (scState.wagercount < 1) {
+      return this.handleDiagOpen("号码选择不完整，请重新选择");
+    } else {
+      selectList = this.refs["selectList"];
+      money = scCOM.getMoneyTotal();
+      bonnerMoney = scCOM.getBonnerMoney();
+      v = selectList.addItem(wname, scState.wagerballs, scState.wagercount, money, scState.moneyType, scState.multi, bonnerMoney);
+      if (v) {
+        GL_CQSSC.clearWager();
+        GL_CQSSC.cleanSelectBalls();
+        totalWagers = this.refs["totalWagers"];
+        countAnMoney = selectList.getTotalWagerCountAndMoney();
+        return totalWagers.setState({
+          totalWagerCount: countAnMoney[0],
+          totalMoney: countAnMoney[1]
+        });
+      } else {
+        return this.handleDiagOpen("确认区有相同的投注内容");
+      }
+    }
   },
   render: function() {
     var ballLines, index, inkBarStyle, selectconfirmCom, styles, text, wanfaLine2Element, wanfaLine3, wanfaLine3Element, wanfaListElement;
@@ -257,7 +281,8 @@ gm_CQSSC = React.createClass({
     }));
     ballLines = GL_CQSSC.genBallsWithName(this.state.wanfa, this.state.wanfaLine2, this.state.wanfaLine3, this.changeWagerCount, this.handleDiagOpen);
     selectconfirmCom = React.createElement(SelectConfirm, {
-      "ref": "selectconfirm"
+      "ref": "selectconfirm",
+      "handlerConfirm": this.handleSelectConfirm
     });
     return React.createElement("div", {
       "className": "container"
@@ -275,22 +300,17 @@ gm_CQSSC = React.createClass({
       "className": "row ballLine"
     }, ballLines), React.createElement("div", {
       "className": "row wagerarea"
-    }, selectconfirmCom, React.createElement(SelectList, null), React.createElement(TotalWagers, null)), React.createElement(Divider, null))), React.createElement("div", {
+    }, selectconfirmCom, React.createElement(SelectList, {
+      "ref": "selectList"
+    }), React.createElement(TotalWagers, {
+      "ref": "totalWagers"
+    })), React.createElement(Divider, null))), React.createElement("div", {
       "className": "col-md-3"
     }, React.createElement("div", {
       "className": "row"
-    }, "游戏状态"))), React.createElement(Dialog, {
-      "title": "提示",
-      "actions": React.createElement(FlatButton, {
-        "label": "Ok",
-        "primary": true,
-        "keyboardFocused": true,
-        "onTouchTap": this.handleDiagClose
-      }),
-      "modal": false,
-      "open": this.state.diagopen,
-      "onRequestClose": this.handleDiagClose
-    }, this.state.diagmessage));
+    }, "游戏状态"))), React.createElement(PopupDiag, {
+      "ref": "popupDiag"
+    }));
   }
 });
 

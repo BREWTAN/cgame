@@ -99,7 +99,7 @@ GL_CQSSC_Caculator = {
 
         return counter;
 
-   wgCountByTexts:(playballs,ballcount) ->
+   wgCountByTexts:(playballs,ballcount,filter) ->
         balls = playballs.split(",")
         count = 0;
         for line in balls
@@ -107,8 +107,17 @@ GL_CQSSC_Caculator = {
                 count++
         return count;
 
+   wgCountByTextsNoSame:(playballs,ballcount) ->
+        balls = playballs.split(",")
+        count = 0;
+        for line in balls
+            uniqueArray = _.uniq(line.split("|"), false).join("")
+            if(GL_CQSSC_Caculator.getLineCount(line) == ballcount && uniqueArray.length > 1 )
+                count++
+        return count;
+
     getWagerCount:(wagername,playballs) ->
-        console.log("wagername="+wagername+",playballs="+playballs)
+        #console.log("wagername="+wagername+",playballs="+playballs)
 
         if gl_playChecker == null
             gl_playChecker = {
@@ -135,7 +144,7 @@ GL_CQSSC_Caculator = {
                   "后三码直选和值":   [@wgCountByHezhi,3]
                   "后三码组三":      [@wgCountByZuhe,2,2]
                   "后三码组六":      [@wgCountByZuhe,3]
-                  "后三码混合组选":    ""
+                  "后三码混合组选":   [@wgCountByTextsNoSame,3]
                   "后三码组选和值":   [@wgCountByManu,[0,1,2,2,4,5,6,8,10,11,13,14,14,15,15,14,14,13,11,10,8,6,5,4,2,2,1,0]]
 
                   "前三码复式":      [@wgCountByFushi,3]
@@ -143,7 +152,7 @@ GL_CQSSC_Caculator = {
                   "前三码直选和值":   [@wgCountByHezhi,3]
                   "前三码组三":      [@wgCountByZuhe,2,2]
                   "前三码组六":      [@wgCountByZuhe,3]
-                  "前三码混合组选":   ""
+                  "前三码混合组选":   [@wgCountByTextsNoSame,3]
                   "前三码组选和值":   [@wgCountByManu,[0,1,2,2,4,5,6,8,10,11,13,14,14,15,15,14,14,13,11,10,8,6,5,4,2,2,1,0]]
 
                   "中三码复式":      [@wgCountByFushi,3]
@@ -151,7 +160,7 @@ GL_CQSSC_Caculator = {
                   "中三码直选和值":   [@wgCountByHezhi,3]
                   "中三码组三":       [@wgCountByZuhe,2,2]
                   "中三码组六":       [@wgCountByZuhe,3]
-                  "中三码混合组选": ""
+                  "中三码混合组选": [@wgCountByTextsNoSame,3]
                   "中三码组选和值":   [@wgCountByManu,[0,1,2,2,4,5,6,8,10,11,13,14,14,15,15,14,14,13,11,10,8,6,5,4,2,2,1,0]]
 
                   "二码后二直选(复式)": [@wgCountByFushi,2]
@@ -162,9 +171,9 @@ GL_CQSSC_Caculator = {
                   "二码前二直选和值": [@wgCountByHezhi,2]
 
                   "二码后二组选(复式)": [@wgCountByZuhe,2]
-                  "二码后二组选(单式)": ""
+                  "二码后二组选(单式)": [@wgCountByTexts,2]
                   "二码前二组选(复式)": [@wgCountByZuhe,2]
-                  "二码前二组选(单式)": ""
+                  "二码前二组选(单式)": [@wgCountByTexts,2]
                   "二码后二组选和值": [@wgCountByManu,[0,1,1,2,2,3,3,4,4,5,4,4,3,3,2,2,1,1,0]]
                   "二码前二组选和值": [@wgCountByManu,[0,1,1,2,2,3,3,4,4,5,4,4,3,3,2,2,1,1,0]]
 
@@ -192,7 +201,7 @@ GL_CQSSC_Caculator = {
 
         if pc.length > 2 then numwager*=pc[2]
 
-        console.log("numwager="+numwager)
+        #console.log("numwager="+numwager)
 
 #        console.log("JC."+JC.C(5,2))
 

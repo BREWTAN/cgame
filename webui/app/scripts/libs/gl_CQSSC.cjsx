@@ -153,6 +153,8 @@ GL_CQSSC = {
             playballs = @getSelectedBall();
         wagercount = GL_CQSSC_Caculator.getWagerCount(gl_wanfaname,playballs);
         if gl_func_changeWagerCount then gl_func_changeWagerCount(wagercount,gl_wanfaname,playballs)
+    clearWager:() ->
+        if gl_func_changeWagerCount then gl_func_changeWagerCount(0,gl_wanfaname,"")
 
 
   #      console.log("refs="+refs+",lineno="+lineno+",index="+index+",selected="+refs[lineno+"_"+index].state["selected"])
@@ -197,6 +199,8 @@ GL_CQSSC = {
             i++
         @checkWager();
 
+
+
     getSelectedBall:() ->
         sortedball = [[],[],[],[],[]];
         for name,ballcom of gl_selectedBalls
@@ -217,7 +221,7 @@ GL_CQSSC = {
 
 
                 #console.log("sortedball=.lines="+linenum+","+ball)
-        console.log("玩法="+gl_wanfaname+",playballs="+playballs)
+        #console.log("玩法="+gl_wanfaname+",playballs="+playballs)
         return playballs
 
     genBalls:(balls,lineno,ballstyle ) ->
@@ -303,17 +307,20 @@ GL_CQSSC = {
         console.log("handlerFileChoosed=="+event.currentTarget)
         file = event.currentTarget.files[0]
         reader = new FileReader();
+        self = @
         reader.onload = (e) ->
             text = reader.result;
             console.log("inputFile.Text="+text)
+            self.checkWager(self.formatTextInput(text))
             tfRef[0].setValue(text)
+
         reader.readAsText(file, "ASCII");
         event.currentTarget.value = ""
         return true
 
     handleClear:(tfRef,event) ->
-        #tfRef[0].setValue("");
-
+        tfRef[0].setValue("");
+        @clearWager()
 
     formatTextInput:(str) ->
         balls = str.split(/,| |\||\r\n|\r|\n/)
@@ -329,10 +336,6 @@ GL_CQSSC = {
     handleInputChange: (event) ->
         console.log("handle change:"+event.currentTarget.value)
         @checkWager(@formatTextInput(event.currentTarget.value))
-
-
-
-
 
     genInputBox:() -> #只有title和球
 
@@ -406,15 +409,18 @@ GL_CQSSC = {
               <div className="col-sm-4 divctl">{ballFuncOneLine}</div>
         </div>)
 
-
-    genBallsWithName:(wanfa,wanfaline2,wanfaline3,callback,handleDiagOpen) ->
-        #console.log("genBallsWithName:"+wanfa+","+wanfaline2+","+wanfaline3)
+    getWanfaName:(wanfa,wanfaline2,wanfaline3) ->
         wanfaname = wanfaList[wanfa].trim()
-        gl_func_changeWagerCount = callback
         if ( wanfaline2 == -1 )
             wanfaname += wanfaLine3EleText[wanfa][wanfaline3].trim()
         else
             wanfaname += wanfaLine2EleText[wanfa][wanfaline2].trim()
+
+    genBallsWithName:(wanfa,wanfaline2,wanfaline3,callback,handleDiagOpen) ->
+        #console.log("genBallsWithName:"+wanfa+","+wanfaline2+","+wanfaline3)
+        wanfaname = @getWanfaName(wanfa,wanfaline2,wanfaline3)
+
+        gl_func_changeWagerCount = callback
 
         gl_handleDiagOpen = handleDiagOpen
         #console.log("wanfaname="+wanfaname)

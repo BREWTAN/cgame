@@ -8,7 +8,7 @@ Divider = require( 'material-ui/lib/divider');
 DropDownMenu  = require( 'material-ui/lib/DropDownMenu');
 FlatButton = require('material-ui/lib/flat-button');
 RaisedButton = require('material-ui/lib/raised-button');
-
+Divider = require ('material-ui/lib/divider');
 FontAwesome = require('react-fontawesome');
 IconMenu = require('material-ui/lib/menus/icon-menu');
 AppBar = require('material-ui/lib/app-bar');
@@ -18,13 +18,13 @@ List =require( 'material-ui/lib/lists/list');
 ListItem =require( 'material-ui/lib/lists/list-item');
 Divider = require( 'material-ui/lib/divider');
 
-
 GL_CQSSC = require( '../libs/gl_CQSSC.js');
 InkBar  = require("material-ui/lib/ink-bar");
 
 SelectConfirm  = require("./SelectConfirm.js");
 SelectList = require("./SelectList.js");
-Dialog  = require('material-ui/lib/dialog');
+
+PopupDiag = require("./PopupDialog.js");
 
 TotalWagers = require("./TotalWagers.js")
 
@@ -73,6 +73,7 @@ gm_CQSSC = React.createClass(
             wanfa:e.currentTarget.dataset.id
             wanfaLine2:0
             wanfaLine3: -1
+         @changeWagerCount(0)
 
     handleMoneyTypeChange:(e) ->
         console.log("change money:"+e)
@@ -82,11 +83,14 @@ gm_CQSSC = React.createClass(
         @setState
            wanfaLine2:e.currentTarget.dataset.id
            wanfaLine3: -1
+        @changeWagerCount(0)
+
     handleChangeWanfaLine3:(e,item,v) ->
         console.log("handleChangeWanfaLine3:"+e.currentTarget.dataset.id)
         @setState
            wanfaLine2:-1
            wanfaLine3:e.currentTarget.dataset.id
+        @changeWagerCount(0)
 
     handleRefreshUserTitle:(event, index, value) ->
         console.log("handleChangeGame:index="+index+",value="+value)
@@ -99,22 +103,45 @@ gm_CQSSC = React.createClass(
         return <MenuItem value={index} primaryText={text} />
 
     changeWagerCount: (wagercount,gl_wanfaname,playballs) ->
-        console.log("change wagercount:"+wagercount+","+gl_wanfaname+","+playballs)
+        #console.log("change wagercount:"+wagercount+","+gl_wanfaname+","+playballs)
         selectconfirmCom = @refs["selectconfirm"]
+
         if selectconfirmCom
            selectconfirmCom.setState
                 wagercount: wagercount
-
-
-    handleDiagClose: () ->
-        console.log("handleDiagClose")
-        @setState
-            diagopen:false
+                wagerballs: playballs
 
     handleDiagOpen: (message) ->
-        @setState
-            diagopen:true
-            diagmessage:message
+       if @refs["popupDiag"] then @refs["popupDiag"].handleDiagOpen(message)
+
+
+    handleSelectConfirm: () ->
+        wname = GL_CQSSC.getWanfaName(@state.wanfa,@state.wanfaLine2,@state.wanfaLine3)
+        scCOM = @refs["selectconfirm"]
+        scState = scCOM.state
+        #console.log("confirm now:"+wname+",wagercount="+scState.wagercount +
+        #        ",bonerValue="+scState.bonerValue +
+        #        ",moneyType="+scState.moneyType +
+        #        ",wagerballs="+scState.wagerballs)
+        if scState.wagercount < 1
+            @handleDiagOpen("号码选择不完整，请重新选择")
+        else
+            selectList = @refs["selectList"]
+            money = scCOM.getMoneyTotal()
+            bonnerMoney = scCOM.getBonnerMoney()
+            v = selectList.addItem(wname,scState.wagerballs,scState.wagercount,money,scState.moneyType,scState.multi,bonnerMoney)
+            if v
+                GL_CQSSC.clearWager()
+                GL_CQSSC.cleanSelectBalls()
+                totalWagers = @refs["totalWagers"]
+                countAnMoney = selectList.getTotalWagerCountAndMoney()
+                totalWagers.setState
+                    totalWagerCount: countAnMoney[0]
+                    totalMoney: countAnMoney[1]
+
+            else
+                @handleDiagOpen("确认区有相同的投注内容")
+
 
     render:() ->
         styles = {
@@ -215,7 +242,9 @@ gm_CQSSC = React.createClass(
        # ballLines = GL_CQSSC.genOnlyBalls([0...19])
         # ballLines = GL_CQSSC.genBallWithOnlyTitle("组选和值", [0...27]);
         ballLines = GL_CQSSC.genBallsWithName(@state.wanfa,@state.wanfaLine2,@state.wanfaLine3,@changeWagerCount,@handleDiagOpen)
-        selectconfirmCom =  (<SelectConfirm ref="selectconfirm"/>)
+        selectconfirmCom =  (<SelectConfirm ref="selectconfirm" handlerConfirm = {@handleSelectConfirm}/>)
+
+
         return (
             <div className="container">
                 <div className="row">
@@ -235,9 +264,9 @@ gm_CQSSC = React.createClass(
                         </div>
                         <div className="row wagerarea">
                            { selectconfirmCom }
-                            <SelectList />
+                            <SelectList ref="selectList" />
 
-                            <TotalWagers />
+                            <TotalWagers ref="totalWagers"/>
 
                         </div>
 
@@ -250,20 +279,8 @@ gm_CQSSC = React.createClass(
                     </div>
                 </div>
                 </div>
-                <Dialog
-                          title="提示"
-                          actions={<FlatButton
-                                           label="Ok"
-                                           primary={true}
-                                           keyboardFocused={true}
-                                           onTouchTap={@handleDiagClose}
-                                         />}
-                          modal={false}
-                          open={@state.diagopen}
-                          onRequestClose={@handleDiagClose}
-                        >
-                          {@state.diagmessage}
-                </Dialog>
+                <PopupDiag ref="popupDiag"/>
+
             </div>
         );
 )

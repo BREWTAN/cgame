@@ -145,6 +145,11 @@ GL_CQSSC = {
       return gl_func_changeWagerCount(wagercount, gl_wanfaname, playballs);
     }
   },
+  clearWager: function() {
+    if (gl_func_changeWagerCount) {
+      return gl_func_changeWagerCount(0, gl_wanfaname, "");
+    }
+  },
   changeBallState: function(ballcom, selected) {
     var balldom;
     ballcom.setState({
@@ -213,7 +218,6 @@ GL_CQSSC = {
       }
       playballs += lines.join("|");
     }
-    console.log("玩法=" + gl_wanfaname + ",playballs=" + playballs);
     return playballs;
   },
   genBalls: function(balls, lineno, ballstyle) {
@@ -377,21 +381,26 @@ GL_CQSSC = {
     return filedom.click();
   },
   handlerFileChoosed: function(tfRef, event) {
-    var file, reader;
+    var file, reader, self;
     console.log("handlerFileChoosed==" + event.currentTarget);
     file = event.currentTarget.files[0];
     reader = new FileReader();
+    self = this;
     reader.onload = function(e) {
       var text;
       text = reader.result;
       console.log("inputFile.Text=" + text);
+      self.checkWager(self.formatTextInput(text));
       return tfRef[0].setValue(text);
     };
     reader.readAsText(file, "ASCII");
     event.currentTarget.value = "";
     return true;
   },
-  handleClear: function(tfRef, event) {},
+  handleClear: function(tfRef, event) {
+    tfRef[0].setValue("");
+    return this.clearWager();
+  },
   formatTextInput: function(str) {
     var balls, j, l, len, len1, line, linecc, playballs, ref1, v;
     balls = str.split(/,| |\||\r\n|\r|\n/);
@@ -562,15 +571,19 @@ GL_CQSSC = {
       "className": "col-sm-4 divctl"
     }, ballFuncOneLine));
   },
+  getWanfaName: function(wanfa, wanfaline2, wanfaline3) {
+    var wanfaname;
+    wanfaname = wanfaList[wanfa].trim();
+    if (wanfaline2 === -1) {
+      return wanfaname += wanfaLine3EleText[wanfa][wanfaline3].trim();
+    } else {
+      return wanfaname += wanfaLine2EleText[wanfa][wanfaline2].trim();
+    }
+  },
   genBallsWithName: function(wanfa, wanfaline2, wanfaline3, callback, handleDiagOpen) {
     var j, l, m, n, o, p, results, results1, results2, results3, results4, results5, wanfaname;
-    wanfaname = wanfaList[wanfa].trim();
+    wanfaname = this.getWanfaName(wanfa, wanfaline2, wanfaline3);
     gl_func_changeWagerCount = callback;
-    if (wanfaline2 === -1) {
-      wanfaname += wanfaLine3EleText[wanfa][wanfaline3].trim();
-    } else {
-      wanfaname += wanfaLine2EleText[wanfa][wanfaline2].trim();
-    }
     gl_handleDiagOpen = handleDiagOpen;
     gl_wanfaname = wanfaname;
     if (ballDivByWanfa === null) {

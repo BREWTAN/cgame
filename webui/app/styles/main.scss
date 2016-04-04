@@ -350,7 +350,19 @@ $wager_bkcolor: #424242;
     }
 
 }
+.selectconfirm{
+    b{
+        font-size: 16px;
+        padding: 0px 5px 0px 5px;
+    }
+    input{
+        text-align: center;
+    }
+    .col-sm-3{
+        padding: 0px 0px 0px 0px;
+    }
 
+}
 .wagersum{
     border: 1px solid red;
     width: 100%;

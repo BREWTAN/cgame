@@ -15,18 +15,30 @@ SelectItem = React.createClass({
       balls: "6,5,3",
       count: 1,
       money: 2,
-      moneyUnit: "元",
+      moneyUnit: 1,
       multi: 1,
+      bonnerMode: "300",
       selected: false
     };
   },
   onTouchTap: function(v) {
     console.log("onTouchTap:" + this.state.selected + "::selidx=" + this.props.selidx);
-    return this.props.changeSel(this.props.idx);
+    return this.props.changeSel(this.props.keyy);
   },
   onDelete: function() {
-    this.props.deleteItem(this.props.idx);
-    return console.log("onDelete");
+    return this.props.deleteItem(this.props.keyy);
+  },
+  getMoneyUnitText: function(type) {
+    if (parseInt(type) === 1) {
+      return "元";
+    }
+    if (parseInt(type * 10) === 1) {
+      return "角";
+    }
+    if (parseInt(type * 100) === 1) {
+      return "分";
+    }
+    return "厘";
   },
   render: function() {
     var cn, styles;
@@ -57,9 +69,11 @@ SelectItem = React.createClass({
       "className": "pull-left"
     }, " ", this.state.wname, "     ", React.createElement("b", {
       "color": "red"
-    }, " ", this.state.balls, " "), "  [", this.state.count, "注,", this.state.money, ",", this.state.moneyUnit, "]"), React.createElement("div", {
+    }, " ", this.state.balls, " "), "  [", this.state.count, "注,共 ", this.state.money, "元]"), React.createElement("div", {
       "className": "pull-right"
     }, React.createElement("div", {
+      "className": ""
+    }, " 模式:", this.state.bonnerMode, "   "), React.createElement("div", {
       "className": ""
     }, " [", this.state.multi, "倍]   "), React.createElement(EnhancedButton, {
       "className": "",
