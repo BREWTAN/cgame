@@ -1,4 +1,4 @@
-var AppBar, Divider, DropDownMenu, FlatButton, FontAwesome, GL_CQSSC, IconButton, IconMenu, InkBar, List, ListItem, PopupDiag, RaisedButton, React, SelectConfirm, SelectList, TotalWagers, gm_CQSSC, injectTapEventPlugin, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
+var AppBar, Divider, DropDownMenu, FlatButton, FontAwesome, GL_CQSSC, Global, IconButton, IconMenu, InkBar, List, ListItem, PopupDiag, RaisedButton, React, SelectConfirm, SelectList, TotalWagers, gm_CQSSC, injectTapEventPlugin, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
 
 React = require("react");
 
@@ -31,6 +31,8 @@ Divider = require('material-ui/lib/divider');
 GL_CQSSC = require('../libs/gl_CQSSC.js');
 
 InkBar = require("material-ui/lib/ink-bar");
+
+Global = require('react-global');
 
 SelectConfirm = require("./SelectConfirm.js");
 
@@ -112,19 +114,29 @@ gm_CQSSC = React.createClass({
       });
     }
   },
-  handleDiagOpen: function(message) {
+  handleDiagOpen: function(message, titlediv, contentstyle) {
     if (this.refs["popupDiag"]) {
-      return this.refs["popupDiag"].handleDiagOpen(message);
+      return this.refs["popupDiag"].handleDiagOpen(message, titlediv, contentstyle);
     }
   },
   onDeleteSelectListItem: function() {
-    var countAnMoney, totalWagers;
+    var cb, countAnMoney, newstate, totalWagers;
     totalWagers = this.refs["totalWagers"];
     countAnMoney = this.refs["selectList"].getTotalWagerCountAndMoney();
-    return totalWagers.setState({
+    cb = function() {
+      return totalWagers.handleUpdateHeader();
+    };
+    newstate = {
       totalWagerCount: countAnMoney[0],
-      totalWagerMoney: countAnMoney[1]
-    });
+      totalWagerMoney: countAnMoney[1],
+      WagerMoneyOnce: countAnMoney[2]
+    };
+    return totalWagers.setState(newstate, cb);
+  },
+  getConfirmItems: function() {
+    var selectList;
+    selectList = this.refs["selectList"];
+    return selectList.state.items;
   },
   handleSelectConfirm: function() {
     var bonnerMoney, cb, countAnMoney, money, newstate, scCOM, scState, selectList, totalWagers, v, wname;
@@ -148,7 +160,8 @@ gm_CQSSC = React.createClass({
         };
         newstate = {
           totalWagerCount: countAnMoney[0],
-          totalWagerMoney: countAnMoney[1]
+          totalWagerMoney: countAnMoney[1],
+          WagerMoneyOnce: countAnMoney[2]
         };
         return totalWagers.setState(newstate, cb);
       } else {
@@ -317,7 +330,9 @@ gm_CQSSC = React.createClass({
       "onDeleteItem": this.onDeleteSelectListItem,
       "ref": "selectList"
     }), React.createElement(TotalWagers, {
-      "ref": "totalWagers"
+      "ref": "totalWagers",
+      "handleDiagOpen": this.handleDiagOpen,
+      "getConfirmItems": this.getConfirmItems
     })), React.createElement(Divider, null))), React.createElement("div", {
       "className": "col-md-3"
     }, React.createElement("div", {

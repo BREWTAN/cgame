@@ -39,7 +39,9 @@ OrderChaseHeader = React.createClass(
     onChangeInput:(chaseType,inputid,event) ->
         console.log("onChangeInput:chaseType"+chaseType+",inputid="+inputid+",event="+event)
         v = parseInt(event.currentTarget.value)
-        if !v then return false
+        if !v
+            event.currentTarget.value = 1
+            return false
         if inputid == 2 then v = Math.min(120,v)
         console.log("v=="+v)
         @refs["in_"+inputid].value=v
@@ -99,7 +101,7 @@ OrderChaseHeader = React.createClass(
             when 1
                 chaseperoidCOM = (<div className="row col-sm-12" style={height:"32px"}>
                                   起始倍数 : <input ref="in_0" defaultValue="1" id="1" size="5" maxLength="5" onChange={@onChangeInput.bind(@,1,0) }/>
-                                  追号期数 : <input ref="in_2" defaultValue={@state.chasePeroidCount} id="2" size="5" maxLength="5" onChange={@onChangeInput.bind(@,1,2) }/>
+                                  追号期数 : <input ref="in_2" defaultValue={@state.chasePeroidCount} id="3" size="5" maxLength="5" onChange={@onChangeInput.bind(@,1,2) }/>
                                   {btnGenChase}
                 </div>)
             when 2

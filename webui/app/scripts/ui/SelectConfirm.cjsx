@@ -24,10 +24,13 @@ SelectConfirm = React.createClass(
 
     handleWagerOChange:(e) ->
         #console.log("changeWagerInfo:"+e.target.value)
-
+        v = parseInt(e.target.value)
+        if !v
+            e.target.value = @state.multi
+            return false
         @setState
-            multi: e.target.value
-            totalMoney: e.target.value*@state.moneyType
+            multi: v
+            totalMoney: v*@state.moneyType
 
     handleWagerSelChange:(e) ->
         #console.log("handleWagerSelChange:"+e.currentTarget.dataset.v)

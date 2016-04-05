@@ -1,4 +1,4 @@
-var FlatButton, List, ListItem, OrderChaseHeader, OrderChaseItem, OrderChaseList, RaisedButton, React, SelectField, injectTapEventPlugin;
+var FlatButton, GL_CQSSC, List, ListItem, OrderChaseHeader, OrderChaseItem, OrderChaseList, RaisedButton, React, SelectField, injectTapEventPlugin;
 
 React = require("react");
 
@@ -18,6 +18,8 @@ RaisedButton = require('material-ui/lib/raised-button');
 
 OrderChaseHeader = require("./OrderChaseHeader.js");
 
+GL_CQSSC = require('../libs/gl_CQSSC.js');
+
 OrderChaseList = React.createClass({
   getInitialState: function() {
     return {
@@ -27,7 +29,7 @@ OrderChaseList = React.createClass({
       selidx: 1,
       chaseType: 0,
       chasePeroidCount: 5,
-      currentPeroid: "20160405-001",
+      currentPeroid: GL_CQSSC.GameState("currentPeroid"),
       selectedItem: []
     };
   },
@@ -76,7 +78,7 @@ OrderChaseList = React.createClass({
     return this.updateHeaderInfo();
   },
   handleGenChase: function(event) {
-    var chaseHeader, i, itemCom, maxP, multiStart, periodCount, peroid, ratio, ref, startP;
+    var chaseHeader, i, itemCom, j, k, maxP, multiStart, multiSteps, periodCount, peroid, ratio, ref, ref1, ref2, startP, stepi, steps;
     console.log("genChase:" + this.state.chaseType + ",@props.totalWagerCount=" + this.props.totalWagerCount);
     if (this.props.totalWagerCount <= 0) {
       return true;
@@ -88,10 +90,61 @@ OrderChaseList = React.createClass({
         multiStart = parseInt(chaseHeader.refs["in_0"].value);
         ratio = parseInt(chaseHeader.refs["in_1"].value);
         periodCount = parseInt(chaseHeader.refs["in_2"].value);
-        console.log("periodCount=" + periodCount + "," + multiStart + ",totalWagerMoney=" + this.props.totalWagerMoney);
         maxP = Math.min(121, startP + periodCount);
         for (peroid = i = ref = startP; ref <= 121 ? i < 121 : i > 121; peroid = ref <= 121 ? ++i : --i) {
           itemCom = this.refs["item_" + peroid];
+          if (peroid < maxP) {
+            itemCom.setState({
+              selected: true,
+              multi: multiStart
+            });
+            this.state.selectedItem["" + peroid] = multiStart;
+            console.log("itemCom.chosed:" + itemCom.state.selected);
+          } else {
+            delete this.state.selectedItem["" + peroid];
+            itemCom.setState({
+              selected: false,
+              multi: 0
+            });
+          }
+        }
+        break;
+      case 1:
+        multiStart = parseInt(chaseHeader.refs["in_0"].value);
+        periodCount = parseInt(chaseHeader.refs["in_2"].value);
+        maxP = Math.min(121, startP + periodCount);
+        for (peroid = j = ref1 = startP; ref1 <= 121 ? j < 121 : j > 121; peroid = ref1 <= 121 ? ++j : --j) {
+          itemCom = this.refs["item_" + peroid];
+          if (peroid < maxP) {
+            itemCom.setState({
+              selected: true,
+              multi: multiStart
+            });
+            this.state.selectedItem["" + peroid] = multiStart;
+            console.log("itemCom.chosed:" + itemCom.state.selected);
+          } else {
+            delete this.state.selectedItem["" + peroid];
+            itemCom.setState({
+              selected: false,
+              multi: 0
+            });
+          }
+        }
+        break;
+      case 2:
+        steps = parseInt(chaseHeader.refs["in_0"].value);
+        multiSteps = parseInt(chaseHeader.refs["in_1"].value);
+        periodCount = parseInt(chaseHeader.refs["in_2"].value);
+        maxP = Math.min(121, startP + periodCount);
+        stepi = 0;
+        multiStart = 1;
+        for (peroid = k = ref2 = startP; ref2 <= 121 ? k < 121 : k > 121; peroid = ref2 <= 121 ? ++k : --k) {
+          itemCom = this.refs["item_" + peroid];
+          if (stepi >= steps) {
+            stepi = 0;
+            multiStart *= multiSteps;
+          }
+          stepi++;
           if (peroid < maxP) {
             itemCom.setState({
               selected: true,
@@ -121,7 +174,7 @@ OrderChaseList = React.createClass({
     for (peroid in ref) {
       multi = ref[peroid];
       chasePeroidCount++;
-      totalChaseMoney += this.props.totalWagerMoney * multi;
+      totalChaseMoney += this.props.WagerMoneyOnce * multi;
     }
     chaseHeader.setState({
       totalChasePeroid: chasePeroidCount,
@@ -202,7 +255,7 @@ OrderChaseList = React.createClass({
         results.push(React.createElement(OrderChaseItem, React.__spread({
           "ref": "item_" + index
         }, itemprops, {
-          "money": this.props.totalWagerMoney,
+          "money": this.props.WagerMoneyOnce,
           "idx": index - startP + 1,
           "peroid": index,
           "dayP": dayP

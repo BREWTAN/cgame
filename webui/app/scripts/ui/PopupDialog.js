@@ -1,8 +1,10 @@
-var Dialog, Divider, FlatButton, PopupDiag, RaisedButton, React, injectTapEventPlugin;
+var Dialog, Divider, FlatButton, PopupDiag, RaisedButton, React, _, injectTapEventPlugin;
 
 React = require("react");
 
 injectTapEventPlugin = require("react-tap-event-plugin");
+
+_ = require('underscore');
 
 FlatButton = require('material-ui/lib/flat-button');
 
@@ -16,7 +18,9 @@ PopupDiag = React.createClass({
   getInitialState: function() {
     return {
       diagopen: false,
-      diagmessage: ""
+      diagmessage: "",
+      titlediv: void 0,
+      contentstyle: {}
     };
   },
   handleDiagClose: function() {
@@ -24,25 +28,50 @@ PopupDiag = React.createClass({
       diagopen: false
     });
   },
-  handleDiagOpen: function(message) {
+  handleDiagOpen: function(message, titlediv, contentstyle) {
     return this.setState({
       diagopen: true,
-      diagmessage: message
+      diagmessage: message,
+      titlediv: titlediv,
+      contentstyle: contentstyle
     });
   },
   render: function() {
-    return React.createElement(Dialog, {
-      "title": React.createElement("div", {
+    var body, contentStyle, title;
+    if (this.state.titlediv) {
+      title = React.createElement("div", {
+        "style": {
+          padding: "10px 10px 10px 10px"
+        }
+      }, this.state.titlediv, React.createElement(Divider, null));
+      body = React.createElement("div", {
+        "style": {
+          height: "100%",
+          overflowY: "scroll"
+        }
+      }, this.state.diagmessage);
+    } else {
+      title = React.createElement("div", {
         "style": {
           padding: "10px 10px 10px 20px"
         }
       }, React.createElement("div", {
+        "className": "diagtitle"
+      }, "提示信息"), React.createElement(Divider, null));
+      body = React.createElement("div", {
         "style": {
-          fontSize: "20px",
-          color: "#a20b2a",
-          padding: "10px 10px 10px 10px"
+          fontSize: "16px"
         }
-      }, "提示信息"), React.createElement(Divider, null)),
+      }, this.state.diagmessage);
+    }
+    contentStyle = _.extend({
+      width: "40%",
+      minWidth: "300px",
+      kkk: "contentsssytle"
+    }, this.state.contentstyle);
+    console.log("contentStyle=" + JSON.stringify(contentStyle));
+    return React.createElement(Dialog, {
+      "title": title,
       "actions": React.createElement(FlatButton, {
         "label": "Ok",
         "primary": true,
@@ -52,15 +81,8 @@ PopupDiag = React.createClass({
       "modal": false,
       "open": this.state.diagopen,
       "onRequestClose": this.handleDiagClose,
-      "contentStyle": {
-        width: "40%",
-        minWidth: "300px"
-      }
-    }, React.createElement("div", {
-      "style": {
-        fontSize: "16px"
-      }
-    }, this.state.diagmessage));
+      "contentStyle": contentStyle
+    }, body);
   }
 });
 

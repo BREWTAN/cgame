@@ -137,7 +137,24 @@ gl_selectedBalls = []
 gl_func_changeWagerCount = null
 gl_handleDiagOpen = null
 
+
+gl_cqssc_info = {
+    currentPeroid:"20160405-003"
+}
+
+
+
 GL_CQSSC = {
+
+    GameState:() ->
+        return gl_cqssc_info;
+
+    GameState:(key) ->
+        return gl_cqssc_info[key];
+
+    SetGameState:(key,v) ->
+        gl_cqssc_info[key] = v;
+        return v;
 
     init:(a,b) ->
         console.log("a=="+a+",b=="+b)

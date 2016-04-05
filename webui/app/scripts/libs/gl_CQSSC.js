@@ -1,4 +1,4 @@
-var FlatButton, GL_CQSSC, GL_CQSSC_Caculator, RaisedButton, React, ReactDOM, TextField, _, ballDivByWanfa, ballarea, ballstyles, gl_func_changeWagerCount, gl_handleDiagOpen, gl_selectedBalls, gl_wanfaname, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
+var FlatButton, GL_CQSSC, GL_CQSSC_Caculator, RaisedButton, React, ReactDOM, TextField, _, ballDivByWanfa, ballarea, ballstyles, gl_cqssc_info, gl_func_changeWagerCount, gl_handleDiagOpen, gl_selectedBalls, gl_wanfaname, wanfaLine2EleText, wanfaLine2Text, wanfaLine3EleText, wanfaLine3Text, wanfaList;
 
 React = require("react");
 
@@ -125,7 +125,21 @@ gl_func_changeWagerCount = null;
 
 gl_handleDiagOpen = null;
 
+gl_cqssc_info = {
+  currentPeroid: "20160405-003"
+};
+
 GL_CQSSC = {
+  GameState: function() {
+    return gl_cqssc_info;
+  },
+  GameState: function(key) {
+    return gl_cqssc_info[key];
+  },
+  SetGameState: function(key, v) {
+    gl_cqssc_info[key] = v;
+    return v;
+  },
   init: function(a, b) {
     return console.log("a==" + a + ",b==" + b);
   },

@@ -46,6 +46,7 @@
     "react-addons-pure-render-mixin": "^0.14.8",
     "react-dom": "latest",
     "react-fontawesome": "^0.3.3",
+    "react-global": "^0.1.8",
     "react-link-state": "^0.1.1",
     "react-motion": "^0.4.2",
     "react-page-transitions": "^1.2.0",

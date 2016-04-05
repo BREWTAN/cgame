@@ -12,6 +12,7 @@ SelectField  = require( 'material-ui/lib/select-field');
 RaisedButton = require('material-ui/lib/raised-button');
 
 OrderChaseHeader = require("./OrderChaseHeader.js")
+GL_CQSSC = require( '../libs/gl_CQSSC.js');
 
 OrderChaseList = React.createClass(
 
@@ -22,7 +23,7 @@ OrderChaseList = React.createClass(
         selidx:1
         chaseType: 0
         chasePeroidCount: 5
-        currentPeroid: "20160405-001"
+        currentPeroid: GL_CQSSC.GameState("currentPeroid")
         selectedItem:[]
 
 
@@ -61,7 +62,6 @@ OrderChaseList = React.createClass(
                 selected:true
                 multi:multi
             @state.selectedItem[event.currentTarget.id] = multi
-
         @updateHeaderInfo()
 
     handleGenChase:(event) ->
@@ -75,7 +75,6 @@ OrderChaseList = React.createClass(
                 multiStart = parseInt(chaseHeader.refs["in_0"].value)
                 ratio = parseInt(chaseHeader.refs["in_1"].value)
                 periodCount = parseInt(chaseHeader.refs["in_2"].value)
-                console.log("periodCount="+periodCount+","+multiStart+",totalWagerMoney="+@props.totalWagerMoney)
                 maxP = Math.min(121,startP+periodCount)
                 for peroid in  [startP...121]
                     itemCom =  @refs["item_"+peroid]
@@ -90,6 +89,47 @@ OrderChaseList = React.createClass(
                         itemCom.setState
                             selected: false
                             multi: 0
+            when 1 # 同倍追号
+                multiStart = parseInt(chaseHeader.refs["in_0"].value)
+                periodCount = parseInt(chaseHeader.refs["in_2"].value)
+                maxP = Math.min(121,startP+periodCount)
+                for peroid in  [startP...121]
+                    itemCom =  @refs["item_"+peroid]
+                    if peroid < maxP
+                        itemCom.setState
+                            selected: true
+                            multi: multiStart
+                        @state.selectedItem[""+peroid] = multiStart
+                        console.log("itemCom.chosed:"+itemCom.state.selected)
+                    else
+                        delete @state.selectedItem[""+peroid]
+                        itemCom.setState
+                            selected: false
+                            multi: 0
+            when 2 # 翻倍追号
+                steps = parseInt(chaseHeader.refs["in_0"].value)
+                multiSteps = parseInt(chaseHeader.refs["in_1"].value)
+                periodCount = parseInt(chaseHeader.refs["in_2"].value)
+                maxP = Math.min(121,startP+periodCount)
+                stepi = 0
+                multiStart = 1;
+                for peroid in  [startP...121]
+                  itemCom =  @refs["item_"+peroid]
+                  if stepi >= steps
+                     stepi=0
+                     multiStart*= multiSteps
+                  stepi++
+                  if peroid < maxP
+                      itemCom.setState
+                          selected: true
+                          multi: multiStart
+                      @state.selectedItem[""+peroid] = multiStart
+                      console.log("itemCom.chosed:"+itemCom.state.selected)
+                  else
+                      delete @state.selectedItem[""+peroid]
+                      itemCom.setState
+                          selected: false
+                          multi: 0
 
         @updateHeaderInfo()
 
@@ -102,7 +142,7 @@ OrderChaseList = React.createClass(
         chasePeroidCount = 0
         for peroid,multi of @state.selectedItem
             chasePeroidCount++
-            totalChaseMoney+=@props.totalWagerMoney*multi
+            totalChaseMoney+=@props.WagerMoneyOnce*multi
 
         chaseHeader.setState
             totalChasePeroid:chasePeroidCount
@@ -173,7 +213,7 @@ OrderChaseList = React.createClass(
         dayP = @state.currentPeroid.split("-")[0]
         startP = parseInt(@state.currentPeroid.split("-")[1])
 
-        chaseList =( ( <OrderChaseItem ref={"item_"+index} {...itemprops} money={@props.totalWagerMoney} idx={index-startP+1} peroid={index} dayP={dayP}/> ) for index in [startP...121] )
+        chaseList =( ( <OrderChaseItem ref={"item_"+index} {...itemprops} money={@props.WagerMoneyOnce} idx={index-startP+1} peroid={index} dayP={dayP}/> ) for index in [startP...121] )
 
         return (
          <div className="chaselist col-sm-12">

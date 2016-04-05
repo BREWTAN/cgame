@@ -22,10 +22,11 @@ SelectList = React.createClass(
     getTotalWagerCountAndMoney:() ->
         count = 0
         money = 0
+        moneyOneMulti = 0
         for key,v of @state.items #wname,balls,count,money,moneyUnit,multi,bonnerMode
             count+=v[2]
             money+=parseFloat(v[3])
-        return [count,money]
+            moneyOneMulti+= parseFloat(v[3])/parseFloat(v[5])
 
     handleChangeItem:(idx) ->
        # console.log("handleChangeItem:"+idx)

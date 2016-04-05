@@ -13,13 +13,15 @@ List = require('material-ui/lib/lists/list');
 ListItem = require('material-ui/lib/lists/list-item');
 Checkbox  = require('material-ui/lib/checkbox');
 OrderChaseList = require("./OrderChaseList.js");
+GL_CQSSC = require( '../libs/gl_CQSSC.js');
 
 TotalWagers = React.createClass(
 
     getInitialState:() ->
-        zhuihao: true
+        zhuihao: false
         totalWagerCount: 0
         totalWagerMoney: 0
+        WagerMoneyOnce: 0
 
 
     handleClickZhuihao:(e) ->
@@ -34,6 +36,23 @@ TotalWagers = React.createClass(
     handleUpdateHeader:() ->
         console.log("handleUpdateHeader")
         @refs["chaselist"].updateHeaderInfo()
+
+    handleSubmitWagers:() ->
+        if @state.zhuihao
+            console.log("handleSubmitWagers.追号")
+            title = "您"
+        else
+            confirmitems = @props.getConfirmItems() #wname,balls,count,money,moneyUnit,multi,bonnerMode
+            itemcom = (( <div className="row item" key={key}> {"["+v[0]+"]" +v[1]+ " ;  ￥"+v[3]+"元" }</div>   ) for key,v of confirmitems)
+            currentPeroid = GL_CQSSC.GameState("currentPeroid")
+            title = ( <div className="diagtitle"> 是否将如下选号投入:<b> { currentPeroid } </b> 期? </div>)
+
+            items = ( <div className = "msgwageritems">
+                        {itemcom}
+                     </div>)
+
+        @props.handleDiagOpen(items,title,{padding:"10px 10px 10px 20px"})
+
 
     render:() ->
         styles = {
@@ -62,9 +81,11 @@ TotalWagers = React.createClass(
             }
         };
         totalWagerMoney = parseFloat(@state.totalWagerMoney).toFixed(4)
+        WagerMoneyOnce =  parseFloat(@state.WagerMoneyOnce).toFixed(4)
+
         console.log("change wagerMoney:"+totalWagerMoney)
         if @state.zhuihao
-            comZhuiHao = <div className="col-sm-12"><OrderChaseList ref="chaselist" totalWagerCount={@state.totalWagerCount} totalWagerMoney={totalWagerMoney} /> </div>
+            comZhuiHao = <div className="col-sm-12"><OrderChaseList ref="chaselist" totalWagerCount={@state.totalWagerCount} totalWagerMoney={totalWagerMoney} WagerMoneyOnce={WagerMoneyOnce} /> </div>
         else
             comZhuiHao=  <div></div>
         return (
@@ -85,7 +106,7 @@ TotalWagers = React.createClass(
 
                  <div className="row col-sm-3" style={marginBottom:"10px"}>
                       <RaisedButton label="提交注单" style={styles.confirmbtn}
-                        primary={true} onTouchTap={this.handleOpen}/>
+                        primary={true} onTouchTap={@handleSubmitWagers}/>
                  </div>
              </div>
              <div className="zhuihao col-md-12">

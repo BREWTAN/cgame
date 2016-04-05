@@ -11,6 +11,7 @@ Login = require("./ui/login.js")
 Loading = require("./ui/loading.js")
 
 CommentBox = require("./ui/CommentBox.jsx")
+Global = require('react-global');
 
 ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 

@@ -30,9 +30,15 @@ SelectConfirm = React.createClass({
     };
   },
   handleWagerOChange: function(e) {
+    var v;
+    v = parseInt(e.target.value);
+    if (!v) {
+      e.target.value = this.state.multi;
+      return false;
+    }
     return this.setState({
-      multi: e.target.value,
-      totalMoney: e.target.value * this.state.moneyType
+      multi: v,
+      totalMoney: v * this.state.moneyType
     });
   },
   handleWagerSelChange: function(e) {

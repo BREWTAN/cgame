@@ -556,4 +556,29 @@ $wager_bkcolor: #424242;
 
 }
 
+.diagtitle{
+
+    font-size:20px;
+    color:#a20b2a;
+    padding:10px 10px 10px 10px;
+
+    b {
+        color: #FF7206;
+    }
+}
+.msgwageritems{
+    .row {
+        margin: 10px 20px 10px 20px;
+        line-height: 32px;
+        height: 32px;
+        color: #FF7206;
+    }
+    .title{
+        color: #a20b2a;
+    }
+    .item:nth-child(even){
+        background-color: #CCCCCC;
+    }
+
+}
 

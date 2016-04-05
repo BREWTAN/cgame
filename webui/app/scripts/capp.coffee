@@ -5,6 +5,7 @@ RaisedButton = require("material-ui/lib/raised-button");
 
 TextField = require('material-ui/lib/text-field');
 
+Global = require('react-global');
 
 Timer = require("./ui/Timer.coffee")
 Login = require("./ui/login.js")
@@ -96,10 +97,11 @@ TopMenu = React.createClass(
 #                transitionAppear:true,
 #                transitionAppearTimeout:2000,
             transitionLeaveTimeout:500,
-            React.createElement("div",className:"",key:@props.location.pathname,@props.children)
+            React.createElement("div",className:"",key:@props.location.pathname,@props.children),
 #                React.cloneElement(@props.children, {
 #                  key: @props.location.pathname
-#                })
+#                }),
+            React.createElement(Global,gl_cqssc_info:{})
         )
 
 )

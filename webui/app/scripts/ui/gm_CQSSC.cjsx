@@ -21,6 +21,9 @@ Divider = require( 'material-ui/lib/divider');
 GL_CQSSC = require( '../libs/gl_CQSSC.js');
 InkBar  = require("material-ui/lib/ink-bar");
 
+Global = require('react-global');
+
+
 SelectConfirm  = require("./SelectConfirm.js");
 SelectList = require("./SelectList.js");
 
@@ -111,15 +114,19 @@ gm_CQSSC = React.createClass(
                 wagercount: wagercount
                 wagerballs: playballs
 
-    handleDiagOpen: (message) ->
-       if @refs["popupDiag"] then @refs["popupDiag"].handleDiagOpen(message)
+    handleDiagOpen: (message,titlediv,contentstyle) ->
+       if @refs["popupDiag"] then @refs["popupDiag"].handleDiagOpen(message,titlediv,contentstyle)
 
     onDeleteSelectListItem: () ->
         totalWagers = @refs["totalWagers"]
         countAnMoney = @refs["selectList"].getTotalWagerCountAndMoney()
-        totalWagers.setState
-            totalWagerCount: countAnMoney[0]
-            totalWagerMoney: countAnMoney[1]
+        cb = () ->
+            totalWagers.handleUpdateHeader()
+        newstate = {totalWagerCount: countAnMoney[0],totalWagerMoney: countAnMoney[1],WagerMoneyOnce:countAnMoney[2]}
+        totalWagers.setState(newstate,cb)
+    getConfirmItems:() ->
+        selectList = @refs["selectList"]
+        return selectList.state.items;
 
     handleSelectConfirm: () ->
         wname = GL_CQSSC.getWanfaName(@state.wanfa,@state.wanfaLine2,@state.wanfaLine3)
@@ -143,7 +150,7 @@ gm_CQSSC = React.createClass(
                 countAnMoney = selectList.getTotalWagerCountAndMoney()
                 cb = () ->
                     totalWagers.handleUpdateHeader()
-                newstate = {totalWagerCount: countAnMoney[0],totalWagerMoney: countAnMoney[1]}
+                newstate = {totalWagerCount: countAnMoney[0],totalWagerMoney: countAnMoney[1],WagerMoneyOnce:countAnMoney[2]}
                 totalWagers.setState(newstate,cb)
             else
                 @handleDiagOpen("确认区有相同的投注内容")
@@ -272,7 +279,7 @@ gm_CQSSC = React.createClass(
                            { selectconfirmCom }
                             <SelectList onDeleteItem = {@onDeleteSelectListItem} ref="selectList" />
 
-                            <TotalWagers ref="totalWagers"/>
+                            <TotalWagers ref="totalWagers" handleDiagOpen = {@handleDiagOpen} getConfirmItems={@getConfirmItems} />
 
                         </div>
 

@@ -45,6 +45,7 @@ OrderChaseHeader = React.createClass({
     console.log("onChangeInput:chaseType" + chaseType + ",inputid=" + inputid + ",event=" + event);
     v = parseInt(event.currentTarget.value);
     if (!v) {
+      event.currentTarget.value = 1;
       return false;
     }
     if (inputid === 2) {
@@ -156,7 +157,7 @@ OrderChaseHeader = React.createClass({
         }), "追号期数 : ", React.createElement("input", {
           "ref": "in_2",
           "defaultValue": this.state.chasePeroidCount,
-          "id": "2",
+          "id": "3",
           "size": "5",
           "maxLength": "5",
           "onChange": this.onChangeInput.bind(this, 1, 2)
