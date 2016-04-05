@@ -25,19 +25,18 @@ SelectList = React.createClass({
     };
   },
   getTotalWagerCountAndMoney: function() {
-    var count, key, money, moneyOneMulti, ref1, results, v;
+    var count, key, money, moneyOneMulti, ref1, v;
     count = 0;
     money = 0;
     moneyOneMulti = 0;
     ref1 = this.state.items;
-    results = [];
     for (key in ref1) {
       v = ref1[key];
       count += v[2];
       money += parseFloat(v[3]);
-      results.push(moneyOneMulti += parseFloat(v[3]) / parseFloat(v[5]));
+      moneyOneMulti += parseFloat(v[3]) / parseFloat(v[5]);
     }
-    return results;
+    return [count, money, moneyOneMulti];
   },
   handleChangeItem: function(idx) {
     return this.setState({
