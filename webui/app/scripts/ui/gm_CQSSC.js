@@ -114,9 +114,9 @@ gm_CQSSC = React.createClass({
       });
     }
   },
-  handleDiagOpen: function(message, titlediv, contentstyle) {
+  handleDiagOpen: function(message, titlediv, contentstyle, confirmCB, cbparams) {
     if (this.refs["popupDiag"]) {
-      return this.refs["popupDiag"].handleDiagOpen(message, titlediv, contentstyle);
+      return this.refs["popupDiag"].handleDiagOpen(message, titlediv, contentstyle, confirmCB, cbparams);
     }
   },
   onDeleteSelectListItem: function() {

@@ -14,6 +14,7 @@ ListItem = require('material-ui/lib/lists/list-item');
 Checkbox  = require('material-ui/lib/checkbox');
 OrderChaseList = require("./OrderChaseList.js");
 GL_CQSSC = require( '../libs/gl_CQSSC.js');
+Divider = require( 'material-ui/lib/divider');
 
 TotalWagers = React.createClass(
 
@@ -47,11 +48,17 @@ TotalWagers = React.createClass(
             currentPeroid = GL_CQSSC.GameState("currentPeroid")
             title = ( <div className="diagtitle"> 是否将如下选号投入:<b> { currentPeroid } </b> 期? </div>)
 
-            items = ( <div className = "msgwageritems">
-                        {itemcom}
+            items = ( <div>
+                        <div className = "msgwageritems">
+                            {itemcom}
+                        </div>
+                        <Divider />
+                        <div className="msgwagertotal">总金额 : <b>{@state.totalWagerMoney}</b> 元</div>
                      </div>)
 
-        @props.handleDiagOpen(items,title,{padding:"10px 10px 10px 20px"})
+        CB = (self) ->
+            console.log("okok!totalWagerMoney="+self.state.totalWagerMoney)
+        @props.handleDiagOpen(items,title,{padding:"10px 10px 10px 20px"},CB,@)
 
 
     render:() ->

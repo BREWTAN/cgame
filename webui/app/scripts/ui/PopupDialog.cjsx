@@ -17,19 +17,26 @@ PopupDiag = React.createClass(
         diagmessage: ""
         titlediv: undefined
         contentstyle:{}
+        confirmCB: undefined
 
     handleDiagClose: () ->
         @setState
             diagopen:false
 
-    handleDiagOpen: (message,titlediv,contentstyle) ->
+    handleDiagOpen: (message,titlediv,contentstyle,confirmCB,cbparams) ->
         @setState
             diagopen:true
             diagmessage:message
             titlediv:titlediv
             contentstyle:contentstyle
+            confirmCB: confirmCB
+            cbparams:cbparams
 
 
+    handleDiagConfirm:() ->
+        @state.confirmCB(@state.cbparams)
+        @setState
+            diagopen:false
 
 
     render:() ->
@@ -41,21 +48,36 @@ PopupDiag = React.createClass(
             title = <div style={padding:"10px 10px 10px 20px"}><div className ="diagtitle" >提示信息</div><Divider /></div>
             body = <div style={fontSize:"16px"}>{@state.diagmessage}</div>
 
-        contentStyle = _.extend({width:"40%",minWidth:"300px",kkk:"contentsssytle"},@state.contentstyle)
+        contentStyle = _.extend({},@state.contentstyle)
         console.log("contentStyle="+JSON.stringify(contentStyle))
+        if @state.confirmCB
+           actions = [<FlatButton
+                        label="确定"
+                        primary={true}
+                        keyboardFocused={true}
+                        onTouchTap={@handleDiagConfirm}
+                      />,<FlatButton
+                          label="取消"
+                          primary={true}
+                          keyboardFocused={true}
+                          onTouchTap={@handleDiagClose}
+                      />]
+        else
+           actions = (<FlatButton
+                           label="确定"
+                           primary={true}
+                           keyboardFocused={true}
+                           onTouchTap={@handleDiagClose}
+                      />)
         return (
             <Dialog
                       title={title}
-                      actions={<FlatButton
-                                       label="Ok"
-                                       primary={true}
-                                       keyboardFocused={true}
-                                       onTouchTap={@handleDiagClose}
-                                     />}
+                      actions={actions}
                       modal={false}
                       open={@state.diagopen}
                       onRequestClose={@handleDiagClose}
-                      contentStyle = {contentStyle}
+                      bodyStyle = {contentStyle}
+                      autoScrollBodyContent = true
                     >
                     {body}
 

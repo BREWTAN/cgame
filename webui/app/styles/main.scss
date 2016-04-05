@@ -568,10 +568,11 @@ $wager_bkcolor: #424242;
 }
 .msgwageritems{
     .row {
-        margin: 10px 20px 10px 20px;
-        line-height: 32px;
-        height: 32px;
+        padding: 5px 30px 5px 30px;
+        line-height: 36px;
+        height: 36px;
         color: #FF7206;
+        font-size: 16px;
     }
     .title{
         color: #a20b2a;
@@ -579,6 +580,20 @@ $wager_bkcolor: #424242;
     .item:nth-child(even){
         background-color: #CCCCCC;
     }
+    .item:nth-child(odd){
+        background-color: #E6E6E6;
+    }
+    max-height: 200px;
+    overflow:scroll;
+}
+.msgwagertotal {
+    color: #a20b2a;
+    font-size:16px;
+    padding-top: 10px;
+    b {
+        font-size:18px;
 
+        color: #FF7206;
+    }
 }
 

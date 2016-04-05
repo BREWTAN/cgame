@@ -20,7 +20,8 @@ PopupDiag = React.createClass({
       diagopen: false,
       diagmessage: "",
       titlediv: void 0,
-      contentstyle: {}
+      contentstyle: {},
+      confirmCB: void 0
     };
   },
   handleDiagClose: function() {
@@ -28,16 +29,24 @@ PopupDiag = React.createClass({
       diagopen: false
     });
   },
-  handleDiagOpen: function(message, titlediv, contentstyle) {
+  handleDiagOpen: function(message, titlediv, contentstyle, confirmCB, cbparams) {
     return this.setState({
       diagopen: true,
       diagmessage: message,
       titlediv: titlediv,
-      contentstyle: contentstyle
+      contentstyle: contentstyle,
+      confirmCB: confirmCB,
+      cbparams: cbparams
+    });
+  },
+  handleDiagConfirm: function() {
+    this.state.confirmCB(this.state.cbparams);
+    return this.setState({
+      diagopen: false
     });
   },
   render: function() {
-    var body, contentStyle, title;
+    var actions, body, contentStyle, title;
     if (this.state.titlediv) {
       title = React.createElement("div", {
         "style": {
@@ -64,24 +73,38 @@ PopupDiag = React.createClass({
         }
       }, this.state.diagmessage);
     }
-    contentStyle = _.extend({
-      width: "40%",
-      minWidth: "300px",
-      kkk: "contentsssytle"
-    }, this.state.contentstyle);
+    contentStyle = _.extend({}, this.state.contentstyle);
     console.log("contentStyle=" + JSON.stringify(contentStyle));
-    return React.createElement(Dialog, {
-      "title": title,
-      "actions": React.createElement(FlatButton, {
-        "label": "Ok",
+    if (this.state.confirmCB) {
+      actions = [
+        React.createElement(FlatButton, {
+          "label": "确定",
+          "primary": true,
+          "keyboardFocused": true,
+          "onTouchTap": this.handleDiagConfirm
+        }), React.createElement(FlatButton, {
+          "label": "取消",
+          "primary": true,
+          "keyboardFocused": true,
+          "onTouchTap": this.handleDiagClose
+        })
+      ];
+    } else {
+      actions = React.createElement(FlatButton, {
+        "label": "确定",
         "primary": true,
         "keyboardFocused": true,
         "onTouchTap": this.handleDiagClose
-      }),
+      });
+    }
+    return React.createElement(Dialog, {
+      "title": title,
+      "actions": actions,
       "modal": false,
       "open": this.state.diagopen,
       "onRequestClose": this.handleDiagClose,
-      "contentStyle": contentStyle
+      "bodyStyle": contentStyle,
+      "autoScrollBodyContent": true
     }, body);
   }
 });

@@ -114,8 +114,8 @@ gm_CQSSC = React.createClass(
                 wagercount: wagercount
                 wagerballs: playballs
 
-    handleDiagOpen: (message,titlediv,contentstyle) ->
-       if @refs["popupDiag"] then @refs["popupDiag"].handleDiagOpen(message,titlediv,contentstyle)
+    handleDiagOpen: (message,titlediv,contentstyle,confirmCB,cbparams) ->
+       if @refs["popupDiag"] then @refs["popupDiag"].handleDiagOpen(message,titlediv,contentstyle,confirmCB,cbparams)
 
     onDeleteSelectListItem: () ->
         totalWagers = @refs["totalWagers"]

@@ -1,4 +1,4 @@
-var Checkbox, GL_CQSSC, List, ListItem, MenuItem, OrderChaseList, RaisedButton, React, SelectField, TextField, TotalWagers, injectTapEventPlugin;
+var Checkbox, Divider, GL_CQSSC, List, ListItem, MenuItem, OrderChaseList, RaisedButton, React, SelectField, TextField, TotalWagers, injectTapEventPlugin;
 
 React = require("react");
 
@@ -21,6 +21,8 @@ Checkbox = require('material-ui/lib/checkbox');
 OrderChaseList = require("./OrderChaseList.js");
 
 GL_CQSSC = require('../libs/gl_CQSSC.js');
+
+Divider = require('material-ui/lib/divider');
 
 TotalWagers = React.createClass({
   getInitialState: function() {
@@ -45,7 +47,7 @@ TotalWagers = React.createClass({
     return this.refs["chaselist"].updateHeaderInfo();
   },
   handleSubmitWagers: function() {
-    var confirmitems, currentPeroid, itemcom, items, key, title, v;
+    var CB, confirmitems, currentPeroid, itemcom, items, key, title, v;
     if (this.state.zhuihao) {
       console.log("handleSubmitWagers.追号");
       title = "您";
@@ -67,13 +69,18 @@ TotalWagers = React.createClass({
       title = React.createElement("div", {
         "className": "diagtitle"
       }, " 是否将如下选号投入:", React.createElement("b", null, " ", currentPeroid, " "), " 期? ");
-      items = React.createElement("div", {
+      items = React.createElement("div", null, React.createElement("div", {
         "className": "msgwageritems"
-      }, itemcom);
+      }, itemcom), React.createElement(Divider, null), React.createElement("div", {
+        "className": "msgwagertotal"
+      }, "总金额 : ", React.createElement("b", null, this.state.totalWagerMoney), " 元"));
     }
+    CB = function(self) {
+      return console.log("okok!totalWagerMoney=" + self.state.totalWagerMoney);
+    };
     return this.props.handleDiagOpen(items, title, {
       padding: "10px 10px 10px 20px"
-    });
+    }, CB, this);
   },
   render: function() {
     var WagerMoneyOnce, comZhuiHao, styles, totalWagerMoney;
