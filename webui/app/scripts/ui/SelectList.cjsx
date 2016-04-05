@@ -49,6 +49,8 @@ SelectList = React.createClass(
             delete @state.items[key]
             @setState
                 update:true
+            @props.onDeleteItem()
+
 
     render:() ->
         styles = {

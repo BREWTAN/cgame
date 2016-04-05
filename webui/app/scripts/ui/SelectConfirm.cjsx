@@ -43,7 +43,7 @@ SelectConfirm = React.createClass(
         @setState
             bonerValue: @refs["slider"].state.percent
     getMoneyTotal:() ->
-         return (@state.wagercount*@state.multi*@state.moneyType).toFixed(3)
+         return (@state.wagercount*@state.multi*@state.moneyType*2).toFixed(3)
 
     getBonnerMoney:() ->
         return parseInt(@state.boners["rangeMoney"][0]+(@state.boners["rangeMoney"][1]-@state.boners["rangeMoney"][0])*@state.bonerValue)

@@ -114,6 +114,12 @@ gm_CQSSC = React.createClass(
     handleDiagOpen: (message) ->
        if @refs["popupDiag"] then @refs["popupDiag"].handleDiagOpen(message)
 
+    onDeleteSelectListItem: () ->
+        totalWagers = @refs["totalWagers"]
+        countAnMoney = @refs["selectList"].getTotalWagerCountAndMoney()
+        totalWagers.setState
+            totalWagerCount: countAnMoney[0]
+            totalWagerMoney: countAnMoney[1]
 
     handleSelectConfirm: () ->
         wname = GL_CQSSC.getWanfaName(@state.wanfa,@state.wanfaLine2,@state.wanfaLine3)
@@ -135,10 +141,10 @@ gm_CQSSC = React.createClass(
                 GL_CQSSC.cleanSelectBalls()
                 totalWagers = @refs["totalWagers"]
                 countAnMoney = selectList.getTotalWagerCountAndMoney()
-                totalWagers.setState
-                    totalWagerCount: countAnMoney[0]
-                    totalMoney: countAnMoney[1]
-
+                cb = () ->
+                    totalWagers.handleUpdateHeader()
+                newstate = {totalWagerCount: countAnMoney[0],totalWagerMoney: countAnMoney[1]}
+                totalWagers.setState(newstate,cb)
             else
                 @handleDiagOpen("确认区有相同的投注内容")
 
@@ -264,7 +270,7 @@ gm_CQSSC = React.createClass(
                         </div>
                         <div className="row wagerarea">
                            { selectconfirmCom }
-                            <SelectList ref="selectList" />
+                            <SelectList onDeleteItem = {@onDeleteSelectListItem} ref="selectList" />
 
                             <TotalWagers ref="totalWagers"/>
 

@@ -55,15 +55,18 @@ OrderChaseItem = React.createClass(
         else  wagertime.add((@props.peroid-96)*5,'m').add(22,'h')
 
         wagertime.add(-55,'s')
-
+        if @state.selected
+            money = "￥"+(@props.money*@state.multi).toFixed(3)+"元"
+        else
+            money = "-"
         return (
 
             <tr>
-                <td><input type="checkbox"/> </td>
+                <td><input type="checkbox" id={@props.peroid} checked = {@state.selected} onChange = {@props.onCheckItem} /> </td>
                 <td>{@props.idx} </td>
                 <td>{peroid}</td>
-                <td><input type="text" size=5 defaultValue=0 maxLength=5 />倍</td>
-                <td>￥200</td>
+                <td><input type="text"  id={@props.peroid} size=5 value={@state.multi} onChange= {@props.onChangeItemMulti} maxLength=5 />倍</td>
+                <td>{money}</td>
                 <td>{wagertime.format('YYYY-MM-DD HH:mm:ss')}</td>
             </tr>
 

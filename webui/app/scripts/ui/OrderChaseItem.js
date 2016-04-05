@@ -31,7 +31,7 @@ OrderChaseItem = React.createClass({
     return this.props.changeSel(this.props.idx);
   },
   render: function() {
-    var cn, peroid, styles, wagertime;
+    var cn, money, peroid, styles, wagertime;
     styles = {
       btn: {
         width: "100%",
@@ -60,14 +60,24 @@ OrderChaseItem = React.createClass({
       wagertime.add((this.props.peroid - 96) * 5, 'm').add(22, 'h');
     }
     wagertime.add(-55, 's');
+    if (this.state.selected) {
+      money = "￥" + (this.props.money * this.state.multi).toFixed(3) + "元";
+    } else {
+      money = "-";
+    }
     return React.createElement("tr", null, React.createElement("td", null, React.createElement("input", {
-      "type": "checkbox"
+      "type": "checkbox",
+      "id": this.props.peroid,
+      "checked": this.state.selected,
+      "onChange": this.props.onCheckItem
     }), " "), React.createElement("td", null, this.props.idx, " "), React.createElement("td", null, peroid), React.createElement("td", null, React.createElement("input", {
       "type": "text",
+      "id": this.props.peroid,
       "size": 5,
-      "defaultValue": 0,
+      "value": this.state.multi,
+      "onChange": this.props.onChangeItemMulti,
       "maxLength": 5
-    }), "倍"), React.createElement("td", null, "￥200"), React.createElement("td", null, wagertime.format('YYYY-MM-DD HH:mm:ss')));
+    }), "倍"), React.createElement("td", null, money), React.createElement("td", null, wagertime.format('YYYY-MM-DD HH:mm:ss')));
   }
 });
 

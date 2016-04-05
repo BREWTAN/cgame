@@ -50,7 +50,7 @@ SelectConfirm = React.createClass({
     });
   },
   getMoneyTotal: function() {
-    return (this.state.wagercount * this.state.multi * this.state.moneyType).toFixed(3);
+    return (this.state.wagercount * this.state.multi * this.state.moneyType * 2).toFixed(3);
   },
   getBonnerMoney: function() {
     return parseInt(this.state.boners["rangeMoney"][0] + (this.state.boners["rangeMoney"][1] - this.state.boners["rangeMoney"][0]) * this.state.bonerValue);

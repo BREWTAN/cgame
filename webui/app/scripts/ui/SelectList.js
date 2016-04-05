@@ -58,9 +58,10 @@ SelectList = React.createClass({
     console.log("deleteItem==" + key);
     if (this.state.items[key]) {
       delete this.state.items[key];
-      return this.setState({
+      this.setState({
         update: true
       });
+      return this.props.onDeleteItem();
     }
   },
   render: function() {

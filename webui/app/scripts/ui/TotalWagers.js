@@ -24,8 +24,8 @@ TotalWagers = React.createClass({
   getInitialState: function() {
     return {
       zhuihao: true,
-      totalWagerCount: 1,
-      totalWagerMoney: 1000
+      totalWagerCount: 0,
+      totalWagerMoney: 0
     };
   },
   handleClickZhuihao: function(e) {
@@ -37,8 +37,12 @@ TotalWagers = React.createClass({
   handleClickZhuihaoStop: function(e) {
     return console.log("handleClickZhuihaoStop:" + e.currentTarget.checked);
   },
+  handleUpdateHeader: function() {
+    console.log("handleUpdateHeader");
+    return this.refs["chaselist"].updateHeaderInfo();
+  },
   render: function() {
-    var comZhuiHao, styles;
+    var comZhuiHao, styles, totalWagerMoney;
     styles = {
       listcs: {
         width: "100%",
@@ -62,10 +66,16 @@ TotalWagers = React.createClass({
         height: "36px"
       }
     };
+    totalWagerMoney = parseFloat(this.state.totalWagerMoney).toFixed(4);
+    console.log("change wagerMoney:" + totalWagerMoney);
     if (this.state.zhuihao) {
       comZhuiHao = React.createElement("div", {
         "className": "col-sm-12"
-      }, React.createElement(OrderChaseList, null), " ");
+      }, React.createElement(OrderChaseList, {
+        "ref": "chaselist",
+        "totalWagerCount": this.state.totalWagerCount,
+        "totalWagerMoney": totalWagerMoney
+      }), " ");
     } else {
       comZhuiHao = React.createElement("div", null);
     }
@@ -77,7 +87,7 @@ TotalWagers = React.createClass({
       "className": "col-sm-9"
     }, "您已确认 ", React.createElement("b", null, this.state.totalWagerCount), " 注, 总金额 ", React.createElement("b", {
       "id": "money_total"
-    }, this.state.totalMoney), " 元\n", React.createElement(ListItem, {
+    }, totalWagerMoney), " 元\n", React.createElement(ListItem, {
       "style": styles.listcs,
       "leftCheckbox": React.createElement(Checkbox, {
         "checked": this.state.zhuihao,

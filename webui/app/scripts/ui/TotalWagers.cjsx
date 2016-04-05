@@ -18,8 +18,9 @@ TotalWagers = React.createClass(
 
     getInitialState:() ->
         zhuihao: true
-        totalWagerCount: 1
-        totalWagerMoney: 1000
+        totalWagerCount: 0
+        totalWagerMoney: 0
+
 
     handleClickZhuihao:(e) ->
         console.log("handleClickZhuihao:"+e.currentTarget.value)
@@ -29,6 +30,10 @@ TotalWagers = React.createClass(
     handleClickZhuihaoStop:(e) ->
         console.log("handleClickZhuihaoStop:"+e.currentTarget.checked)
 
+
+    handleUpdateHeader:() ->
+        console.log("handleUpdateHeader")
+        @refs["chaselist"].updateHeaderInfo()
 
     render:() ->
         styles = {
@@ -56,14 +61,16 @@ TotalWagers = React.createClass(
                 height:"36px"
             }
         };
+        totalWagerMoney = parseFloat(@state.totalWagerMoney).toFixed(4)
+        console.log("change wagerMoney:"+totalWagerMoney)
         if @state.zhuihao
-            comZhuiHao = <div className="col-sm-12"><OrderChaseList /> </div>
+            comZhuiHao = <div className="col-sm-12"><OrderChaseList ref="chaselist" totalWagerCount={@state.totalWagerCount} totalWagerMoney={totalWagerMoney} /> </div>
         else
             comZhuiHao=  <div></div>
         return (
          <div className="wagertotal col-sm-12">
             <div className="col-sm-12">
-                 <div className="col-sm-9">您已确认 <b>{@state.totalWagerCount}</b> 注, 总金额 <b id="money_total">{@state.totalMoney}</b> 元
+                 <div className="col-sm-9">您已确认 <b>{@state.totalWagerCount}</b> 注, 总金额 <b id="money_total">{totalWagerMoney}</b> 元
 
                      <ListItem style={styles.listcs}
 

@@ -117,8 +117,17 @@ gm_CQSSC = React.createClass({
       return this.refs["popupDiag"].handleDiagOpen(message);
     }
   },
+  onDeleteSelectListItem: function() {
+    var countAnMoney, totalWagers;
+    totalWagers = this.refs["totalWagers"];
+    countAnMoney = this.refs["selectList"].getTotalWagerCountAndMoney();
+    return totalWagers.setState({
+      totalWagerCount: countAnMoney[0],
+      totalWagerMoney: countAnMoney[1]
+    });
+  },
   handleSelectConfirm: function() {
-    var bonnerMoney, countAnMoney, money, scCOM, scState, selectList, totalWagers, v, wname;
+    var bonnerMoney, cb, countAnMoney, money, newstate, scCOM, scState, selectList, totalWagers, v, wname;
     wname = GL_CQSSC.getWanfaName(this.state.wanfa, this.state.wanfaLine2, this.state.wanfaLine3);
     scCOM = this.refs["selectconfirm"];
     scState = scCOM.state;
@@ -134,10 +143,14 @@ gm_CQSSC = React.createClass({
         GL_CQSSC.cleanSelectBalls();
         totalWagers = this.refs["totalWagers"];
         countAnMoney = selectList.getTotalWagerCountAndMoney();
-        return totalWagers.setState({
+        cb = function() {
+          return totalWagers.handleUpdateHeader();
+        };
+        newstate = {
           totalWagerCount: countAnMoney[0],
-          totalMoney: countAnMoney[1]
-        });
+          totalWagerMoney: countAnMoney[1]
+        };
+        return totalWagers.setState(newstate, cb);
       } else {
         return this.handleDiagOpen("确认区有相同的投注内容");
       }
@@ -301,6 +314,7 @@ gm_CQSSC = React.createClass({
     }, ballLines), React.createElement("div", {
       "className": "row wagerarea"
     }, selectconfirmCom, React.createElement(SelectList, {
+      "onDeleteItem": this.onDeleteSelectListItem,
       "ref": "selectList"
     }), React.createElement(TotalWagers, {
       "ref": "totalWagers"
