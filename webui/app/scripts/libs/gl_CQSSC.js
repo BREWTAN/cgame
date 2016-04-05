@@ -152,6 +152,7 @@ GL_CQSSC = {
   },
   changeBallState: function(ballcom, selected) {
     var balldom;
+    console.log("ballcom=.newstate = " + selected + ",old = " + ballcom.state.selected);
     ballcom.setState({
       "selected": selected
     });
@@ -174,6 +175,9 @@ GL_CQSSC = {
       balldom = ReactDOM.findDOMNode(ballcom);
       balldom.style.backgroundColor = '#E0E0E0';
       balldom.style.color = "rgba(0, 0, 0, 0.87)";
+      ballcom.setState({
+        "selected": false
+      });
       results.push(delete gl_selectedBalls[ballcom.props["data-id"]]);
     }
     return results;

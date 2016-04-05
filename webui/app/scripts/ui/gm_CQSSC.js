@@ -53,7 +53,7 @@ wanfaLine3EleText = [['组选120', '组选60', '组选30', '组选20', '组选10
 gm_CQSSC = React.createClass({
   getInitialState: function() {
     return {
-      wanfa: 0,
+      wanfa: 2,
       wanfaLine2: 0,
       wanfaLine3: -1,
       gameIndex: 0,

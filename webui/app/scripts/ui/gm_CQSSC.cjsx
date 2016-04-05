@@ -58,7 +58,7 @@ gm_CQSSC = React.createClass(
 
 
     getInitialState:() ->
-        wanfa:0
+        wanfa:2
         wanfaLine2:0
         wanfaLine3: -1
         gameIndex: 0,

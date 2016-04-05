@@ -76,7 +76,7 @@ TotalWagers = React.createClass(
                             />
                  </div>
 
-                 <div className="row col-sm-3">
+                 <div className="row col-sm-3" style={marginBottom:"10px"}>
                       <RaisedButton label="提交注单" style={styles.confirmbtn}
                         primary={true} onTouchTap={this.handleOpen}/>
                  </div>

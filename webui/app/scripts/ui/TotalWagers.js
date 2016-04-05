@@ -96,7 +96,10 @@ TotalWagers = React.createClass({
       }),
       "primaryText": "中奖后停止追号"
     })), React.createElement("div", {
-      "className": "row col-sm-3"
+      "className": "row col-sm-3",
+      "style": {
+        marginBottom: "10px"
+      }
     }, React.createElement(RaisedButton, {
       "label": "提交注单",
       "style": styles.confirmbtn,

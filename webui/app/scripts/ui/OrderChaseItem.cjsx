@@ -5,15 +5,18 @@ injectTapEventPlugin = require("react-tap-event-plugin");
 
 FlatButton = require('material-ui/lib/flat-button');
 EnhancedButton = require('material-ui/lib//enhanced-button');
+moment = require('moment');
+
+String.prototype.lpad = (padString, length) ->
+    str = this;
+    while (str.length < length)
+        str = padString + str;
+    return str;
+
 
 OrderChaseItem = React.createClass(
 
     getInitialState:() ->
-        wname: "组三单式"
-        balls: "6,5,3"
-        count: 1
-        money: 2
-        moneyUnit: "元"
         multi: 1
         selected: false
 
@@ -21,10 +24,6 @@ OrderChaseItem = React.createClass(
         console.log("onTouchTap:"+@state.selected+"::selidx="+@props.selidx)
         @props.changeSel(@props.idx)
 
-
-    onDelete:() ->
-        @props.deleteItem(@props.idx)
-        console.log("onDelete")
 
     render:() ->
         styles = {
@@ -48,15 +47,24 @@ OrderChaseItem = React.createClass(
 
         cn = if @props.selidx==@props.idx then "sel" else "";
 
+        peroid = @props.dayP+"-"+((@props.peroid+"").lpad("0",3))
+        #wagerDate = moment(@props.dayP,"YYYYMMDD")
+        wagertime = moment(@props.dayP,"YYYYMMDD")
+        if @props.peroid <= 23 then wagertime.add(@props.peroid*5,'m')
+        else  if @props.peroid <= 95  then wagertime.add((@props.peroid-24)*10,'m').add(10,'h')
+        else  wagertime.add((@props.peroid-96)*5,'m').add(22,'h')
+
+        wagertime.add(-55,'s')
+
         return (
+
             <tr>
                 <td><input type="checkbox"/> </td>
-                <td>20110203</td>
-                <td><input type="text" size=4 /></td>
-                <td>￥50</td>
-                <td>￥100</td>
+                <td>{@props.idx} </td>
+                <td>{peroid}</td>
+                <td><input type="text" size=5 defaultValue=0 maxLength=5 />倍</td>
                 <td>￥200</td>
-                <td>￥100</td>
+                <td>{wagertime.format('YYYY-MM-DD HH:mm:ss')}</td>
             </tr>
 
         );

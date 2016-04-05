@@ -68,31 +68,6 @@ SelectList = React.createClass({
     styles = {
       list: {
         width: "100%"
-      },
-      item: {
-        lineHeight: "24px",
-        color: "gray",
-        top: "0px",
-        fontSize: "13px",
-        height: "24px",
-        margin: "0",
-        padding: "0"
-      },
-      moneyIcon: {
-        lineHeight: "24px",
-        height: "24px",
-        backgroundColor: "#F2DEDE",
-        fill: "black",
-        marginTop: "-14px"
-      },
-      moneyUnderLine: {
-        backgroundColor: "black",
-        display: "none",
-        marginTop: "-12px"
-      },
-      confirmbtn: {
-        float: "right",
-        marginTop: "-3px"
       }
     };
     console.log("render:selectList");
@@ -135,12 +110,13 @@ SelectList = React.createClass({
       return results;
     }).call(this);
     return React.createElement("div", {
-      "className": "wagersum notop col-sm-12"
+      "className": "wagersum notop col-sm-12 "
+    }, React.createElement("div", {
+      "className": "selbox"
     }, React.createElement(List, {
       "style": styles.list,
-      "className": "selbox",
       "id": "boxs"
-    }, itemCOMs));
+    }, itemCOMs)));
   }
 });
 

@@ -55,32 +55,6 @@ SelectList = React.createClass(
          list:{
              width:"100%",
          },
-        item:{
-            lineHeight:"24px",
-            color:"gray",
-            top:"0px",
-            fontSize:"13px",
-            height:"24px",
-            margin:"0",
-            padding:"0",
-        }
-        moneyIcon:{
-          lineHeight:"24px",
-          height:"24px",
-          backgroundColor:"#F2DEDE",
-          fill:"black",
-          marginTop:"-14px"
-
-        }
-        moneyUnderLine:{
-          backgroundColor:"black",
-          display:"none"
-          marginTop:"-12px"
-        },
-        confirmbtn:{
-            float:"right"
-            marginTop:"-3px"
-        }
         };
         console.log("render:selectList")
         itemprops={ changeSel:@handleChangeItem,deleteItem:@deleteItem,selidx:@state.selidx }
@@ -106,10 +80,12 @@ SelectList = React.createClass(
                 } {...citemrop}   idx={key} key={key}/>
         )
         return (
-         <div className="wagersum notop col-sm-12">
-             <List style = {styles.list} className="selbox" id="boxs">
-                   {itemCOMs}
-             </List>
+         <div className="wagersum notop col-sm-12 ">
+            <div className="selbox">
+                 <List style = {styles.list} id="boxs">
+                       {itemCOMs}
+                 </List>
+             </div>
           </div>
         );
 )

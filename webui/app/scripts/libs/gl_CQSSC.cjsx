@@ -160,7 +160,7 @@ GL_CQSSC = {
   #      console.log("refs="+refs+",lineno="+lineno+",index="+index+",selected="+refs[lineno+"_"+index].state["selected"])
         #self.upstate({"selected":true})
     changeBallState:(ballcom,selected) ->
-        #console.log("ballcom=.newstate = "+selected+",old = "+ballcom.state.selected)
+        console.log("ballcom=.newstate = "+selected+",old = "+ballcom.state.selected)
         ballcom.setState({"selected":selected})
         balldom = ReactDOM.findDOMNode(ballcom)
         if selected
@@ -178,6 +178,7 @@ GL_CQSSC = {
             balldom = ReactDOM.findDOMNode(ballcom)
             balldom.style.backgroundColor = '#E0E0E0';
             balldom.style.color = "rgba(0, 0, 0, 0.87)"
+            ballcom.setState({"selected":false})
             delete gl_selectedBalls[ballcom.props["data-id"]]
 
     handleFuncClickBall:(refs,lineno,event) ->

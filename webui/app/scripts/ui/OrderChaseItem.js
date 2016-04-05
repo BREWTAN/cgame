@@ -1,4 +1,4 @@
-var EnhancedButton, FlatButton, OrderChaseItem, React, injectTapEventPlugin;
+var EnhancedButton, FlatButton, OrderChaseItem, React, injectTapEventPlugin, moment;
 
 React = require("react");
 
@@ -8,14 +8,20 @@ FlatButton = require('material-ui/lib/flat-button');
 
 EnhancedButton = require('material-ui/lib//enhanced-button');
 
+moment = require('moment');
+
+String.prototype.lpad = function(padString, length) {
+  var str;
+  str = this;
+  while (str.length < length) {
+    str = padString + str;
+  }
+  return str;
+};
+
 OrderChaseItem = React.createClass({
   getInitialState: function() {
     return {
-      wname: "组三单式",
-      balls: "6,5,3",
-      count: 1,
-      money: 2,
-      moneyUnit: "元",
       multi: 1,
       selected: false
     };
@@ -24,12 +30,8 @@ OrderChaseItem = React.createClass({
     console.log("onTouchTap:" + this.state.selected + "::selidx=" + this.props.selidx);
     return this.props.changeSel(this.props.idx);
   },
-  onDelete: function() {
-    this.props.deleteItem(this.props.idx);
-    return console.log("onDelete");
-  },
   render: function() {
-    var cn, styles;
+    var cn, peroid, styles, wagertime;
     styles = {
       btn: {
         width: "100%",
@@ -48,12 +50,24 @@ OrderChaseItem = React.createClass({
       }
     };
     cn = this.props.selidx === this.props.idx ? "sel" : "";
+    peroid = this.props.dayP + "-" + ((this.props.peroid + "").lpad("0", 3));
+    wagertime = moment(this.props.dayP, "YYYYMMDD");
+    if (this.props.peroid <= 23) {
+      wagertime.add(this.props.peroid * 5, 'm');
+    } else if (this.props.peroid <= 95) {
+      wagertime.add((this.props.peroid - 24) * 10, 'm').add(10, 'h');
+    } else {
+      wagertime.add((this.props.peroid - 96) * 5, 'm').add(22, 'h');
+    }
+    wagertime.add(-55, 's');
     return React.createElement("tr", null, React.createElement("td", null, React.createElement("input", {
       "type": "checkbox"
-    }), " "), React.createElement("td", null, "20110203"), React.createElement("td", null, React.createElement("input", {
+    }), " "), React.createElement("td", null, this.props.idx, " "), React.createElement("td", null, peroid), React.createElement("td", null, React.createElement("input", {
       "type": "text",
-      "size": 4
-    })), React.createElement("td", null, "￥50"), React.createElement("td", null, "￥100"), React.createElement("td", null, "￥200"), React.createElement("td", null, "￥100"));
+      "size": 5,
+      "defaultValue": 0,
+      "maxLength": 5
+    }), "倍"), React.createElement("td", null, "￥200"), React.createElement("td", null, wagertime.format('YYYY-MM-DD HH:mm:ss')));
   }
 });
 

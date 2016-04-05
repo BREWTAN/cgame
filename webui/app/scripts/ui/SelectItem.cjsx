@@ -46,9 +46,9 @@ SelectItem = React.createClass(
              height:"24px"
              border: "0 none"
              color:"gray"
-             padding:"0px 15px 0px 10px"
+             padding:"2px 15px 0px 10px"
              borderBottom: "1px dashed gray"
-             marginTop:"-6px"
+
          },
         delbtn:{
             height:"24px"

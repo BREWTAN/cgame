@@ -335,9 +335,7 @@ $wager_bkcolor: #424242;
 
     .wagertotal{
         margin-top: 20px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-right:0px;
+        padding: 10px 0px 0px 0px;
         color: whitesmoke;
         line-height: 30px;
         background-color: $wager_bkcolor;
@@ -346,6 +344,9 @@ $wager_bkcolor: #424242;
         }
         .col-sm-3{
             padding-right: 10px;
+        }
+        .col-sm-12{
+            margin-bottom: 10px;
         }
     }
 
@@ -409,16 +410,26 @@ $wager_bkcolor: #424242;
     border-left: 1px #8d8d8d solid;
     border-right: 1px #d7d7d7 solid;
     border-bottom: 1px #d7d7d7 solid;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     height:113px;
 
+    width:100%;
+    div {
+        height:100%;
+
+    }
     span > div{
-            width:100%
+        width:100%
     }
 
     span.sel{
         background-color:#eeff41 !important;
+    }
+    #boxs {
+        height:initial;
+        min-height: 100%;
+        width: 100%;
     }
 
 }
@@ -443,11 +454,26 @@ $wager_bkcolor: #424242;
     -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
+.scrollvboxs::-webkit-scrollbar {
+    //-webkit-appearance: none;
+    width: 5px;
+    background-color: rgb(236, 236, 236);
+    -webkit-appearance: normal;
+}
+.scrollvboxs::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
 .zhuihao{
-   padding-left: 0px;
-   border-width: 1px 1px 3px;
-   background: #474747;
+   padding: 0px 0px 0px 0px;
+   background: white;
    color: #ccc;
+    div{
+        padding: 0px 0px 0px 0px;
+    }
 }
 .chaserb{
     height: 22px;
@@ -456,35 +482,75 @@ $wager_bkcolor: #424242;
     margin-top: 10px;
     padding-left: 0px;
     input[type=text]{
-        height: 16px;
-        line-height: 13px;
-        padding: 0px;
+        height: 28px;
+        line-height: 28px;
+        padding: 0px 5px 0px 5px;
         border: 0px;
         font-size: 13px;
-        color: red;
+        color: rgb(255, 6, 6);
         font-weight: bold;
         text-align: center;
+        border: 1px rgb(204, 204, 204) solid;
+        margin-right: 10px;
     }
     input[type=checkbox]{
         height: 12px;
-
+        margin-left: 10px;
     }
     th{
         background-color: #ccc;
         border:0px;
     }
     tr{
-        height: 22px;
-        line-height: 22px;
         overflow: hidden;
-        border: 1px solid #f5d314;
-        border-color: #f5d314 #b77e3b #b77e3b #f5d314;
-        background: #ebab00;
+        border-bottom: 1px rgb(204, 204, 204) solid;
+        background: #ececec;
         color: #000;
+        font-size: 15px;
+        font-family: "microsoft yahei",Arial, Helvetica, sans-serif;
     }
     tr, td,th {
-        height:22px;
-        line-height: 22px;
+        height:36px;
+        line-height: 36px;
+    }
+
+    .ctrl{//追号控制面板
+        background-color:rgb(236, 236, 236);
+        border-style:solid;
+        border-width:1px;
+        border-color:rgb(162, 11, 42);
+        color:rgb(37, 44, 49);
+        font-family:'microsoft yahei', Arial, Helvetica, sans-serif;
+        font-size:14px;
+        //height:83px;
+        margin:0;
+        outline-color:rgb(37, 44, 49);
+        padding:10px 10px 10px 10px;
+        width:100%;
+
+        .select{
+            div {
+                background-color: white;
+
+            }
+
+        }
+        b {
+            font-size:18px;
+        }
+        input{
+            font-size:18px;
+            color: $money_color;
+            text-align: center;
+            margin-right: 20px;
+            height: 32px;
+        }
+    }
+    .chasebox{
+        margin-top: -11px;
+        height: 200px;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 
 }
