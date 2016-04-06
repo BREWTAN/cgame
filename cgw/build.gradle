@@ -1,0 +1,30 @@
+buildscript { dependencies { classpath "onight.osgi:npojo:1.2.0" } }
+
+apply plugin: 'ofw.actor'
+
+project.group='starstart.cgame'
+
+version = '1.0.0'
+
+buildscript{
+	repositories { maven { url "https://plugins.gradle.org/m2/" } }
+	dependencies {
+		classpath 'com.google.protobuf:protobuf-gradle-plugin:0.7.0' }
+	
+}
+
+dependencies {
+	compile 'onight.tfw:onight.tfw.oapi:2.1.2'
+	compile 'onight.osgi:npojo:1.2.0'
+	compile 'org.projectlombok:lombok:1.16.6'
+	compile 'org.apache.commons:commons-lang3:3.4'
+	compile 'org.slf4j:slf4j-api:1.7.12'
+	testCompile 'junit:junit:4.12'
+	compile 'org.apache.felix:org.apache.felix.ipojo.annotations:1.12.1'
+}
+
+
+jar {
+	manifest.attributes provider: 'starstart.cgame'
+//		manifest.attributes( 'Import-Package': 'onight.tfw.orouter.api,org.slf4j')
+}
