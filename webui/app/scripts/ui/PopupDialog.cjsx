@@ -49,18 +49,17 @@ PopupDiag = React.createClass(
             body = <div style={fontSize:"16px"}>{@state.diagmessage}</div>
 
         contentStyle = _.extend({},@state.contentstyle)
-        console.log("contentStyle="+JSON.stringify(contentStyle))
+        #console.log("contentStyle="+JSON.stringify(contentStyle))
         if @state.confirmCB
            actions = [<FlatButton
+                            label="取消"
+                            secondary={true}
+                            onTouchTap={@handleDiagClose}
+                        />,<FlatButton
                         label="确定"
                         primary={true}
                         keyboardFocused={true}
                         onTouchTap={@handleDiagConfirm}
-                      />,<FlatButton
-                          label="取消"
-                          primary={true}
-                          keyboardFocused={true}
-                          onTouchTap={@handleDiagClose}
                       />]
         else
            actions = (<FlatButton
@@ -78,6 +77,7 @@ PopupDiag = React.createClass(
                       onRequestClose={@handleDiagClose}
                       bodyStyle = {contentStyle}
                       autoScrollBodyContent = true
+                      contentStyle = {width:"30%",minWidth:"230px"}
                     >
                     {body}
 

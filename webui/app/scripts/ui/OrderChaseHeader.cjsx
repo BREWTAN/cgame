@@ -17,7 +17,7 @@ OrderChaseHeader = React.createClass(
         multi:0
         selidx:1
         chaseType: 0
-        chasePeroidCount: 5
+        selectPeroidCount: 5
 
     handleChaseType:(idx,event) ->
         #console.log("handleChaseType:"+idx+",event="+event+",this="+@)
@@ -30,7 +30,7 @@ OrderChaseHeader = React.createClass(
 
         if event.currentTarget.innerText.indexOf("全部") == 0 then v = 999
         @setState
-            chasePeroidCount:v
+            selectPeroidCount:v
 
         @refs["in_2"].value=Math.min(120,v)
 
@@ -95,20 +95,20 @@ OrderChaseHeader = React.createClass(
                 chaseperoidCOM = (<div className="row col-sm-12" style={height:"32px"}>
                                   起始倍数 : <input ref="in_0" defaultValue="1" id="1" size="5" maxLength="5" onChange={@onChangeInput.bind(@,0,0) }/>
                                   最低收益率 : <input ref="in_1" defaultValue="50" id="2" size="5" maxLength="5" onChange={@onChangeInput.bind(@,0,1) }/>
-                                  追号期数 : <input ref="in_2" defaultValue={@state.chasePeroidCount} id="3" size="5" maxLength="5" onChange={@onChangeInput.bind(@,0,2) }/>
+                                  追号期数 : <input ref="in_2" defaultValue={@state.selectPeroidCount} id="3" size="5" maxLength="5" onChange={@onChangeInput.bind(@,0,2) }/>
                                   {btnGenChase}
                 </div>)
             when 1
                 chaseperoidCOM = (<div className="row col-sm-12" style={height:"32px"}>
                                   起始倍数 : <input ref="in_0" defaultValue="1" id="1" size="5" maxLength="5" onChange={@onChangeInput.bind(@,1,0) }/>
-                                  追号期数 : <input ref="in_2" defaultValue={@state.chasePeroidCount} id="3" size="5" maxLength="5" onChange={@onChangeInput.bind(@,1,2) }/>
+                                  追号期数 : <input ref="in_2" defaultValue={@state.selectPeroidCount} id="3" size="5" maxLength="5" onChange={@onChangeInput.bind(@,1,2) }/>
                                   {btnGenChase}
                 </div>)
             when 2
                 chaseperoidCOM = (<div className="row col-sm-12" style={height:"32px"}>
                                   隔 : <input ref="in_0" defaultValue="1" id="1" size="5" maxLength="5" onChange={@onChangeInput.bind(@,2,0) }/>
                                   期 , 倍x : <input ref="in_1" defaultValue="2" id="2" size="5" maxLength="5" onChange={@onChangeInput.bind(@,2,1) }/>
-                                  追号期数 : <input ref="in_2" defaultValue={@state.chasePeroidCount} id="3" size="5" maxLength="5" onChange={@onChangeInput.bind(@,2,2) }/>
+                                  追号期数 : <input ref="in_2" defaultValue={@state.selectPeroidCount} id="3" size="5" maxLength="5" onChange={@onChangeInput.bind(@,2,2) }/>
                                   {btnGenChase}
 
                 </div>)
@@ -121,7 +121,7 @@ OrderChaseHeader = React.createClass(
                 </div>
                 <div className="ctrl">
                   <div className="row col-sm-12">
-                        追号期数 : <SelectField className="select" value={@state.chasePeroidCount} style={width:"100px",height:"32px",kk:"root",marginRight:"20px"}
+                        追号期数 : <SelectField className="select" value={@state.selectPeroidCount} style={width:"100px",height:"32px",kk:"root",marginRight:"20px"}
                             labelStyle={fontSize:"15px",width:"100%",textAlign:"center",paddingRight:"32px",kk:"label",lineHeight: "32px",paddingLeft: "10px",top: "1px",backgroundColor: "white"}
                             iconStyle={kk:"icon",height: "32px",width: "32px",fill:"black",top:"0px"}
                             underlineStyle={kk:"underlineStyle",display:"none"}

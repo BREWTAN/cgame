@@ -138,6 +138,75 @@ gm_CQSSC = React.createClass({
     selectList = this.refs["selectList"];
     return selectList.state.items;
   },
+  resetWager: function() {
+    var cb, newstate, totalWagers;
+    this.changeWagerCount(0);
+    this.refs["selectList"].resetData();
+    totalWagers = this.refs["totalWagers"];
+    cb = function() {
+      return totalWagers.handleUpdateHeader();
+    };
+    newstate = {
+      totalWagerCount: 0,
+      totalWagerMoney: 0,
+      WagerMoneyOnce: 0
+    };
+    return totalWagers.setState(newstate, cb);
+  },
+  handleSubmitWagers: function() {
+    var CB, chaseCount, confirmitems, currentPeroid, itemcom, items, key, title, totalWagers, totalwagermoney, v;
+    totalWagers = this.refs["totalWagers"];
+    if (totalWagers.state.totalWagerCount <= 0) {
+      this.handleDiagOpen("请选择你要投注的内容!");
+      return;
+    }
+    totalwagermoney = 0;
+    if (totalWagers.state.zhuihao) {
+      chaseCount = totalWagers.refs["chaselist"].refs["chaseHeader"].state.totalChasePeroid;
+      if (chaseCount <= 0) {
+        this.handleDiagOpen("请选择要追号的奖期!");
+        return;
+      }
+      totalwagermoney = totalWagers.refs["chaselist"].refs["chaseHeader"].state.totalChaseMoney;
+      title = React.createElement("div", {
+        "className": "diagtitle"
+      }, " 是否追号:", React.createElement("b", null, " ", chaseCount, " "), " 期? ");
+    } else {
+      currentPeroid = GL_CQSSC.GameState("currentPeroid");
+      title = React.createElement("div", {
+        "className": "diagtitle"
+      }, " 是否将如下选号投入:", React.createElement("b", null, " ", currentPeroid, " "), " 期? ");
+      totalwagermoney = totalWagers.state.totalWagerMoney;
+    }
+    confirmitems = this.getConfirmItems();
+    itemcom = (function() {
+      var results;
+      results = [];
+      for (key in confirmitems) {
+        v = confirmitems[key];
+        results.push(React.createElement("div", {
+          "className": "row item",
+          "key": key
+        }, " ", "[" + v[0] + "]" + v[1] + " ;  ￥" + v[3] + "元"));
+      }
+      return results;
+    })();
+    items = React.createElement("div", null, React.createElement("div", {
+      "className": "msgwageritems"
+    }, itemcom), React.createElement(Divider, null), React.createElement("div", {
+      "className": "msgwagertotal"
+    }, "总金额 : ", React.createElement("b", null, totalwagermoney), " 元"));
+    CB = function(data) {
+      console.log("okok!totalWagerMoney=" + data.self.wanfa + ",items=" + JSON.stringify(data.items));
+      return data.self.resetWager();
+    };
+    return this.handleDiagOpen(items, title, {
+      padding: "10px 10px 10px 20px"
+    }, CB, {
+      items: confirmitems,
+      self: this
+    });
+  },
   handleSelectConfirm: function() {
     var bonnerMoney, cb, countAnMoney, money, newstate, scCOM, scState, selectList, totalWagers, v, wname;
     wname = GL_CQSSC.getWanfaName(this.state.wanfa, this.state.wanfaLine2, this.state.wanfaLine3);
@@ -170,7 +239,7 @@ gm_CQSSC = React.createClass({
     }
   },
   render: function() {
-    var ballLines, index, inkBarStyle, selectconfirmCom, styles, text, wanfaLine2Element, wanfaLine3, wanfaLine3Element, wanfaListElement;
+    var ballLines, index, selectconfirmCom, styles, text, wanfaLine2Element, wanfaLine3, wanfaLine3Element, wanfaListElement;
     styles = {
       wanfa: {
         fontSize: "14px",
@@ -204,47 +273,8 @@ gm_CQSSC = React.createClass({
         backgroundColor: "#FF5722",
         color: "white",
         minWidth: "36px"
-      },
-      balltitle: {
-        backgroundColor: "#424242",
-        marginLeft: "5px",
-        marginRight: "0px",
-        minWidth: "32px",
-        lineHeight: "32px",
-        fontSize: "14px",
-        color: "white"
-      },
-      balltext: {
-        fontSize: "18px",
-        paddingLeft: "10px",
-        paddingRight: "10px",
-        lineHeight: "32px"
-      },
-      ball: {
-        backgroundColor: "#E0E0E0",
-        minWidth: "24px",
-        marginLeft: "5px",
-        marginRight: "0px",
-        lineHeight: "32px"
-      },
-      ballfunctitle: {
-        backgroundColor: "#E0E0E0",
-        marginLeft: "5px",
-        marginRight: "5px",
-        minWidth: "24px",
-        fontSize: "12px",
-        paddingLeft: "2px",
-        paddingRight: "2px"
-      },
-      ballfunc: {
-        backgroundColor: "#E0E0E0",
-        marginLeft: "2px",
-        marginRight: "2px",
-        lineHeight: "24px",
-        minWidth: "24px"
       }
     };
-    inkBarStyle = {};
     wanfaListElement = (function() {
       var i, len, results;
       results = [];
@@ -254,7 +284,7 @@ gm_CQSSC = React.createClass({
           "ref": "wf_" + index,
           "label": text,
           "primary": (index + "" === this.state.wanfa + "" ? true : false),
-          "key": index,
+          "key": "wf_0_" + index,
           "data-id": index,
           "onTouchTap": this.handleChangeWanfa,
           "labelStyle": styles.wanfa,
@@ -275,7 +305,7 @@ gm_CQSSC = React.createClass({
           "ref": "wf_1_" + index,
           "label": text,
           "style": (index + "" === this.state.wanfaLine2 + "" ? styles.wfbtnselected : styles.btn),
-          "key": index,
+          "key": "wf_1_" + index,
           "data-id": index,
           "onTouchTap": this.handleChangeWanfaLine2,
           "labelStyle": styles.wanfaLine2
@@ -293,7 +323,7 @@ gm_CQSSC = React.createClass({
           "ref": "wf_2_" + index,
           "label": text,
           "style": (index + "" === this.state.wanfaLine3 + "" ? styles.wfbtnselected : styles.btn),
-          "key": index,
+          "key": "wf_2_" + index,
           "data-id": index,
           "onTouchTap": this.handleChangeWanfaLine3,
           "labelStyle": styles.wanfaLine2
@@ -307,6 +337,7 @@ gm_CQSSC = React.createClass({
     }));
     ballLines = GL_CQSSC.genBallsWithName(this.state.wanfa, this.state.wanfaLine2, this.state.wanfaLine3, this.changeWagerCount, this.handleDiagOpen);
     selectconfirmCom = React.createElement(SelectConfirm, {
+      "key": "selectconfirm",
       "ref": "selectconfirm",
       "handlerConfirm": this.handleSelectConfirm
     });
@@ -320,19 +351,25 @@ gm_CQSSC = React.createClass({
       "className": "gamearea"
     }, React.createElement("div", {
       "className": "row"
-    }, wanfaListElement), React.createElement(Divider, null), React.createElement("div", {
+    }, wanfaListElement), React.createElement(Divider, {
+      "key": "div1"
+    }), React.createElement("div", {
       "className": "row wanfaLine "
-    }, React.createElement("span", null, wanfaLine2Text[this.state.wanfa], ":"), " ", wanfaLine2Element), wanfaLine3, React.createElement(Divider, null), React.createElement("div", {
+    }, React.createElement("span", null, wanfaLine2Text[this.state.wanfa], ":"), " ", wanfaLine2Element), wanfaLine3, React.createElement(Divider, {
+      "key": "div2"
+    }), React.createElement("div", {
       "className": "row ballLine"
     }, ballLines), React.createElement("div", {
       "className": "row wagerarea"
     }, selectconfirmCom, React.createElement(SelectList, {
+      "key": "selectlist",
       "onDeleteItem": this.onDeleteSelectListItem,
       "ref": "selectList"
     }), React.createElement(TotalWagers, {
+      "key": "totalwagers",
       "ref": "totalWagers",
       "handleDiagOpen": this.handleDiagOpen,
-      "getConfirmItems": this.getConfirmItems
+      "handleSubmitWagers": this.handleSubmitWagers
     })), React.createElement(Divider, null))), React.createElement("div", {
       "className": "col-md-3"
     }, React.createElement("div", {

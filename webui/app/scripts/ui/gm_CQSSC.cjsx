@@ -124,9 +124,56 @@ gm_CQSSC = React.createClass(
             totalWagers.handleUpdateHeader()
         newstate = {totalWagerCount: countAnMoney[0],totalWagerMoney: countAnMoney[1],WagerMoneyOnce:countAnMoney[2]}
         totalWagers.setState(newstate,cb)
+
     getConfirmItems:() ->
         selectList = @refs["selectList"]
         return selectList.state.items;
+
+    resetWager: () ->
+        @changeWagerCount(0)
+        @refs["selectList"].resetData()
+        totalWagers = @refs["totalWagers"]
+        cb = () ->
+            totalWagers.handleUpdateHeader()
+        newstate = {totalWagerCount: 0,totalWagerMoney: 0,WagerMoneyOnce:0}
+        totalWagers.setState(newstate,cb)
+
+    handleSubmitWagers:() ->
+        totalWagers = @refs["totalWagers"]
+        if totalWagers.state.totalWagerCount <= 0
+            @handleDiagOpen("请选择你要投注的内容!");
+            return;
+        totalwagermoney = 0
+        if totalWagers.state.zhuihao
+            #console.log("handleSubmitWagers.追号")
+            chaseCount = totalWagers.refs["chaselist"].refs["chaseHeader"].state.totalChasePeroid
+            if chaseCount <= 0
+                @handleDiagOpen("请选择要追号的奖期!");
+                return;
+
+            totalwagermoney = totalWagers.refs["chaselist"].refs["chaseHeader"].state.totalChaseMoney
+            title =  ( <div className="diagtitle"> 是否追号:<b> { chaseCount } </b> 期? </div>)
+
+        else
+            currentPeroid = GL_CQSSC.GameState("currentPeroid")
+            title = ( <div className="diagtitle"> 是否将如下选号投入:<b> { currentPeroid } </b> 期? </div>)
+            totalwagermoney =  totalWagers.state.totalWagerMoney
+        confirmitems = @getConfirmItems() #wname,balls,count,money,moneyUnit,multi,bonnerMode
+        itemcom = (( <div className="row item" key={key}> {"["+v[0]+"]" +v[1]+ " ;  ￥"+v[3]+"元" }</div>   ) for key,v of confirmitems)
+
+        items = ( <div>
+                    <div className = "msgwageritems">
+                        {itemcom}
+                    </div>
+                    <Divider />
+                    <div className="msgwagertotal">总金额 : <b>{totalwagermoney}</b> 元</div>
+                 </div>)
+
+        CB = (data) ->
+            console.log("okok!totalWagerMoney="+data.self.wanfa+",items="+JSON.stringify(data.items))
+            data.self.resetWager()
+
+        @handleDiagOpen(items,title,{padding:"10px 10px 10px 20px"},CB,{items:confirmitems,self:@})
 
     handleSelectConfirm: () ->
         wname = GL_CQSSC.getWanfaName(@state.wanfa,@state.wanfaLine2,@state.wanfaLine3)
@@ -192,70 +239,22 @@ gm_CQSSC = React.createClass(
              color: "white"
              minWidth:"36px"
           },
-          balltitle:{
-             backgroundColor: "#424242"
-             marginLeft:"5px",
-             marginRight:"0px",
-             minWidth:"32px",
-             lineHeight:"32px",
-             fontSize: "14px",
-             color:"white"
-          },
-          balltext: {
-            fontSize: "18px",
-            paddingLeft:"10px",
-            paddingRight:"10px",
-            lineHeight:"32px",
-          },
-          ball:{
-            backgroundColor: "#E0E0E0"
-            minWidth:"24px"
-            marginLeft:"5px",
-            marginRight:"0px",
-            lineHeight:"32px",
-            },
-          ballfunctitle:{
-             backgroundColor: "#E0E0E0"
-             marginLeft:"5px",
-             marginRight:"5px",
-             minWidth:"24px",
-             fontSize: "12px",
-             paddingLeft:"2px",
-             paddingRight:"2px",
-
-          }
-          ballfunc:{
-            backgroundColor: "#E0E0E0"
-            marginLeft:"2px",
-            marginRight:"2px",
-            lineHeight:"24px",
-            minWidth:"24px"
-            }
-
 
         };
-        inkBarStyle={
 
-        }
+        wanfaListElement=( <div ><FlatButton ref={"wf_"+index} label={text} primary= { if index+"" == @state.wanfa+"" then true else false } key={"wf_0_"+index} data-id={index} onTouchTap={@handleChangeWanfa} labelStyle={styles.wanfa} style={styles.btn} /><div className="vdivider" ></div></div> for text,index in wanfaList )
 
-
-
-        wanfaListElement=( <div><FlatButton ref={"wf_"+index} label={text} primary= { if index+"" == @state.wanfa+"" then true else false } key={index} data-id={index} onTouchTap={@handleChangeWanfa} labelStyle={styles.wanfa} style={styles.btn} /><div className="vdivider"></div></div> for text,index in wanfaList )
-
-        wanfaLine2Element = ( <FlatButton ref={"wf_1_"+index} label={text} style= { if index+"" == @state.wanfaLine2+"" then styles.wfbtnselected else styles.btn } key={index} data-id={index} onTouchTap={@handleChangeWanfaLine2} labelStyle={styles.wanfaLine2} /> for text,index in wanfaLine2EleText[@state.wanfa] )
+        wanfaLine2Element = ( <FlatButton ref={"wf_1_"+index} label={text} style= { if index+"" == @state.wanfaLine2+"" then styles.wfbtnselected else styles.btn } key={"wf_1_"+index} data-id={index} onTouchTap={@handleChangeWanfaLine2} labelStyle={styles.wanfaLine2} /> for text,index in wanfaLine2EleText[@state.wanfa] )
 
         wanfaLine3 = ( if (@state.wanfa < wanfaLine3EleText.length)
-                          wanfaLine3Element = ( <FlatButton ref={"wf_2_"+index} label={text} style= { if index+"" == @state.wanfaLine3+"" then styles.wfbtnselected else styles.btn } key={index} data-id={index} onTouchTap={@handleChangeWanfaLine3} labelStyle={styles.wanfaLine2} /> for text,index in wanfaLine3EleText[@state.wanfa] )
+                          wanfaLine3Element = ( <FlatButton ref={"wf_2_"+index} label={text} style= { if index+"" == @state.wanfaLine3+"" then styles.wfbtnselected else styles.btn } key={"wf_2_"+index} data-id={index} onTouchTap={@handleChangeWanfaLine3} labelStyle={styles.wanfaLine2} /> for text,index in wanfaLine3EleText[@state.wanfa] )
                           <div className="row wanfaLine"><span>{wanfaLine3Text[@state.wanfa]}:</span> {wanfaLine3Element}</div>
                         else
                           <div className="clearfix"></div>
                      )
 
-       # ballLines = GL_CQSSC.genBallLines(["万位","千位","百位"," "]);
-       # ballLines = GL_CQSSC.genOnlyBalls([0...19])
-        # ballLines = GL_CQSSC.genBallWithOnlyTitle("组选和值", [0...27]);
         ballLines = GL_CQSSC.genBallsWithName(@state.wanfa,@state.wanfaLine2,@state.wanfaLine3,@changeWagerCount,@handleDiagOpen)
-        selectconfirmCom =  (<SelectConfirm ref="selectconfirm" handlerConfirm = {@handleSelectConfirm}/>)
+        selectconfirmCom =   (<SelectConfirm key="selectconfirm" ref="selectconfirm" handlerConfirm = {@handleSelectConfirm}/>)
 
 
         return (
@@ -266,20 +265,20 @@ gm_CQSSC = React.createClass(
                         <div className="row">
                             {wanfaListElement}
                         </div>
-                        <Divider />
+                        <Divider key="div1" />
                         <div className="row wanfaLine " >
                            <span>{wanfaLine2Text[@state.wanfa]}:</span> {wanfaLine2Element}
                         </div>
                          {wanfaLine3}
-                        <Divider />
+                        <Divider key="div2"/>
                         <div className="row ballLine" >
                               {ballLines}
                         </div>
                         <div className="row wagerarea">
                            { selectconfirmCom }
-                            <SelectList onDeleteItem = {@onDeleteSelectListItem} ref="selectList" />
+                            <SelectList key="selectlist" onDeleteItem = {@onDeleteSelectListItem} ref="selectList" />
 
-                            <TotalWagers ref="totalWagers" handleDiagOpen = {@handleDiagOpen} getConfirmItems={@getConfirmItems} />
+                            <TotalWagers key="totalwagers" ref="totalWagers" handleDiagOpen = {@handleDiagOpen} handleSubmitWagers={@handleSubmitWagers} />
 
                         </div>
 

@@ -21,7 +21,7 @@ OrderChaseHeader = React.createClass({
       multi: 0,
       selidx: 1,
       chaseType: 0,
-      chasePeroidCount: 5
+      selectPeroidCount: 5
     };
   },
   handleChaseType: function(idx, event) {
@@ -36,7 +36,7 @@ OrderChaseHeader = React.createClass({
       v = 999;
     }
     this.setState({
-      chasePeroidCount: v
+      selectPeroidCount: v
     });
     return this.refs["in_2"].value = Math.min(120, v);
   },
@@ -134,7 +134,7 @@ OrderChaseHeader = React.createClass({
           "onChange": this.onChangeInput.bind(this, 0, 1)
         }), "追号期数 : ", React.createElement("input", {
           "ref": "in_2",
-          "defaultValue": this.state.chasePeroidCount,
+          "defaultValue": this.state.selectPeroidCount,
           "id": "3",
           "size": "5",
           "maxLength": "5",
@@ -156,7 +156,7 @@ OrderChaseHeader = React.createClass({
           "onChange": this.onChangeInput.bind(this, 1, 0)
         }), "追号期数 : ", React.createElement("input", {
           "ref": "in_2",
-          "defaultValue": this.state.chasePeroidCount,
+          "defaultValue": this.state.selectPeroidCount,
           "id": "3",
           "size": "5",
           "maxLength": "5",
@@ -185,7 +185,7 @@ OrderChaseHeader = React.createClass({
           "onChange": this.onChangeInput.bind(this, 2, 1)
         }), "追号期数 : ", React.createElement("input", {
           "ref": "in_2",
-          "defaultValue": this.state.chasePeroidCount,
+          "defaultValue": this.state.selectPeroidCount,
           "id": "3",
           "size": "5",
           "maxLength": "5",
@@ -211,7 +211,7 @@ OrderChaseHeader = React.createClass({
       "className": "row col-sm-12"
     }, "追号期数 : ", React.createElement(SelectField, {
       "className": "select",
-      "value": this.state.chasePeroidCount,
+      "value": this.state.selectPeroidCount,
       "style": {
         width: "100px",
         height: "32px",

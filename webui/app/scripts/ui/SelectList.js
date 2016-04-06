@@ -38,6 +38,13 @@ SelectList = React.createClass({
     }
     return [count, money, moneyOneMulti];
   },
+  resetData: function() {
+    return this.setState({
+      items: [],
+      totalMoney: 0,
+      selidx: 0
+    });
+  },
   handleChangeItem: function(idx) {
     return this.setState({
       selidx: idx

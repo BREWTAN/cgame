@@ -35,30 +35,8 @@ TotalWagers = React.createClass(
 
 
     handleUpdateHeader:() ->
-        console.log("handleUpdateHeader")
-        @refs["chaselist"].updateHeaderInfo()
+        if @refs["chaselist"] then @refs["chaselist"].updateHeaderInfo()
 
-    handleSubmitWagers:() ->
-        if @state.zhuihao
-            console.log("handleSubmitWagers.追号")
-            title = "您"
-        else
-            confirmitems = @props.getConfirmItems() #wname,balls,count,money,moneyUnit,multi,bonnerMode
-            itemcom = (( <div className="row item" key={key}> {"["+v[0]+"]" +v[1]+ " ;  ￥"+v[3]+"元" }</div>   ) for key,v of confirmitems)
-            currentPeroid = GL_CQSSC.GameState("currentPeroid")
-            title = ( <div className="diagtitle"> 是否将如下选号投入:<b> { currentPeroid } </b> 期? </div>)
-
-            items = ( <div>
-                        <div className = "msgwageritems">
-                            {itemcom}
-                        </div>
-                        <Divider />
-                        <div className="msgwagertotal">总金额 : <b>{@state.totalWagerMoney}</b> 元</div>
-                     </div>)
-
-        CB = (self) ->
-            console.log("okok!totalWagerMoney="+self.state.totalWagerMoney)
-        @props.handleDiagOpen(items,title,{padding:"10px 10px 10px 20px"},CB,@)
 
 
     render:() ->
@@ -113,7 +91,7 @@ TotalWagers = React.createClass(
 
                  <div className="row col-sm-3" style={marginBottom:"10px"}>
                       <RaisedButton label="提交注单" style={styles.confirmbtn}
-                        primary={true} onTouchTap={@handleSubmitWagers}/>
+                        primary={true} onTouchTap={@props.handleSubmitWagers}/>
                  </div>
              </div>
              <div className="zhuihao col-md-12">

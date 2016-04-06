@@ -74,19 +74,17 @@ PopupDiag = React.createClass({
       }, this.state.diagmessage);
     }
     contentStyle = _.extend({}, this.state.contentstyle);
-    console.log("contentStyle=" + JSON.stringify(contentStyle));
     if (this.state.confirmCB) {
       actions = [
         React.createElement(FlatButton, {
+          "label": "取消",
+          "secondary": true,
+          "onTouchTap": this.handleDiagClose
+        }), React.createElement(FlatButton, {
           "label": "确定",
           "primary": true,
           "keyboardFocused": true,
           "onTouchTap": this.handleDiagConfirm
-        }), React.createElement(FlatButton, {
-          "label": "取消",
-          "primary": true,
-          "keyboardFocused": true,
-          "onTouchTap": this.handleDiagClose
         })
       ];
     } else {
@@ -104,7 +102,11 @@ PopupDiag = React.createClass({
       "open": this.state.diagopen,
       "onRequestClose": this.handleDiagClose,
       "bodyStyle": contentStyle,
-      "autoScrollBodyContent": true
+      "autoScrollBodyContent": true,
+      "contentStyle": {
+        width: "30%",
+        minWidth: "230px"
+      }
     }, body);
   }
 });

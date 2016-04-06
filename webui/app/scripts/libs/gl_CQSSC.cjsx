@@ -296,7 +296,7 @@ GL_CQSSC = {
          </div>)
 
     handleRemoveDupl:(tfRef) ->
-       console.log("tfRef="+tfRef[0].getValue())
+       #console.log("tfRef="+tfRef[0].getValue())
        playballs = @formatTextInput(tfRef[0].getValue())
        cleanballs = []
        emitballs = []
@@ -412,7 +412,7 @@ GL_CQSSC = {
         ballOneLine = refsbb[1]
         refs = refsbb[0]
         #ballFuncOneLine = (<FlatButton ref={"wf_f_"+index} label={text} key={index} data-id={index} onTouchTap={@handleClickBall} labelStyle={ballstyles.ballfunctitle} style={ballstyles.ballfunc} /> for text,index in funbtntexts )
-        ballFuncOneLine = (<FlatButton refline={ballOneLine} label={text} key={"wf_func_"+lineno+"_"+index}
+        ballFuncOneLine = (<FlatButton refline={ballOneLine} key = {lefttitle+"_"+lineno+"_"+index} label={text} key={"wf_func_"+lineno+"_"+index}
                         data-text={text} data-id={index} onTouchTap={@handleFuncClickBall.bind(@,refs,lineno)}
                         labelStyle={ballstyles.ballfunctitle} style={ballstyles.ballfunc} /> for text,index in funbtntexts)
 

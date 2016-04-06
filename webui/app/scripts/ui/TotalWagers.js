@@ -43,44 +43,9 @@ TotalWagers = React.createClass({
     return console.log("handleClickZhuihaoStop:" + e.currentTarget.checked);
   },
   handleUpdateHeader: function() {
-    console.log("handleUpdateHeader");
-    return this.refs["chaselist"].updateHeaderInfo();
-  },
-  handleSubmitWagers: function() {
-    var CB, confirmitems, currentPeroid, itemcom, items, key, title, v;
-    if (this.state.zhuihao) {
-      console.log("handleSubmitWagers.追号");
-      title = "您";
-    } else {
-      confirmitems = this.props.getConfirmItems();
-      itemcom = (function() {
-        var results;
-        results = [];
-        for (key in confirmitems) {
-          v = confirmitems[key];
-          results.push(React.createElement("div", {
-            "className": "row item",
-            "key": key
-          }, " ", "[" + v[0] + "]" + v[1] + " ;  ￥" + v[3] + "元"));
-        }
-        return results;
-      })();
-      currentPeroid = GL_CQSSC.GameState("currentPeroid");
-      title = React.createElement("div", {
-        "className": "diagtitle"
-      }, " 是否将如下选号投入:", React.createElement("b", null, " ", currentPeroid, " "), " 期? ");
-      items = React.createElement("div", null, React.createElement("div", {
-        "className": "msgwageritems"
-      }, itemcom), React.createElement(Divider, null), React.createElement("div", {
-        "className": "msgwagertotal"
-      }, "总金额 : ", React.createElement("b", null, this.state.totalWagerMoney), " 元"));
+    if (this.refs["chaselist"]) {
+      return this.refs["chaselist"].updateHeaderInfo();
     }
-    CB = function(self) {
-      return console.log("okok!totalWagerMoney=" + self.state.totalWagerMoney);
-    };
-    return this.props.handleDiagOpen(items, title, {
-      padding: "10px 10px 10px 20px"
-    }, CB, this);
   },
   render: function() {
     var WagerMoneyOnce, comZhuiHao, styles, totalWagerMoney;
@@ -157,7 +122,7 @@ TotalWagers = React.createClass({
       "label": "提交注单",
       "style": styles.confirmbtn,
       "primary": true,
-      "onTouchTap": this.handleSubmitWagers
+      "onTouchTap": this.props.handleSubmitWagers
     }))), React.createElement("div", {
       "className": "zhuihao col-md-12"
     }, comZhuiHao));

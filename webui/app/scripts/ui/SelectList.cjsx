@@ -29,6 +29,12 @@ SelectList = React.createClass(
             moneyOneMulti+= parseFloat(v[3])/parseFloat(v[5])
         return [count,money,moneyOneMulti]
 
+    resetData:() ->
+        @setState
+            items:[]
+            totalMoney: 0
+            selidx: 0
+
     handleChangeItem:(idx) ->
        # console.log("handleChangeItem:"+idx)
         @setState

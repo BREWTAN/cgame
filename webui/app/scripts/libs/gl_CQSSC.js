@@ -356,7 +356,6 @@ GL_CQSSC = {
   },
   handleRemoveDupl: function(tfRef) {
     var ball, cleanballs, emitballs, emittext, j, k, len, playballs, ref1, resulttext, v;
-    console.log("tfRef=" + tfRef[0].getValue());
     playballs = this.formatTextInput(tfRef[0].getValue());
     cleanballs = [];
     emitballs = [];
@@ -557,6 +556,7 @@ GL_CQSSC = {
         text = funbtntexts[index];
         results.push(React.createElement(FlatButton, {
           "refline": ballOneLine,
+          "key": lefttitle + "_" + lineno + "_" + index,
           "label": text,
           "key": "wf_func_" + lineno + "_" + index,
           "data-text": text,
