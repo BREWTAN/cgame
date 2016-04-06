@@ -121,6 +121,7 @@ TotalWagers = React.createClass({
     }, React.createElement(RaisedButton, {
       "label": "提交注单",
       "style": styles.confirmbtn,
+      "disabled": (this.state.totalWagerCount <= 0 ? true : false),
       "primary": true,
       "onTouchTap": this.props.handleSubmitWagers
     }))), React.createElement("div", {

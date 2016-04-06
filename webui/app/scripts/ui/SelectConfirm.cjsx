@@ -22,7 +22,7 @@ SelectConfirm = React.createClass(
         wagerballs: ""
         boners: { "rangeMoney": [1600,1800],"rangeRatio":[0.1,8.0] }
 
-    handleWagerOChange:(e) ->
+    handleWagerMultiChange:(e) ->
         #console.log("changeWagerInfo:"+e.target.value)
         v = parseInt(e.target.value)
         if !v
@@ -37,6 +37,7 @@ SelectConfirm = React.createClass(
         @setState
             moneyType: parseFloat(e.currentTarget.dataset.v)
             totalMoney: @state.multi*e.currentTarget.dataset.v
+
     handleConfirm:(e) ->
         console.log("handleConfirm::"+e)
 
@@ -92,6 +93,7 @@ SelectConfirm = React.createClass(
         bonerMoney = @getBonnerMoney()
         bonerRatio = (@state.boners["rangeRatio"][0]+(@state.boners["rangeRatio"][1]-@state.boners["rangeRatio"][0])*@state.bonerValue).toFixed(2);
 
+
         return (
 
          <div className="wagersum selectconfirm col-sm-12">
@@ -113,7 +115,7 @@ SelectConfirm = React.createClass(
                      </SelectField><div className="selectbg" ></div></b>
                  </div>
                  <div className="col-sm-3">
-                    投注倍数为<b><input id="multi" value={@state.multi} size="5" maxLength="5" onChange={@handleWagerOChange} /> </b> 倍
+                    投注倍数为<b><input id="multi" value={@state.multi} size="5" maxLength="5" onChange={@handleWagerMultiChange} /> </b> 倍
                  </div>
                  <div className="col-sm-3" style={textAlign:"right",paddingRight:"10px"}>
                     共 <b id="money_total">{money_total}</b> 元
@@ -132,7 +134,7 @@ SelectConfirm = React.createClass(
                         <b>奖金{bonerMoney}-{bonerRatio}%</b>
                   </div>
                   <div className = "col-sm-2 pull-right">
-                  <RaisedButton label="确认选号" style={styles.confirmbtn}
+                  <RaisedButton label="确认选号" style={styles.confirmbtn} disabled = { if @state.wagercount <= 0 then true else false }
                       primary={true} onTouchTap={@props.handlerConfirm}/>
                   </div>
              </div>

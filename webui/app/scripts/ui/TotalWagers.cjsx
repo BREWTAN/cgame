@@ -90,7 +90,7 @@ TotalWagers = React.createClass(
                  </div>
 
                  <div className="row col-sm-3" style={marginBottom:"10px"}>
-                      <RaisedButton label="提交注单" style={styles.confirmbtn}
+                      <RaisedButton label="提交注单" style={styles.confirmbtn}  disabled = { if @state.totalWagerCount <= 0 then true else false }
                         primary={true} onTouchTap={@props.handleSubmitWagers}/>
                  </div>
              </div>

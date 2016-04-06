@@ -29,7 +29,7 @@ SelectConfirm = React.createClass({
       }
     };
   },
-  handleWagerOChange: function(e) {
+  handleWagerMultiChange: function(e) {
     var v;
     v = parseInt(e.target.value);
     if (!v) {
@@ -144,7 +144,7 @@ SelectConfirm = React.createClass({
       "value": this.state.multi,
       "size": "5",
       "maxLength": "5",
-      "onChange": this.handleWagerOChange
+      "onChange": this.handleWagerMultiChange
     }), " "), " 倍"), React.createElement("div", {
       "className": "col-sm-3",
       "style": {
@@ -187,6 +187,7 @@ SelectConfirm = React.createClass({
     }, React.createElement(RaisedButton, {
       "label": "确认选号",
       "style": styles.confirmbtn,
+      "disabled": (this.state.wagercount <= 0 ? true : false),
       "primary": true,
       "onTouchTap": this.props.handlerConfirm
     }))));
