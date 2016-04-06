@@ -258,7 +258,7 @@ public class MySqlJavaPlugin extends PluginAdapter {
 	             "\t\t}"+"\n"+
 	             "\t\t\t\tapplyWhere(example, false);"+"\n"+
 	        "\t\t}");
-		
+		 
 		line.add("if(example != null){");
 //		line.add("return \"SELECT * FROM (SELECT A.*, ROWNUM RN FROM (\"+SQL()+\") A		WHERE ROWNUM < \"+(example.getLimit()+example.getOffset())+\") WHERE RN >= \"+(example.getOffset()) ;");
 		 line.add("return SQL().concat(\" limit \"+example.getOffset()+\",\"+example.getLimit());");

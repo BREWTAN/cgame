@@ -282,10 +282,10 @@ public class SqlMaker {
 			}
 			if(Integer.MAX_VALUE != para.getLimit()){
 //				sql=
-				String orgsql=sql.toString();
-				sql.delete(0, sql.length());
-				sql.append("SELECT * FROM (SELECT A.*, ROWNUM RN FROM ("+orgsql+") A	WHERE ROWNUM < "+(para.getLimit()+para.getSkip())+") WHERE RN >= "+para.getSkip());
-//				sql.append(" limit ").append(para.getSkip()).append(",").append(para.getLimit());
+//				String orgsql=sql.toString();
+//				sql.delete(0, sql.length()); for oracle
+//				sql.append("SELECT * FROM (SELECT A.*, ROWNUM RN FROM ("+orgsql+") A	WHERE ROWNUM < "+(para.getLimit()+para.getSkip())+") WHERE RN >= "+para.getSkip());
+				sql.append(" limit ").append(para.getSkip()).append(",").append(para.getLimit());
 			}
 		}
 	}
