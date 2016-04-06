@@ -2,19 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0698c81-4666-4961-96bd-efe56520ee0b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_WagerSelector.cjsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_Wagers.cjsx" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_BallsDiv.cjsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_BallsDiv.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx" afterPath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.js" afterPath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/OrderChaseHeader.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/OrderChaseHeader.cjsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/OrderChaseHeader.js" afterPath="$PROJECT_DIR$/app/scripts/ui/OrderChaseHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/PopupDialog.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/PopupDialog.cjsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/PopupDialog.js" afterPath="$PROJECT_DIR$/app/scripts/ui/PopupDialog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/SelectList.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/SelectList.cjsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/SelectList.js" afterPath="$PROJECT_DIR$/app/scripts/ui/SelectList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/TotalWagers.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/TotalWagers.cjsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/TotalWagers.js" afterPath="$PROJECT_DIR$/app/scripts/ui/TotalWagers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.cjsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.js" afterPath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/main.scss" afterPath="$PROJECT_DIR$/app/styles/main.scss" />
     </list>
     <ignored path="webui.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,21 +30,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SelectList.cjsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/ui/SelectList.cjsx">
+      <file leaf-file-name="gm_CQSSC.cjsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.cjsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.111111">
-              <caret line="31" column="13" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gm_CQSSC.cjsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.cjsx">
+      <file leaf-file-name="gm_CQSSC_Wagers.cjsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_Wagers.cjsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36930457">
-              <caret line="150" column="42" selection-start-line="150" selection-start-column="42" selection-end-line="150" selection-end-column="42" />
+            <state vertical-scroll-proportion="-6.6666665">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gm_CQSSC_WagerSelector.cjsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_WagerSelector.cjsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.509009">
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -75,16 +80,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.coffee" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/app.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.7777777">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="gl_CQSSC.cjsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx">
           <provider selected="true" editor-type-id="text-editor">
@@ -98,8 +93,8 @@
       <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.942858">
-              <caret line="570" column="31" selection-start-line="570" selection-start-column="31" selection-end-line="570" selection-end-column="31" />
+            <state vertical-scroll-proportion="23.914286">
+              <caret line="329" column="21" selection-start-line="329" selection-start-column="21" selection-end-line="329" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -188,13 +183,15 @@
         <option value="$PROJECT_DIR$/app/scripts/app.coffee" />
         <option value="$PROJECT_DIR$/app/scripts/capp.coffee" />
         <option value="$PROJECT_DIR$/app/scripts/ui/OrderChaseList.cjsx" />
-        <option value="$PROJECT_DIR$/app/styles/main.scss" />
         <option value="$PROJECT_DIR$/app/scripts/ui/SelectList.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/ui/TotalWagers.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/ui/PopupDialog.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/ui/OrderChaseHeader.cjsx" />
+        <option value="$PROJECT_DIR$/app/styles/main.scss" />
+        <option value="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_Wagers.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.cjsx" />
+        <option value="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_WagerSelector.cjsx" />
       </list>
     </option>
   </component>
@@ -627,13 +624,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bower.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/ui/SelectConfirm.cjsx">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -800,13 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_BallsDiv.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="8.956835">
-          <caret line="249" column="34" selection-start-line="249" selection-start-column="34" selection-end-line="249" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -860,6 +843,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.814815">
           <caret line="203" column="9" selection-start-line="203" selection-start-column="9" selection-end-line="203" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -910,14 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.942858">
-          <caret line="570" column="31" selection-start-line="570" selection-start-column="31" selection-end-line="570" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.115384616">
@@ -950,14 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="443" column="9" selection-start-line="443" selection-start-column="9" selection-end-line="443" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/ui/TotalWagers.cjsx">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="23.444445">
@@ -982,10 +950,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="443" column="9" selection-start-line="443" selection-start-column="9" selection-end-line="443" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="23.914286">
+          <caret line="329" column="21" selection-start-line="329" selection-start-column="21" selection-end-line="329" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_Wagers.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.6666665">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.cjsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36930457">
-          <caret line="150" column="42" selection-start-line="150" selection-start-column="42" selection-end-line="150" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_WagerSelector.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.509009">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
           <folding />
         </state>
       </provider>
