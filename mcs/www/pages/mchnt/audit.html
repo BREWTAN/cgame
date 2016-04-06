@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <base href="../../" >
+
+    <meta charset="utf-8"/>
+    <title>民生宝-商户审批</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+       <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+
+    <script type="text/javascript" src="parts/js/header.js"></script>
+    <script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <script>$.include("parts/pages/sidebar.shtml");</script>
+
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <script>$.include("parts/pages/style.shtml");</script>
+
+            <!-- BEGIN PAGE HEADER-->
+            <h3 class="page-title">
+            商户管理 <small>商户审批</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html"></a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+                <div class="page-toolbar">
+                    <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                        <i class="icon-calendar"></i>&nbsp;
+                        <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+            	<div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">商户编号</div>
+                        <input id="find_mchntId" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">商户名称</div>
+                        <input id="find_mchntName" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">法人证件号</div>
+                        <input id="find_certNo" class="inputclear form-control" type="text" placeholder="证件号">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">状态</div>
+                        <select class="form-control chosen-select" id="find_status">
+                                <option value="-1">全部</option>
+                                <option value="01">待审核</option>
+                                <option value="02">临时关闭</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-sm-5 form-group">
+                    <script>$.include("parts/pages/auditbtn_msb.shtml");</script>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container col-md-12" >
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+    <script>$.include("parts/pages/quicksidebar.shtml");</script>
+
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+
+
+<script type="text/javascript">$.include("parts/pages/xwatable-form.shtml");</script>
+<script>$.include("parts/pages/foot_table.shtml");</script>
+
+<script type="text/javascript">
+
+
+
+var statusFormatter=function(){
+    return {
+        f: function(val){
+            if(val&&val=="01") return "待审核";
+            if(val&&val=="02") return "临时关闭";
+            return "无此状态";
+        },
+    };
+}();
+
+var statusEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val=="01"){
+        return "<select id='status' name='status' class='form-control select2me'><option value='01' selected>待审核</option></select>";
+    }else if(val=="02"){
+        return "<select id='status' name='status' class='form-control select2me'><option value='02' selected>冻结</option></select>";
+    }
+};
+var encTypeFormatter=function(){
+    return {
+        f: function(val){
+            if(val&&val=="MD5") return "加密";
+            else return "不加密";
+        }
+    };
+}();
+
+var encTypeEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val=="MD5"){
+        return "<select id='encType' name='encType' class='form-control select2me'><option selected value='MD5'>加密</option></select>";
+    }else{
+        return "<select id='encType' name='encType' class='form-control select2me'><option selected value=''>不加密</option></select>";
+    }
+};
+var certTypeFormatter=function(){
+    return {
+        f: function(val){
+            if(val&&val=="1") return "身份证";
+            else return "未知";
+        }
+    };
+}();
+
+var certTypeEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val=="1"){
+        return "<select id='certType' name='certType' class='form-control select2me'><option selected value='1'>身份证</option></select>";
+    }
+    return "<select id='certType' name='certType' class='form-control select2me'><option selected value='1'>身份证</option></select>";
+   
+};
+var mchntFlagFormatter=function(){
+    return {
+        f: function(val){
+            if(val&&val=="Y") return "是";
+            else if(val&&val=="N") return "否";
+            else return "未知";
+        }
+    };
+}();
+
+var mchntFlagEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val=="N"){
+        return "<select id='mchntFlag' name='mchntFlag' class='form-control select2me'><option selected value='N'>否</option></select>";
+    }else{
+        return "<select id='mchntFlag' name='mchntFlag' class='form-control select2me'><option selected value='Y'>是</option></select>";
+    }
+};
+var prodFlagFormatter=function(){
+    return {
+        f: function(val){
+            if(val&&val=="Y") return "是";
+            else if(val&&val=="N") return "否";
+            else return "未知";
+        }
+    };
+}();
+
+var prodFlagEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val=="N"){
+        return "<select id='prodFlag' name='prodFlag' class='form-control select2me'><option selected value='N'>否</option><</select>";
+    }else{
+        return "<select id='prodFlag' name='prodFlag' class='form-control select2me'><option selected value='Y'>是</option></select>";
+    }
+};
+$(function(){ 
+	//初始化页面标题
+	initTitle();
+    var parentidrql=RQLBuilder.equal("leafFlag", "0");
+    readonly=false;
+     var xw=XWATable.init(
+        {
+            //----------------table的选项-------
+            pageSize: 10,                //Initial pagesize
+                    // filter: true,               //Show filter fields
+                    // sorting: true,              //Enable sorting
+            columnPicker: true,         //Show the columnPicker button
+            transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+            // pageSizes: [1,5,8,12,200],  //Set custom pageSizes. Leave empty array to hide button.
+            // hidePagerOnEmpty: true,     //Removes the pager if data is empty.
+            checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+            checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+            rowClicked: function(data) {    
+                console.log('row clicked');   //data.event holds the original jQuery event.
+                console.log(data);            //data.row holds the underlying row you supplied.
+            },
+            xwattr:'audit',
+            xwtitle:'商户审批',
+            readonly:"mchntaudit",
+            //----------------基本restful地址---
+            //restbase: restpath +'/mchinf?query={"$or":[{"status":"2"},{"status":"3"}]}',
+            restbase:restpath+'/exauditmchinf',
+            key_column: "mchntId",
+            //---------------行定义
+            coldefs: [
+                      {      
+                          col:"mchntId",
+                          friendly: "商户编号",
+                          unique: true,
+                          readonly:true,
+                          validate:"required,length[2-10],url(/restface/mchinf;mchntId;商户编号已经存在，请重新输入)"
+                          //nonedit:"nosend"
+                          //hidden:true
+                      },
+                      {
+                          col:"mchntName",
+                          friendly: "商户名称",
+                          validate:"length[3-100]",
+                          readonly:true,
+                      },
+                      {
+                          col:"mchntFlag",
+                          friendly: "客户商户",
+                          filterTooltip:true,                     
+                          format: mchntFlagFormatter,
+                          inputsource: "custom",
+                          inputbuilder: "mchntFlagEditBuilder",
+                      },
+                      {
+                          col:"prodFlag",
+                          friendly: "落地商户",
+                          filterTooltip:true,                     
+                          format: prodFlagFormatter,
+                          inputsource: "custom",
+                          inputbuilder: "prodFlagEditBuilder",
+                      },
+                      {
+                          col:"mchntAddr",
+                          friendly: "商户地址",
+                          validate:"length[6-100]",
+                          hidden:true,
+                          readonly:true,
+                      },
+                      {
+                          col:"mchntUrl",
+                          friendly: "商户通知URL地址",
+                          hidden:true,
+                          readonly:true,
+                          validate:"required,length[6-100]"
+                      },{
+                          col:"priKey",
+                          friendly: "商户密钥",
+                          nonedit:"nosend",
+                          readonly:true,
+                          readonly:true,
+                          validate:"length[2-100]"
+                      },
+                      {
+                          col:"artName",
+                          friendly: "法人名称",
+                          readonly:true,
+                          validate:"length[2-10]"
+                      },
+
+                      {
+                          col:"certType",
+                          friendly: "法人证件类型",
+                          hidden:true,
+                          filterTooltip:true,                     
+                          format: certTypeFormatter,
+                          inputsource: "custom",
+                          inputbuilder: "certTypeEditBuilder",
+                      },
+
+                      {
+                          col:"certNo",
+                          friendly: "法人证件号码",
+                          readonly:true,
+                          validate:"length[6-20]"
+                      },
+
+                      {
+                          col:"taxType",
+                          friendly: "税务登记证件类型",
+                          hidden:true,
+                          validate:"length[1-4]",
+                          nonedit:"nosend"
+                      },
+                      
+                      {
+                          col:"taxNo",
+                          friendly: "税务登记号码",
+                          hidden:true,
+                          readonly:true,
+                          validate:"length[6-30]",
+                          
+                      },
+                        {
+                            col:"singleAmt",
+                            friendly: "单比限额",
+                            readonly:true,
+                            validate:"money[10-8]",
+                            format: moneyFormatter,      
+                            inputsource: "money",	
+                        },
+                        {
+                            col:"dayAmt",
+                            friendly: "单日累计限额",
+                            readonly:true,
+                            validate:"money[10-8]",
+                            format: moneyFormatter,      
+                            inputsource: "money",
+                        },
+                        {
+                            col:"telNo",
+                            friendly: "联系电话",
+                            hidden:true,
+                            readonly:true,
+                            validate:"length[8-30]"
+                        },
+                        {
+                            col:"contact",
+                            friendly: "联系人",
+                            readonly:true,
+                            validate:"length[2-40]",
+                            hidden:true,
+                        },
+                        {
+                            col:"phone",
+                            friendly: "联系人手机号",
+                            readonly:true,
+                            validate:"length[11-11],onlyNumber",
+                            hidden:true,
+                        },
+                        {
+                            col:"faxNo",
+                            friendly: "传真号",
+                            hidden:true,
+                            readonly:true,
+                            validate:"length[2-100]"
+                        },
+                        {
+                            col:"addOpr",
+                            friendly: "新增操作员",
+                            readonly:true,
+                            validate:"isSameOper",
+                        },
+                        {
+                            col:"approveOpr",
+                            friendly: "审核操作员",
+                            readonly:true,
+                            nonedit:"nosend"
+                        },
+                        {
+                            col:"crtTime",
+                            friendly: "创建时间",
+                            sortOrder: "desc",
+                            //hidden:true,
+                            nonedit:"nosend"
+                            //validate:"date",
+                        },
+                        {
+                            col:"updTime",
+                            friendly: "更新时间",
+                            sortOrder: "desc",
+                            hidden:true,
+                            nonedit:"nosend"
+                            //validate:"date"
+                        },
+                        {
+                            col:"encType",
+                            friendly: "加密方式",
+                            hidden:true,
+                            filterTooltip:true,                     
+                            format: encTypeFormatter,
+                            inputsource: "custom",
+                            inputbuilder: "encTypeEditBuilder",
+                        },
+                        {
+                            col:"status",
+                            friendly: "状态",
+                            filterTooltip:true,                     
+                            format: statusFormatter,
+                            inputsource: "custom",
+                            inputbuilder: "statusEditBuilder",
+                            validate:"required",
+                        },{
+                            col:"field1",
+                            friendly: "审批意见",
+                        },
+                        
+                ],
+            //---------------查询时过滤条件
+            findFilter: function(){//find function
+                
+                var leaf,mchntName,certNo,mchntId,leaf1,leaf2;
+                if($('#find_mchntId').val().length>0) mchntId=RQLBuilder.equal("mchnt_id",$('#find_mchntId').val());
+                if($('#find_status').val()!=-1)leaf=RQLBuilder.equal("status",$('#find_status').val());
+                leaf1=RQLBuilder.equal("status","01");
+                leaf2=RQLBuilder.equal("status","02");
+                if($('#find_mchntName').val().length>0) mchntName=RQLBuilder.like("mchnt_name",$('#find_mchntName').val());
+                if($('#find_certNo').val().length>0) certNo=RQLBuilder.equal("cert_no",$('#find_certNo').val());
+                var filter=RQLBuilder.or([
+											leaf1,leaf2
+                                          ]); 
+                filter=RQLBuilder.and([
+                       filter,certNo,mchntId,mchntName,leaf
+                    ]);
+                
+                return filter.rql();
+            },
+            onUpdated: function(ret,jsondata){
+                console.log("onUpdated callback:"+ret+",obj="+JSON.stringify(jsondata));
+                return  validateForm(ret,jsondata);
+            },
+        }//--init
+    );//--end init
+
+    //$('#find_leaf').select2();
+    $('#find_mchntName').on('input',function(e){
+        console.log("changing::"+e.target.value);
+        if(!e.target.value){
+            xw.autoResetSearch();
+        }
+    });
+    
+//-----------------ENDOFSCIPT------
+}
+);
+
+</script><!-- End of User Script-->
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

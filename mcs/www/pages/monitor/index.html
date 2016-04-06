@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+	<base href="./" >
+
+	<meta charset="utf-8"/>
+	<title>民生宝 | 管理平台</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+	<link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-toastr/toastr.min.css"/>
+	<script type="text/javascript" src="parts/js/header.js"></script>
+	<script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+	
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+	<script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+	<script>$.include("parts/pages/sidebar.shtml");</script>
+
+	<!-- END SIDEBAR -->
+	<div class="page-content-wrapper" id="notice_view" style="display:none">	
+           	      <script>$.include("notice/noticeView.shtml");</script>
+	    </div>	
+	<!-- BEGIN CONTENT -->
+	<div class="page-content-wrapper" id="main_view">
+		  
+		<div class="page-content" >
+			<script>$.include("parts/pages/style.shtml");</script>
+			<!-- BEGIN PAGE HEADER-->
+			<h3 class="page-title">
+			Dashboard <small>reports & statistics</small>
+			</h3>		
+
+			<!-- END PAGE HEADER-->
+			
+			<!-- BEGIN DASHBOARD STATS -->
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat blue-madison">
+						<div class="visual">
+							<i class="fa fa-comments"></i>
+						</div>
+						<div class="details">
+							<div class="number" id="speed1">
+								 1,349 M￥
+							</div>
+							<div class="desc">
+								 申购金额
+							</div>
+						</div>
+						<a class="more" href="#">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat red-intense">
+						<div class="visual">
+							<i class="fa fa-bar-chart-o"></i>
+						</div>
+						<div class="details">
+							<div class="number" id="speed2">
+								 12,5M￥
+							</div>
+							<div class="desc">
+								 赎回金额
+							</div>
+						</div>
+						<a class="more" href="#">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat green-haze">
+						<div class="visual">
+							<i class="fa fa-shopping-cart"></i>
+						</div>
+						<div class="details">
+							<div class="number" id="speed3">
+								 32,982,032
+							</div>
+							<div class="desc">
+								 平台用户数
+							</div>
+						</div>
+						<a class="more" href="#">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat purple-plum">
+						<div class="visual">
+							<i class="fa fa-globe"></i>
+						</div>
+						<div class="details">
+							<div class="number" id="speed4">
+								 12,299 M￥
+							</div>
+							<div class="desc">
+								 平台持有资金
+							</div>
+						</div>
+						<a class="more" href="#">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN CHART PORTLET-->
+					<div class="portlet light bordered">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="icon-bar-chart font-green-haze"></i>
+								<span class="caption-subject bold uppercase font-green-haze"> 交易量统计曲线图（周期为天）</span>
+								<span class="caption-helper">依照商户对比</span>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+								<a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="javascript:;" class="reload">
+								</a>
+								<a href="javascript:;" class="fullscreen">
+								</a>
+								<a href="javascript:;" class="remove">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div id="chart_1" class="chart" style="height: 300px;">
+							</div>
+						</div>
+					</div>
+					<!-- END CHART PORTLET-->
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN CHART PORTLET-->
+					<div class="portlet light bordered">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="icon-bar-chart font-green-haze"></i>
+								<span class="caption-subject bold uppercase font-green-haze"> 当月交易量统计（周期为月）</span>
+								<span class="caption-helper">依照商户对比</span>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+								<a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="javascript:;" class="reload">
+								</a>
+								<a href="javascript:;" class="fullscreen">
+								</a>
+								<a href="javascript:;" class="remove">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div id="chart_2" class="chart" style="height: 300px;">
+							</div>
+						</div>
+					</div>
+					<!-- END CHART PORTLET-->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN CHART PORTLET-->
+					<div class="portlet light bordered">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="icon-bar-chart font-green-haze"></i>
+								<span class="caption-subject bold uppercase font-green-haze"> 当日商户交易量组成分析</span>
+								<span class="caption-helper">依照商户对比</span>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+								<a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="javascript:;" class="reload">
+								</a>
+								<a href="javascript:;" class="fullscreen">
+								</a>
+								<a href="javascript:;" class="remove">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div id="chart_3" class="chart" style="height: 300px;">
+							</div>
+						</div>
+					</div>
+					<!-- END CHART PORTLET-->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN CHART PORTLET-->
+					<div class="portlet light bordered">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="icon-bar-chart font-green-haze"></i>
+								<span class="caption-subject bold uppercase font-green-haze"> 按月统计成功、失败交易量</span>
+								<span class="caption-helper">依照商户对比</span>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+								<a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="javascript:;" class="reload">
+								</a>
+								<a href="javascript:;" class="fullscreen">
+								</a>
+								<a href="javascript:;" class="remove">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div id="chart_4" class="chart" style="height: 300px;">
+							</div>
+						</div>
+					</div>
+					<!-- END CHART PORTLET-->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN CHART PORTLET-->
+					<div class="portlet light bordered">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="icon-bar-chart font-green-haze"></i>
+								<span class="caption-subject bold uppercase font-green-haze"> 交易成功率统计实时</span>
+								<span class="caption-helper">依照商户对比</span>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+								<a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="javascript:;" class="reload">
+								</a>
+								<a href="javascript:;" class="fullscreen">
+								</a>
+								<a href="javascript:;" class="remove">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div id="chart_5" class="chart" style="height: 300px;">
+							</div>
+						</div>
+					</div>
+					<!-- END CHART PORTLET-->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN CHART PORTLET-->
+					<div class="portlet light bordered">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="icon-bar-chart font-green-haze"></i>
+								<span class="caption-subject bold uppercase font-green-haze"> 商户交易量</span>
+								<span class="caption-helper">依照商户对比</span>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+								<a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="javascript:;" class="reload">
+								</a>
+								<a href="javascript:;" class="fullscreen">
+								</a>
+								<a href="javascript:;" class="remove">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div id="chart_6" class="chart" style="height: 300px;">
+							</div>
+						</div>
+					</div>
+					<!-- END CHART PORTLET-->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN CHART PORTLET-->
+					<div class="portlet light bordered">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="icon-bar-chart font-green-haze"></i>
+								<span class="caption-subject bold uppercase font-green-haze"> 商户业务增长率</span>
+								<span class="caption-helper">依照商户对比</span>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+								<a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="javascript:;" class="reload">
+								</a>
+								<a href="javascript:;" class="fullscreen">
+								</a>
+								<a href="javascript:;" class="remove">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div id="chart_7" class="chart" style="height: 300px;">
+							</div>
+						</div>
+					</div>
+					<!-- END CHART PORTLET-->
+				</div>
+			</div>									
+			<!-- END DASHBOARD STATS -->
+			<div class="clearfix">
+			</div>
+
+			<div class="row ">
+				<div class="col-md-6 col-sm-6">
+					<div class="portlet box blue-steel">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-bell-o"></i>预警事件
+							</div>
+							<div class="actions">
+								<div class="btn-group">
+									<a class="btn btn-sm btn-default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+									Filter By <i class="fa fa-angle-down"></i>
+									</a>
+									<div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+										<label><input type="checkbox"/> 赎回</label>
+										<label><input type="checkbox" checked=""/>申购 </label>
+										<label><input type="checkbox"/> 申购</label>
+										<label><input type="checkbox" checked=""/> 注册</label>
+										<label><input type="checkbox"/> 系统</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div class="scroller" style="height: 300px;" data-always-visible="1" data-rail-visible="0">
+								<ul id="alert" class="feeds">
+									<li>
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-sm label-info">
+														<i class="fa fa-check"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														用户[abbaddc]申购30万. <span class="label label-sm label-warning ">
+														
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												 Just now
+											</div>
+										</div>
+									</li>
+									<li>
+										<a href="#">
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-sm label-success">
+														<i class="fa fa-bar-chart-o"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														 用户[fienxa]赎回10万
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												 20 mins
+											</div>
+										</div>
+										</a>
+									</li>
+									<li>
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-sm label-danger">
+														<i class="fa fa-user"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														 用户[jackiet]今日赎回100次
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												 24 mins
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-sm label-info">
+														<i class="fa fa-shopping-cart"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														用户[soso]今日投注次数》1万次 <span class="label label-sm label-success">
+														Reference Number: DR23923 </span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												 30 mins
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-sm label-success">
+														<i class="fa fa-user"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														 赎回任务堆积了15个
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												 24 mins
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-sm label-default">
+														<i class="fa fa-bell-o"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														系统CPU资源占比超过50%. <span class="label label-sm label-default ">
+														Overdue </span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												 2 hours
+											</div>
+										</div>
+									</li>
+									<li>
+										<a href="#">
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-sm label-default">
+														<i class="fa fa-briefcase"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														 IP：8.8.8.8今日注册了100个用户
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												 20 mins
+											</div>
+										</div>
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+							<div class="scroller-footer">
+								<div class="btn-arrow-link pull-right">
+									<a href="#">See All Records</a>
+									<i class="icon-arrow-right"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="portlet box green-haze tasks-widget">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-check"></i>风险审核提示
+							</div>
+							<div class="tools">
+								<a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="" class="reload">
+								</a>
+								<a href="javascript:;" class="fullscreen">
+								</a>
+							</div>
+							<div class="actions">
+								<div class="btn-group">
+									<a class="btn btn-default btn-sm" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+									More <i class="fa fa-angle-down"></i>
+									</a>
+									<ul class="dropdown-menu pull-right">
+										<li>
+											<a href="#">
+											<i class="i"></i> All Project </a>
+										</li>
+										<li class="divider">
+										</li>
+										<li>
+											<a href="#">
+											AirAsia </a>
+										</li>
+										<li>
+											<a href="#">
+											Cruise </a>
+										</li>
+										<li>
+											<a href="#">
+											HSBC </a>
+										</li>
+										<li class="divider">
+										</li>
+										<li>
+											<a href="#">
+											Pending <span class="badge badge-danger">
+											4 </span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+											Completed <span class="badge badge-success">
+											12 </span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+											Overdue <span class="badge badge-warning">
+											9 </span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div class="task-content">
+								<div class="scroller" style="height: 305px;" data-always-visible="1" data-rail-visible1="1">
+									<!-- START TASK LIST -->
+									<ul class="task-list">
+										<li>
+											<div class="task-checkbox">
+												<input type="hidden" value="1" name="test"/>
+												<input type="checkbox" class="liChild" value="2" name="test"/>
+											</div>
+											<div class="task-title">
+												<span class="task-title-sp">
+												后台[allien]通过了10万的赎回申请 </span>
+												<span class="label label-sm label-success">Company</span>
+												<span class="task-bell">
+												<i class="fa fa-bell-o"></i>
+												</span>
+											</div>
+											<div class="task-config">
+												<div class="task-config-btn btn-group">
+													<a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+													<i class="fa fa-cog"></i><i class="fa fa-angle-down"></i>
+													</a>
+													<ul class="dropdown-menu pull-right">
+														<li>
+															<a href="#">
+															<i class="fa fa-check"></i> Complete </a>
+														</li>
+														<li>
+															<a href="#">
+															<i class="fa fa-pencil"></i> Edit </a>
+														</li>
+														<li>
+															<a href="#">
+															<i class="fa fa-trash-o"></i> Cancel </a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="task-checkbox">
+												<input type="checkbox" class="liChild" value=""/>
+											</div>
+											<div class="task-title">
+												<span class="task-title-sp">
+												操作员[jakviwlf]通过了100万的赎回审批 </span>
+												<span class="label label-sm label-danger">Marketing</span>
+											</div>
+											<div class="task-config">
+												<div class="task-config-btn btn-group">
+													<a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+													<i class="fa fa-cog"></i><i class="fa fa-angle-down"></i>
+													</a>
+													<ul class="dropdown-menu pull-right">
+														<li>
+															<a href="#">
+															<i class="fa fa-check"></i> Complete </a>
+														</li>
+														<li>
+															<a href="#">
+															<i class="fa fa-pencil"></i> Edit </a>
+														</li>
+														<li>
+															<a href="#">
+															<i class="fa fa-trash-o"></i> Cancel </a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										
+									</ul>
+									<!-- END START TASK LIST -->
+								</div>
+							</div>
+							<div class="task-footer">
+								<div class="btn-arrow-link pull-right">
+									<a href="#">See All Records</a>
+									<i class="icon-arrow-right"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<!-- END CONTAINER -->
+<script>$.include("parts/pages/foot.shtml");</script>
+
+<script src="assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
+<!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
+<script src="assets/global/plugins/morris/morris.min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+
+<script src="assets/global/plugins/amcharts/amcharts/amcharts.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/amcharts/serial.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/amcharts/pie.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/amcharts/radar.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/amcharts/themes/light.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/amcharts/themes/patterns.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/amcharts/themes/chalk.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/ammap/maps/js/worldLow.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/amstockcharts/amstock.js" type="text/javascript"></script>
+<script src="assets/global/plugins/flot/jquery.flot.min.js"></script>
+<script src="assets/global/plugins/flot/jquery.flot.resize.min.js"></script>
+<script src="assets/global/plugins/flot/jquery.flot.pie.min.js"></script>
+<script src="assets/global/plugins/flot/jquery.flot.stack.min.js"></script>
+<script src="assets/global/plugins/flot/jquery.flot.crosshair.min.js"></script>
+<script src="assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+
+
+<script type="text/javascript" src="assets/addons/jquery.counterup.min.js"></script>
+	<script type="text/javascript" src="assets/addons/countUp.js"></script>
+
+
+<!--script type="text/javascript" src="assets/global/plugins/bootstrap-toastr/toastr.min.js"></script-->
+<!--script type="text/javascript" src="parts/js/dashboard.js"></script-->
+<!--script type="text/javascript" src="notice/noticeView.js"></script-->
+<script type="text/javascript">
+jQuery(document).ready(function() { 
+	//Dashboard.init();  	
+	$('#news_portlet .portlet-title a.reload').click(function(e){
+      // Dashboard.reload();
+    })
+    console.log("reloaddd...")
+
+
+
+
+var updateCounter=function(){
+  
+	var speedoptions = {
+	  useEasing : true, 
+	  useGrouping : true, 
+	  separator : ',', 
+	  decimal : '.' ,
+	  prefix : '' ,
+	  suffix : 'K￥' 
+	}
+
+	var speed1 = new countUp("speed1", 1300, 
+					3082.441, 0, 100, speedoptions);		
+
+
+	speed1.start();
+
+	var speed2 = new countUp("speed2", 1000, 
+					 2755.591, 0, 100, speedoptions);		
+
+	speed2.start();
+
+	var speed3 = new countUp("speed3", 100, 
+					  326.849, 0, 100, speedoptions);		
+
+	speed3.start();
+
+	var speedoptions4 = {
+	  useEasing : true, 
+	  useGrouping : true, 
+	  separator : ',', 
+	  decimal : '.' ,
+	  prefix : '' ,
+	  suffix : 'M￥' 
+	}
+	var speed4 = new countUp("speed4", 3982, 
+					  532, 0, 10, speedoptions4);		
+
+	speed4.start();
+
+		setTimeout(updateCounter, 120*1000);
+
+}
+
+	updateCounter()
+createGraph1();
+createGraph2();
+createGraph3();
+createGraph4();
+createGraph5();
+createGraph6();
+createGraph7();
+
+ 			var data = [];
+ 			 			var data2 = [];
+
+            var totalPoints = 250;
+
+            // random data generator for plot charts
+
+            function getRandomData() {
+                if (data.length > 0) data = data.slice(1);
+                // do a random walk
+                while (data.length < totalPoints) {
+                    var prev = data.length > 0 ? data[data.length - 1] : 50;
+                    var y = prev + Math.random() * 10 - 5;
+                    if (y < 0) y = 0;
+                    if (y > 100) y = 100;
+                    data.push(y);
+                }
+                // zip the generated y values with the x values
+                var res = [];
+                for (var i = 0; i < data.length; ++i) {
+                    res.push([i, data[i]]);
+                }
+                return res;
+            }
+            function getRandomData2() {
+                if (data2.length > 0) data2 = data2.slice(1);
+                // do a random walk
+                while (data2.length < totalPoints) {
+                    var prev = data2.length > 0 ? data2[data2.length - 1] : 50;
+                    var y = prev + Math.random() * 10 - 5;
+                    if (y < 0) y = 0;
+                    if (y > 100) y = 100;
+                    data2.push(y);
+                }
+                // zip the generated y values with the x values
+                var res = [];
+                for (var i = 0; i < data2.length; ++i) {
+                    res.push([i, data2[i]]);
+                }
+                return res;
+            }
+
+  			var recharge=function() {
+                if ($('#chart_recharge').size() != 1) {
+                    return;
+                }
+                console.log("kkk")
+                //server load
+                var options = {
+                    series: {
+                        shadowSize: 1
+                    },
+                    lines: {
+                        show: true,
+                        lineWidth: 0.5,
+                        fill: true,
+                        fillColor: {
+                            colors: [{
+                                opacity: 0.1
+                            }, {
+                                opacity: 1
+                            }]
+                        }
+                    },
+                    yaxis: {
+                        min: 0,
+                        max: 100,
+                        tickColor: "#eee",
+                        tickFormatter: function(v) {
+                            return v + "";
+                        }
+                    },
+                    xaxis: {
+                        show: false,
+                    },
+                    colors: ["#6ef146"],
+                    grid: {
+                        tickColor: "#eee",
+                        borderWidth: 0,
+                    }
+                };
+
+
+
+                var updateInterval = 1000;
+                var plot = $.plot($("#chart_recharge"), [getRandomData()], options);
+
+                function update() {
+                    plot.setData([getRandomData()]);
+                    plot.draw();
+                    setTimeout(update, updateInterval);
+                }
+                update();
+
+            };
+
+            recharge();
+
+
+            var withdraw=function() {
+                if ($('#chart_withdraw').size() != 1) {
+                    return;
+                }
+                //server load
+                var options = {
+                    series: {
+                        shadowSize: 1
+                    },
+                    lines: {
+                        show: true,
+                        lineWidth: 0.5,
+                        fill: true,
+                        fillColor: {
+                            colors: [{
+                                opacity: 0.1
+                            }, {
+                                opacity: 1
+                            }]
+                        }
+                    },
+                    yaxis: {
+                        min: 0,
+                        max: 100,
+                        tickColor: "#eee",
+                        tickFormatter: function(v) {
+                            return v + "";
+                        }
+                    },
+                    xaxis: {
+                        show: false,
+                    },
+                    colors: ["#f1266e"],
+                    grid: {
+                        tickColor: "#eee",
+                        borderWidth: 0,
+                    }
+                };
+
+
+
+                var updateInterval = 1000;
+                var plot = $.plot($("#chart_withdraw"), [getRandomData2()], options);
+
+                function update() {
+                    plot.setData([getRandomData2()]);
+                    plot.draw();
+                    setTimeout(update, updateInterval);
+                }
+                update();
+
+            };
+
+            withdraw();
+
+});
+
+</script>
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

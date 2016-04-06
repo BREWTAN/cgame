@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+ "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+ "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="AdminGenconfig" targetRuntime="MyBatis3"
+		defaultModelType="hierarchical">
+		<plugin type="org.nights.rgens.plugin.mybatis3.MySqlJavaPlugin" />
+		<plugin type="org.nights.rgens.plugin.mybatis3.SqlDaoSupportPlugin" />
+		<plugin type="org.nights.rgens.plugin.mybatis3.DaoExamplePlugin" />
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/TFG?autoReconnect=true"
+			userId="root" password="000000" />
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="onight.tfg.ordbgens"
+			targetProject="../mcs/restface/src/gens/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="false" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="onight.tfg.ordbgens"
+			targetProject="../mcs/restface/src/gens/java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="ANNOTATEDMAPPER"
+			targetPackage="onight.tfg.ordbgens"
+			targetProject="../mcs/restface/src/gens/java">
+			<property name="enableSubPackages" value="true" />
+			<!-- <property name="pbdir"
+				value="/Users/brew/Documents/ming/mcs/restface/src/gens/proto/pbgens.proto" /> -->
+
+		</javaClientGenerator>
+
+		<table tableName="^T_SYS_.*" domainObjectName="sys" />
+		<table tableName="^TFG_.*" domainObjectName="tfg" />
+		<table tableName="^TLT_.*" domainObjectName="tlt" />
+
+	</context>
+</generatorConfiguration>

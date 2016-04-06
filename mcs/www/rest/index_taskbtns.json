@@ -1,0 +1,17 @@
+[
+    {"url":"#","icon":"fa-group","title":"充值功能","badge": 1,"blevel":"success"},
+    {"url":"#","icon":"fa-group","title":"提现功能"},
+    {"url":"#","icon":"fa-group","title":"核算功能","badge": 200,"blevel":"danger"},
+    {"url":"#","icon":"fa-group","title":"账户管理"},
+    {"url":"#","icon":"fa-group","title":"报表管理","badge": 10,"blevel":"info"},
+    {"url":"#","icon":"fa-group","title":"提款任务","badge": 5,"blevel":"success"},
+    {"url":"#","icon":"fa-group","title":"参数管理"},
+    {"url":"#","icon":"fa-group","title":"账户安全"},
+    {"url":"#","icon":"fa-group","title":"出款审批","badge": 4,"blevel":"success"},
+    {"url":"#","icon":"fa-group","title":"密码安全"},
+    {"url":"#","icon":"fa-group","title":"账户安全"},
+    {"url":"#","icon":"fa-group","title":"资金安全","badge": 8,"blevel":"info"},
+    {"url":"#","icon":"fa-group","title":"资金监控"},
+    {"url":"#","icon":"fa-group","title":"风险控制","badge": 20,"blevel":"warn"},
+    {"url":"#","icon":"fa-group","title":"手机审批"}
+]

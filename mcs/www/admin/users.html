@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<base href="../">
+
+<meta charset="utf-8" />
+<title>民生宝-用户管理</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css"
+	href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+<link rel="stylesheet" type="text/css"
+	href="assets/global/plugins/select2/select2.css">
+<link rel="stylesheet" type="text/css"
+	href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+<link rel='stylesheet'
+	href='assets/global/plugins/jquery-watable/watable.css' />
+<link rel='stylesheet'
+	href='assets/global/plugins/jquery-watable/animate.min.css' />
+<link rel='stylesheet' href='assets/global/plugins/icheck/skins/all.css' />
+
+<script type="text/javascript" src="parts/js/header.js"></script>
+<script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+	<script>$.include("parts/pages/topmenu.shtml");</script>
+	<div class="clearfix"></div>
+	<!-- BEGIN CONTAINER -->
+	<div class="page-container">
+		<script>$.include("parts/pages/sidebar.shtml");</script>
+
+		<!-- END SIDEBAR -->
+		<!-- BEGIN CONTENT -->
+		<div class="page-content-wrapper">
+			<div class="page-content">
+				<script>$.include("parts/pages/style.shtml");</script>
+
+				<!-- BEGIN PAGE HEADER-->
+				<h3 class="page-title">
+					系统管理 <small>用户管理</small>
+				</h3>
+				<div class="page-bar">
+					<ul class="page-breadcrumb">
+						<li><i class="fa fa-home"></i> <a href="index.html"></a> <i
+							class="fa fa-angle-right"></i></li>
+						<li><a href="#"></a></li>
+					</ul>
+					<div class="page-toolbar">
+						<div id="dashboard-report-range"
+							class="pull-right tooltips btn btn-fit-height grey-salt"
+							data-placement="top"
+							data-original-title="Change dashboard date range">
+							<i class="icon-calendar"></i>&nbsp; <span
+								class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+							<i class="fa fa-angle-down"></i>
+						</div>
+					</div>
+				</div>
+				<!-- END PAGE HEADER-->
+
+				<div class="note note-success container col-sm-12"
+					style="padding-bottom: 0px">
+					<div class="col-sm-3 form-group">
+						<div class="btn-group input-group">
+							<!-- 查询条件控件 -->
+							<div class="input-group-addon">用户名</div>
+							<input id="find_username" class="inputclear form-control"
+								type="text"> <span
+								class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+						</div>
+					</div>
+					<div class="col-sm-2 form-group">
+						<div class="btn-group input-group">
+							<div class="input-group-addon">状态</div>
+							<select class="form-control select2me" id="find_status">
+								<option value="-1">所有</option>
+								<option value="00">有效</option>
+								<option value="02">注销</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-sm-7 form-group">
+						<script>$.include("parts/pages/crudbtn.shtml");</script>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div id="divtable" class="table-responsive container col-md-12">
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!-- END CONTENT -->
+		<script>$.include("parts/pages/quicksidebar.shtml");</script>
+
+	</div>
+
+
+
+
+	<div class="modal fade" id="basic" tabindex="-1" role="basic"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true"></button>
+					<h4 class="modal-title">权限编辑</h4>
+				</div>
+
+				<div class="modal-body">
+
+					<div class="row">
+						<div class="col-md-16">
+							<div>
+								<div class="col-md-2">用户名</div>
+								<div class="col-md-10" id="userName"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-16">
+							<div>
+								<div class="col-md-2">权限</div>
+								<div class="col-md-10" id="permissionBody"></div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<input type="hidden" id="userId" />
+				<div class="modal-footer">
+					<button type="button" class="btn green" onclick="confirms()">保存</button>
+					<button type="button" class="btn default" data-dismiss="modal"
+						id="closeBtn">关闭</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+
+	<!--EDIT PASSWORD-->
+	<div class="modal fade" id="basic2" tabindex="-1" role="basic"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true"></button>
+					<h4 class="modal-title">密码修改</h4>
+				</div>
+
+				<div class="modal-body">
+
+					<div class="row">
+						<div class="col-md-16">
+							<div>
+								<label class="control-label col-md-4">&nbsp;&nbsp;&nbsp;&nbsp;旧密码</label>
+								<label class="control-label col-md-17"> <input
+									type="text" id="oldPassword"
+									class="validate[required,length[6-10]]">
+
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-16">
+							<div>
+								<label class="control-label col-md-4">&nbsp;&nbsp;&nbsp;&nbsp;新密码</label>
+
+								<label class="control-label col-md-17"> <input
+									type="text" id="newPassword"
+									class="validate[required,length[6-10]]">
+								</label>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<input type="hidden" id="userId2" />
+				<div class="modal-footer">
+					<button type="button" class="btn green" onclick="confirmPassword()">保存</button>
+					<button type="button" class="btn default" data-dismiss="modal"
+						id="closeBtn2">关闭</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- END CONTAINER -->
+	<!-- BEGIN FOOTER -->
+
+
+	<script type="text/javascript">$.include("parts/pages/xwatable-form.shtml");</script>
+	<script>$.include("parts/pages/foot_table.shtml");</script>
+	<script type="text/javascript" src="assets/addons/jquery.md5.js"></script>
+	<script type="text/javascript" src="assets/addons/jquery.uuid.js"></script>
+	<script type="text/javascript">
+var xw;
+var statusFormatter=function(){
+    return {
+        f: function(val){
+            if(val&&val=="00") return "有效";
+            else if(val&&val=="02") return "注销";
+            else return "未知状态";
+        },
+    };
+}();
+var passwdFM=function(){
+    return {
+        f: function(val){
+            return "******";
+        },
+    };
+}();
+
+/* var branchHelper=RefHelper.create({
+    ref_url:wpfrest+"/sysbranch",
+    ref_col:"branchId",
+    ref_display:"branchName",
+}); */
+
+/* var branchFM=function(){
+    return {
+        f: function(val){
+            console.log("check user");
+            return branchHelper.getDisplay(val);
+        },
+    };
+}(); */
+
+var environEdit=function(){ 
+	return {
+        f: function(val,row){              
+              return "<a class='btn default' data-toggle='modal'  onclick=\"editSS('"+row.userId+"','"+row.userName+"');\"   href='#basic'>权限编辑</a>";
+        },
+   };
+
+}();
+
+var passwordEdit=function(){ 
+	return {
+        f: function(val,row){              
+              return "<a class='btn default' onclick=\"resetPassWord('"+row.userId+"');\" href='javascript:void(0)'>密码重置</a>"+"&nbsp;&nbsp;<a class='btn default' data-toggle='modal' onclick=\"editPassword('"+row.userId+"');\"    href='#basic2' >密码修改</a>";
+        },
+   };
+
+}();
+
+function editPassword(userId)
+{ 	
+		$('.Metronic-alerts').remove();
+		$("#userId2").val(userId);
+		$("#oldPassword").val("");
+		$("#newPassword").val("");
+	}
+
+	var addexpansionfield = function() {
+		return {
+			f : function() {
+				return {
+					password : "e10adc3949ba59abbe56e057f20f883e",
+					createTime : new Date(),
+					//updateTime:new Date(),
+					//createdBy:"11",
+					//modifiedBy:"11111",
+					dataEnviron : "111"
+				};
+			}
+		};
+	}();
+
+	var upddexpansionfield = function() {
+		return {
+			f : function() {
+				return {
+					updateTime : new Date()
+				};
+			}
+		};
+	}();
+
+	function confirmPassword() {
+		eval((validateCustom("#basic2") == 1) ? "return false" : "");
+		var oldPassword = $("#oldPassword").val();
+		var newPassword = $("#newPassword").val();
+		var userId2 = $("#userId2").val();
+
+		$
+				.ajax({
+					url : wpfadmin + 'usermanage/editPassword',
+					dataType : 'json',
+					data : {
+						'oldPassword' : $.md5($("#oldPassword").val()),
+						'newPassword' : $.md5($("#newPassword").val()),
+						'userId' : $("#userId2").val()
+					}
+				})
+				.done(
+						function(data) {
+							if (data.description == "success") {
+
+								Metronic
+										.alert({
+											container : '.modal-body',// alerts parent container(by default placed after the page breadcrumbs)
+											place : 'prepend', // append or prepent in container 
+											type : 'success', // alert's type
+											message : '<center><i class="fa-lg fa fa-warning"></i>密码修改成功！</center>', // alert's message
+											close : false, // make alert closable  
+											reset : true,
+											//               closeInSeconds:2, // auto close after defined seconds              
+											icon : 'none' // put icon before the message
+										});
+
+							} else {
+
+								Metronic
+										.alert({
+											container : '.modal-body',// alerts parent container(by default placed after the page breadcrumbs)
+											place : 'prepend', // append or prepent in container 
+											type : 'success', // alert's type
+											message : '<center><i class="fa-lg fa fa-warning"></i>密码修改失败！</center>', // alert's message
+											close : false, // make alert closable  
+											reset : true,
+											//               closeInSeconds:2, // auto close after defined seconds              
+											icon : 'none' // put icon before the message
+										});
+
+							}
+
+						});
+
+	}
+
+	function resetPassWord(userId) {
+		console.log("332  resetPassWord " + userId);
+		$
+				.ajax({
+					url : wpfadmin + 'usermanage/resetPassWord',
+					type : 'GET',
+					dataType : 'json',
+					data : {
+						'userId' : userId,
+						'password' : 'e10adc3949ba59abbe56e057f20f883e'
+					}
+				})
+				.done(
+						function(data) {
+
+							console.log("344 resetpassword done "
+									+ data.description);
+
+							if (data.description == "success") {
+
+								Metronic
+										.alert({
+											container : '#divtable',// alerts parent container(by default placed after the page breadcrumbs)
+											place : 'prepend', // append or prepent in container 
+											type : 'success', // alert's type
+											reset : true,
+											message : '<center><i class="fa-lg fa fa-warning"></i>密码重置成功！</center>', // alert's message
+											close : 1, // make alert closable    
+											cssStyle : 'color:#C0334A',
+											//     closeInSeconds:1, // auto close after defined seconds
+											icon : 'none' // put icon before the message
+										});
+
+							} else {
+
+								Metronic
+										.alert({
+											container : '#divtable',// alerts parent container(by default placed after the page breadcrumbs)
+											place : 'prepend', // append or prepent in container 
+											type : 'success', // alert's type
+											message : '<center><i class="fa-lg fa fa-warning"></i>密码重置失败！</center>', // alert's message
+											close : 1, // make alert closable      
+											reset : true,
+											//        closeInSeconds:1, // auto close after defined seconds
+											icon : 'none' // put icon before the message
+										});
+
+							}
+
+						});
+
+	}
+
+	function editSS(userId, userName) {
+		$('.Metronic-alerts').remove();
+		console.log("userName:" + userName);
+		$("#userId").val(userId);
+		$("#userName").html(userName);
+		$("#permissionBody").html("");
+		var mm = "";
+		$
+				.ajax({
+					url : wpfadmin + 'exsysrole/getAllRoles',
+					dataType : 'json',
+					async : false,
+					success : function(data) {
+						$
+								.each(
+										data,
+										function(index, val) {
+											if (val['status'] == 1) {
+												$
+														.ajax({
+															url : wpfadmin
+																	+ 'exsysuserrole/getUserRole/'
+																	+ userId
+																	+ ','
+																	+ val['roleId'],
+															dataType : 'json',
+															async : false,
+															success : function(
+																	data) {
+																if (data == 1) {
+																	mm += "<input type='checkbox' checked='checked' name='dataEnviron' value="+val['roleId']+">"
+																			+ val['roleName']
+																			+ "&nbsp;";
+																} else {
+																	mm += "<input type='checkbox'  name='dataEnviron' value="+val['roleId']+">"
+																			+ val['roleName']
+																			+ "&nbsp;";
+																}
+															}
+														});
+											}
+										});
+					}
+				});
+		$("#permissionBody").html(mm);
+		$("#userName").html(userName);
+	}
+
+	function confirms() {
+		var checks = $("#permissionBody input:checkbox[name='dataEnviron']:checked");
+		var roleIds = "";
+		var userId = $("#userId").val();
+		$.each(checks, function(index, vl) {
+			console.log(vl.value);
+			roleIds += vl.value + "-";
+		});
+
+		$
+				.ajax({
+					url : wpfadmin + 'exsysuserrole/saveUserRole/' + userId
+							+ ',' + roleIds,
+					dataType : 'json',
+					success : function(data) {
+						if (data == "success") {
+							Metronic
+									.alert({
+										container : '.modal-body',// alerts parent container(by default placed after the page breadcrumbs)
+										place : 'prepend', // append or prepent in container 
+										type : 'success', // alert's type
+										reset : true,
+										message : '<center><i class="fa-lg fa fa-warning"></i>权限修改成功！</center>', // alert's message
+										close : false, // make alert closable    
+										cssStyle : 'color:#C0334A',
+										//     closeInSeconds:1, // auto close after defined seconds
+										icon : 'none' // put icon before the message
+									});
+						} else {
+							Metronic
+									.alert({
+										container : '.modal-body',// alerts parent container(by default placed after the page breadcrumbs)
+										place : 'prepend', // append or prepent in container 
+										type : 'success', // alert's type
+										reset : true,
+										message : '<center><i class="fa-lg fa fa-warning"></i>权限修改失败！</center>', // alert's message
+										close : false, // make alert closable    
+										cssStyle : 'color:#C0334A',
+										//     closeInSeconds:1, // auto close after defined seconds
+										icon : 'none' // put icon before the message
+									});
+						}
+					}
+				});
+		/* .done(function(data2) {
+		 console.log(data2);
+		 if(data2.description=="success")
+		 {
+
+		 Metronic.alert({
+		 container:'.modal-body',// alerts parent container(by default placed after the page breadcrumbs)
+		 place:'prepend', // append or prepent in container 
+		 type: 'success',  // alert's type
+		 reset: true, 
+		 message:'<center><i class="fa-lg fa fa-warning"></i>权限修改成功！</center>',  // alert's message
+		 close: false, // make alert closable    
+		 cssStyle:'color:#C0334A',       
+		 //     closeInSeconds:1, // auto close after defined seconds
+		 icon: 'none' // put icon before the message
+		 });
+
+
+
+		 }
+		 else{ 
+
+		 Metronic.alert({
+		 container:'.modal-body',// alerts parent container(by default placed after the page breadcrumbs)
+		 place:'prepend', // append or prepent in container 
+		 type: 'success',  // alert's type
+		 reset: true, 
+		 message:'<center><i class="fa-lg fa fa-warning"></i>权限修改失败！</center>',  // alert's message
+		 close: false, // make alert closable    
+		 cssStyle:'color:#C0334A',       
+		 //     closeInSeconds:1, // auto close after defined seconds
+		 icon: 'none' // put icon before the message
+		 });
+
+		 }
+
+		 xw.update();
+		 });
+		 */
+	}
+
+	function closeModal() {
+		$("#closeBtn").click();
+	}
+
+	function closeModal2() {
+		$("#closeBtn2").click();
+	}
+
+	var statusEditBuilder = function(val) {
+		console.log("setBuilder::" + val);
+		if (val == "00") {
+			return "<select id='status' name='status' class='form-control select2me'><option value='00' selected>有效</option><option value='02' >注销</option></select>";
+		}
+		else if (val == "02") {
+			return "<select id='status' name='status' class='form-control select2me'><option value='00'>有效</option><option value='02' selected>注销</option></select>";
+		}
+		return "<select id='status' name='status' class='form-control select2me'><option value='00' selected>有效</option><option value='02' >注销</option></select>";
+
+	};
+
+	var newCreateDate = function() {
+		return {
+			f : function(val) {
+				if (!val) {
+					return "";
+				}
+				return jQuery.format.toBrowserTimeZone(new Date(parseInt(val)));
+			},
+		};
+	}();
+	//弹出框是一行二列字段展示
+	function initDoubleExcel(){
+	} 
+	$(function() {
+		//初始化页面标题
+		initTitle();
+		xw = XWATable.init({
+			//----------------table的选项-------
+			pageSize : 10, //Initial pagesize
+			// filter: true,               //Show filter fields
+			// sorting: true,              //Enable sorting
+			columnPicker : true, //Show the columnPicker button
+			transition : 'fade', //(bounce, fade, flip, rotate, scroll, slide).
+			// pageSizes: [1,5,8,12,200],  //Set custom pageSizes. Leave empty array to hide button.
+			// hidePagerOnEmpty: true,     //Removes the pager if data is empty.
+			checkboxes : true, //Make rows checkable. (Note. You need a column with the 'unique' property)
+			checkAllToggle : true, //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+			rowClicked : function(data) {
+				console.log('row clicked users.html 542'); //data.event holds the original jQuery event.
+				console.log(data); //data.row holds the underlying row you supplied.
+			},
+			//----------------基本restful地址---
+			restbase : '/restface/sysuser',
+			key_column : "userId",
+			//---------------行定义
+			coldefs : [ {
+				col : "userId",
+				friendly : "用户ID",
+				unique : true,
+				//inputsource : "number",
+				validate : "required,onlyNumber,length[1-38],url(/restface/sysuser;userId;该用户id已经存在了，请重新输入)"
+			}, {
+				col : "password",
+				friendly : "密码",
+				unique : true,
+				hidden : true,
+				nonedit : "nosend",
+				default_value : "e10adc3949ba59abbe56e057f20f883e"
+			}, {
+				col : "userName",
+				friendly : "用户名",
+				validate : "required,length[2-50]"
+			}, {
+				col : "loginName",
+				friendly : "登录名",
+				validate : "required,length[2-32]"
+			}, {
+				col : "mobile",
+				friendly : "手机号",
+				validate : "length[11-11]"
+
+			}, {
+				col : "email",
+				friendly : "邮件",
+				validate : "email",
+				validate : "required,email"
+
+			},
+			/* {
+			    col:"branchId",
+			    friendly: "分支机构",
+			    format: branchFM,
+			    inputsource: "select",                            
+			    ref_url: "/restface/sysbranch",
+			    ref_name: "branchName",
+			    ref_value: "branchId",
+			    validate:"required"
+			}, */
+			{
+				col : "status",
+				friendly : "状态",
+				type : "string",
+				format : statusFormatter,
+				inputsource : "custom",
+				inputbuilder : "statusEditBuilder",
+				validate : "required"
+			}, {
+				col : "createTime",
+				friendly : "创建时间",
+				nonedit : "nosend"
+			}, {
+				col : "dataEnviron",
+				friendly : "权限",
+				type : "string",
+				nonedit : "noeidt",
+				format : environEdit
+			}, {
+				col : "icon",
+				friendly : "密码管理",
+				type : "string",
+				nonedit : "noeidt",
+				format : passwordEdit
+			} ],
+			//---------------查询时过滤条件
+			findFilter : function() {//find function
+				// RQBuilder.and(rqls)
+				var filter_name = undefined;
+				var filter_leaf = undefined;
+				var filter_status = undefined;
+
+				if ($('#find_username').val()) {
+					filter_name = RQLBuilder.like("userName", $(
+							'#find_username').val());
+				}
+
+				if ($('#find_status').val() != -1) {
+					filter_status = RQLBuilder.equal("status",
+							$('#find_status').val());
+				}
+				var filter = RQLBuilder.and([ filter_name, filter_status ]);
+				return filter.rql();
+			},//--findFilter
+			onAdded : function(ret, jsondata) {
+				return validateForm(ret,jsondata);
+
+			},
+			onUpdated : function(ret, jsondata) {
+				console.log("onUpdated callback:" + ret + ",obj="
+						+ JSON.stringify(jsondata));
+				return validateForm(ret,jsondata);
+			},
+			onDeleted : function(ret, jsondata) {
+				console.log("onDeleted callback:" + ret + ",obj="
+						+ JSON.stringify(jsondata));
+			},
+		}//--init
+		);//--end init
+
+		$('#find_status').select2();
+		$('#find_username').on('input', function(e) {
+			console.log("changing::" + e.target.value);
+			if (!e.target.value) {
+				xw.autoResetSearch();
+			}
+		});
+
+		//-----------------ENDOFSCIPT------
+	});
+</script>
+	<!-- End of User Script-->
+	<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

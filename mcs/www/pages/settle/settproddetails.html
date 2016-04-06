@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <base href="../../" >
+
+    <meta charset="utf-8"/>
+    <title>民生宝-商户结算明细</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+       <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+
+    <script type="text/javascript" src="parts/js/header.js"></script>
+    <script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+    <script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <script>$.include("parts/pages/sidebar.shtml");</script>
+
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <script>$.include("parts/pages/style.shtml");</script>
+
+            <!-- BEGIN PAGE HEADER-->
+            <h3 class="page-title">
+            差错对账管理 <small>商户结算明细</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html"></a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+                <div class="page-toolbar">
+                    <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                        <i class="icon-calendar"></i>&nbsp;
+                        <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">买方或卖方商户号</div>
+                        <input id="find_name" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">结算日期</div>
+                        <input id="find_sett_date" class="inputclear form-control" type="text" placeholder="yyyy-mm-dd" data-date-format="yyyy-MM-dd">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">产品类型</div>
+                        <select class="form-control chosen-select" id="find_productType">
+                                <option value="-1">全部</option>
+                                <option value="FUND">基金产品</option>
+                                <option value="FNLN">融资贷款类产品</option>
+                                <option value="OFAG">开放式理财类产品（代理）</option>
+                                <option value="CFAG">封闭式理财类产品（代理）</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">状态</div>
+ 						<select class="form-control chosen-select" id="find_status">
+                                <option value="-1">所有</option>
+                                <option value="05">待结算</option>
+                                <option value="04">已结算</option>
+                                <option value="03">已清算</option>
+                                <option value="02">在途</option>
+                                <option value="01">失败</option>
+                                <option value="00">成功</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <script>$.include("parts/pages/crudbtn_balance.shtml");</script>
+                </div>
+                <div class="col-sm-5 form-group">
+                    <label style="color: #963;font-size: 10px;">交易总笔数:<input id="allCount" style="border: 0px;background-color: #bbdba1;width: 80px;padding: 0 5px;margin: 0 5px" readonly=true /></label>
+                    <label style="color: #963;font-size: 10px;">总金额:<input id="allAmt" style="border: 0px;background-color: #bbdba1;width: 120px;padding: 0 5px;margin: 0 5px" readonly=true /></label>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container col-md-12" >
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+    <script>$.include("parts/pages/quicksidebar.shtml");</script>
+
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+
+
+<script type="text/javascript">$.include("parts/pages/xwatable-form.shtml");</script>
+<script>$.include("parts/pages/foot_table.shtml");</script>
+
+<script type="text/javascript">
+
+var productTypeFormatter=function(){
+    return {
+        f: function(val){
+        	if(val&&val=="FUND") return "基金产品 ";
+        	else if(val&&val=="FNLN") return "融资贷款类产品";
+            else if(val&&val=="OFAG") return "开放式理财类产品（代理）";
+            else if(val&&val=="CFAG") return "封闭式理财类产品（代理）";
+            else return "无此状态";
+        },
+    };
+}();
+var productTypeEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val=="FUND"){
+        return "<select id='productType' name='productType' readonly class='form-control select2me' onchange='changeTouch()'><option value='FUND' selected>基金产品</option></select>";
+    }else if(val=="FNLN"){
+        return "<select id='productType' name='productType' readonly class='form-control select2me' onchange='changeTouch()'><option value='FNLN'  selected>融资贷款类产品</option></select>";
+    }else if(val=="OFAG"){
+        return "<select id='productType' name='productType' readonly class='form-control select2me' onchange='changeTouch()'><option value='OFAG'  selected>开放式理财类产品（代理）</option></select>";
+    }else if(val=="CFAG"){
+        return "<select id='productType' name='productType' readonly class='form-control select2me' onchange='changeTouch()'><option value='CFAG'  selected>封闭式理财类产品（代理）</option></select>";
+    }
+};
+
+var statusFormatter=function(){
+    return {
+        f: function(val){
+            if(val&&val=="0000") return "成功";
+            else return "失败";
+        },
+    };
+}();
+
+var statusEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val=="0000"){
+        return "<select id='status' name='status' class='form-control select2me'><option value='0000'  selected>成功</option></select>";
+    }  
+    else{
+        return "<select id='status' name='status' class='form-control select2me'><option value='"+val+"'>失败</option></select>";
+    }  
+};
+var recStatusFormatter=function(){
+    return {
+        f: function(val){
+            if(val&&val=="05") return "待结算";
+            if(val&&val=="04") return "已结算";
+            if(val&&val=="03") return "已清算";
+            if(val&&val=="02") return "在途";
+            if(val&&val=="01") return "失败";
+            if(val&&val=="00") return "成功";
+            else return "无效";
+        },
+    };
+}();
+var recStatusEditBuilder=function(val){
+    var html = "<select id='recStatus' name='recStatus' class='form-control select2me'>";
+    if(val=="05"){
+        html+="<option value='05'  selected>待结算</option><option value='04'>已结算</option></select>";
+    }else{
+        html+="<option value='04' selected>已结算</option><option value='05'>待结算</option></select>";
+    }  
+    return html;
+};
+var transTypeFormatter=function(){
+    return {
+        f: function(val){
+       		if(val&&val=="MSCS.101") return "申购";
+    		else if(val&&val=="MSCS.103") return "赎回";
+    		else if(val&&val=="MSCS.109") return "受让";
+    		else if(val&&val=="MSCS.107") return "转让";
+    		else if(val&&val=="MSCS.PRF") return "收益";
+            else return "未知";
+        },
+    };
+}();
+
+var transTypeEditBuilder=function(val){
+    var html = "<select id='recStatus' name='recStatus' class='form-control select2me'>";
+    if(val=="MSCS.101"){
+        html+="<option value='MSCS.101'  selected>申购</option></select>";
+    }else if(val=="MSCS.103"){
+        html+="<option value='MSCS.103'  selected>赎回</option></select>";
+    }else if(val=="MSCS.109"){
+        html+="<option value='MSCS.109'  selected>受让</option></select>";
+    }else if(val=="MSCS.107"){
+        html+="<option value='MSCS.107'  selected>转让</option></select>";
+    }else if(val=="MSCS.PRF"){
+        html+="<option value='MSCS.PRF'  selected>收益</option></select>";
+    }  
+    return html;
+};
+function initStatisticsInfo(url,param){
+    var data = Restful.find(url,param);
+    
+    $('#allCount').val(data!=null?data[0].allCount:0);
+    $('#allAmt').val(data!=null?data[0].allAmt:0);
+}
+$(function(){ 
+	initStatisticsInfo("/restface/settproddetails/getAllCountAndAmt",null);
+	//初始化页面标题
+	initTitle();
+	$("#find_sett_date").datepicker({
+		format: 'yyyy-mm-dd'
+	}); 
+     var xw=XWATable.init(
+        {
+            //----------------table的选项-------
+            pageSize: 10,                //Initial pagesize
+                    // filter: true,               //Show filter fields
+                    // sorting: true,              //Enable sorting
+            columnPicker: true,         //Show the columnPicker button
+            transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+            // pageSizes: [1,5,8,12,200],  //Set custom pageSizes. Leave empty array to hide button.
+            // hidePagerOnEmpty: true,     //Removes the pager if data is empty.
+            checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+            checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+            rowClicked: function(data) {    
+                console.log('row clicked');   //data.event holds the original jQuery event.
+                console.log(data);            //data.row holds the underlying row you supplied.
+            },
+            //----------------基本restful地址---
+            restbase: restpath +'/exsettproddetails',
+            key_column: "id",
+            xwFlag:"proddetails",
+            //---------------行定义
+            coldefs: [
+                      {      
+                          col:"id",
+                          friendly: "主键",
+                          unique: true,
+                          hidden:true,
+                          nonedit:"nosend",
+                          
+                      },
+                      {
+                          col:"mchntId",
+                          friendly: "商户编号",
+                          readonly:true,
+                      },
+                      {
+                          col:"prdId",
+                          friendly: "产品方ID",
+                          readonly:true,
+                      }, {
+                          col:"channleId",
+                          friendly:"渠道编号",
+                          readonly:true,
+                      },
+                      { 
+                          col:"outProdChnId",
+                          friendly:"对外产品渠道商户ID",
+                          hidden:true,
+                          readonly:true,
+                      },
+                      {
+                          col:"prodId",
+                          friendly: "产品编号",
+                          readonly:true,
+                      },
+                      {
+                          col:"productType",
+                          friendly: "产品类型",
+                          filterTooltip:true,                     
+                          format: productTypeFormatter,
+                          inputsource: "custom",
+                          inputbuilder: "productTypeEditBuilder",
+                          
+                          readonly:true,
+                          //change_function:"changeTouch()",
+                      },
+                      {
+                          col:"outProdid",
+                          friendly: "外部产品编号",
+                          hidden:true,
+                          readonly:true,
+                      },{
+                          col:"outSubProdId",
+                          friendly: "外部子产品编号",
+                          hidden:true,
+                          readonly:true,
+                      },
+                      {
+                          col:"settDate",
+                          friendly: "结算日期",
+                          readonly:true,
+                      },
+                      {
+                          col:"custId",
+                          friendly: "用户号",
+                          hidden:true,
+                          readonly:true,
+                      },
+                      {
+                          col:"mchntRecordId",
+                          friendly: "交易流水",
+                          hidden:true,
+                          readonly:true,
+                      },
+                      {
+                          col:"prodRecordId",
+                          friendly: "产品方订单号",
+                          hidden:true,
+                          readonly:true,
+                      },
+                      {
+                          col:"transType",
+                          friendly: "交易类型",
+                          readonly:true,
+                          filterTooltip:true,                     
+                          format: transTypeFormatter,
+                          inputsource: "custom",
+                          inputbuilder: "transTypeEditBuilder",
+                      },
+                      {
+                          col:"transAmt",
+                          friendly: "交易金额",
+                          readonly:true,
+                      },
+                      {
+                          col:"feeAmt",
+                          friendly: "手续费金额",
+                          readonly:true,
+                      },
+                      {
+                          col:"transReqDate",
+                          friendly: "交易接收时间",
+                          hidden:true,
+                          readonly:true,
+                      	  nonedit:"nosend",
+                      },
+                      {
+                          col:"transRspDate",
+                          friendly: "接收响应时间",
+                          hidden:true,
+                          readonly:true,
+                          nonedit:"nosend",
+                      },
+                      {
+                          col:"certNo",
+                          friendly: "身份证号",
+                          hidden:true,
+                          readonly:true,
+                      },
+                      {
+                          col:"certType",
+                          friendly: "证件类型",
+                          hidden:true,
+                          readonly:true,
+                      },
+                      {
+                          col:"valueDate",
+                          friendly: "起息日",
+                          hidden:true,
+                          readonly:true,
+                      },
+                      {
+                          col:"status",
+                          friendly: "交易状态",
+                          filterTooltip:true,                     
+                          format: statusFormatter,
+                          inputsource: "custom",
+                          inputbuilder: "statusEditBuilder",
+                          readonly:true,
+                      },
+                      {
+                          col:"mchFeeAmt",
+                          friendly: "商户方手续费",
+                          readonly:true,
+                      },
+                      {
+                          col:"proFeeAmt",
+                          friendly: "产品方手续费",
+                          readonly:true,
+                      },
+                      {
+                          col:"crtTime",
+                          friendly: "创建日期",
+                          hidden:true,
+                          readonly:true,
+                          nonedit:"nosend",
+                      },
+                      {
+                          col:"updTime",
+                          friendly: "修改日期",
+                          hidden:true,
+                          readonly:true,
+                          nonedit:"nosend",
+                      },
+                      {
+                          col:"recStatus",
+                          friendly: "记录状态",
+                          filterTooltip:true,                     
+                          format: recStatusFormatter,
+                          inputsource: "custom",
+                          inputbuilder: "recStatusEditBuilder",
+                      }, 
+                ],
+            //---------------查询时过滤条件
+            findFilter: function(){//find function
+            	var paramJson = {};
+       			var paramArr = new Array();
+                
+                var leaf,transType,mchntId,settDate,prodtype;
+                if($('#find_status').val()!=-1){
+                	leaf=RQLBuilder.equal("recStatus",$('#find_status').val());
+                	var param = {};
+       				param["recStatus"]=$('#find_status').val();
+       				paramArr.push(param);
+                }
+                if($('#find_name').val().length>0){
+                    var leaf1=RQLBuilder.equal("mchnt_id",$('#find_name').val());
+                    var leaf2=RQLBuilder.equal("prd_id",$('#find_name').val());
+                    mchntId=RQLBuilder.or([
+    											leaf1,leaf2
+                                            ]); 
+                	var param = {};
+       				param["mchnt_id"]=$('#find_name').val();
+       				paramArr.push(param);
+                }
+                if($('#find_sett_date').val().length>0){
+                	settDate=RQLBuilder.equal("sett_date",$('#find_sett_date').val());
+                	var param = {};
+       				param["sett_date"]=$('#find_sett_date').val();
+       				paramArr.push(param);
+                }
+                if($('#find_productType').val().length>0&&$('#find_productType').val()!=-1){
+                	prodtype=RQLBuilder.equal("product_type",$('#find_productType').val());
+                	var param = {};
+       				param["product_type"]=$('#find_productType').val();
+       				paramArr.push(param);
+                }
+                paramJson["$and"]=paramArr;
+                initStatisticsInfo("/restface/settproddetails/getAllCountAndAmt",JSON.stringify(paramJson));
+                var filter=RQLBuilder.and([
+                        	mchntId,leaf,transType,settDate,prodtype
+                        ]);
+                return filter.rql();
+            },
+        }//--init
+    );//--end init
+
+    //$('#find_leaf').select2();
+    $('#find_name').on('input',function(e){
+        console.log("changing::"+e.target.value);
+        if(!e.target.value){
+            xw.autoResetSearch();
+        }
+    });
+
+    
+//-----------------ENDOFSCIPT------
+}
+);
+
+</script><!-- End of User Script-->
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

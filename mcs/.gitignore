@@ -1,0 +1,12 @@
+.idea/*
+*.iml
+/.settings
+.project
+.classpath
+.DS_Store
+Thumbs.db
+/restface/.settings
+/restface/.externalToolBuilders
+/restface/.gradle
+/restface/build
+/restface/bin

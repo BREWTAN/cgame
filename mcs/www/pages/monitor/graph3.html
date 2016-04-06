@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <base href="../../" >
+
+    <meta charset="utf-8"/>
+    <title>民生宝-监控管理-当日商户交易量组成分析</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<script type="text/javascript" src="pages/monitor/header.js"></script>
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <script>$.include("parts/pages/sidebar.shtml");</script>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    	<div class="page-content-wrapper" id="main_view">
+		  
+		<div class="page-content" >
+			<script>$.include("parts/pages/style.shtml");</script>
+
+			<div class="row">
+				<div class="col-md-6">
+					<!-- BEGIN CHART PORTLET-->
+					<div class="portlet light bordered">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="icon-bar-chart font-green-haze"></i>
+								<span class="caption-subject bold uppercase font-green-haze"> 当日商户交易量组成分析(申购)</span>
+								<span class="caption-helper">依照商户对比</span>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+								<!-- <a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="javascript:;" class="reload">
+								</a> -->
+								<a href="javascript:;" class="fullscreen">
+								</a>
+								<!-- <a href="javascript:;" class="remove">
+								</a> -->
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div id="chart_3_1" class="chart" style="height: 300px;">
+							</div>
+						</div>
+					</div>
+					<!-- END CHART PORTLET-->
+				</div>
+				
+				<div class="col-md-6">
+					<!-- BEGIN CHART PORTLET-->
+					<div class="portlet light bordered">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="icon-bar-chart font-green-haze"></i>
+								<span class="caption-subject bold uppercase font-green-haze"> 当日商户交易量组成分析(赎回)</span>
+								<span class="caption-helper">依照商户对比</span>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+								<!-- <a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="javascript:;" class="reload">
+								</a> -->
+								<a href="javascript:;" class="fullscreen">
+								</a>
+								<!-- <a href="javascript:;" class="remove">
+								</a> -->
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div id="chart_3_2" class="chart" style="height: 300px;">
+							</div>
+						</div>
+					</div>
+					<!-- END CHART PORTLET-->
+				</div>
+			</div>
+			
+		</div>
+	</div>
+    <!-- END CONTENT -->
+    <script>$.include("parts/pages/quicksidebar.shtml");</script>
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+
+
+<script type="text/javascript">$.include("parts/pages/xwatable-form.shtml");</script>
+<script>$.include("parts/pages/foot_table.shtml");</script>
+
+<script type="text/javascript" src="pages/monitor/jqzabbix/jqzabbix.js"></script>
+<script type="text/javascript" src="pages/monitor/createGraph3.js"></script>
+
+<script type="text/javascript">
+//Zabbix server API url
+
+var url = '/zabbix/api_jsonrpc.php';
+
+var options = {};
+options.url = url;
+
+var chart;
+var legend;
+server = new $.jqzabbix(options);
+autoAuth();
+
+function autoAuth() {
+    options.username = "jsmon";
+    options.password = "jsmon";
+    server.setOptions(options);
+    server.userLogin(null,
+    function(data) {
+        console.log("data==" + JSON.stringify(data));
+        createGraph3();query3_1();query3_2();
+    },
+    function(data){
+    	//alert('err')
+    	console.log("err==" + JSON.stringify(data));
+    });
+}
+
+function checkLength(obj1,obj2,obj3){
+	var len = Math.min(obj1.length,obj2.length,obj3.length);
+	return len;
+}
+
+function getWebRootPath() {
+    var webroot=document.location.href;
+    webroot=webroot.substring(webroot.indexOf('//')+2,webroot.length);
+    webroot=webroot.substring(webroot.indexOf('/')+1,webroot.length);
+    webroot=webroot.substring(0,webroot.indexOf('/'));
+    var rootpath="/"+webroot;
+    return rootpath;
+}
+
+function loading(id){
+    Metronic.blockUI({
+        target: document.getElementById(id),
+        animate: true,
+        overlayColor: 'none'
+    });
+}
+
+function loaded(id){
+    window.setTimeout(function() {
+        Metronic.unblockUI(document.getElementById(id));
+    }, 1000);
+}
+
+</script><!-- End of User Script-->
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

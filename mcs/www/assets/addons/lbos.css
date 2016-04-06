@@ -1,0 +1,22 @@
+
+.container-fluid{
+    padding-left: 0px;
+    padding-right: 0px
+}
+
+.container{
+    padding-left: 0px;
+    padding-right: 0px
+}
+    .progress{
+        margin-top: 4px;
+        margin-bottom: 0px;
+    }
+
+
+.table-responsive  td {
+        word-break:break-all;
+    }
+button{
+	border-radius: 4px !important;	
+}

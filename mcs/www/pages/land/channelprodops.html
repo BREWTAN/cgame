@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <base href="../../" >
+
+    <meta charset="utf-8"/>
+    <title>民生宝-渠道产品维护</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+       <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+
+    <script type="text/javascript" src="parts/js/header.js"></script>
+    <script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <script>$.include("parts/pages/sidebar.shtml");</script>
+
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <script>$.include("parts/pages/style.shtml");</script>
+
+            <!-- BEGIN PAGE HEADER-->
+            <h3 class="page-title">
+            产品渠道管理  <small>渠道产品维护</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html"></a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+                <div class="page-toolbar">
+                    <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                        <i class="icon-calendar"></i>&nbsp;
+                        <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">产品编号</div>
+                        <input id="find_prodId" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">渠道编号</div>
+                        <input id="find_name" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-2 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">状态</div>
+                        <select class="form-control chosen-select" id="find_status">
+                                <option value="-1">所有</option>
+                                <option value="00">正常</option>
+                                <option value="01">关闭</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-sm-5 form-group">
+                    <script>$.include("parts/pages/crudbtn.shtml");</script>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container col-md-12" >
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+    <script>$.include("parts/pages/quicksidebar.shtml");</script>
+
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+
+
+<script type="text/javascript">$.include("parts/pages/xwatable-form.shtml");</script>
+<script>$.include("parts/pages/foot_table.shtml");</script>
+<script type="text/javascript" src="assets/addons/jquery.uuid.js"></script>
+
+<script type="text/javascript">
+
+
+var addexpansionfield=function(){ 
+		return {
+        f: function(){              
+			return {
+					id:Math.uuid(8),
+					channelDxId:$("#channelId").val()
+					};
+        }
+   };
+}();
+
+var statusFormatter=function(){
+    return {
+        f: function(val){
+            if(val&&val=="00") return "正常";
+            else　if(val&&val=="01") return "关闭";
+            else return "未知状态";
+        },
+    };
+}();
+
+var statusEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val=="00"){
+        return "<select id='status' name='status' class='form-control select2me'><option value='00' selected>正常</option><option value='01'>关闭</option></select>";
+    }
+    else if(val=="01"){
+        return "<select id='status' name='status' class='form-control select2me'><option value='00'>正常</option><option value='01' selected>关闭</option></select>";
+    }else{
+        return "<select id='status' name='status' class='form-control select2me'><option value='00'>正常</option><option value='01' >关闭</option></select>";
+    }
+
+};
+var userHelper=RefHelper.create({
+    ref_url:wpfadmin +'landprodinfo',
+    ref_col:"productName",
+    ref_display:"prodId",
+});
+var selectProd=function(){
+    return {
+        f: function(val){
+             var display=userHelper.getDisplay(val);
+             if(display==0)
+             	{ 
+             		display='无';
+             	}
+            return display;
+        },
+    };
+}();
+var userHelper=RefHelper.create({
+    ref_url:wpfadmin +'landchannelinf',
+    ref_col:"channelName",
+    ref_display:"mchId",
+});
+var selectChannel=function(){
+    return {
+        f: function(val){
+             var display=userHelper.getDisplay(val);
+             if(display==0)
+             	{ 
+             		display='无';
+             	}
+            return display;
+        },
+    };
+}();
+function changeTouch(){
+	var data = Restful.find("/restface/exauditmchinf/getChannelMchByProdId",$("#prodId").val());
+	var option="";
+	$.each(data,function(n,m){
+		option = option+"<option value='"+m.id+"'>"+m.mchId+"("+m.productMchId+"--"+m.prodChannelId+")</option>"
+	});
+	$("#channelId").html(option);
+}
+function initInfo(prodId,channelId){
+	var data = Restful.find("/restface/exauditmchinf/getChannelMchByProdId",prodId);
+	var option="";
+	$.each(data,function(n,m){
+		option = option+"<option value='"+m.id+"' "+(channelId==m.id?"selected":"")+">"+m.mchId+"("+m.productMchId+"--"+m.prodChannelId+")</option>"
+	});
+	$("#channelId").html(option);
+}
+//弹出框是一行二列字段展示
+function initDoubleExcel(){
+} 
+$(function(){ 
+	//初始化页面标题
+	initTitle();
+
+     var xw=XWATable.init(
+        {
+            //----------------table的选项-------
+            pageSize: 10,                //Initial pagesize
+                    // filter: true,               //Show filter fields
+                    // sorting: true,              //Enable sorting
+            columnPicker: true,         //Show the columnPicker button
+            transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+            // pageSizes: [1,5,8,12,200],  //Set custom pageSizes. Leave empty array to hide button.
+            // hidePagerOnEmpty: true,     //Removes the pager if data is empty.
+            checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+            checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+            rowClicked: function(data) {    
+                console.log('row clicked');   //data.event holds the original jQuery event.
+                console.log(data);            //data.row holds the underlying row you supplied.
+            },
+            xwFlag:"channelProdOps",
+            logicaldel:false,
+            //----------------基本restful地址---
+            restbase: restpath +'/landdxiddesc',
+            key_column: "id",
+            //---------------行定义
+            coldefs: [
+                       { 
+                           col:"id", 
+                           friendly: "主键编号 ",
+                           unique: true,
+                           readonly:true,
+                           //validate:"required,length[6-6],url(/restface/landdxiddesc;id;主键编号已经存在，请重新输入)"
+                           nonedit:"nosend"
+                           
+                       },{
+                           col:"prodId",
+                           friendly: "产品编号",
+                           validate:"required",
+                           readonly:true,
+                           inputsource: "select",
+                           ref_url: wpfadmin + "landprodinfo",
+                           ref_name: "productName",
+                           ref_value: "prodId", 
+                           change_function:"changeTouch()",
+                           format: selectProd,
+                       },
+                       {
+                           col:"channelId",
+                           friendly: "渠道编号",
+                           validate:"required,url(/restface/landdxiddesc;channelId;prodId;渠道编号和产品编号的唯一组合已经存在，请重新选择)",
+                           readonly:true,
+                           inputsource: "select",
+                           /* ref_url: wpfadmin + "landchannelinf",
+                           ref_name: "mchId",
+                           ref_value: 'id', */
+                           
+                           format: selectChannel,
+                       },
+                       { 
+                           col:"channelDxId", 
+                           friendly: " 渠道代销编码  " ,
+                           validate:"required,length[1-32]",
+                           nonedit:"nosend"
+                       }, 
+                        {
+                            col:"status",
+                            friendly: "状态",
+                            filterTooltip:true,                     
+                            format: statusFormatter,
+                            sortOrder: "desc",
+                            inputsource: "custom",
+                            inputbuilder: "statusEditBuilder",
+                            validate:"required"
+                       //     inputsource: "checkbox"
+                        },
+                        
+                ],
+            //---------------查询时过滤条件
+            findFilter: function(){//find function
+                var leaf,channelName,prodId;
+                if($('#find_status').val()!=-1)leaf=RQLBuilder.equal("status",$('#find_status').val());
+                if($('#find_name').val().length>0) channelName=RQLBuilder.like("channel_id",$('#find_name').val());
+                if($('#find_prodId').val().length>0) prodId=RQLBuilder.equal("prod_id",$('#find_prodId').val());
+                var filter=RQLBuilder.and([
+                       channelName,leaf,prodId
+                    ]);
+                return filter.rql();
+            },//--findFilter
+            onAdded: function(ret,jsondata){
+                console.log("added callback:"+ret+",obj="+JSON.stringify(jsondata));
+                return  validateForm(ret,jsondata);
+            },
+            onUpdated: function(ret,jsondata){
+                console.log("onUpdated callback:"+ret+",obj="+JSON.stringify(jsondata));
+                return  validateForm(ret,jsondata);
+            },
+            onDeleted: function(ret,jsondata){
+                console.log("onDeleted callback:"+ret+",obj="+JSON.stringify(jsondata));
+            },
+        }//--init
+    );//--end init
+
+    //$('#find_leaf').select2();
+    $('#find_name').on('input',function(e){
+        console.log("changing::"+e.target.value);
+        if(!e.target.value){
+            xw.autoResetSearch();
+        }
+    });
+
+    
+//-----------------ENDOFSCIPT------
+}
+);
+
+</script><!-- End of User Script-->
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <base href="../../" >
+
+    <meta charset="utf-8"/>
+    <title>民生宝-产品维护</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+       <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+
+    <script type="text/javascript" src="parts/js/header.js"></script>
+    <script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <script>$.include("parts/pages/sidebar.shtml");</script>
+
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <script>$.include("parts/pages/style.shtml");</script>
+
+            <!-- BEGIN PAGE HEADER-->
+            <h3 class="page-title">
+            产品渠道管理 <small>产品维护</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html"></a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+                <div class="page-toolbar">
+                    <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                        <i class="icon-calendar"></i>&nbsp;
+                        <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">产品编号</div>
+                        <input id="find_prodId" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">外部产品编号</div>
+                        <input id="find_outProdId" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">产品名字</div>
+                        <input id="find_productName" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">关键字</div>
+                        <input id="find_productTags" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">上架日期</div>
+                        <input id="find_createDate" class="inputclear form-control" type="text" placeholder="yyyy-mm-dd" data-date-format="yyyy-MM-dd">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">产品类型</div>
+                        <select class="form-control chosen-select" id="find_productType">
+                                <option value="-1">全部</option>
+                                <option value="FUND">基金产品</option>
+                                <option value="FNLN">融资贷款类产品</option>
+                                <option value="OFAG">开放式理财类产品（代理）</option>
+                                <option value="CFAG">封闭式理财类产品（代理）</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">状态</div>
+                        <select class="form-control chosen-select" id="find_status">
+                                <option value="-1">全部</option>
+                                <option value="00">上架审批中</option>
+                                <option value="01">上架审批失败</option>
+                                <option value="02">已上架</option>
+                                <option value="10">下架审批中</option>
+                                <option value="11">下架审批失败</option>
+                                <option value="12">已下架</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-5 form-group">
+                    <script>$.include("parts/pages/crudbtn.shtml");</script>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container col-md-12" >
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+    <script>$.include("parts/pages/quicksidebar.shtml");</script>
+
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+
+
+<script type="text/javascript">$.include("parts/pages/xwatable-form.shtml");</script>
+<script>$.include("parts/pages/foot_table.shtml");</script>
+
+<script type="text/javascript">
+function initAddInfo(){
+	$("#dg_fncDays").hide();
+	$("#dg_fncBegin").hide();
+	$("#dg_fncEnds").hide();
+	$("#dg_fncTotalAmt").hide();
+	$("#dg_fncRemainderAmt").hide();
+	$("#dg_progressRate").hide();
+	$("#dg_invCanRet").hide();
+	$("#dg_invCanSell").hide();
+	$("#dg_invHoldMinDays").hide();
+	$("#dg_sttlDate").hide();
+	$("#dg_principal").hide();
+	$("#dg_interest").hide();
+	$("#dg_presentErnPaydate").hide();
+	$("#dg_annualizedRate").hide();
+	$("#dg_daysErn").hide();
+	$("#dg_ernPayType").hide();
+	$("#dg_presentAnnualizedRate").hide();
+	$("#dg_debtor").hide();
+	$("#dg_guarantor").hide();
+	$("#dg_ernPayDate").hide();
+	//转让相关的
+	$("#dg_resellMaxRate").hide();
+	$("#dg_resellMinRate").hide();
+	$("#dg_resellMaxDay").hide();
+	$("#dg_resellMinDay").hide();
+}
+function changeTouch(){
+	if($("#productType").val()=="FUND"){
+		$("#dg_invEndTime").show();
+		$("#dg_fundMngrId").show();
+		$("#dg_fundMngrName").show();
+		$("#dg_fundId").show();
+		$("#dg_fundName").show();
+		$("#dg_fundType").show();
+		$("#dg_invBeginTime").show();
+		$("#dg_clsBeginTime").show();
+		$("#dg_clsEndTime").show();
+		$("#dg_subscribeFeeRate").show();
+		$("#dg_purchaseFeeRate").show();
+		$("#dg_redeemFeeRate").show();
+		$("#dg_manageFeeRate").show();
+		$("#dg_depositFeeRate").show();
+		$("#dg_salesFeeRate").show();
+		$("#dg_m1InvRate").show();
+		$("#dg_m3ErnRate").show();
+		$("#dg_y1ErnRate").show();
+		$("#dg_htErnRate").show();
+		$("#dg_navAmt").show();
+		$("#dg_htNavAmt").show();
+		$("#dg_invAmtUnit").show();
+		$("#dg_invAmtMin").show();
+		$("#dg_invAmtMax").show();
+		$("#dg_navDate").show();
+		$("#dg_fncDays").hide();
+		$("#dg_fncBegin").hide();
+		$("#dg_fncEnds").hide();
+		$("#dg_fncTotalAmt").hide();
+		$("#dg_fncRemainderAmt").hide();
+		$("#dg_progressRate").hide();
+		$("#dg_invCanRet").hide();
+		$("#dg_invCanSell").hide();
+		$("#dg_invHoldMinDays").hide();
+		$("#dg_sttlDate").hide();
+		$("#dg_principal").hide();
+		$("#dg_interest").hide();
+		$("#dg_presentErnPaydate").hide();
+		$("#dg_annualizedRate").hide();
+		$("#dg_daysErn").hide();
+		$("#dg_ernPayType").hide();
+		$("#dg_presentAnnualizedRate").hide();
+		$("#dg_debtor").hide();
+		$("#dg_guarantor").hide();
+		$("#dg_ernPayDate").hide();
+		//转让相关的
+		$("#dg_resellMaxRate").hide();
+		$("#dg_resellMinRate").hide();
+		$("#dg_resellMaxDay").hide();
+		$("#dg_resellMinDay").hide();
+	}else if($("#productType").val()=="FNLN"){
+		$("#dg_fncDays").show();
+		$("#dg_fncBegin").show();
+		$("#dg_fncEnds").show();
+		$("#dg_fncTotalAmt").show();
+		$("#dg_fncRemainderAmt").show();
+		$("#dg_progressRate").show();
+		$("#dg_invEndTime").show();
+		$("#dg_invCanRet").show();
+		$("#dg_invCanSell").show();
+		$("#dg_invHoldMinDays").show();
+		$("#dg_sttlDate").show();
+		$("#dg_principal").show();
+		$("#dg_interest").show();
+		$("#dg_ernPayType").show();
+		$("#dg_presentAnnualizedRate").show();
+		$("#dg_debtor").show();
+		$("#dg_guarantor").show();
+		$("#dg_invAmtUnit").show();
+		$("#dg_invAmtMin").show();
+		$("#dg_invAmtMax").show();
+		$("#dg_ernPayDate").show();
+		$("#dg_annualizedRate").show();
+		$("#dg_presentErnPaydate").hide();
+		$("#dg_fundMngrId").hide();
+		$("#dg_fundMngrName").hide();
+		$("#dg_fundId").hide();
+		$("#dg_fundName").hide();
+		$("#dg_fundType").hide();
+		$("#dg_invBeginTime").hide();
+		$("#dg_clsBeginTime").hide();
+		$("#dg_clsEndTime").hide();
+		$("#dg_subscribeFeeRate").hide();
+		$("#dg_purchaseFeeRate").hide();
+		$("#dg_redeemFeeRate").hide();
+		$("#dg_manageFeeRate").hide();
+		$("#dg_depositFeeRate").hide();
+		$("#dg_salesFeeRate").hide();
+		$("#dg_m1InvRate").hide();
+		$("#dg_m3ErnRate").hide();
+		$("#dg_y1ErnRate").hide();
+		$("#dg_htErnRate").hide();
+		$("#dg_navAmt").hide();
+		$("#dg_htNavAmt").hide();
+		$("#dg_navDate").hide();
+		$("#dg_daysErn").hide();
+		//转让相关的
+		$("#dg_resellMaxRate").show();
+		$("#dg_resellMinRate").show();
+		$("#dg_resellMaxDay").show();
+		$("#dg_resellMinDay").show();
+	}else if($("#productType").val()=="OFAG"){
+		$("#dg_invAmtUnit").show();
+		$("#dg_invAmtMin").show();
+		$("#dg_invAmtMax").show();
+		$("#dg_navDate").show();
+		$("#dg_ernPayDate").show();
+		$("#dg_fncDays").hide();
+		$("#dg_fncBegin").hide();
+		$("#dg_fncEnds").hide();
+		$("#dg_fncTotalAmt").hide();
+		$("#dg_fncRemainderAmt").hide();
+		$("#dg_progressRate").hide();
+		$("#dg_invEndTime").hide();
+		$("#dg_invCanRet").hide();
+		$("#dg_invCanSell").hide();
+		$("#dg_invHoldMinDays").hide();
+		$("#dg_sttlDate").hide();
+		$("#dg_principal").hide();
+		$("#dg_interest").hide();
+		$("#dg_presentErnPaydate").hide();
+		$("#dg_fundMngrId").hide();
+		$("#dg_fundMngrName").hide();
+		$("#dg_fundId").hide();
+		$("#dg_fundName").hide();
+		$("#dg_fundType").hide();
+		$("#dg_invBeginTime").hide();
+		$("#dg_clsBeginTime").hide();
+		$("#dg_clsEndTime").hide();
+		$("#dg_subscribeFeeRate").hide();
+		$("#dg_purchaseFeeRate").hide();
+		$("#dg_redeemFeeRate").hide();
+		$("#dg_manageFeeRate").hide();
+		$("#dg_depositFeeRate").hide();
+		$("#dg_salesFeeRate").hide();
+		$("#dg_m1InvRate").hide();
+		$("#dg_m3ErnRate").hide();
+		$("#dg_y1ErnRate").hide();
+		$("#dg_htErnRate").hide();
+		$("#dg_navAmt").hide();
+		$("#dg_htNavAmt").hide();
+		$("#dg_ernPayType").hide();
+		$("#dg_presentAnnualizedRate").hide();
+		$("#dg_debtor").hide();
+		$("#dg_guarantor").hide();
+		$("#dg_annualizedRate").show();
+		$("#dg_daysErn").show();
+		//转让相关的
+		$("#dg_resellMaxRate").hide();
+		$("#dg_resellMinRate").hide();
+		$("#dg_resellMaxDay").hide();
+		$("#dg_resellMinDay").hide();
+	}else if($("#productType").val()=="CFAG"){
+		$("#dg_fncDays").show();
+		$("#dg_fncBegin").show();
+		$("#dg_fncEnds").show();
+		$("#dg_fncTotalAmt").show();
+		$("#dg_fncRemainderAmt").show();
+		$("#dg_progressRate").show();
+		$("#dg_invEndTime").show();
+		$("#dg_invCanRet").show();
+		$("#dg_invCanSell").show();
+		$("#dg_invHoldMinDays").show();
+		$("#dg_sttlDate").show();
+		$("#dg_principal").show();
+		$("#dg_interest").show();
+		$("#dg_ernPayType").show();
+		$("#dg_presentAnnualizedRate").show();
+		$("#dg_invAmtUnit").show();
+		$("#dg_invAmtMin").show();
+		$("#dg_invAmtMax").show();
+		$("#dg_ernPayDate").show();
+		$("#dg_annualizedRate").show();
+		$("#dg_presentErnPaydate").hide();
+		$("#dg_fundMngrId").hide();
+		$("#dg_fundMngrName").hide();
+		$("#dg_fundId").hide();
+		$("#dg_fundName").hide();
+		$("#dg_fundType").hide();
+		$("#dg_invBeginTime").hide();
+		$("#dg_clsBeginTime").hide();
+		$("#dg_clsEndTime").hide();
+		$("#dg_subscribeFeeRate").hide();
+		$("#dg_purchaseFeeRate").hide();
+		$("#dg_redeemFeeRate").hide();
+		$("#dg_manageFeeRate").hide();
+		$("#dg_depositFeeRate").hide();
+		$("#dg_salesFeeRate").hide();
+		$("#dg_m1InvRate").hide();
+		$("#dg_m3ErnRate").hide();
+		$("#dg_y1ErnRate").hide();
+		$("#dg_htErnRate").hide();
+		$("#dg_navAmt").hide();
+		$("#dg_htNavAmt").hide();
+		$("#dg_debtor").hide();
+		$("#dg_guarantor").hide();
+		$("#dg_navDate").hide();
+		$("#dg_daysErn").hide();
+		//转让相关的
+		$("#dg_resellMaxRate").hide();
+		$("#dg_resellMinRate").hide();
+		$("#dg_resellMaxDay").hide();
+		$("#dg_resellMinDay").hide();
+	}
+}
+var addexpansionfield=function(){ 
+	return {
+    f: function(){              
+		return {
+				createTime:new Date(),
+				updTime:new Date(),
+				currency:"CNY",
+				createDate:getNowDate(),
+				//invBeginTime:new Date(Date.parse($('#invBeginTime').val().replace(/-/g,"/"))),
+				//invEndTime:new Date(Date.parse($('#invEndTime').val().replace(/-/g,"/"))),
+				//clsBeginTime:new Date(Date.parse($('#clsBeginTime').val().replace(/-/g,"/"))),
+				//clsEndTime:new Date(Date.parse($('#clsEndTime').val().replace(/-/g,"/"))),
+				invBeginTime:getStartDateTime($('#invBeginTime').val()),
+				invEndTime:getEndDateTime($('#invEndTime').val()),
+				clsBeginTime:getStartDateTime($('#clsBeginTime').val()),
+				clsEndTime:getEndDateTime($('#clsEndTime').val()),
+				};
+    }
+};
+}();
+var updexpansionfield=function(){ 
+return {
+    f: function(){              
+		return {
+			updTime:new Date(),
+			//invBeginTime:new Date(Date.parse($('#invBeginTime').val().replace(/-/g,"/"))),
+			//invEndTime:new Date(Date.parse($('#invEndTime').val().replace(/-/g,"/"))),
+			//clsBeginTime:new Date(Date.parse($('#clsBeginTime').val().replace(/-/g,"/"))),
+			//clsEndTime:new Date(Date.parse($('#clsEndTime').val().replace(/-/g,"/"))),
+			invBeginTime:getStartDateTime($('#invBeginTime').val()),
+			invEndTime:getEndDateTime($('#invEndTime').val()),
+			clsBeginTime:getStartDateTime($('#clsBeginTime').val()),
+			clsEndTime:getEndDateTime($('#clsEndTime').val()),
+				};
+    }
+};
+}();
+
+
+var statusFormatter=function(){
+    return {
+        f: function(val){
+        	if(val&&val=="00") return "上架审核中";
+        	else if(val&&val=="01") return "上架审批失败";
+            else if(val&&val=="02") return "已上架";
+            else if(val&&val=="10") return "下架审批中";
+            else if(val&&val=="11") return "下架审批失败";
+            else if(val&&val=="12") return "已下架";
+            else return "无此状态";
+        },
+    };
+}();
+var productTypeFormatter=function(){
+    return {
+        f: function(val){
+        	if(val&&val=="FUND") return "基金产品 ";
+        	else if(val&&val=="FNLN") return "融资贷款类产品";
+            else if(val&&val=="OFAG") return "开放式理财类产品（代理）";
+            else if(val&&val=="CFAG") return "封闭式理财类产品（代理）";
+            else return "无此状态";
+        },
+    };
+}();
+var riskLevelFormatter=function(){
+    return {
+        f: function(val){
+        	if(val&&val=="R1") return "谨慎（极低） ";
+        	else if(val&&val=="R2") return "稳健（低）";
+            else if(val&&val=="R3") return "平衡（中）";
+            else if(val&&val=="R4") return "进取（较高）";
+            else if(val&&val=="R5") return "激进（高）";
+            else return "无此状态";
+        },
+    };
+}();
+var productStatusFormatter=function(){
+    return {
+        f: function(val){
+        	if(val&&val=="PS00") return "交易中（可申购、赎回） ";
+        	else if(val&&val=="PS01") return "发行中（可认购、赎回）";
+            else if(val&&val=="PS02") return "发行成功";
+            else if(val&&val=="PS03") return "发行失败";
+            else if(val&&val=="PS04") return "停止申购赎回 ";
+            else if(val&&val=="PS05") return "停止申购 ";
+        	else if(val&&val=="PS06") return "停止赎回";
+            else if(val&&val=="PS97") return "产品封闭（产品处于封闭期）";
+            else if(val&&val=="PS98") return "产品终止 ";
+            else if(val&&val=="PS99") return "产品到期";
+            else return "无此状态";
+        },
+    };
+}();
+
+var statusEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val=="00"){
+        return "<select id='status' name='status' class='form-control select2me'><option value='00' selected>上架审批中</option><option value='01' >上架审批失败</option><option value='02' >已上架</option><option value='10' >下架审批中</option><option value='11' >下架审批失败</option><option value='12' >已下架</option></select>";
+    }else if(val=="01"){
+        return "<select id='status' name='status' class='form-control select2me'><option value='00'>上架审批中</option><option value='01'  selected>上架审批失败</option><option value='02' >已上架</option><option value='10' >下架审批中</option><option value='11' >下架审批失败</option><option value='12' >已下架</option></select>";
+    }else if(val=="02"){
+        return "<select id='status' name='status' class='form-control select2me'><option value='00'>上架审批中</option><option value='01' >上架审批失败</option><option value='02'  selected>已上架</option><option value='10' >下架审批中</option><option value='11' >下架审批失败</option><option value='12' >已下架</option></select>";
+    }else if(val=="10"){
+        return "<select id='status' name='status' class='form-control select2me'><option value='00'>上架审批中</option><option value='01' >上架审批失败</option><option value='02' >已上架</option><option value='10' selected >下架审批中</option><option value='11' >下架审批失败</option><option value='12' >已下架</option></select>";
+    }else if(val=="11"){
+        return "<select id='status' name='status' class='form-control select2me'><option value='00'>上架审批中</option><option value='01' >上架审批失败</option><option value='02' >已上架</option><option value='10' >下架审批中</option><option value='11'  selected>下架审批失败</option><option value='12' >已下架</option></select>";
+    }else if(val=="12"){
+        return "<select id='status' name='status' class='form-control select2me'><option value='00'>上架审批中</option><option value='01' >上架审批失败</option><option value='02' >已上架</option><option value='10' >下架审批中</option><option value='11' >下架审批失败</option><option value='12'  selected>已下架</option></select>";
+    }else{
+        return "<select id='status' name='status' class='form-control select2me'><option value='00' selected>上架审批中</option><option value='10' >下架申请中</option></select>";
+    }
+};
+var productTypeEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val=="FUND"){
+        return "<select id='productType' name='productType' class='form-control select2me' onchange='changeTouch()'><option value='FUND' selected>基金产品</option><option value='FNLN' >融资贷款类产品</option><option value='OFAG' >开放式理财类产品（代理）</option><option value='CFAG' >封闭式理财类产品（代理）</option></select>";
+    }else if(val=="FNLN"){
+        return "<select id='productType' name='productType' class='form-control select2me' onchange='changeTouch()'><option value='FUND'>基金产品</option><option value='FNLN'  selected>融资贷款类产品</option><option value='OFAG' >开放式理财类产品（代理）</option><option value='CFAG' >封闭式理财类产品（代理）</option></select>";
+    }else if(val=="OFAG"){
+        return "<select id='productType' name='productType' class='form-control select2me' onchange='changeTouch()'><option value='FUND'>基金产品</option><option value='FNLN' >融资贷款类产品</option><option value='OFAG'  selected>开放式理财类产品（代理）</option><option value='CFAG' >封闭式理财类产品（代理）</option></select>";
+    }else if(val=="CFAG"){
+        return "<select id='productType' name='productType' class='form-control select2me' onchange='changeTouch()'><option value='FUND'>基金产品</option><option value='FNLN' >融资贷款类产品</option><option value='OFAG' >开放式理财类产品（代理）</option><option value='CFAG'  selected>封闭式理财类产品（代理）</option></select>";
+    }else{
+        return "<select id='productType' name='productType' class='form-control select2me' onchange='changeTouch()'><option value='FUND' selected>基金产品</option><option value='FNLN' >融资贷款类产品</option><option value='OFAG' >开放式理财类产品（代理）</option><option value='CFAG' >封闭式理财类产品（代理）</option></select>";
+    }
+};
+var productStatusEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val=="PS00"){
+        return "<select id='productStatus' name='productStatus' class='form-control select2me'><option value='PS00' selected>交易中（可申购、赎回）</option><option value='PS01' >发行中（可认购、赎回）</option><option value='PS02' >发行成功</option><option value='PS03' >发行失败</option><option value='PS04' >停止申购赎回</option><option value='PS05' >停止申购</option><option value='PS06' >停止赎回</option><option value='PS97' >产品封闭（产品处于封闭期）</option><option value='PS98' >产品终止</option><option value='PS99' >产品到期</option></select>";
+    }else if(val=="PS01"){
+        return "<select id='productStatus' name='productStatus' class='form-control select2me'><option value='PS00'>交易中（可申购、赎回）</option><option value='PS01'  selected>发行中（可认购、赎回）</option><option value='PS02' >发行成功</option><option value='PS03' >发行失败</option><option value='PS04' >停止申购赎回</option><option value='PS05' >停止申购</option><option value='PS06' >停止赎回</option><option value='PS97' >产品封闭（产品处于封闭期）</option><option value='PS98' >产品终止</option><option value='PS99' >产品到期</option></select>";
+    }else if(val=="PS02"){
+        return "<select id='productStatus' name='productStatus' class='form-control select2me'><option value='PS00'>交易中（可申购、赎回）</option><option value='PS01' >发行中（可认购、赎回）</option><option value='PS02'  selected>发行成功</option><option value='PS03' >发行失败</option><option value='PS04' >停止申购赎回</option><option value='PS05' >停止申购</option><option value='PS06' >停止赎回</option><option value='PS97' >产品封闭（产品处于封闭期）</option><option value='PS98' >产品终止</option><option value='PS99' >产品到期</option></select>";
+    }else if(val=="PS03"){
+        return "<select id='productStatus' name='productStatus' class='form-control select2me'><option value='PS00'>交易中（可申购、赎回）</option><option value='PS01' >发行中（可认购、赎回）</option><option value='PS02' >发行成功</option><option value='PS03'  selected>发行失败</option><option value='PS04' >停止申购赎回</option><option value='PS05' >停止申购</option><option value='PS06' >停止赎回</option><option value='PS97' >产品封闭（产品处于封闭期）</option><option value='PS98' >产品终止</option><option value='PS99' >产品到期</option></select>";
+    }else if(val=="PS04"){
+        return "<select id='productStatus' name='productStatus' class='form-control select2me'><option value='PS00'>交易中（可申购、赎回）</option><option value='PS01' >发行中（可认购、赎回）</option><option value='PS02' >发行成功</option><option value='PS03' >发行失败</option><option value='PS04'  selected>停止申购赎回</option><option value='PS05' >停止申购</option><option value='PS06' >停止赎回</option><option value='PS97' >产品封闭（产品处于封闭期）</option><option value='PS98' >产品终止</option><option value='PS99' >产品到期</option></select>";
+    }else if(val=="PS05"){
+        return "<select id='productStatus' name='productStatus' class='form-control select2me'><option value='PS00'>交易中（可申购、赎回）</option><option value='PS01' >发行中（可认购、赎回）</option><option value='PS02' >发行成功</option><option value='PS03' >发行失败</option><option value='PS04' >停止申购赎回</option><option value='PS05'  selected>停止申购</option><option value='PS06' >停止赎回</option><option value='PS97' >产品封闭（产品处于封闭期）</option><option value='PS98' >产品终止</option><option value='PS99' >产品到期</option></select>";
+    }else if(val=="PS06"){
+        return "<select id='productStatus' name='productStatus' class='form-control select2me'><option value='PS00'>交易中（可申购、赎回）</option><option value='PS01' >发行中（可认购、赎回）</option><option value='PS02' >发行成功</option><option value='PS03' >发行失败</option><option value='PS04' >停止申购赎回</option><option value='PS05' >停止申购</option><option value='PS06' selected >停止赎回</option><option value='PS97' >产品封闭（产品处于封闭期）</option><option value='PS98' >产品终止</option><option value='PS99' >产品到期</option></select>";
+    }else if(val=="PS97"){
+        return "<select id='productStatus' name='productStatus' class='form-control select2me'><option value='PS00'>交易中（可申购、赎回）</option><option value='PS01' >发行中（可认购、赎回）</option><option value='PS02' >发行成功</option><option value='PS03' >发行失败</option><option value='PS04' >停止申购赎回</option><option value='PS05' >停止申购</option><option value='PS06' >停止赎回</option><option value='PS97' selected >产品封闭（产品处于封闭期）</option><option value='PS98' >产品终止</option><option value='PS99' >产品到期</option></select>";
+    }else if(val=="PS98"){
+        return "<select id='productStatus' name='productStatus' class='form-control select2me'><option value='PS00'>交易中（可申购、赎回）</option><option value='PS01' >发行中（可认购、赎回）</option><option value='PS02' >发行成功</option><option value='PS03' >发行失败</option><option value='PS04' >停止申购赎回</option><option value='PS05' >停止申购</option><option value='PS06' >停止赎回</option><option value='PS97' >产品封闭（产品处于封闭期）</option><option value='PS98' selected >产品终止</option><option value='PS99' >产品到期</option></select>";
+    }else if(val=="PS99"){
+        return "<select id='productStatus' name='productStatus' class='form-control select2me'><option value='PS00'>交易中（可申购、赎回）</option><option value='PS01' >发行中（可认购、赎回）</option><option value='PS02' >发行成功</option><option value='PS03' >发行失败</option><option value='PS04' >停止申购赎回</option><option value='PS05' >停止申购</option><option value='PS06' >停止赎回</option><option value='PS97' >产品封闭（产品处于封闭期）</option><option value='PS98' >产品终止</option><option value='PS99' selected >产品到期</option></select>";
+    }else{
+        return "<select id='productStatus' name='productStatus' class='form-control select2me'><option value='PS00'>交易中（可申购、赎回）</option><option value='PS01' >发行中（可认购、赎回）</option><option value='PS02' >发行成功</option><option value='PS03' >发行失败</option><option value='PS04' >停止申购赎回</option><option value='PS05' >停止申购</option><option value='PS06' >停止赎回</option><option value='PS97' >产品封闭（产品处于封闭期）</option><option value='PS98' >产品终止</option><option value='PS99' >产品到期</option></select>";
+    }
+};
+var riskLevelEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val=="R1"){
+        return "<select id='riskLevel' name='riskLevel' class='form-control select2me'><option value='R1' selected>谨慎（极低）</option><option value='R2' >稳健（低）</option><option value='R3' >平衡（中）</option><option value='R4' >进取（较高）</option><option value='R5' >激进（高）</option></select>";
+    }else if(val=="R2"){
+        return "<select id='riskLevel' name='riskLevel' class='form-control select2me'><option value='R1'>谨慎（极低）</option><option value='R2'  selected>稳健（低）</option><option value='R3' >平衡（中）</option><option value='R4' >进取（较高）</option><option value='R5' >激进（高）</option></select>";
+    }else if(val=="R3"){
+        return "<select id='riskLevel' name='riskLevel' class='form-control select2me'><option value='R1'>谨慎（极低）</option><option value='R2' >稳健（低）</option><option value='R3'  selected>平衡（中）</option><option value='R4' >进取（较高）</option><option value='R5' >激进（高）</option></select>";
+    }else if(val=="R4"){
+        return "<select id='riskLevel' name='riskLevel' class='form-control select2me'><option value='R1'>谨慎（极低）</option><option value='R2' >稳健（低）</option><option value='R3' >平衡（中）</option><option value='R4'  selected>进取（较高）</option><option value='R5' >激进（高）</option></select>";
+    }else if(val=="R5"){
+        return "<select id='riskLevel' name='riskLevel' class='form-control select2me'><option value='R1'>谨慎（极低）</option><option value='R2' >稳健（低）</option><option value='R3' >平衡（中）</option><option value='R4' >进取（较高）</option><option value='R5'  selected>激进（高）</option></select>";
+    }else{
+        return "<select id='riskLevel' name='riskLevel' class='form-control select2me'><option value='R1'>谨慎（极低）</option><option value='R2' >稳健（低）</option><option value='R3' >平衡（中）</option><option value='R4' >进取（较高）</option><option value='R5' >激进（高）</option></select>";
+    }
+};
+var isClearAcctFormatter=function(){
+    return {
+        f: function(val){
+        	if(val&&val=="0") return "不分帐 ";
+        	else if(val&&val=="1") return "分账";
+            else return "无此标识";
+        },
+    };
+}();
+var isClearAcctEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val=="0"){
+        return "<select id='isClearAcct' name='isClearAcct' class='form-control select2me'><option value='0' selected>不分帐</option><option value='1' >分账</option></select>";
+    }else if(val=="1"){
+        return "<select id='isClearAcct' name='isClearAcct' class='form-control select2me'><option value='0'>不分帐</option><option value='1'  selected>分账</option></select>";
+    }else{
+        return "<select id='isClearAcct' name='isClearAcct' class='form-control select2me'><option value='0' selected>不分帐</option><option value='1' >分账</option></select>";
+    }
+};
+var userHelper=RefHelper.create({
+    ref_url:wpfadmin +'exauditmchinf/getProdFlag',
+    ref_col:"mchntName",
+    ref_display:"mchntId",
+});
+var selectProdFlag=function(){
+    return {
+        f: function(val){
+             var display=userHelper.getDisplay(val);
+             if(display==0)
+             	{ 
+             		display='无';
+             	}
+            return display;
+        },
+    };
+}();
+function getNowDate(){
+	 var now = new Date();
+     var year = now.getFullYear();
+     var month =(now.getMonth() + 1).toString();
+     var day = (now.getDate()).toString();
+     if (month.length == 1) {
+         month = "0" + month;
+     }
+     if (day.length == 1) {
+         day = "0" + day;
+     }
+     var dateTime = year +"-"+ month +"-"+ day;
+     return dateTime;
+}
+function getEndDateTime(endDateTime){
+	//alert(parseInt(endDateTime.substr(5,2))-1>9?parseInt(endDateTime.substr(5,2))-1+"":"0"+(parseInt(endDateTime.substr(5,2))-1).toString());
+	if(endDateTime.length>0){
+		//alert(new Date(endDateTime.substr(0,4),	parseInt(endDateTime.substr(5,2))-1>9?parseInt(endDateTime.substr(5,2))-1+"":"0"+parseInt(endDateTime.substr(5,2))-1,endDateTime.substr(8,2),"23","59","59"));
+		return new Date(endDateTime.substr(0,4),parseInt(endDateTime.substr(5,2))-1>9?parseInt(endDateTime.substr(5,2))-1+"":"0"+(parseInt(endDateTime.substr(5,2))-1).toString(),endDateTime.substr(8,2),"23","59","59");
+	}
+	
+	return null;
+}
+function getStartDateTime(startDateTime){
+	if(startDateTime.length>0){
+		return new Date(startDateTime.substr(0,4),parseInt(startDateTime.substr(5,2))-1>9?parseInt(startDateTime.substr(5,2))-1+"":"0"+(parseInt(startDateTime.substr(5,2))-1).toString(),startDateTime.substr(8,2),"00","00","00");
+	}
+	return null;
+}
+$(function(){ 
+	//初始化页面标题
+	initTitle();
+	$("#find_createDate").datepicker({
+		format: 'yyyy-mm-dd'
+	}); 
+
+     var xw=XWATable.init(
+        {
+            //----------------table的选项-------
+            pageSize: 10,                //Initial pagesize
+                    // filter: true,               //Show filter fields
+                    // sorting: true,              //Enable sorting
+            columnPicker: true,         //Show the columnPicker button
+            transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+            // pageSizes: [1,5,8,12,200],  //Set custom pageSizes. Leave empty array to hide button.
+            // hidePagerOnEmpty: true,     //Removes the pager if data is empty.
+            checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+            checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+            rowClicked: function(data) {    
+                console.log('row clicked');   //data.event holds the original jQuery event.
+                console.log(data);            //data.row holds the underlying row you supplied.
+            },
+            xwFlag:"product",
+            //xwattr:'productaudit',
+            //xwtitle:'产品审批',
+            //readonly:"productaudit",
+            //----------------基本restful地址---
+            restbase: restpath +'/landprodinfo',
+            key_column: "prodId",
+            //---------------行定义
+            coldefs: [
+                        {      
+                            col:"prodId",
+                            friendly: "产品编号",
+                            unique: true,
+                            readonly:true,
+                            validate:"required,length[1-35],url(/restface/exlandprodinfo;prodId;产品编码已经存在，请重新输入)"
+                        },
+                        {      
+                            col:"mchntId",
+                            friendly: "商户编号",
+                            validate:"required,length[1-35]",
+                            inputsource: "select",
+                            ref_url: wpfadmin + "exauditmchinf/getProdFlag",
+                            ref_name: "mchntName",
+                            ref_value: "mchntId", 
+                            format: selectProdFlag,
+                        },
+                        {
+                            col:"outProdId",
+                            friendly: "外部产品编号",
+                            validate:"required,length[1-35]"
+                        },
+                        {
+                            col:"outSubProdId",
+                            friendly: "外部子产品编号",
+                            validate:"length[1-35]"
+                        },
+                        {
+                            col:"productName",
+                            friendly: "产品名字",
+                            validate:"required,length[1-140]"
+                        },{
+                            col:"productType",
+                            friendly: "产品类型",
+                            filterTooltip:true,                     
+                            format: productTypeFormatter,
+                            inputsource: "custom",
+                            inputbuilder: "productTypeEditBuilder",
+                            validate:"required",
+                            //change_function:"changeTouch()",
+                        },{
+                            col:"productStatus",
+                            friendly: "产品状态",
+                            filterTooltip:true,                     
+                            format: productStatusFormatter,
+                            inputsource: "custom",
+                            inputbuilder: "productStatusEditBuilder",
+                            validate:"required",
+                        },{
+                            col:"riskLevel",
+                            friendly: "风险等级",
+                            filterTooltip:true,                     
+                            format: riskLevelFormatter,
+                            inputsource: "custom",
+                            inputbuilder: "riskLevelEditBuilder",
+                            validate:"required",
+                        },{
+                            col:"isClearAcct",
+                            friendly: "分账标识",
+                            //hidden:true,
+                            filterTooltip:true,                     
+                            format: isClearAcctFormatter,
+                            inputsource: "custom",
+                            inputbuilder: "isClearAcctEditBuilder",
+                        },{
+                            col:"currency",
+                            friendly: "结算币种",
+                            hidden:true,
+                            nonedit:"nosend",
+                        },{
+                            col:"productTags",
+                            friendly: "关键字",
+                            //nonedit:"nosend",
+                            validate:"required,length[1-64]"
+                        },{
+                            col:"productTitle",
+                            friendly: "产品概述",
+                            hidden:true,
+                            //nonedit:"nosend",
+                            validate:"required,length[1-256]"
+                        },
+                        //不显示
+                        {
+                            col:"productLogo",
+                            friendly: "产品图标",
+                            hidden:true,
+                            nonedit:"nosend",
+                        },{
+                            col:"productUrl",
+                            friendly: "产品宣传地址",
+                            hidden:true,
+                            reayonly:true
+                        },{
+                            col:"addOpr",
+                            friendly: "增加人",
+                            hidden:true,
+                            nonedit:"nosend",
+                        },{
+                            col:"approveOpr",
+                            friendly: "审核人",
+                            //hidden:true,
+                            nonedit:"nosend",
+                        },{
+                            col:"createDate",
+                            friendly: "上架日期",
+                            nonedit:"nosend",
+                            hidden:true,
+                            readonly:true,
+                        },{
+                            col:"createTime",
+                            friendly: "上架时间",
+                            nonedit:"nosend",
+                            sortOrder: "desc",
+                            //hidden:true,
+                            readonly:true,
+                        },{
+                            col:"updTime",
+                            friendly: "更新时间",
+                            sortOrder: "desc",
+                            //hidden:true,
+                            nonedit:"nosend",
+                        },
+                        /*OFAG*/
+                        {
+                            col:"invAmtUnit",
+                            friendly: "投资单位（元）",
+                            format: moneyFormatter,      
+                            inputsource: "money",
+                            hidden:true,
+                        },{
+                            col:"invAmtMin",
+                            friendly: "最低投资金额",
+                            format: moneyFormatter,      
+                            inputsource: "money",
+                            hidden:true,
+                        },{
+                            col:"invAmtMax",
+                            friendly: "最大投资金额",
+                            format: moneyFormatter,      
+                            inputsource: "money",
+                            hidden:true,
+                        },{
+                            col:"navDate",
+                            friendly: "净值日期",
+                            hidden:true,
+                            inputsource:"datepicker",
+                        },
+                        {
+                            col:"daysErn",
+                            friendly: "净值日每万份净值收益",
+                            hidden:true,
+                        },{
+                            col:"annualizedRate",
+                            friendly: "预计年化收益（%）",
+                            hidden:true,
+                        },
+                        {
+                            col:"ernPayDate",
+                            friendly: "收益发放日期",
+                            hidden:true,
+                            inputsource:"datepicker",
+                        },
+                        /*CFAG*/
+                        {
+                            col:"fncDays",
+                            friendly: "投资期限（天）",
+                            hidden:true,
+                        },{
+                            col:"fncBegin",
+                            friendly: "起息日期",
+                            hidden:true,
+                            inputsource:"datepicker",
+                        },{
+                            col:"fncEnds",
+                            friendly: "到期日期",
+                            hidden:true,
+                            inputsource:"datepicker",
+                        },{
+                            col:"fncTotalAmt",
+                            friendly: "投资总额",
+                            format: moneyFormatter,      
+                            inputsource: "money",
+                            hidden:true,
+                        },{
+                            col:"fncRemainderAmt",
+                            friendly: "剩余可投资总额度",
+                            format: moneyFormatter,      
+                            inputsource: "money",
+                            hidden:true,
+                        },{
+                            col:"progressRate",
+                            friendly: "完成进度（%）",
+                            hidden:true,
+                        },{
+                            col:"invCanRet",
+                            friendly: "认购期是否可赎回",
+                            hidden:true,
+                        },{
+                            col:"invCanSell",
+                            friendly: "到期前是否可转让",
+                            hidden:true,
+                        },{
+                            col:"invHoldMinDays",
+                            friendly: "可转让最少持有期限（天）",
+                            hidden:true,
+                        },{
+                            col:"sttlDate",
+                            friendly: "本期结算日期",
+                            hidden:true,
+                            inputsource:"datepicker",
+                        },{
+                            col:"principal",
+                            friendly: "本期本金",
+                            format: moneyFormatter,      
+                            inputsource: "money",
+                            hidden:true,
+                        },{
+                            col:"interest",
+                            friendly: "本期利息",
+                            format: moneyFormatter,      
+                            inputsource: "money",
+                            hidden:true,
+                        },{
+                            col:"presentErnPaydate",
+                            friendly: "本期收益发放日期",
+                            hidden:true,
+                            inputsource:"datepicker",
+                        },
+                        /*FUND*/
+                        {
+                            col:"fundMngrId",
+                            friendly: "基金公司代码 ",
+                            hidden:true,
+                        },{
+                            col:"fundMngrName",
+                            friendly: "基金公司名称",
+                            hidden:true,
+                        },{
+                            col:"fundId",
+                            friendly: "基金代码 ",
+                            hidden:true,
+                        },{
+                            col:"fundName",
+                            friendly: "基金名称",
+                            hidden:true,
+                        },{
+                            col:"fundType",
+                            friendly: "基金类型",
+                            hidden:true,
+                        },{
+                            col:"invBeginTime",
+                            friendly: "发行期开始时间",
+                            hidden:true,
+                            inputsource:"datepicker",
+                        },{
+                            col:"invEndTime",
+                            friendly: "发行期截至时间",
+                            hidden:true,
+                            inputsource:"datepicker",
+                        },{
+                            col:"clsBeginTime",
+                            friendly: "封闭期开始时间",
+                            hidden:true,
+                            inputsource:"datepicker",
+                        },{
+                            col:"clsEndTime",
+                            friendly: "封闭期结束时间",
+                            hidden:true,
+                            inputsource:"datepicker",
+                        },{
+                            col:"subscribeFeeRate",
+                            friendly: "认购费率（%）",
+                            hidden:true,
+                        },{
+                            col:"purchaseFeeRate",
+                            friendly: "申购费率（%）",
+                            hidden:true,
+                        },{
+                            col:"redeemFeeRate",
+                            friendly: "赎回费率（%）",
+                            hidden:true,
+                        },{
+                            col:"manageFeeRate",
+                            friendly: "管理费率（%）",
+                            hidden:true,
+                        },{
+                            col:"depositFeeRate",
+                            friendly: "托管费率（%）",
+                            hidden:true,
+                        },{
+                            col:"salesFeeRate",
+                            friendly: "销售服务费率（%）",
+                            hidden:true,
+                        },{
+                            col:"m1InvRate",
+                            friendly: "最近一月收益率（%）",
+                            hidden:true,
+                        },{
+                            col:"m3ErnRate",
+                            friendly: "最近三月收益率（%）",
+                            hidden:true,
+                        },{
+                            col:"y1ErnRate",
+                            friendly: "最近一年收益率（%）",
+                            hidden:true,
+                        },{
+                            col:"htErnRate",
+                            friendly: "历史累积收益率（%）",
+                            hidden:true,
+                        },{
+                            col:"navAmt",
+                            friendly: "当前净值金额",
+                            hidden:true,
+                        },{
+                            col:"htNavAmt",
+                            friendly: "历史累计净值金额",
+                            hidden:true,
+                        },
+                        /*FNLN*/
+                        {
+                            col:"ernPayType",
+                            friendly: "收益方式",
+                            hidden:true,
+                        },{
+                            col:"presentAnnualizedRate",
+                            friendly: "本期年化收益率（%）",
+                            hidden:true,
+                        },{
+                            col:"debtor",
+                            friendly: "借款人名称",
+                            hidden:true,
+                        },{
+                            col:"guarantor",
+                            friendly: "担保人",
+                            hidden:true,
+                        },{
+                            col:"resellMaxRate",
+                            friendly: "转让收益上限比",
+                            hidden:true,
+                        },{
+                            col:"resellMinRate",
+                            friendly: "转让收益下限比",
+                            hidden:true,
+                        },{
+                            col:"resellMaxDay",
+                            friendly: "转让期限上限（天）",
+                            hidden:true,
+                        },{
+                            col:"ernPayCycle",
+                            friendly: "收益分配周期（月）",
+                            hidden:true,
+                        },{
+                            col:"resellMinDay",
+                            friendly: "转让期限下限（天）",
+                            hidden:true,
+                        },
+                        {
+                            col:"status",
+                            friendly: "状态",
+                            filterTooltip:true,                     
+                            format: statusFormatter,
+                            inputsource: "custom",
+                            inputbuilder: "statusEditBuilder",
+                            validate:"required"
+                        },
+                        {
+                            col:"procDesc",
+                            friendly: "审批意见",
+                        },
+                ],
+            //---------------查询时过滤条件
+                findFilter: function(){//find function
+                	var leaf,prodId,outProdId,productType,productName,productTags,createDate;
+                    if($('#find_status').val()!=-1)leaf=RQLBuilder.equal("status",$('#find_status').val());
+                    if($('#find_productType').val()!=-1)productType=RQLBuilder.equal("productType",$('#find_productType').val());
+                    if($('#find_prodId').val().length>0)prodId=RQLBuilder.equal("prodId",$('#find_prodId').val());
+                    if($('#find_outProdId').val().length>0)outProdId=RQLBuilder.equal("outProdId",$('#find_outProdId').val());
+                    if($('#find_productTags').val().length>0)productTags=RQLBuilder.like("productTags",$('#find_productTags').val());
+                    if($('#find_createDate').val().length>0)createDate=RQLBuilder.equal("createDate",$('#find_createDate').val());
+                    if($('#find_productName').val().length>0)productName=RQLBuilder.like("productName",$('#find_productName').val());
+
+                    /* leaf1=RQLBuilder.equal("status","01");
+                    leaf2=RQLBuilder.equal("status","02");
+                    var filter=RQLBuilder.or([
+    											leaf1,leaf2
+                                            ]);  */
+                  	filter=RQLBuilder.and([
+    					leaf,prodId,outProdId,productType,productName,productTags,createDate
+                      ]);
+                    return filter.rql();
+                },//--findFilter
+                onAdded: function(ret,jsondata){
+                    console.log("added callback:"+ret+",obj="+JSON.stringify(jsondata));
+                    return  validateForm(ret,jsondata);
+                },
+                onUpdated: function(ret,jsondata){
+                    console.log("onUpdated callback:"+ret+",obj="+JSON.stringify(jsondata));
+                    return  validateForm(ret,jsondata);
+                },
+                onDeleted: function(ret,jsondata){
+                    console.log("onDeleted callback:"+ret+",obj="+JSON.stringify(jsondata));
+                },
+        }//--init
+    );//--end init
+
+    //$('#find_leaf').select2();
+    $('#find_name').on('input',function(e){
+        console.log("changing::"+e.target.value);
+        if(!e.target.value){
+            xw.autoResetSearch();
+        }
+    });
+
+    
+//-----------------ENDOFSCIPT------
+}
+);
+
+</script><!-- End of User Script-->
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

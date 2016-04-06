@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <base href="../" >
+
+    <meta charset="utf-8"/>
+    <title>民生宝-节假日维护</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+       <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+
+    <script type="text/javascript" src="parts/js/header.js"></script>
+    <script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <script>$.include("parts/pages/sidebar.shtml");</script>
+
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <script>$.include("parts/pages/style.shtml");</script>
+
+            <!-- BEGIN PAGE HEADER-->
+            <h3 class="page-title">
+          系统管理<small>节假日维护</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html"></a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+                <div class="page-toolbar">
+                    <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                        <i class="icon-calendar"></i>&nbsp;
+                        <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">年份</div>
+                          <select class="form-control chosen-select" id="find_yearInfo">
+                                <option value="-1">所有年份</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                        </select>
+                        <!-- <input id="find_yearInfo" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span> -->
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">产品类型</div>
+                        <select class="form-control chosen-select" id="find_productType">
+                                <option value="-1">全部</option>
+                                <option value="FUND">基金产品</option>
+                                <option value="FNLN">融资贷款类产品</option>
+                                <option value="OFAG">开放式理财类产品（代理）</option>
+                                <option value="CFAG">封闭式理财类产品（代理）</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-5 form-group">
+                    <script>$.include("parts/pages/crudbtn.shtml");</script>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container col-md-12" >
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+    <script>$.include("parts/pages/quicksidebar.shtml");</script>
+
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+
+
+<script type="text/javascript">$.include("parts/pages/xwatable-form.shtml");</script>
+<script>$.include("parts/pages/foot_table.shtml");</script>
+<script type="text/javascript" src="assets/addons/jquery.uuid.js"></script>
+
+<script type="text/javascript">
+//var dateStr = new Date().format("Y-m-d");
+//alert(dateStr);
+var productTypeFormatter=function(){
+    return {
+        f: function(val){
+        	if(val&&val=="FUND") return "基金产品 ";
+        	else if(val&&val=="FNLN") return "融资贷款类产品";
+            else if(val&&val=="OFAG") return "开放式理财类产品（代理）";
+            else if(val&&val=="CFAG") return "封闭式理财类产品（代理）";
+            else return "无此类型";
+        },
+    };
+}();
+var festivalFormatter=function(){
+    return {
+        f: function(val){
+        	var html ='<table border="0"><tr>';
+        	var dates = val.split(';');
+        	$.each(dates,function(i,n){
+        		if(i%12==0){
+        			html+='</tr><tr>';
+        		}
+        		if(n!='')
+       			html+='<td>'+n+';</td>';
+        	})
+        	html+='</tr></table>'
+        	return html;
+        },
+    };
+}();
+var festivalEditBuilder=function(val){
+	var html=''
+	$.each(val.split(';'),function(i,n){
+		if(n=='') return;
+		if(i%4==0){
+			html+='\n';
+		}
+		html+=(n+';');
+	})
+	return '<textarea cols="50" rows="10" style="resize:none;" id="allFestival" name="allFestival" >'+html+'</textarea>'
+}
+ var addexpansionfield=function(){ 
+		return {
+        f: function(){              
+			return {
+					id:Math.uuid(16),
+					crtTime:new Date()
+					};
+        }
+   };
+}(); 
+
+var productTypeEditBuilder=function(val){
+    if(val=="FUND"){
+        return "<select id='productType' name='productType' class='form-control select2me' onchange='changeTouch()'><option value='FUND' selected>基金产品</option><option value='FNLN' >融资贷款类产品</option><option value='OFAG' >开放式理财类产品（代理）</option><option value='CFAG' >封闭式理财类产品（代理）</option></select>";
+    }else if(val=="FNLN"){
+        return "<select id='productType' name='productType' class='form-control select2me' onchange='changeTouch()'><option value='FUND'>基金产品</option><option value='FNLN'  selected>融资贷款类产品</option><option value='OFAG' >开放式理财类产品（代理）</option><option value='CFAG' >封闭式理财类产品（代理）</option></select>";
+    }else if(val=="OFAG"){
+        return "<select id='productType' name='productType' class='form-control select2me' onchange='changeTouch()'><option value='FUND'>基金产品</option><option value='FNLN' >融资贷款类产品</option><option value='OFAG'  selected>开放式理财类产品（代理）</option><option value='CFAG' >封闭式理财类产品（代理）</option></select>";
+    }else if(val=="CFAG"){
+        return "<select id='productType' name='productType' class='form-control select2me' onchange='changeTouch()'><option value='FUND'>基金产品</option><option value='FNLN' >融资贷款类产品</option><option value='OFAG' >开放式理财类产品（代理）</option><option value='CFAG'  selected>封闭式理财类产品（代理）</option></select>";
+    }else{
+        return "<select id='productType' name='productType' class='form-control select2me' onchange='changeTouch()'><option value='FUND' selected>基金产品</option><option value='FNLN' >融资贷款类产品</option><option value='OFAG' >开放式理财类产品（代理）</option><option value='CFAG' >封闭式理财类产品（代理）</option></select>";
+    }
+};
+var yearInfoEditBuilder=function(val){
+    if(val=="2015"){
+        return "<select id='yearInfo' name='yearInfo' class='form-control select2me'><option value='2015' selected>2015</option><option value='2016'>2016</option><option value='2017'>2017</option><option value='2018'>2018</option><option value='2019'>2019</option><option value='2020'>2020</option><option value='2021'>2021</option><option value='2022'>2022</option><option value='2023'>2023</option><option value='2024'>2024</option></select>";
+    }else if(val=="2016"){
+        return "<select id='yearInfo' name='yearInfo' class='form-control select2me'><option value='2015'>2015</option><option value='2016' selected>2016</option><option value='2017'>2017</option><option value='2018'>2018</option><option value='2019'>2019</option><option value='2020'>2020</option><option value='2021'>2021</option><option value='2022'>2022</option><option value='2023'>2023</option><option value='2024'>2024</option></select>";
+    }else if(val=="2017"){
+        return "<select id='yearInfo' name='yearInfo' class='form-control select2me'><option value='2015'>2015</option><option value='2016'>2016</option><option value='2017' selected>2017</option><option value='2018'>2018</option><option value='2019'>2019</option><option value='2020'>2020</option><option value='2021'>2021</option><option value='2022'>2022</option><option value='2023'>2023</option><option value='2024'>2024</option></select>";
+    }else if(val=="2018"){
+        return "<select id='yearInfo' name='yearInfo' class='form-control select2me'><option value='2015'>2015</option><option value='2016'>2016</option><option value='2017'>2017</option><option value='2018' selected>2018</option><option value='2019'>2019</option><option value='2020'>2020</option><option value='2021'>2021</option><option value='2022'>2022</option><option value='2023'>2023</option><option value='2024'>2024</option></select>";
+    }else if(val=="2019"){
+        return "<select id='yearInfo' name='yearInfo' class='form-control select2me'><option value='2015'>2015</option><option value='2016'>2016</option><option value='2017'>2017</option><option value='2018'>2018</option><option value='2019' selected>2019</option><option value='2020'>2020</option><option value='2021'>2021</option><option value='2022'>2022</option><option value='2023'>2023</option><option value='2024'>2024</option></select>";
+    }else if(val=="2020"){
+        return "<select id='yearInfo' name='yearInfo' class='form-control select2me'><option value='2015'>2015</option><option value='2016'>2016</option><option value='2017'>2017</option><option value='2018'>2018</option><option value='2019'>2019</option><option value='2020' selected>2020</option><option value='2021'>2021</option><option value='2022'>2022</option><option value='2023'>2023</option><option value='2024'>2024</option></select>";
+    }else if(val=="2021"){
+        return "<select id='yearInfo' name='yearInfo' class='form-control select2me'><option value='2015'>2015</option><option value='2016'>2016</option><option value='2017'>2017</option><option value='2018'>2018</option><option value='2019'>2019</option><option value='2020'>2020</option><option value='2021' selected>2021</option><option value='2022'>2022</option><option value='2023'>2023</option><option value='2024'>2024</option></select>";
+    }else if(val=="2022"){
+        return "<select id='yearInfo' name='yearInfo' class='form-control select2me'><option value='2015'>2015</option><option value='2016'>2016</option><option value='2017'>2017</option><option value='2018'>2018</option><option value='2019'>2019</option><option value='2020'>2020</option><option value='2021'>2021</option><option value='2022' selected>2022</option><option value='2023'>2023</option><option value='2024'>2024</option></select>";
+    }else if(val=="2023"){
+        return "<select id='yearInfo' name='yearInfo' class='form-control select2me'><option value='2015'>2015</option><option value='2016'>2016</option><option value='2017'>2017</option><option value='2018'>2018</option><option value='2019'>2019</option><option value='2020'>2020</option><option value='2021'>2021</option><option value='2022'>2022</option><option value='2023' selected>2023</option><option value='2024'>2024</option></select>";
+    }else if(val=="2024"){
+        return "<select id='yearInfo' name='yearInfo' class='form-control select2me'><option value='2015'>2015</option><option value='2016'>2016</option><option value='2017'>2017</option><option value='2018'>2018</option><option value='2019'>2019</option><option value='2020'>2020</option><option value='2021'>2021</option><option value='2022'>2022</option><option value='2023'>2023</option><option value='2024' selected>2024</option></select>";
+    }else{
+        return "<select id='yearInfo' name='yearInfo' class='form-control select2me'><option></option><option value='2015'>2015</option><option value='2016'>2016</option><option value='2017'>2017</option><option value='2018'>2018</option><option value='2019'>2019</option><option value='2020'>2020</option><option value='2021'>2021</option><option value='2022'>2022</option><option value='2023'>2023</option><option value='2024'>2024</option></select>";
+    }      
+};
+//弹出框是一行二列字段展示
+function initDoubleExcel(){
+} 
+$(function(){ 
+	//初始化页面标题
+	initTitle();
+    var parentidrql=RQLBuilder.equal("leafFlag", "0");
+
+    var xw=XWATable.init(
+	        {
+	            //----------------table的选项-------
+	            pageSize: 10,                //Initial pagesize
+	                    // filter: true,               //Show filter fields
+	                    // sorting: true,              //Enable sorting
+	            columnPicker: true,         //Show the columnPicker button
+	            transition: 'scroll',  //(bounce, fade, flip, rotate, scroll, slide).
+	            // pageSizes: [1,5,8,12,200],  //Set custom pageSizes. Leave empty array to hide button.
+	            // hidePagerOnEmpty: true,     //Removes the pager if data is empty.
+	            checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+	            checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+	            rowClicked: function(data) {    
+	                console.log('row clicked');   //data.event holds the original jQuery event.
+	                console.log(data);            //data.row holds the underlying row you supplied.
+	            },
+	            //----------------基本restful地址---
+	            restbase: restpath +'/setttradedate',
+	            key_column: "id",
+	            //---------------行定义
+	            coldefs: [
+	                        {      
+	                            col:"id",
+	                            friendly: "主键",
+	                            unique: true,
+	                            hidden:true,
+	                            validate:"required",
+	                            nonedit:"nosend",
+	                        },
+	                        {
+	                            col:"yearInfo",
+	                            friendly: "年份",
+	                            filterTooltip:true,                     
+	                            //format: statusFormatter,
+	                            inputsource: "custom",
+	                            inputbuilder: "yearInfoEditBuilder",
+	                            validate:"required",
+	                            readonly:true,
+	                        },{
+	                            col:"productType",
+	                            friendly: "产品类型",
+	                            filterTooltip:true,                     
+	                            format: productTypeFormatter,
+	                            inputsource: "custom",
+	                            inputbuilder: "productTypeEditBuilder",
+                                validate:"required,url(/restface/setttradedate;productType;yearInfo;该产品类型和年份的节假日信息已经维护，请重新选择)",
+	                        },{
+	                            col:"crtTime",
+	                            friendly: "创建时间",
+	                            nonedit:"nosend",
+	                        },{
+	                            col:"allFestival",
+	                            friendly: "总节假日",
+	                            inputsource: "custom",
+	                            rows: 10,  
+	                            cols: 46,
+	                            format: festivalFormatter,
+	                            inputbuilder: "festivalEditBuilder",
+	                            validate:"required,length[10-2000],",
+	                        },
+	                        
+	                ],
+            //---------------查询时过滤条件
+            findFilter: function(){//find function
+                var productType,yearInfo;
+                if($('#find_yearInfo').val()!=-1)yearInfo=RQLBuilder.equal("year_info",$('#find_yearInfo').val());
+                if($('#find_productType').val()!=-1)productType=RQLBuilder.equal("product_type",$('#find_productType').val());
+                var filter=RQLBuilder.and([
+						yearInfo,productType
+                        ]);
+                return filter.rql();
+            },//--findFilter
+            onAdded: function(ret,jsondata){
+                console.log("added callback:"+ret+",obj="+JSON.stringify(jsondata));
+                return  validateForm(ret,jsondata);
+            },
+            onUpdated: function(ret,jsondata){
+                console.log("onUpdated callback:"+ret+",obj="+JSON.stringify(jsondata));
+                jsondata.allFestival=jsondata.allFestival.replace(new RegExp(/(\n)/g),'')
+                return  validateForm(ret,jsondata);
+            }
+        }//--init
+    );//--end init
+//-----------------ENDOFSCIPT------
+}
+);
+
+</script><!-- End of User Script-->
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html></html>

@@ -1,0 +1,99 @@
+源码阅读：服务端
+
+by tac
+========
+onight.tfw.rest.web.bind.RequestJsonParamMethodArgumentResolver
+扩展控制器方法参数
+
+========
+CommonSqlMapper
+
+用来执行任意sql（字符串）语句。
+
+========
+dao包
+dao类：转发到mapper
+
+entity包
+记录类（会继承主键类）
+Key类：主键类
+实体的样例类
+
+mapper包
+映射器（接口）
+xxxSqlProvider：sql语句提供器
+
+========
+SqlMaker
+
+PageInfo
+分页，控制器方法参数
+
+========
+控制器层
+
+ReturnInfo
+返回值，未见被定制。
+
+控制器（代码生成）
+
+/**
+ * ajax单条数据插入 
+ * url:'http://ip/rest/accs101' 
+ * data:'{"key1":"value1","key2":"value2",...}' 
+ * type:’POST
+ */
+
+/**
+ * ajax精确查询 
+ * url: 'http://ip/app/accs101/?query=({"key1":"value1","key2":"value2",...})' 
+ * dataType: 'json' 
+ * type: 'get'
+ * 
+ * ajax无条件查询全部	 * url: 'http://ip/app/accs101' 
+ * dataType: 'json' 
+ * type: 'get' 
+ * 
+ * ajax模糊查询
+ * url: 'http://ip/app/accs101/?query={"(colname)":{"$regex":"(colvalue)","$options":"i"} 
+ * dataType: 'json' 
+ * type: 'get'
+ * 
+ * ajax分页查询
+ * 请求 url: 'http://ip/app/accs101/?query=(空或{"key1":"value1","key2":"value2",...})&skip=" + beginRow + "&limit=" + rowNum' 
+ * dataType:'json' 
+ * type:'get' 
+ */
+
+/**
+ * ajax根据ID主键查询
+ * 请求 url: 'http://ip/app/accs101/(_id' 
+ * dataType: 'json' 
+ * type: 'get'
+ */
+
+/**
+ * ajax根据主键删除 
+ * url:'http://ip/app/accs101/(_id' 
+ * type: 'DELETE' 
+ * dataType: 'json' 
+ */
+
+/**
+ * ajax根据主键单条修改 
+ * url:'http://ip/app/accs101/(_id' 
+ * data:'{"key1":"value1","key2":"value2",...}' 
+ * type:'PUT'
+ */
+
+========
+rest.db.ext
+
+映射器，提供器：定制
+
+SUM(CASE DATE_FORMAT(create_time,'%H') WHEN '00' THEN 1 ELSE 0 END) 'h00'
+
+
+
+
+

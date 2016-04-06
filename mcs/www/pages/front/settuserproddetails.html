@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <base href="../../" >
+
+    <meta charset="utf-8"/>
+    <title>民生宝-用户收益</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+       <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+
+    <script type="text/javascript" src="parts/js/header.js"></script>
+    <script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+    <script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <script>$.include("parts/pages/sidebar.shtml");</script>
+
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <script>$.include("parts/pages/style.shtml");</script>
+
+            <!-- BEGIN PAGE HEADER-->
+            <h3 class="page-title">
+            客户管理 <small>用户收益</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html"></a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+                <div class="page-toolbar">
+                    <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                        <i class="icon-calendar"></i>&nbsp;
+                        <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">商户编号</div>
+                        <input id="find_name" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">产品编号</div>
+                        <input id="find_prodId" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                 <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">身份证号</div>
+                        <input id="find_certNo" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">账务日期</div>
+                        <input id="find_settle_date" class="inputclear form-control" type="text" placeholder="yyyy-mm-dd" data-date-format="yyyy-MM-dd">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+
+<!--                 <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">状态</div>
+                        <select class="form-control chosen-select" id="find_status">
+                                <option value="-1">所有</option>
+                                <option value="1">有效</option>
+                                <option value="0">无效</option>
+                        </select>
+
+                    </div>
+                </div> -->
+                <div class="col-sm-3 form-group">
+                    <script>$.include("parts/pages/querybtn_msb.shtml");</script>
+                </div>
+                <div class="col-sm-5 form-group">
+                    <label style="color: #963;font-size: 10px;">总数量:<input id="allCount" style="border: 0px;background-color: #bbdba1;width: 80px;padding: 0 5px;margin: 0 5px" readonly=true /></label>
+                    <label style="color: #963;font-size: 10px;">总份额:<input id="allAmt" style="border: 0px;background-color: #bbdba1;width: 120px;padding: 0 5px;margin: 0 5px" readonly=true /></label>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container col-md-12" >
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+    <script>$.include("parts/pages/quicksidebar.shtml");</script>
+
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+
+
+<script type="text/javascript">$.include("parts/pages/xwatable-form.shtml");</script>
+<script>$.include("parts/pages/foot_table.shtml");</script>
+
+<script type="text/javascript">
+
+
+
+var statusFormatter=function(){
+    return {
+        f: function(val){
+            if(val&&val==1) return "无效";
+            return "有效";
+        },
+    };
+}();
+
+var statusEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val==0)
+     {
+        return "<select id='status' name='status' class='form-control select2me'><option value=0 selected>无效</option></select>";
+     }   
+    return "<select id='status' name='status' class='form-control select2me'><option value=1 selected>有效</option></select>";
+};
+function initStatisticsInfo(url,param){
+	//$('#allCount').val(Restful.find("/restface/exfrontuserprodacct/getAllCountAndAmt",null)[0].allCount);
+    //$('#allAmt').val(Restful.find("/restface/exfrontuserprodacct/getAllCountAndAmt",null)[0].allAmt);
+    var data = Restful.find(url,param);
+    
+    $('#allCount').val(data!=null?data[0].allCount:0);
+    $('#allAmt').val(data!=null?data[0].allAmt:0);
+}
+$(function(){ 
+	//初始化页面标题
+	initTitle();
+	initStatisticsInfo("/restface/exsettuserproddetails/getAllCountAndAmt",null);
+	$("#find_settle_date").datepicker({
+		format: 'yyyy-mm-dd'
+	}); 
+     var xw=XWATable.init(
+        {
+            //----------------table的选项-------
+            pageSize: 10,                //Initial pagesize
+                    // filter: true,               //Show filter fields
+                    // sorting: true,              //Enable sorting
+            columnPicker: true,         //Show the columnPicker button
+            transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+            // pageSizes: [1,5,8,12,200],  //Set custom pageSizes. Leave empty array to hide button.
+            // hidePagerOnEmpty: true,     //Removes the pager if data is empty.
+            checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+            checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+            rowClicked: function(data) {    
+                console.log('row clicked');   //data.event holds the original jQuery event.
+                console.log(data);            //data.row holds the underlying row you supplied.
+            },
+            //----------------基本restful地址---
+            restbase: restpath +'/settuserproddetails?sort=userId,-settleDate',
+            key_column: "id",
+            xwattr:'detail',
+            xwtitle:'详细信息',
+            //---------------行定义
+            coldefs: [
+                        {      
+                            col:"id",
+                            friendly: "主键",
+                            unique: true,
+                            hidden:true,
+                            nonedit:"nosend",
+                            
+                        },
+                        {
+                            col:"userId",
+                            friendly: "用户编号",
+                            validate:"required",
+                            //nonedit:"nosend"
+                            readonly:true,
+                        },
+                        {
+                            col:"prodId",
+                            friendly: "产品编号",
+                            validate:"required",
+                            //nonedit:"nosend",
+                            //hidden:true,
+                            readonly:true,
+                        },
+                        {
+                            col:"mchntId",
+                            friendly: "商户编号",
+                            validate:"required",
+                            //nonedit:"nosend",
+                            readonly:true,
+                          //sortOrder: "desc",
+                        },
+                        /* {
+                            col:"certNo",
+                            friendly: "身份证号",
+                            validate:"required",
+                            //nonedit:"nosend",
+                            //hidden:true,
+                            readonly:true,
+                        }, */
+                        {
+                            col:"settleDate",
+                            friendly: "账务日期",
+                            validate:"required",
+                            sortOrder: "desc",
+                            //nonedit:"nosend",
+                            readonly:true,
+                            //sortOrder: "desc",
+                        },
+                        {
+                            col:"digAcctNo",
+                            friendly: "电子账户号",
+                        },
+                        {
+                            col:"yestdTotSy",
+                            friendly: "昨日总收益",
+                        },
+                        {
+                            col:"todayTotSy",
+                            friendly: "今日总收益",
+                        },
+                        {
+                            col:"todayTotFe",
+                            friendly: "今日总份额",
+                        },
+                        {
+                            col:"todayTotSh",
+                            friendly: "今日总笔数",
+                            hidden:true,
+                        },{
+                            col:"dayfe",
+                            friendly: "日总份额",
+                        },{
+                            col:"outProdId",
+                            friendly: "外部产品编码",
+                            hidden:true,
+                        },{
+                            col:"outSubProdId",
+                            friendly: "外部产品子编码",
+                            hidden:true,
+                        }
+                ],
+            //---------------查询时过滤条件
+            findFilter: function(){//find function
+       			var paramJson = {};
+       			var paramArr = new Array();
+                var certNo,mchntId,settleDate,prodId;
+                if($('#find_certNo').val().length>0){
+                	certNo=RQLBuilder.like("user_id",$('#find_certNo').val());
+                	var param = {};
+       				param["userId"]=$('#find_certNo').val();
+       				paramArr.push(param);
+                }
+                if($('#find_name').val().length>0){
+                	mchntId=RQLBuilder.equal("mchnt_id",$('#find_name').val());
+                	var param = {};
+       				param["mchntId"]=$('#find_name').val();
+       				paramArr.push(param);
+                }
+                if($('#find_prodId').val().length>0){
+                	prodId=RQLBuilder.equal("prod_id",$('#find_prodId').val());
+                	var param = {};
+       				param["prodId"]=$('#find_prodId').val();
+       				paramArr.push(param);
+                }
+
+                if($('#find_settle_date').val().length>0){
+                	settleDate=RQLBuilder.equal("settle_date",$('#find_settle_date').val());
+                	var param = {};
+       				param["settleDate"]=$('#find_settle_date').val();
+       				paramArr.push(param);
+                }
+                var filter=RQLBuilder.and([
+                        mchntId,settleDate,prodId,certNo
+                        ]);
+                paramJson["$and"]=paramArr;
+                initStatisticsInfo("/restface/exsettuserproddetails/getAllCountAndAmt",JSON.stringify(paramJson));
+                return filter.rql();
+            }
+        }//--init
+    );//--end init
+
+    //$('#find_leaf').select2();
+    $('#find_name').on('input',function(e){
+        console.log("changing::"+e.target.value);
+        if(!e.target.value){
+            xw.autoResetSearch();
+        }
+    });
+
+    
+//-----------------ENDOFSCIPT------
+}
+);
+
+</script><!-- End of User Script-->
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

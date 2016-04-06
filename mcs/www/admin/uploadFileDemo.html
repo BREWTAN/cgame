@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <base href="../" >
+
+    <meta charset="utf-8"/>
+    <title>民生宝-上传文件</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+       <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+
+    <script type="text/javascript" src="parts/js/header.js"></script>
+    <script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <script>$.include("parts/pages/sidebar.shtml");</script>
+
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <script>$.include("parts/pages/style.shtml");</script>
+
+            <!-- BEGIN PAGE HEADER-->
+            <h3 class="page-title">
+          系统管理<small>上传文件</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html"></a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+                <div class="page-toolbar">
+                    <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                        <i class="icon-calendar"></i>&nbsp;
+                        <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+	                    <input type="file" id="file" name="file">
+							<!-- <form name="userForm" action="/restface/file/uploadRequest" method="post" enctype="multipart/form-data" >
+								<input type="file" name="file">
+								<input type="submit" class="btn btn-sm btn-info" value="上传" >
+							</form> -->
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                <div class="btn-group btn-sm">
+		    		<button id="upload_button" class="btn btn-sm btn-info" data-target="#stack1" data-toggle="modal">
+		            	文件上传&nbsp;<i class="fa fa-pencil"></i>
+	    			</button>
+        		</div>
+                </div>
+				
+            </div>
+		    <div class="clearfix">
+            </div>
+    </div>
+    <!-- END CONTENT -->
+    <script>$.include("parts/pages/quicksidebar.shtml");</script>
+
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+
+
+<script type="text/javascript">$.include("parts/pages/xwatable-form.shtml");</script>
+<script>$.include("parts/pages/foot_table.shtml");</script>
+<script type="text/javascript" src="assets/addons/jquery.uuid.js"></script>
+<script type="text/javascript" src="assets/addons/ajaxfileupload.js"></script>
+
+<script type="text/javascript">
+	$(function(){ 
+		//初始化页面标题
+		initTitle();
+	});
+	$('#upload_button').click(uploadFunction);
+	function uploadFunction(){	
+		if($("#file").val().length==0){
+			alert("文件不能为空");
+			return false;
+		}
+		$.ajaxFileUpload({
+			url:'/restface/file/uploadRequest',
+			type: 'post',
+			secureuri:false,
+			fileElementId:"file",
+			dataType:'text',
+			success:function(data, status){
+				alert(data+status);
+			}
+		});
+	};
+</script><!-- End of User Script-->
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html></html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <base href="../../" >
+
+    <meta charset="utf-8"/>
+    <title>民生宝-日终监控</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+       <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+
+    <script type="text/javascript" src="parts/js/header.js"></script>
+    <script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+    <script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <script>$.include("parts/pages/sidebar.shtml");</script>
+
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <script>$.include("parts/pages/style.shtml");</script>
+
+            <!-- BEGIN PAGE HEADER-->
+            <h3 class="page-title">
+            差错对账管理 <small>日终监控</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html"></a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+                <div class="page-toolbar">
+                    <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                        <i class="icon-calendar"></i>&nbsp;
+                        <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">任务编号</div>
+                        <input id="find_taskId" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">创建时间</div>
+                        <input id="find_crtTime" class="inputclear form-control" type="text" placeholder="yyyy-mm-dd" data-date-format="yyyy-MM-dd">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">结算时间</div>
+                        <input id="find_settleDt" class="inputclear form-control" type="text" placeholder="yyyy-mm-dd" data-date-format="yyyy-MM-dd">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">任务类型</div>
+                        <select class="form-control chosen-select" id="find_taskType">
+                                <option value="-1">所有</option>
+                                <option value="STTL_00">开始</option>
+                                <option value="STTL_0101">获取产品方申购文件</option>
+                                <option value="STTL_0102">申购流水勾对</option>
+                                <option value="STTL_0103">申购差错处理</option>
+                                <option value="STTL_0104">生成商户申购文件</option>
+                                <option value="STTL_0201">获取产品赎回文件</option>
+                                <option value="STTL_0202">赎回流水勾对</option>
+                                <option value="STTL_0203">申购差错处理</option>
+                                <option value="STTL_0204">生成商户赎回文件</option>
+                                <option value="STTL_0301">获取产品收益文件并回填数据库</option>
+                                <option value="STTL_0302">生成商户收益文件</option>
+                                <option value="STTL_0401">生成落地结算明细数据 </option>
+                                <option value="STTL_0402">生成落地结算数据</option>
+                                <option value="STTL_0403">生成商户结算明细数据</option>
+                                <option value="STTL_0404">生成商户结算数据</option>
+                                <option value="STTL_0405">生成产品结算数据</option>
+                                <option value="STTL_0406">生成商户结算数据</option>
+                                <option value="STTL_0501">产品信息查询更新</option>
+                                <option value="STTL_0502">损益数据更新</option>
+                                <option value="STTL_88">流程结束</option>
+                                <option value="STTL_SCHEDULER_CTRL">任务控制</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">任务状态</div>
+                        <select class="form-control chosen-select" id="find_status">
+                                <option value="-1">所有</option>
+                                <option value="0">开始</option>
+                                <option value="1">处理中</option>
+                                <option value="2">已完成</option>
+                                <option value="3">错误</option>
+                                <option value="99">未知</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <script>$.include("parts/pages/crudbtn_ru.shtml");</script>
+					<div class="btn-group btn-sm">
+					    <button id="addd_button" class="btn btn-sm btn-info" data-target="#stack1" data-toggle="modal">
+					        添加&nbsp; <i class="fa fa-plus"></i>
+					    </button>
+					</div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container col-md-12" >
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+    <script>$.include("parts/pages/quicksidebar.shtml");</script>
+
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+
+
+<script type="text/javascript">$.include("parts/pages/xwatable-form.shtml");</script>
+<script>$.include("parts/pages/foot_table.shtml");</script>
+
+<script type="text/javascript">
+
+
+
+var statusFormatter=function(){
+    return {
+        f: function(val){
+            if(val&&val==0) return "开始";
+            else if(val&&val==1) return "处理中";
+            else if(val&&val==2) return "已完成";
+            else if(val&&val==3) return "错误";
+            else if(val&&val==99) return "未知";
+        },
+    };
+}();
+
+ var statusEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val==0)
+     {
+        return "<select id='status' name='status' class='form-control select2me'><option value=0 selected >开始</option></select>";
+     } else if(val==1)
+     {
+        return "<select id='status' name='status' class='form-control select2me'><option value=1 selected >处理中</option></select>";
+     } else if(val==2)
+     {
+        return "<select id='status' name='status' class='form-control select2me'><option value=2 selected >已完成</option><option value=0 >开始</option></select>";
+     } else if(val==3)
+     {
+        return "<select id='status' name='status' class='form-control select2me'><option value=3 selected >错误</option><option value=0 >开始</option></select>";
+      }else if(val = 99){
+    	return "<select id='status' name='status' class='form-control select2me'><option value=99 selected>未知</option></select>";
+      } 
+};
+var typeFormatter=function(){
+    return {
+        f: function(val){
+        	var vall = val.substring(0,val.lastIndexOf("_"));
+        	var desc = "";
+        	var type = val.substring(val.lastIndexOf("_")+1);
+        	if(type&&type=="OFAG"){
+        		type="开放类_";
+        	}else if(type&&type=="CFAG"){
+        		type="封闭类_";
+        	}else if(type&&type=="FUND"){
+        		type="基金类_";
+        	}else if(type&&type=="FNLN"){
+        		type="融资贷款类_";
+        	}else{
+        		type="";
+        	}
+        	if(vall=="STTL_SCHEDULER_CTRL")desc = "任务控制";
+            else　if(vall=="STTL_00")desc = "开始";
+            else　if(vall=="STTL_00_BAN")desc = "开始";
+            else　if(vall=="STTL_0101")desc = "获取产品方申购文件";
+            else　if(vall=="STTL_0102")desc = "申购流水勾对";
+            else　if(vall=="STTL_0103")desc = "申购差错处理";
+            else　if(vall=="STTL_0104")desc = "生成商户申购文件";
+            else　if(vall=="STTL_0201")desc = "获取产品赎回文件";
+            else　if(vall=="STTL_0202")desc = "赎回流水勾对";
+            else　if(vall=="STTL_0203")desc = "申购差错处理";
+            else　if(vall=="STTL_0204")desc = "生成商户赎回文件";
+            else　if(vall=="STTL_0301")desc = "获取产品收益文件并回填数据库";
+            else　if(vall=="STTL_0302")desc = "生成商户收益文件";
+            else　if(vall=="STTL_0401")desc = "获取产品方转发文件";
+            else　if(vall=="STTL_0402")desc = "转发流水勾对";
+            else　if(vall=="STTL_0403")desc = "转发差错处理";
+            else　if(vall=="STTL_0404")desc = "生成商户转发文件";
+            else　if(vall=="STTL_1001")desc = "生成落地结算明细数据";
+            else　if(vall=="STTL_1002")desc = "生成落地结算数据";
+            else　if(vall=="STTL_1003")desc = "生成商户结算明细数据";
+            else　if(vall=="STTL_1004")desc = "生成商户结算数据";
+            else　if(vall=="STTL_1005")desc = "损益数据更新";
+            else　if(vall=="STTL_1006")desc = "产品信息查询更新";
+            else　if(vall=="STTL_1007")desc = "产品信息查询更新";
+            else　if(vall=="STTL_1008")desc = "缓冲订单处理";
+            else　if(vall=="STTL_805")desc = "发送结算通知";
+            else　if(vall=="STTL_88")desc = "流程结束";
+            else　if(vall=="STTL_88_BAN")desc = "流程结束";
+            else　if(vall=="STTL_209")desc = "产品变更通知";
+            else　if(vall=="STTL_00_UPD")desc = "开始";
+            else　if(vall=="STTL_1007_UPD")desc = "产品信息查询更新";
+            else　if(vall=="STTL_88_UPD")desc = "流程结束";
+            else return vall;
+        	return type+desc;
+        },
+    };
+}();
+
+var typeEditBuilder=function(val){
+	var vall = val.substring(0,val.lastIndexOf("_"));
+	var desc = "";
+	var type = val.substring(val.lastIndexOf("_")+1);
+	if(type&&type=="OFAG"){
+		type="开放类_";
+	}else if(type&&type=="CFAG"){
+		type="封闭类_";
+	}else if(type&&type=="FUND"){
+		type="基金类_";
+	}else if(type&&type=="FNLN"){
+		type="融资贷款类_";
+	}else{
+		type="";
+	}
+	if(vall=="STTL_SCHEDULER_CTRL"){
+    	desc = "任务控制";
+    }else　if(vall=="STTL_00"){
+    	desc = "开始";
+    }else　if(vall=="STTL_00_BAN"){
+    	desc = "开始";
+    }else　if(vall=="STTL_0101"){
+    	desc = "获取产品方申购文件";
+    }else　if(vall=="STTL_0102"){
+    	desc = "申购流水勾对";
+    }else　if(vall=="STTL_0103"){
+    	desc = "申购差错处理";
+    }else　if(vall=="STTL_0104"){
+    	desc = "生成商户申购文件";
+    }else　if(vall=="STTL_0201"){
+    	desc = "获取产品赎回文件";
+    }else　if(vall=="STTL_0202"){
+    	desc = "赎回流水勾对";
+    }else　if(vall=="STTL_0203"){
+    	desc = "申购差错处理";
+    }else　if(vall=="STTL_0204"){
+    	desc = "生成商户赎回文件";
+    }else　if(vall=="STTL_0301"){
+    	desc = "获取产品收益文件并回填数据库";
+    }else　if(vall=="STTL_0302"){
+    	desc = "生成商户收益文件";
+    }else　if(vall=="STTL_0401"){
+    	desc = "获取产品方转发文件";
+    }else　if(vall=="STTL_0402"){
+    	desc = "转发流水勾对";
+    }else　if(vall=="STTL_0403"){
+    	desc = "转发差错处理";
+    }else　if(vall=="STTL_0404"){
+    	desc = "生成商户转发文件";
+    }else　if(vall=="STTL_1001"){
+    	desc = "生成落地结算明细数据";
+    }else　if(vall=="STTL_1002"){
+    	desc = "生成落地结算数据";
+    }else　if(vall=="STTL_1003"){
+    	desc = "生成商户结算明细数据";
+    }else　if(vall=="STTL_1004"){
+    	desc = "生成商户结算数据";
+    }else　if(vall=="STTL_1005"){
+    	desc = "损益数据更新";
+    }else　if(vall=="STTL_1006"){
+    	desc = "产品信息查询更新";
+    }else　if(vall=="STTL_1007"){
+    	desc = "产品信息查询更新";
+    }else　if(vall=="STTL_1008"){
+    	desc = "缓冲订单处理";
+    }else　if(vall=="STTL_805"){
+    	desc = "发送结算通知";
+    }else　if(vall=="STTL_88"){
+    	desc = "流程结束";
+    }
+    else　if(vall=="STTL_00_UPD")desc = "开始";
+    else　if(vall=="STTL_1007_UPD")desc = "产品信息查询更新";
+    else　if(vall=="STTL_88_UPD")desc = "流程结束";
+    else　if(vall=="STTL_88_BAN")desc = "流程结束";
+    else　if(vall=="STTL_209")desc = "产品变更通知";
+    else desc= vall;
+	
+	return "<div class='input-icon right'><i class='fa fa-info-circle tooltips' data-container='body'></i><input class='bootbox-input bootbox-input-text form-control' type='text' readonly='readonly' value='"+type+desc+"'><input id='taskType' name='taskType' type='hidden' value='"+val+"'></div>";
+}; 
+
+//弹出框是一行二列字段展示
+function initDoubleExcel(){
+} 
+$(function(){ 
+	//初始化页面标题
+	initTitle();
+	$("#find_crtTime").datepicker({
+		format: 'yyyy-mm-dd'
+	}); 
+	$("#find_settleDt").datepicker({
+		format: 'yyyy-mm-dd'
+	}); 
+	$("#addd_button").click(function(){
+	    var task = "<select id='taskType' name='taskType' class=' select2me'>";
+	    var list = Restful.find(restpath +'/exauditsettretask/getTaskType',null)
+	    console.log(list)
+	    for(var i=0;i<list.length;i++){
+	    	var type = list[i].PROD_MCH_ID;
+	    	task+="<option value='"+type;
+    		task+="'>"+type+"</option>";
+	    }
+	    task+="</select>";
+    	var html = "<br><center><h4>确定添加这条记录吗？</h4></center><br>";
+    	html+="<tabel border='1'>"
+    	html+="<tr><td><h5 align='left'>产品方商户号:"+task+"</h5></td></tr>"
+		html+="<tr><td><h5 align='left'>任务日期&nbsp;&nbsp;：<input type='text' name='settDate' id='settDate'></input></h5></td></tr>"
+		html+="</table>"
+    	bootbox.confirm(html,
+                function(result) {
+                    if (!result) return;
+                    var sendjson = {};
+                    sendjson['taskType'] = $("#taskType").val();
+                    sendjson['settleDt'] =  $("#settDate").val();
+                    console.log("submit::" + JSON.stringify(sendjson));
+                    var ret=Restful.insert(restpath +'/exsetttaskrun', sendjson);
+                    if(ret.success!=true){
+                    	alert("添加失败!")
+                    }
+                });
+	})
+	var xw=XWATable.init(
+	        {
+	            //----------------table的选项-------
+	            pageSize: 10,                //Initial pagesize
+	                    // filter: true,               //Show filter fields
+	                    // sorting: true,              //Enable sorting
+	            columnPicker: true,         //Show the columnPicker button
+	            transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+	            // pageSizes: [1,5,8,12,200],  //Set custom pageSizes. Leave empty array to hide button.
+	            // hidePagerOnEmpty: true,     //Removes the pager if data is empty.
+	            checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+	            checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+	            rowClicked: function(data) {    
+	                console.log('row clicked');   //data.event holds the original jQuery event.
+	                console.log(data);            //data.row holds the underlying row you supplied.
+	            },
+	            //----------------基本restful地址---
+	            restbase: restpath +'/setttaskrun',
+	            key_column: "taskId",
+	            //---------------行定义
+	            coldefs: [
+	                        {      
+	                            col:"taskId",
+	                            friendly: "任务编号",
+	                            unique: true,
+	                            validate:"required",
+	                            //hidden:true,
+	                            //nonedit:"nosend",
+	                        },
+	                        {
+	                            col:"taskType",
+	                            friendly: "任务类型",
+	                            filterTooltip:true,                     
+	                            format: typeFormatter,
+	                            inputsource: "custom",
+	                            //nonedit:"nosend",
+	                            inputbuilder: "typeEditBuilder",
+	                            validate:"required",
+	                        },
+	                        {
+	                        	col:"status",
+	                            friendly: "状态",
+	                            filterTooltip:true,                     
+	                            format: statusFormatter,
+	                            inputsource: "custom",
+	                            inputbuilder: "statusEditBuilder",
+	                            validate:"required",
+	                        },{
+	                            col:"taskDefId",
+	                            friendly: "taskDefId",
+	                            validate:"required",
+	                            readonly:true,
+	                            hidden:true,
+	                            nonedit:"nosend",
+	                            //hidden:true,
+	                            //inputsource:"datepicker",
+	                        },{
+	                            col:"version",
+	                            friendly: "version",
+	                            readonly:true,
+	                            hidden:true,
+	                            nonedit:"nosend",
+	                            //inputsource:"datepicker",
+	                        },
+	                        {
+	                            col:"crtTime",
+	                            friendly: "创建时间",
+	                            validate:"required",
+	                            readonly:true,
+	                            sortOrder: "desc",
+	                            //hidden:true,
+	                            nonedit:"nosend",
+	                            //inputsource:"datepicker",
+	                        },
+	                        {
+	                            col:"settleDt",
+	                            friendly: "结算时间",
+	                            validate:"required",
+	                            //readonly:true,
+	                            //hidden:true,
+	                            //nonedit:"nosend",
+	                            //inputsource:"datepicker",
+	                        },
+	                        {
+	                            col:"dsc",
+	                            friendly: "描述",
+	                            validate:"required",
+	                            readonly:true,
+	                        }
+	                ],
+            //---------------查询时过滤条件
+            findFilter: function(){//find function
+                
+                var taskId,taskType,status,crtTime;
+                if($('#find_status').val()!=-1)status=RQLBuilder.like("status",$('#find_status').val());
+                if($('#find_taskType').val()!=-1)taskType=RQLBuilder.like("task_type",$('#find_taskType').val());
+                if($('#find_taskId').val().length>0)taskId=RQLBuilder.like("task_id",$('#find_taskId').val());
+                if($('#find_crtTime').val().length>0)crtTime=RQLBuilder.like("crt_time",$('#find_crtTime').val());
+                if($('#find_settleDt').val().length>0)crtTime=RQLBuilder.like("settle_dt",$('#find_settleDt').val());
+
+                var filter=RQLBuilder.and([
+                        	status,taskType,taskId,crtTime
+                        ]);
+                return filter.rql();
+            }
+        }//--init
+    );//--end init
+
+    //$('#find_leaf').select2();
+    $('#find_name').on('input',function(e){
+        console.log("changing::"+e.target.value);
+        if(!e.target.value){
+            xw.autoResetSearch();
+        }
+    });
+
+    
+//-----------------ENDOFSCIPT------
+}
+);
+
+</script><!-- End of User Script-->
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <base href="../" >
+
+    <meta charset="utf-8"/>
+    <title>民生宝-角色菜单管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+   <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jstree/dist/themes/default/style.min.css">
+
+    <script type="text/javascript" src="parts/js/header.js"></script>
+    <script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+    <style type="text/css">
+    .jstree-default .jstree-anchor {
+        font-size: 15px;
+    }
+
+    .jstree-default>.jstree-container-ul>.jstree-node {
+        margin-top: 6px;
+    }
+
+    </style>
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <script>$.include("parts/pages/sidebar.shtml");</script>
+
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper" id="cmcs">
+        <div class="page-content">
+            <script>$.include("parts/pages/style.shtml");</script>
+
+            <!-- BEGIN PAGE HEADER-->
+            <h3 class="page-title">
+            系统管理 <small>角色菜单管理</small>
+            </h3>
+           
+            <!-- END PAGE HEADER-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <div class="col-sm-4 form-group">
+                    <div class="btn-group input-group">
+                        <!-- 查询条件控件 -->
+                        <div class="input-group-addon">角色</div>
+                        <select id='sel_rolecode' name='rolecode' class='form-control select2me'></select>
+                    </div>
+                </div>
+                <div class="col-sm-8 form-group">
+                    <div class="btn-group form-group">
+                        <button id="save_button" class="btn green" data-target="#stack1" data-toggle="modal">
+                            保存&nbsp;
+                            <i class="fa fa-save"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portlet green-meadow box">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-cogs"></i>
+                        目录结构
+                    </div>
+                    <!-- <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+                    <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                    <a href="javascript:;" class="reload"></a>
+                    <a href="javascript:;" class="remove"></a>
+                </div>
+                -->
+            </div>
+            <div class="portlet-body">
+                <div id="role_tree" class="tree-demo" ></div>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- END CONTENT -->
+    <script>$.include("parts/pages/quicksidebar.shtml");</script>
+
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+
+<script>$.include("parts/pages/foot_table.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="assets/addons/rqlbuilder.js"></script>
+<script type="text/javascript" src="assets/addons/xwatable.js"></script>
+<script type="text/javascript" src="assets/addons/refhelper.js"></script>
+<script type="text/javascript" src="assets/addons/rest.js"></script>
+
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script src="assets/global/plugins/jstree/dist/jstree.min.js"></script>
+<script type="text/javascript" src="assets/addons/jquery.uuid.js"></script>
+<script src="parts/js/wpfcfg.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script type="text/javascript">
+function userRollerValidate(roleId){   
+ var result="";
+  $.ajax({
+    url: wpfadmin+"sysrole/getRoleType",
+
+    dataType: 'json',
+    data : { 
+		'roleId' :roleId	 
+	},
+	async: false,
+ })
+.done(function(data) {	
+result=data.description;
+ 
+});
+
+return result; 
+
+}
+$(function(){
+	//初始化页面标题
+	initTitle();
+    var roleHelper=RefHelper.create({
+        ref_url:wpfadmin+"sysrole",
+        ref_col:"roleId",
+        ref_display:"roleName",
+    });
+
+    var roleselect=$('#sel_rolecode');
+    $.map(roleHelper.getData(), function(value, key) {
+        roleselect.append('<option value="'+key+'">'+value+'</option>');
+    });
+
+    roleselect.select2({ placeholder: "请选择", maximumSelectionSize: 12 });
+
+    var rolepermMap={};
+    var reloadRolePerm=function(){
+        var data = Restful.findNQ(wpfadmin+"sysrolemenu");
+        $.each(data, function(index, val) {
+            rolepermMap[val["roleId"]+"___"+val["menuId"]] = val;
+        });
+    };
+
+    reloadRolePerm();
+    
+    var isPermit=function (role,permissionid){
+        return rolepermMap[role+"___"+permissionid];
+    };
+
+    var menuMap={};
+    var menuData=[];
+
+    var buildMenuData=function(){
+        var data = Restful.findNQ(wpfadmin+"sysmenu");
+        $.each(data, function(index, item) {
+                menuMap[item.menuId]={
+                    "text": item["menuName"],
+                    "icon": item["icon"],
+                    "url": item["menuUrl"],
+                    "id": item["menuId"]       
+                };
+                if(item.parentId&&item.parentId!="0"){
+                    if(!menuMap[item.parentId])
+                    {
+                        menuMap[item.parentId]={};
+                    }
+                    if(!menuMap[item.parentId]["children"])
+                    {
+                        menuMap[item.parentId]["children"]=[];
+                    }
+                    menuMap[item.parentId]["children"].push(menuMap[item.menuId]);
+                }
+        });
+
+        var role=roleselect.val();
+        menuData=[];
+        $.map(menuMap, function(value, key) {
+            // value["state"]={ "selected": false };
+            console.log("kkk::"+JSON.stringify(value["children"]));
+            if(value["children"])
+            {
+                // console.log("push"+value)
+                menuData.push(value);
+            }else{
+
+                if(isPermit(role,value.id)){
+                    value["state"]={"selected": true};
+                }
+
+
+
+            }
+        });
+        //console.log("menuDD"+JSON.stringify(menuData));
+        return menuData;
+    };
+    var permtree;
+    var createTree=function(){
+     permtree=$('#role_tree').jstree({
+            'plugins': ["wholerow", "checkbox", "types"],
+            'core': {
+                "themes" : {
+                    "responsive": true
+                },    
+                'data':
+                function (obj, cb) {
+            cb.call(this,buildMenuData());
+        },
+            },
+            "types" : {
+                "default" : {
+                    "icon" : "fa fa-folder icon-state-warning icon-lg"
+                },
+                "file" : {
+                    "icon" : "fa fa-file icon-state-warning icon-lg"
+                }
+            }
+        });
+    };
+    
+    $('#save_button').click(function(){
+        var role=roleselect.val();       
+        var selected=permtree.jstree().get_selected(true);
+         if(userRollerValidate(role)==0)
+         	{ 
+               var count=0;
+         	   $.each(selected, function(index, val) {
+                 var parent=permtree.jstree().get_parent(val);  
+                 if(parent&&parent!='#'){
+                  count++;
+                   } 
+                 });
+                    
+         		 if(count>1)
+         		 	{                           
+
+          Metronic.alert({
+                container:'#cmcs',// alerts parent container(by default placed after the page breadcrumbs)
+                place:'prepend', // append or prepent in container 
+                type: 'success',  // alert's type
+                message:'<center><i class="fa-lg fa fa-warning"></i>流程作业角色只能选择一个菜单项！</center>',  // alert's message
+                close: 1, // make alert closable           
+      //          closeInSeconds:1, // auto close after defined seconds
+                icon: 'none' // put icon before the message
+               });
+                  return false;
+         		 	}
+         	}   
+         
+        var senddata=[];
+        var senddataindex={};
+        $.each(selected, function(index, val) {
+            var parent=permtree.jstree().get_parent(val);
+            if(parent&&parent!='#'&&!senddataindex[parent]){
+                senddataindex[parent]=parent;
+                senddata.push({"roleId":role,"menuId":parent,"id":Math.uuid(32),"status":"1"});
+            }
+            if(!senddataindex[val.id]){
+                senddataindex[val.id]=val.id;
+                senddata.push({"roleId":role,"menuId":val.id,"id":Math.uuid(32),"status":"1"});
+            }
+        });
+        if(senddata.length<=0){
+            senddata.push({"roleId":role,"menuId":-1});
+        }
+        var jsondata = Restful.postDataR(wpfrest+"exrolemenu/batch", JSON.stringify(senddata));
+        console.log("role permission jsondata::" + jsondata);
+        if (jsondata.success) {
+
+
+         Metronic.alert({
+                container:'#cmcs',// alerts parent container(by default placed after the page breadcrumbs)
+                place:'prepend', // append or prepent in container 
+                type: 'success',  // alert's type
+                message:'<center><i class="fa-lg fa fa-warning"></i>保存成功！</center>',  // alert's message
+                close: 1, // make alert closable           
+      //          closeInSeconds:1, // auto close after defined seconds
+                icon: 'none' // put icon before the message
+            });
+
+          
+        } else {
+
+        Metronic.alert({
+                container:'#cmcs',// alerts parent container(by default placed after the page breadcrumbs)
+                place:'prepend', // append or prepent in container 
+                type: 'success',  // alert's type
+                message:'<center><i class="fa-lg fa fa-warning"></i>保存失败！</center>',  // alert's message
+                close: 1, // make alert closable           
+      //          closeInSeconds:1, // auto close after defined seconds
+                icon: 'none' // put icon before the message
+             });
+
+        }
+    });
+
+    roleselect.change(function(){
+        permtree.jstree().destroy();
+        reloadRolePerm();
+        createTree();
+    });
+    createTree();
+
+    
+//-----------------ENDOFSCIPT------
+}
+);
+
+</script><!-- End of User Script-->
+
+</html>

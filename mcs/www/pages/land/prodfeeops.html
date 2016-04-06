@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <base href="../../" >
+
+    <meta charset="utf-8"/>
+    <title>民生宝-产品手续费维护</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+       <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+
+    <script type="text/javascript" src="parts/js/header.js"></script>
+    <script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <script>$.include("parts/pages/sidebar.shtml");</script>
+
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <script>$.include("parts/pages/style.shtml");</script>
+
+            <!-- BEGIN PAGE HEADER-->
+            <h3 class="page-title">
+           产品渠道管理 <small>产品手续费维护</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html"></a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+                <div class="page-toolbar">
+                    <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                        <i class="icon-calendar"></i>&nbsp;
+                        <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">产品编号</div>
+                        <input id="find_prodId" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">费率类型</div>
+                        <select class="form-control chosen-select" id="find_fee_type">
+                                <option value="-1">所有</option>
+                                <option value="1">分段计费</option>
+                                <option value="0">按比例</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-sm-5 form-group">
+                    <script>$.include("parts/pages/crudbtn.shtml");</script>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container col-md-12" >
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+    <script>$.include("parts/pages/quicksidebar.shtml");</script>
+
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+
+
+<script type="text/javascript">$.include("parts/pages/xwatable-form.shtml");</script>
+<script>$.include("parts/pages/foot_table.shtml");</script>
+<script type="text/javascript" src="assets/addons/jquery.uuid.js"></script>
+<!-- <script type="text/javascript" src="assets/addons/feetable.js"></script> -->
+
+<script type="text/javascript">
+
+var addexpansionfield=function(){ 
+		return {
+        f: function(){              
+			return {
+					id:Math.uuid(32),
+					//feeStDate:new Date(Date.parse($('#feeStDate').val().replace(/-/g,"/"))),
+					//feeEndDate:new Date(Date.parse($('#feeEndDate').val().replace(/-/g,"/")))
+					feeStDate:getStartDateTime($('#feeStDate').val()),
+					feeEndDate:getEndDateTime($('#feeEndDate').val()),
+					};
+        }
+   };
+}();
+
+var updexpansionfield=function(){ 
+		return {
+        f: function(){              
+			return {
+				feeStDate:getStartDateTime($('#feeStDate').val()),
+				feeEndDate:getEndDateTime($('#feeEndDate').val()),
+				//feeStDate:new Date(Date.parse($('#feeStDate').val().replace(/-/g,"/"))),
+				//feeEndDate:new Date(Date.parse($('#feeEndDate').val().replace(/-/g,"/")))
+					};
+        }
+   };
+}();
+function getEndDateTime(endDateTime){
+	if(endDateTime.length>0){
+		return new Date(endDateTime.substr(0,4),parseInt(endDateTime.substr(5,2))-1>9?parseInt(endDateTime.substr(5,2))-1+"":"0"+(parseInt(endDateTime.substr(5,2))-1).toString(),endDateTime.substr(8,2),"23","59","59");
+	}
+	return null;
+}
+function getStartDateTime(startDateTime){
+	if(startDateTime.length>0){
+		return new Date(startDateTime.substr(0,4),parseInt(startDateTime.substr(5,2))-1>9?parseInt(startDateTime.substr(5,2))-1+"":"0"+(parseInt(startDateTime.substr(5,2))-1).toString(),startDateTime.substr(8,2),"00","00","00");
+	}
+	return null;
+}
+var feeClick=function(){
+    return {
+        f: function(val){
+        	console.log("this.value=="+val);
+            if(val&&val==1) {
+            	$('#dg_feeValue').hide();
+            	$('#dg_feeMaxAmt').hide();
+            	$('#dg_stAmt').show();
+            	$('#dg_endAmt').show();
+            	$('#dg_feeAmt').show();
+            	$('#dg_preSettDate').show();
+            	$('#dg_cycle').show();
+            	$('#dg_feeStDate').show();
+            	$('#dg_feeEndDate').show();
+            }else{
+            	$('#dg_feeValue').show();
+            	$('#dg_feeMaxAmt').show();
+            	$('#dg_stAmt').hide();
+            	$('#dg_endAmt').hide();
+            	$('#dg_feeAmt').hide();
+            	$('#dg_preSettDate').hide();
+            	$('#dg_cycle').hide();
+            	$('#dg_feeStDate').hide();
+            	$('#dg_feeEndDate').hide();
+            }
+        },
+    };
+}();
+
+
+var typeEditBuilder=function(val){
+    if(val==0)
+     {
+
+        return "<select id='feeType' name='feeType' class='form-control select2me' onchange='feeClick.f(this.value)'><option value=1 >分段计费</option><option value=0 selected>按比率</option></select>";
+     }   
+    return "<select id='feeType' name='feeType' class='form-control select2me' onchange='feeClick.f(this.value)'><option value=1 selected>分段计费</option><option value=0 >按比率</option></select>";
+};
+
+var typeFormatter=function(){
+    return {
+        f: function(val){
+            if(val&&val==1) return "分段计费";
+            return "按比例";
+        },
+    };
+}();
+
+var statusFormatter=function(){
+    return {
+        f: function(val){
+            if(val&&val==0) return "有效";
+            return "无效";
+        },
+    };
+}();
+
+var statusEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val==0)
+     {
+
+        return "<select id='status' name='status' class='form-control select2me'><option value=1 >无效</option><option value=0 selected>有效</option></select>";
+     }   
+    return "<select id='status' name='status' class='form-control select2me'><option value=1 selected>无效</option><option value=0 >有效</option></select>";
+};
+var userHelper=RefHelper.create({
+    ref_url:wpfadmin +'landprodinfo',
+    ref_col:"productName",
+    ref_display:"prodId",
+});
+var selectProd=function(){
+    return {
+        f: function(val){
+             var display=userHelper.getDisplay(val);
+             if(display==0)
+             	{ 
+             		display='无';
+             	}
+            return display;
+        },
+    };
+}();
+$(function(){ 
+	//初始化页面标题
+	initTitle();
+    //var parentidrql=RQLBuilder.equal("leafFlag", "0");
+
+    var xw=XWATable.init(
+            {
+                //----------------table的选项-------
+                pageSize: 10,                //Initial pagesize
+                        // filter: true,               //Show filter fields
+                        // sorting: true,              //Enable sorting
+                columnPicker: true,         //Show the columnPicker button
+                transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                // pageSizes: [1,5,8,12,200],  //Set custom pageSizes. Leave empty array to hide button.
+                // hidePagerOnEmpty: true,     //Removes the pager if data is empty.
+                checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                rowClicked: function(data) {    
+                    console.log('row clicked');   //data.event holds the original jQuery event.
+                    console.log(data);            //data.row holds the underlying row you supplied.
+                },
+                //----------------基本restful地址---
+                restbase: restpath +'/landfeeinfo',
+                key_column: "id",
+                //---------------行定义
+                coldefs: [
+                            {      
+                                col:"id",
+                                friendly: "主键",
+                                unique: true,
+                                hidden:true,
+                                nonedit:"nosend",
+                            },
+                            {
+                                col:"prodId",
+                                friendly: "产品编号",
+                                validate:"required,url(/restface/landfeeinfo;prodId;该产品的手续费信息已经存在，请重新输入)",
+                                readonly:true,
+                                inputsource: "select",
+                                ref_url: wpfadmin + "landprodinfo",
+                                ref_name: "productName",
+                                ref_value: "prodId", 
+                                format: selectProd,
+                            },
+                            {
+                                col:"seqId",
+                                friendly: "序号",
+                                validate:"required",
+                                readonly:true,
+                                validate:"required,length[1-11]"
+                            },
+                            {
+                                col:"feeFlag",
+                                friendly: "费率标志",
+                                validate:"required",
+                                //hidden:true,
+                                readonly:true,
+                                validate:"required,length[1-4]"
+                                //nonedit:"nosend"
+                            },
+                            {
+                                col:"feeType",
+                                friendly: "费率类型",
+                                validate:"required",
+                                filterTooltip:true,                     
+                                format: typeFormatter,
+                                inputsource: "custom",
+                                inputbuilder: "typeEditBuilder",
+                                validate:"required,length[1-4]"
+                                //nonedit:"nosend"
+                                //readonly:true,
+                                //selected:false
+                            },
+                            {
+                                col:"feeValue",
+                                friendly: "费率值",
+                                validate:"money[10-8]",
+                                    format: moneyFormatter,      
+                                    inputsource: "money",
+                            },
+                            {
+                                col:"feeMaxAmt",
+                                friendly: "费用上限",
+                                validate:"money[10-8]",
+                                    format: moneyFormatter,      
+                                    inputsource: "money",
+                            },
+                            {
+                                col:"stAmt",
+                                friendly:"起始资金",
+                                validate:"money[10-8]",
+                                    format: moneyFormatter,      
+                                    inputsource: "money",
+                            },
+                            {
+                                col:"endAmt",
+                                friendly: "截至资金",
+                                validate:"money[10-8]",
+                                    format: moneyFormatter,      
+                                    inputsource: "money",
+                            },
+                            {
+                                col:"feeAmt",
+                                friendly: "费用",
+                                validate:"money[10-8]",
+                                    format: moneyFormatter,      
+                                    inputsource: "money",
+                            },
+                            {
+                                col:"cycle",
+                                friendly: "结算周期",
+                                validate:"length[1-4]"
+                            },{
+                                col:"feeStDate",
+                                friendly: "费用生效起始日期",
+                                inputsource:"datepicker",
+                                sortOrder: "desc",
+                                //nonedit:"nosend"
+                                //validate:"required",
+                                //nonedit:"nosend"
+                                //readonly:true
+                            },
+                            {
+                                col:"feeEndDate",
+                                friendly: "费率生效截至日期",
+                                inputsource:"datepicker",
+                                //nonedit:"nosend"
+                                //validate:"required",
+                                //hidden:true,
+                                //nonedit:"nosend"
+                            },
+                    ],
+            //---------------查询时过滤条件
+            findFilter: function(){//find function
+                
+                var leaf;
+                if($('#find_fee_type').val()!=-1)leaf=RQLBuilder.equal("fee_type",$('#find_fee_type').val());
+                 var filter=RQLBuilder.and([
+                        RQLBuilder.like("prod_id",$('#find_prodId').val()),
+                        leaf,
+                    ]);
+                return filter.rql();
+            },//--findFilter
+            onAdded: function(ret,jsondata){
+                console.log("added callback:"+ret+",obj="+JSON.stringify(jsondata));
+                return  validateForm(ret,jsondata);
+            },
+            onUpdated: function(ret,jsondata){
+                console.log("onUpdated callback:"+ret+",obj="+JSON.stringify(jsondata));
+                return  validateForm(ret,jsondata);
+            },
+            onDeleted: function(ret,jsondata){
+                console.log("onDeleted callback:"+ret+",obj="+JSON.stringify(jsondata));
+            },
+        }//--init
+    );//--end init
+
+    //$('#find_leaf').select2();
+    $('#find_mchntName').on('input',function(e){
+        console.log("changing::"+e.target.value);
+        if(!e.target.value){
+            xw.autoResetSearch();
+        }
+    });
+
+    
+//-----------------ENDOFSCIPT------
+}
+);
+
+</script><!-- End of User Script-->
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

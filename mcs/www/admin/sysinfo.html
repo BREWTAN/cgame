@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <base href="../" >
+
+    <meta charset="utf-8"/>
+    <title>民生宝-参数维护</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+       <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+
+    <script type="text/javascript" src="parts/js/header.js"></script>
+    <script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <script>$.include("parts/pages/sidebar.shtml");</script>
+
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <script>$.include("parts/pages/style.shtml");</script>
+
+            <!-- BEGIN PAGE HEADER-->
+            <h3 class="page-title">
+            系统管理 <small>公共参数维护</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html"></a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+                <div class="page-toolbar">
+                    <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                        <i class="icon-calendar"></i>&nbsp;
+                        <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">参数ID</div>
+                        <input id="find_paramId" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">参数值</div>
+                        <input id="find_paramValue" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-5 form-group">
+                    <script>$.include("parts/pages/crudbtn.shtml");</script>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container col-md-12" >
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+    <script>$.include("parts/pages/quicksidebar.shtml");</script>
+
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+
+
+<script type="text/javascript">$.include("parts/pages/xwatable-form.shtml");</script>
+<script>$.include("parts/pages/foot_table.shtml");</script>
+<script type="text/javascript" src="assets/addons/jquery.uuid.js"></script>
+
+<script type="text/javascript">
+//var dateStr = new Date().format("Y-m-d");
+//alert(dateStr);
+ var addexpansionfield=function(){ 
+		return {
+        f: function(){              
+			return {
+					//paramId:Math.uuid(16),
+					//crtTime:new Date()
+					};
+        }
+   };
+}(); 
+//弹出框是一行二列字段展示
+function initDoubleExcel(){
+} 
+$(function(){ 
+	//初始化页面标题
+	initTitle();
+    var parentidrql=RQLBuilder.equal("leafFlag", "0");
+
+     var xw=XWATable.init(
+        {
+            //----------------table的选项-------
+            pageSize: 10,                //Initial pagesize
+                    // filter: true,               //Show filter fields
+                    // sorting: true,              //Enable sorting
+            columnPicker: true,         //Show the columnPicker button
+            transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+            // pageSizes: [1,5,8,12,200],  //Set custom pageSizes. Leave empty array to hide button.
+            // hidePagerOnEmpty: true,     //Removes the pager if data is empty.
+            checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+            checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+            rowClicked: function(data) {    
+                console.log('row clicked');   //data.event holds the original jQuery event.
+                console.log(data);            //data.row holds the underlying row you supplied.
+            },
+            logicaldel:false,
+            //----------------基本restful地址---
+            restbase: restpath +'/tradeparam',
+            key_column: "paramId",
+            //---------------行定义
+            coldefs: [
+                      {      
+                          col:"paramId",
+                          friendly: "参数id",
+                          unique: true,
+                          validate:"required,length[1-32],url(/restface/tradeparam;paramId;参数id已经存在，请重新输入)"
+                      },
+                       { 
+                           col:"paramType", 
+                           friendly:"参数类型",
+                           validate:"required,length[1-32]",
+                           hidden:true,
+                           nonedit:"nosend"
+                       }, 
+                       { 
+                           col:"paramValue", 
+                           friendly:"参数值",
+                           validate:"required,length[1-200]"
+                       }, 
+                       { 
+                           col:"dsc", 
+                           friendly:"参数描述"
+                       }, 
+                       { 
+                           col:"crtTime", 
+                           friendly:"创建时间",
+                           nonedit:"nosend",
+                           hidden:true,
+                           inputsource:"datepicker"
+                       }, 
+                       { 
+                           col:"field1", 
+                           friendly:"备注1",
+                           nonedit:"nosend",
+                           hidden:true
+                       }, 
+                       { 
+                           col:"field2", 
+                           friendly:"备注2",
+                           nonedit:"nosend",
+                           hidden:true
+                       }, 
+                       { 
+                           col:"field3", 
+                           friendly:"备注3",
+                           nonedit:"nosend",
+                           hidden:true
+                       }
+                ],
+            //---------------查询时过滤条件
+            findFilter: function(){//find function
+                
+                var paramId,paramValue;
+            	if($('#find_paramId').val().length>0) paramId = RQLBuilder.equal("paramId",$('#find_paramId').val());
+            	if($('#find_paramValue').val().length>0) paramValue = RQLBuilder.like("paramValue",$('#find_paramValue').val());
+                 var filter=RQLBuilder.and([
+						paramId,paramValue
+                    ]);
+                return filter.rql();
+            },//--findFilter
+            onAdded: function(ret,jsondata){
+                console.log("added callback:"+ret+",obj="+JSON.stringify(jsondata));
+                return  validateForm(ret,jsondata);
+            },
+            onUpdated: function(ret,jsondata){
+                console.log("onUpdated callback:"+ret+",obj="+JSON.stringify(jsondata));
+                return  validateForm(ret,jsondata);
+            },
+            onDeleted: function(ret,jsondata){
+                console.log("onDeleted callback:"+ret+",obj="+JSON.stringify(jsondata));
+            },
+        }//--init
+    );//--end init
+
+    //$('#find_leaf').select2();
+    $('#find_mchntName').on('input',function(e){
+        console.log("changing::"+e.target.value);
+        if(!e.target.value){
+            xw.autoResetSearch();
+        }
+    });
+
+    
+//-----------------ENDOFSCIPT------
+}
+);
+
+</script><!-- End of User Script-->
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

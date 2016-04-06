@@ -1,0 +1,87 @@
+<div class="page-header navbar navbar-fixed-top">
+	<!-- BEGIN HEADER INNER -->
+	<div class="page-header-inner">
+		<!-- BEGIN LOGO -->
+		<div class="page-logo">
+			<a href="index.html">
+			<img src="assets/admin/layout/img/logo.png" alt="logo" class="logo-default"/>
+			</a>
+			<div class="menu-toggler sidebar-toggler hide">
+				<!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+
+			</div>
+		</div>
+		<!-- END LOGO -->
+		<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+		<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+		</a>
+		<!-- BEGIN USER LOGIN DROPDOWN -->
+
+		<div class="top-menu">
+
+			
+			<ul class="nav navbar-nav pull-right" >			
+
+				<li class="dropdown dropdown-user">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+					<img alt="" class="img-circle hide1" src="assets/admin/layout/img/avatar3_small.jpg"/>
+					<span class="username username-hide-on-mobile">
+					Nick </span>
+					<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="dropdown-menu">						
+						<li>
+							<a id="fc_profile_pw" style="cursor: pointer" href='#updatePw' data-toggle='modal'>
+							<i class=" icon-key"></i> 修改密码 </a>
+						</li>
+						<li class="divider">
+						</li>						
+						<li>
+							<a id="fc_logout" style="cursor: pointer">
+							<i class="icon-logout"></i> 登出 </a>
+						</li>
+					</ul>
+				</li>				
+			</ul>
+		</div>	
+		<div class="top-menu" style="width:200px;margin-top:0px">.</div>
+	 	
+		<!-- END USER LOGIN DROPDOWN -->
+		<div class="top-menu">
+			<ul class="nav navbar-nav pull-right" id="__taskNotification">				
+				<script type="text/x-template" id="__dust_taskNotification">
+				{#data}
+					<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+						<a href="{url}" class="dropdown-toggle">
+						<i class="fa {icon}"></i>
+						{?counter} <span class="badge badge-default">{counter} </span> {/counter} 
+						</a>
+						<ul></ul>
+					</li>
+				{/data}
+				</script>				
+			</ul>
+		</div>		
+	<!-- END TOP NAVIGATION MENU -->
+	</div>
+	<!-- END HEADER INNER -->
+	<!-- <div id="updatePw" style="display:none;">
+		</form>
+			<table  align="center">
+				<tr><td>旧密码：</td><td><input type="text" id="oldPw" name="oldPw"/></td></tr>
+				<tr><td>新密码：</td><td><input type="text" id="newPw" name="newPw"/></td></tr>
+				<tr><td><input type="button" onclick="update()" value="修改"/></td></tr>
+				<tr><td colspan="2" id="promptInfo" style="color:red;"></td></tr>
+			</table>
+		<form>
+	</div> -->
+</div>
+<!-- BEGIN User Script -->
+<script type="text/javascript" 	src="parts/js/topmenu.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function() {       
+        Topmenu.init();
+     });
+</script>
+<!-- End of User Script-->
+

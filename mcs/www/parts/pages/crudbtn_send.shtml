@@ -1,0 +1,12 @@
+
+	<div class="btn-group btn-sm">
+	    <button id="find_button" class="btn btn-sm btn-primary">
+	        查询&nbsp; <i class="fa fa-search"></i>
+	    </button>
+	</div>
+	
+	<div class="btn-group btn-sm">
+	    <button id="send_button" class="btn btn-sm btn-info" data-target="#stack1" data-toggle="modal">
+	        添加&nbsp; <i class="fa fa-plus"></i>
+	    </button>
+	</div>

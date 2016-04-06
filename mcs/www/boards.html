@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+	<base href="./" >
+
+	<meta charset="utf-8"/>
+	<title>民生宝平台首页</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+	<link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-toastr/toastr.min.css"/>
+	<script type="text/javascript" src="parts/js/header.js"></script>
+	<script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+	
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+	<script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+	<script>$.include("parts/pages/sidebar.shtml");</script>
+
+	<!-- END SIDEBAR -->
+	<div class="page-content-wrapper" id="notice_view" style="display:none">	
+           	      <script>$.include("notice/noticeView.shtml");</script>
+	    </div>	
+	<!-- BEGIN CONTENT -->
+	<div class="page-content-wrapper" id="main_view">
+		  
+		<div class="page-content" >
+			<script>$.include("parts/pages/style.shtml");</script>
+			<!-- BEGIN PAGE HEADER-->
+			<h3 class="page-title">
+			Dashboard <small>reports & statistics</small>
+			</h3>		
+
+			<!-- END PAGE HEADER-->
+			
+			<!-- BEGIN DASHBOARD STATS -->
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat blue-madison">
+						<div class="visual">
+							<i class="fa fa-comments"></i>
+						</div>
+						<div class="details">
+							<div class="number" id="speed1">
+								 1349
+							</div>
+							<div class="desc">
+								 充值金额
+							</div>
+						</div>
+						<a class="more" href="#">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat red-intense">
+						<div class="visual">
+							<i class="fa fa-bar-chart-o"></i>
+						</div>
+						<div class="details">
+							<div class="number" id="speed2">
+								 12,5M$
+							</div>
+							<div class="desc">
+								 提现金额
+							</div>
+						</div>
+						<a class="more" href="#">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat green-haze">
+						<div class="visual">
+							<i class="fa fa-shopping-cart"></i>
+						</div>
+						<div class="details">
+							<div class="number" id="speed3">
+								 549
+							</div>
+							<div class="desc">
+								 总利润
+							</div>
+						</div>
+						<a class="more" href="#">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="dashboard-stat purple-plum">
+						<div class="visual">
+							<i class="fa fa-globe"></i>
+						</div>
+						<div class="details">
+							<div class="number" id="speed4">
+								 +89%
+							</div>
+							<div class="desc">
+								 增长率
+							</div>
+						</div>
+						<a class="more" href="#">
+						View more <i class="m-icon-swapright m-icon-white"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN CHART PORTLET-->
+					<div class="portlet light bordered">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="icon-bar-chart font-green-haze"></i>
+								<span class="caption-subject bold uppercase font-green-haze"> 彩票盈利比</span>
+								<span class="caption-helper">依照总代</span>
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+								<a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="javascript:;" class="reload">
+								</a>
+								<a href="javascript:;" class="fullscreen">
+								</a>
+								<a href="javascript:;" class="remove">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div id="chart_2" class="chart" style="height: 300px;">
+							</div>
+						</div>
+					</div>
+					<!-- END CHART PORTLET-->
+				</div>
+			</div>
+
+			<div class="row">
+						<div class="col-md-12">
+							<!-- BEGIN CHART PORTLET-->
+							<div class="portlet light bordered">
+								<div class="portlet-title">
+									<div class="caption">
+										<i class="icon-bar-chart font-green-haze"></i>
+										<span class="caption-subject bold uppercase font-green-haze"> 彩票盈利比</span>
+										<span class="caption-helper">依照彩种</span>
+									</div>
+									<div class="tools">
+										<a href="javascript:;" class="collapse">
+										</a>
+										<a href="#portlet-config" data-toggle="modal" class="config">
+										</a>
+										<a href="javascript:;" class="reload">
+										</a>
+										<a href="javascript:;" class="fullscreen">
+										</a>
+										<a href="javascript:;" class="remove">
+										</a>
+									</div>
+								</div>
+								<div class="portlet-body">
+									<div id="chart_5" class="chart" style="height: 300px;">
+									</div>
+									
+								</div>
+							</div>
+							<!-- END CHART PORTLET-->
+						</div>
+					</div>
+					<div class="row">
+					<div class="col-md-6">
+							<!-- BEGIN CHART PORTLET-->
+							<div class="portlet light bordered">
+								<div class="portlet-title">
+									<div class="caption">
+										<i class="icon-bar-chart font-green-haze"></i>
+										<span class="caption-subject bold uppercase font-green-haze"> 总代投注量</span>
+										<span class="caption-helper">比例</span>
+									</div>
+									<div class="tools">
+										<a href="javascript:;" class="collapse">
+										</a>
+										<a href="#portlet-config" data-toggle="modal" class="config">
+										</a>
+										<a href="javascript:;" class="reload">
+										</a>
+										<a href="javascript:;" class="fullscreen">
+										</a>
+										<a href="javascript:;" class="remove">
+										</a>
+									</div>
+								</div>
+								<div class="portlet-body">
+									<div id="chart_6" class="chart" style="height: 400px;">
+									</div>
+									
+								</div>
+							</div>
+							<!-- END CHART PORTLET-->
+						</div>
+					<div class="col-md-6">
+							<!-- BEGIN CHART PORTLET-->
+							<div class="portlet light bordered">
+								<div class="portlet-title">
+									<div class="caption">
+										<i class="icon-bar-chart font-green-haze"></i>
+										<span class="caption-subject bold uppercase font-green-haze"> 盈利比例</span>
+										<span class="caption-helper">依照彩种</span>
+									</div>
+									<div class="tools">
+										<a href="javascript:;" class="collapse">
+										</a>
+										<a href="#portlet-config" data-toggle="modal" class="config">
+										</a>
+										<a href="javascript:;" class="reload">
+										</a>
+										<a href="javascript:;" class="fullscreen">
+										</a>
+										<a href="javascript:;" class="remove">
+										</a>
+									</div>
+								</div>
+								<div class="portlet-body">
+									<div id="chart_7" class="chart" style="height: 400px;">
+									</div>
+									
+								</div>
+							</div>
+							<!-- END CHART PORTLET-->
+						</div>
+					</div>
+			
+			<div>
+									<div class="col-md-6">
+
+				<div class="portlet box blue">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-gift"></i>充值流量图
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+								<a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="javascript:;" class="reload">
+								</a>
+								<a href="javascript:;" class="remove">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div id="chart_recharge" class="chart">
+							</div>
+						</div>
+					</div>
+					</div>
+
+									<div class="col-md-6">
+
+				<div class="portlet box blue">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-gift"></i>提现流量图
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+								<a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="javascript:;" class="reload">
+								</a>
+								<a href="javascript:;" class="remove">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div id="chart_withdraw" class="chart">
+							</div>
+						</div>
+					</div>
+					</div>
+			</div>
+			<!-- END DASHBOARD STATS -->
+			<div class="clearfix">
+			</div>
+
+			<div class="row ">
+				<div class="col-md-6 col-sm-6">
+					<div class="portlet box blue-steel">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-bell-o"></i>预警事件
+							</div>
+							<div class="actions">
+								<div class="btn-group">
+									<a class="btn btn-sm btn-default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+									Filter By <i class="fa fa-angle-down"></i>
+									</a>
+									<div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+										<label><input type="checkbox"/> 提现</label>
+										<label><input type="checkbox" checked=""/>投注 </label>
+										<label><input type="checkbox"/> 充值</label>
+										<label><input type="checkbox" checked=""/> 注册</label>
+										<label><input type="checkbox"/> 系统</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div class="scroller" style="height: 300px;" data-always-visible="1" data-rail-visible="0">
+								<ul class="feeds">
+									<li>
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-sm label-info">
+														<i class="fa fa-check"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														用户[abbaddc]充值30万. <span class="label label-sm label-warning ">
+														
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												 Just now
+											</div>
+										</div>
+									</li>
+									<li>
+										<a href="#">
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-sm label-success">
+														<i class="fa fa-bar-chart-o"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														 用户[fienxa]提现10万
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												 20 mins
+											</div>
+										</div>
+										</a>
+									</li>
+									<li>
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-sm label-danger">
+														<i class="fa fa-user"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														 用户[jackiet]今日提现100次
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												 24 mins
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-sm label-info">
+														<i class="fa fa-shopping-cart"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														用户[soso]今日投注次数》1万次 <span class="label label-sm label-success">
+														Reference Number: DR23923 </span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												 30 mins
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-sm label-success">
+														<i class="fa fa-user"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														 提现任务堆积了15个
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												 24 mins
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-sm label-default">
+														<i class="fa fa-bell-o"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														系统CPU资源占比超过50%. <span class="label label-sm label-default ">
+														Overdue </span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												 2 hours
+											</div>
+										</div>
+									</li>
+									<li>
+										<a href="#">
+										<div class="col1">
+											<div class="cont">
+												<div class="cont-col1">
+													<div class="label label-sm label-default">
+														<i class="fa fa-briefcase"></i>
+													</div>
+												</div>
+												<div class="cont-col2">
+													<div class="desc">
+														 IP：8.8.8.8今日注册了100个用户
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col2">
+											<div class="date">
+												 20 mins
+											</div>
+										</div>
+										</a>
+									</li>
+									
+								</ul>
+							</div>
+							<div class="scroller-footer">
+								<div class="btn-arrow-link pull-right">
+									<a href="#">See All Records</a>
+									<i class="icon-arrow-right"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="portlet box green-haze tasks-widget">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-check"></i>风险审核提示
+							</div>
+							<div class="tools">
+								<a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="" class="reload">
+								</a>
+								<a href="javascript:;" class="fullscreen">
+								</a>
+							</div>
+							<div class="actions">
+								<div class="btn-group">
+									<a class="btn btn-default btn-sm" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+									More <i class="fa fa-angle-down"></i>
+									</a>
+									<ul class="dropdown-menu pull-right">
+										<li>
+											<a href="#">
+											<i class="i"></i> All Project </a>
+										</li>
+										<li class="divider">
+										</li>
+										<li>
+											<a href="#">
+											AirAsia </a>
+										</li>
+										<li>
+											<a href="#">
+											Cruise </a>
+										</li>
+										<li>
+											<a href="#">
+											HSBC </a>
+										</li>
+										<li class="divider">
+										</li>
+										<li>
+											<a href="#">
+											Pending <span class="badge badge-danger">
+											4 </span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+											Completed <span class="badge badge-success">
+											12 </span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+											Overdue <span class="badge badge-warning">
+											9 </span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div class="task-content">
+								<div class="scroller" style="height: 305px;" data-always-visible="1" data-rail-visible1="1">
+									<!-- START TASK LIST -->
+									<ul class="task-list">
+										<li>
+											<div class="task-checkbox">
+												<input type="hidden" value="1" name="test"/>
+												<input type="checkbox" class="liChild" value="2" name="test"/>
+											</div>
+											<div class="task-title">
+												<span class="task-title-sp">
+												后台[allien]通过了10万的提现申请 </span>
+												<span class="label label-sm label-success">Company</span>
+												<span class="task-bell">
+												<i class="fa fa-bell-o"></i>
+												</span>
+											</div>
+											<div class="task-config">
+												<div class="task-config-btn btn-group">
+													<a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+													<i class="fa fa-cog"></i><i class="fa fa-angle-down"></i>
+													</a>
+													<ul class="dropdown-menu pull-right">
+														<li>
+															<a href="#">
+															<i class="fa fa-check"></i> Complete </a>
+														</li>
+														<li>
+															<a href="#">
+															<i class="fa fa-pencil"></i> Edit </a>
+														</li>
+														<li>
+															<a href="#">
+															<i class="fa fa-trash-o"></i> Cancel </a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="task-checkbox">
+												<input type="checkbox" class="liChild" value=""/>
+											</div>
+											<div class="task-title">
+												<span class="task-title-sp">
+												操作员[jakviwlf]通过了100万的返奖审批 </span>
+												<span class="label label-sm label-danger">Marketing</span>
+											</div>
+											<div class="task-config">
+												<div class="task-config-btn btn-group">
+													<a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+													<i class="fa fa-cog"></i><i class="fa fa-angle-down"></i>
+													</a>
+													<ul class="dropdown-menu pull-right">
+														<li>
+															<a href="#">
+															<i class="fa fa-check"></i> Complete </a>
+														</li>
+														<li>
+															<a href="#">
+															<i class="fa fa-pencil"></i> Edit </a>
+														</li>
+														<li>
+															<a href="#">
+															<i class="fa fa-trash-o"></i> Cancel </a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										
+									</ul>
+									<!-- END START TASK LIST -->
+								</div>
+							</div>
+							<div class="task-footer">
+								<div class="btn-arrow-link pull-right">
+									<a href="#">See All Records</a>
+									<i class="icon-arrow-right"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<!-- END CONTAINER -->
+<script>$.include("parts/pages/foot.shtml");</script>
+
+<script src="assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
+<!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
+<script src="assets/global/plugins/morris/morris.min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+
+<script src="assets/global/plugins/amcharts/amcharts/amcharts.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/amcharts/serial.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/amcharts/pie.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/amcharts/radar.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/amcharts/themes/light.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/amcharts/themes/patterns.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/amcharts/themes/chalk.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/ammap/maps/js/worldLow.js" type="text/javascript"></script>
+<script src="assets/global/plugins/amcharts/amstockcharts/amstock.js" type="text/javascript"></script>
+<script src="assets/global/plugins/flot/jquery.flot.min.js"></script>
+<script src="assets/global/plugins/flot/jquery.flot.resize.min.js"></script>
+<script src="assets/global/plugins/flot/jquery.flot.pie.min.js"></script>
+<script src="assets/global/plugins/flot/jquery.flot.stack.min.js"></script>
+<script src="assets/global/plugins/flot/jquery.flot.crosshair.min.js"></script>
+<script src="assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+
+
+<script type="text/javascript" src="assets/addons/jquery.counterup.min.js"></script>
+	<script type="text/javascript" src="assets/addons/countUp.js"></script>
+
+
+<!--script type="text/javascript" src="assets/global/plugins/bootstrap-toastr/toastr.min.js"></script-->
+<!--script type="text/javascript" src="parts/js/dashboard.js"></script-->
+<!--script type="text/javascript" src="notice/noticeView.js"></script-->
+<script type="text/javascript">
+jQuery(document).ready(function() { 
+	//Dashboard.init();  	
+	$('#news_portlet .portlet-title a.reload').click(function(e){
+      // Dashboard.reload();
+    })
+    console.log("reloaddd...")
+
+
+
+
+var updateCounter=function(){
+  
+	var speedoptions = {
+	  useEasing : true, 
+	  useGrouping : true, 
+	  separator : ',', 
+	  decimal : '.' ,
+	  prefix : '' ,
+	  suffix : 'K￥' 
+	}
+
+	var speed1 = new countUp("speed1", 1300, 
+					3082.441, 0, 100, speedoptions);		
+
+
+	speed1.start();
+
+	var speed2 = new countUp("speed2", 1000, 
+					 2755.591, 0, 100, speedoptions);		
+
+	speed2.start();
+
+	var speed3 = new countUp("speed3", 100, 
+					  326.849, 0, 100, speedoptions);		
+
+	speed3.start();
+
+	var speedoptions4 = {
+	  useEasing : true, 
+	  useGrouping : true, 
+	  separator : ',', 
+	  decimal : '.' ,
+	  prefix : '' ,
+	  suffix : '%' 
+	}
+	var speed4 = new countUp("speed4", 0, 
+					  5.632, 3, 10, speedoptions4);		
+
+	speed4.start();
+
+		setTimeout(updateCounter, 120*1000);
+
+}
+
+	updateCounter()
+
+var initChartSample5 = function() {
+        var chart = AmCharts.makeChart("chart_5", {
+            "theme": "none",
+            "type": "serial",
+            "startDuration": 2,
+            "fontFamily": 'Open Sans',
+            "color":    '#8888',
+                   "dataProvider": [{
+                "country": "重庆时时彩",
+                "visits":  4685145 ,
+                "color": "#FF0F00"
+            }, {
+                "country": "日本时时彩",
+                "visits":  2367886 ,
+                "color": "#FF6600"
+            }, {
+                "country": "江西时时彩",
+                "visits":  169778 ,
+                "color": "#FF9E01"
+            }, {
+                "country": "新疆时时彩",
+                "visits":  21538 ,
+                "color": "#FCD202"
+            }, {
+                "country": "广东11选5",
+                "visits":  12202 ,
+                "color": "#F8FF01"
+            }, {
+                "country": "山东11选5",
+                "visits":  102459 ,
+                "color": "#B0DE09"
+            }, {
+                "country": "江西11选5",
+                "visits":  10006 ,
+                "color": "#04D215"
+            }, {
+                "country": "重庆11选5",
+                "visits":  58014 ,
+                "color": "#0D8ECF"
+            }, {
+                "country": "福彩3D",
+                "visits":  71758 ,
+                "color": "#0D52D1"
+            }, {
+                "country": "体彩排列3",
+                "visits":   8952,
+                "color": "#2A0CD0"
+            }, {
+                "country": "江苏快三",
+                "visits": 16925,
+                "color": "#2A0CD0"
+            }, {
+                "country": "北京pk10",
+                "visits":   114  ,
+                "color": "#8A0CCF"
+            }, {
+                "country": "北京快乐8",
+                "visits":  43045 ,
+                "color": "#CD0D74"
+            }],
+            "valueAxes": [{
+                "position": "left",
+                 "title": "投注量"
+            }],
+            "graphs": [{
+                "balloonText": "[[category]]: <b>[[value]]</b>",
+		        "colorField": "color",
+		        "fillAlphas": 1,
+		        "lineAlpha": 0.1,
+		        "type": "column",
+		        "valueField": "visits"
+            }],
+            "depth3D": 20,
+            "angle": 30,
+            "chartCursor": {
+                "categoryBalloonEnabled": true,
+                "cursorAlpha": 0,
+                "zoomable": false
+            },
+            "categoryField": "country",
+            "categoryAxis": {
+                "gridPosition": "start",
+               "labelRotation": 90
+
+            },
+            "exportConfig": {
+                "menuTop": "20px",
+                "menuRight": "20px",
+                "menuItems": [{
+                    "icon": '/lib/3/images/export.png',
+                    "format": 'png'
+                }]
+            }
+        }, 0);
+
+        jQuery('.chart_5_chart_input').off().on('input change', function() {
+            var property = jQuery(this).data('property');
+            var target = chart;
+            chart.startDuration = 0;
+
+            if (property == 'topRadius') {
+                target = chart.graphs[0];
+            }
+
+            target[property] = this.value;
+            chart.validateNow();
+        });
+
+        $('#chart_5').closest('.portlet').find('.fullscreen').click(function() {
+            chart.invalidateSize();
+        });
+    }
+
+var initChartSample2 = function() {
+        var chart = AmCharts.makeChart("chart_2", {
+            "type": "serial",
+            "theme": "light",
+
+            "fontFamily": 'Open Sans',
+            "color":    '#888888',
+
+            "legend": {
+                "equalWidths": false,
+                "useGraphSettings": true,
+                "valueAlign": "left",
+                "valueWidth": 120
+            },
+            "dataProvider": [{
+                "date": "2012-01-01",
+                "distance": 21.53,
+                "townName": "caishendao888",
+                "townName2": "caishendao888",
+                "townSize": 25,
+                "latitude": 21.53,
+                "duration": 104564 
+            }, {
+                "date": "2012-01-02",
+                "distance": 10.80,
+                "townName": "laosan88",
+                "townName2": "laosan88",
+                "townSize": 14,
+                "latitude": 10.80,
+                "duration": 52461
+            }, {
+                "date": "2012-01-03",
+                "distance": 15.77,
+                "townName": "quanwudi",
+                "townName2": "quanwudi",
+                "townSize": 6,
+                "latitude": 15.77,
+                "duration": 76590
+            }, {
+                "date": "2012-01-04",
+                "distance": 17.12,
+                "townName": "gongying",
+                "townName2": "gongying",
+                "townSize": 7,
+                "latitude": 17.12,
+                "duration": 83123
+            }, {
+                "date": "2012-01-05",
+                "distance": 9.10,
+                "townName": "BOSS588",
+                "townName2": "BOSS588",
+                "townSize": 10,
+                "latitude": 9.10,
+                "duration": 38471
+            }, {
+                "date": "2012-01-06",
+                "distance": 8.30,
+                "townName": "suibian928",
+                "townName2": "suibian928",
+                "townSize": 7,
+                "latitude": 8.30,
+                "duration": 37851
+            }, {
+                "date": "2012-01-07",
+                "distance": 8.01,
+                "townName": "kaixin999",
+                "townName2": "kaixin999",
+                "townSize": 10,
+                "latitude": 8.01,
+                "duration": 28730
+            }, {
+                "date": "2012-01-08",
+                "distance": 5.10,
+                "townName": "jiangepz",
+                "townName2": "jiangepz",
+                "townSize": 16,
+                "latitude": 5.10,
+                "duration": 17691
+            }, {
+                "date": "2012-01-09",
+                "distance": 5.01,
+                "townName": "jxcwoyao1188",
+                "townName2": "jxcwoyao1188",
+                "townSize": 17,
+                "latitude": 5.01,
+                "duration": 17611
+            }, {
+                "date": "2012-01-10",
+                "distance": 4.50,
+                "townName": "sjpt02",
+                "townName2": "sjpt02",
+                "townSize": 11,
+                "latitude": 4.50,
+                "duration": 15673
+            }, {
+                "date": "2012-01-11",
+                "distance": 3.0,
+                "townName": "其他总代",
+                "townName2": "其他总代",
+                "townSize": 10,
+                "latitude": 3.0,
+                "duration": 12938
+            }, {
+                "date": "2012-01-12"
+            
+            }],
+            "valueAxes": [{
+                "id": "distanceAxis",
+                "axisAlpha": 0,
+                "gridAlpha": 0,
+                "position": "left",
+                "title": "比例"
+            }, {
+                "id": "latitudeAxis",
+                "axisAlpha": 0,
+                "gridAlpha": 0,
+                "labelsEnabled": false,
+                "position": "right"
+            }, {
+                "id": "durationAxis",
+                
+                "axisAlpha": 0,
+                "gridAlpha": 0,
+                "inside": true,
+                "position": "right",
+                "title": "金额"
+            }],
+            "graphs": [{
+                "alphaField": "alpha",
+                "balloonText": "[[value]] %",
+                "dashLengthField": "dashLength",
+                "fillAlphas": 0.7,
+                "legendPeriodValueText": "total: [[value.sum]] %",
+                "legendValueText": "[[value]] %",
+                "title": "比例",
+                "type": "column",
+                "valueField": "distance",
+                "valueAxis": "distanceAxis"
+            }, {
+                "balloonText": "比例:[[value]]",
+                "bullet": "round",
+                "bulletBorderAlpha": 1,
+                "useLineColorForBulletBorder": true,
+                "bulletColor": "#FFFFFF",
+                "bulletSizeField": "townSize",
+                "dashLengthField": "dashLength",
+                "descriptionField": "townName",
+                "labelPosition": "right",
+                "labelText": "[[townName2]]",
+                "legendValueText": "[[description]]/[[value]]",
+                "title": "比例/代理商",
+                "fillAlphas": 0,
+                "valueField": "latitude",
+                "valueAxis": "latitudeAxis"
+            }, {
+                "bullet": "square",
+                "bulletBorderAlpha": 1,
+                "bulletBorderThickness": 1,
+                "dashLengthField": "dashLength",
+                "legendValueText": "[[value]]",
+                "title": "金额",
+                "fillAlphas": 0,
+                "valueField": "duration",
+                "valueAxis": "durationAxis"
+            }],
+            "chartCursor": {
+                "categoryBalloonDateFormat": "DD",
+                "cursorAlpha": 0.1,
+                "cursorColor": "#000000",
+                "fullWidth": true,
+                "valueBalloonsEnabled": false,
+                "zoomable": false
+            },
+            "dataDateFormat": "YYYY-MM-DD",
+            "categoryField": "date",
+            "categoryAxis": {
+                "dateFormats": [{
+                    "period": "DD",
+                    "format": "DD"
+                }, {
+                    "period": "WW",
+                    "format": "MMM DD"
+                }, {
+                    "period": "MM",
+                    "format": "MMM"
+                }, {
+                    "period": "YYYY",
+                    "format": "YYYY"
+                }],
+                "parseDates": true,
+                "autoGridCount": false,
+                "axisColor": "#555555",
+                "gridAlpha": 0.1,
+                "gridColor": "#FFFFFF",
+                "gridCount": 50
+            },
+            "exportConfig": {
+                "menuBottom": "20px",
+                "menuRight": "22px",
+                "menuItems": [{
+                    "icon": Metronic.getGlobalPluginsPath() + "amcharts/amcharts/images/export.png",
+                    "format": 'png'
+                }]
+            }
+        });
+
+        $('#chart_2').closest('.portlet').find('.fullscreen').click(function() {
+            chart.invalidateSize();
+        });
+    }
+
+    initChartSample5();
+        initChartSample2();
+var initChartSample7 = function() {
+        var chart = AmCharts.makeChart("chart_7", {
+            "type": "pie",
+            "theme": "light",
+
+            "fontFamily": 'Open Sans',
+            
+            "color":    '#888',
+
+            "dataProvider": [{
+                "country": "重庆时时彩",
+                "value": 61.90
+            }, {
+                "country": "日本时时彩",
+                "value": 31.28
+            }, {
+                "country": "江西时时彩",
+                "value": 2.24
+            }, {
+                "country": "新疆时时彩",
+                "value": 0.28
+            }, {
+                "country": "广东11选5",
+                "value": 0.16
+            }, {
+                "country": "山东11选5",
+                "value": 1.35
+            }, {
+                "country": "重庆11选5",
+                "value": 0.77
+            }, {
+                "country": "江西11选5",
+                "value": 0.13
+            }, {
+                "country": "福彩3D",
+                "value": 0.95
+            }, {
+                "country": "体彩排列3",
+                "value": 0.12
+            }, {
+                "country": "江苏快三",
+                "value": 0.25
+            }, {
+                "country": "北京pk10",
+                "value": 0.00
+            }, {
+                "country": "北京快乐8",
+                "value": 0.57
+            }],
+            "valueField": "value",
+            "titleField": "country",
+            "outlineAlpha": 0.4,
+                "startEffect": "elastic",
+ "startDuration": 2,
+ "innerRadius": "30%",
+            "depth3D": 15,
+            "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
+            "angle": 30,
+            "exportConfig": {
+                menuItems: [{
+                    icon: '/lib/3/images/export.png',
+                    format: 'png'
+                }]
+            }
+        });
+
+        jQuery('.chart_7_chart_input').off().on('input change', function() {
+            var property = jQuery(this).data('property');
+            var target = chart;
+            var value = Number(this.value);
+            chart.startDuration = 0;
+
+            if (property == 'innerRadius') {
+                value += "%";
+            }
+
+            target[property] = value;
+            chart.validateNow();
+        });
+
+        $('#chart_7').closest('.portlet').find('.fullscreen').click(function() {
+            chart.invalidateSize();
+        });
+    }
+
+
+    initChartSample7();
+
+    var initChartSample6 = function() {
+        var chart = AmCharts.makeChart("chart_6", {
+            "type": "pie",
+            "theme": "light",
+
+            "fontFamily": 'Open Sans',
+            
+            "color":    '#888',
+
+            "dataProvider": [{
+                "country": "fafa1985",
+                "litres": 14.82
+            }, {
+                "country": "gongying",
+                "litres": 13.32
+            }, {
+                "country": "BOSS588",
+                "litres": 8.67
+            }, {
+                "country": "gs14163900",
+                "litres": 8.09
+            }, {
+                "country": "money500",
+                "litres": 7.52
+            }, {
+                "country": "caishendao888",
+                "litres": 6.18
+            }, {
+                "country": "jiangepz",
+                "litres": 5.9
+            }, {
+                "country": "suibian928",
+                "litres": 5.37
+            }, {
+                "country": "laosan88",
+                "litres": 5.15
+            }, {
+                "country": "kaixin999",
+                "litres": 4.29
+            }, {
+                "country": "quanwudi",
+                "litres": 2.49
+            }, {
+                "country": "其他总代",
+                "litres": 4.29
+            }],
+            "valueField": "litres",
+            "titleField": "country",
+            "exportConfig": {
+                menuItems: [{
+                    icon: Metronic.getGlobalPluginsPath() + "amcharts/amcharts/images/export.png",
+                    format: 'png'
+                }]
+            }
+        });
+
+        $('#chart_6').closest('.portlet').find('.fullscreen').click(function() {
+            chart.invalidateSize();
+        });
+    }
+
+    initChartSample6();
+
+ 			var data = [];
+ 			 			var data2 = [];
+
+            var totalPoints = 250;
+
+            // random data generator for plot charts
+
+            function getRandomData() {
+                if (data.length > 0) data = data.slice(1);
+                // do a random walk
+                while (data.length < totalPoints) {
+                    var prev = data.length > 0 ? data[data.length - 1] : 50;
+                    var y = prev + Math.random() * 10 - 5;
+                    if (y < 0) y = 0;
+                    if (y > 100) y = 100;
+                    data.push(y);
+                }
+                // zip the generated y values with the x values
+                var res = [];
+                for (var i = 0; i < data.length; ++i) {
+                    res.push([i, data[i]]);
+                }
+                return res;
+            }
+            function getRandomData2() {
+                if (data2.length > 0) data2 = data2.slice(1);
+                // do a random walk
+                while (data2.length < totalPoints) {
+                    var prev = data2.length > 0 ? data2[data2.length - 1] : 50;
+                    var y = prev + Math.random() * 10 - 5;
+                    if (y < 0) y = 0;
+                    if (y > 100) y = 100;
+                    data2.push(y);
+                }
+                // zip the generated y values with the x values
+                var res = [];
+                for (var i = 0; i < data2.length; ++i) {
+                    res.push([i, data2[i]]);
+                }
+                return res;
+            }
+
+  			var recharge=function() {
+                if ($('#chart_recharge').size() != 1) {
+                    return;
+                }
+                console.log("kkk")
+                //server load
+                var options = {
+                    series: {
+                        shadowSize: 1
+                    },
+                    lines: {
+                        show: true,
+                        lineWidth: 0.5,
+                        fill: true,
+                        fillColor: {
+                            colors: [{
+                                opacity: 0.1
+                            }, {
+                                opacity: 1
+                            }]
+                        }
+                    },
+                    yaxis: {
+                        min: 0,
+                        max: 100,
+                        tickColor: "#eee",
+                        tickFormatter: function(v) {
+                            return v + "";
+                        }
+                    },
+                    xaxis: {
+                        show: false,
+                    },
+                    colors: ["#6ef146"],
+                    grid: {
+                        tickColor: "#eee",
+                        borderWidth: 0,
+                    }
+                };
+
+
+
+                var updateInterval = 1000;
+                var plot = $.plot($("#chart_recharge"), [getRandomData()], options);
+
+                function update() {
+                    plot.setData([getRandomData()]);
+                    plot.draw();
+                    setTimeout(update, updateInterval);
+                }
+                update();
+
+            };
+
+            recharge();
+
+
+            var withdraw=function() {
+                if ($('#chart_withdraw').size() != 1) {
+                    return;
+                }
+                //server load
+                var options = {
+                    series: {
+                        shadowSize: 1
+                    },
+                    lines: {
+                        show: true,
+                        lineWidth: 0.5,
+                        fill: true,
+                        fillColor: {
+                            colors: [{
+                                opacity: 0.1
+                            }, {
+                                opacity: 1
+                            }]
+                        }
+                    },
+                    yaxis: {
+                        min: 0,
+                        max: 100,
+                        tickColor: "#eee",
+                        tickFormatter: function(v) {
+                            return v + "";
+                        }
+                    },
+                    xaxis: {
+                        show: false,
+                    },
+                    colors: ["#f1266e"],
+                    grid: {
+                        tickColor: "#eee",
+                        borderWidth: 0,
+                    }
+                };
+
+
+
+                var updateInterval = 1000;
+                var plot = $.plot($("#chart_withdraw"), [getRandomData2()], options);
+
+                function update() {
+                    plot.setData([getRandomData2()]);
+                    plot.draw();
+                    setTimeout(update, updateInterval);
+                }
+                update();
+
+            };
+
+            withdraw();
+
+});
+
+</script>
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

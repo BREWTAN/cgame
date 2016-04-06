@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" >
+        	<value>grunt201601@gmail.com</value>
+        </property>
+        <property name="port" >
+        	<value type="java.lang.Integer">465</value>
+        </property>
+        <property name="protocol">
+        	<value>smtps</value>
+        </property>
+        <property name="username">
+        	<value>grunt201601</value>
+        </property>
+        <property name="password">
+        	<value>grunt201601</value>
+        </property>
+        <!-- SMTP服务器验证 -->
+        <property name="javaMailProperties">
+            <props>
+                <!-- 验证身份 -->
+                <prop key="mail.smtps.auth">true</prop>
+                <prop key="mail.smtp.ssl.enable">true</prop>
+				<prop key="mail.transport.protocol">smtps</prop>
+           </props>
+        </property>
+    </bean>
+    
+    <bean id="simpleMailMessage" class="org.springframework.mail.SimpleMailMessage">
+    	<property name="from">
+    		<value>grunt201601@gmail.com</value>
+    	</property>
+    </bean>
+    
+</beans>

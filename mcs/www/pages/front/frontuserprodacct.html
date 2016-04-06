@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <base href="../../" >
+
+    <meta charset="utf-8"/>
+    <title>民生宝-建账查询</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+       <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+
+    <script type="text/javascript" src="parts/js/header.js"></script>
+    <script type="text/javascript" src="parts/js/wpfcfg.js"></script>
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>$.include("parts/pages/topmenu.shtml");</script>
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <script>$.include("parts/pages/sidebar.shtml");</script>
+
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <script>$.include("parts/pages/style.shtml");</script>
+
+            <!-- BEGIN PAGE HEADER-->
+            <h3 class="page-title">
+            商户管理 <small>建账查询</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html"></a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+                <div class="page-toolbar">
+                    <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
+                        <i class="icon-calendar"></i>&nbsp;
+                        <span class="thin uppercase visible-lg-inline-block">&nbsp;</span>&nbsp;
+                        <i class="fa fa-angle-down"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">用户id</div>
+                        <input id="find_userId" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">商户编号</div>
+                        <input id="find_mchntId" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">用户姓名</div>
+                        <input id="find_custChName" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">创建开始日期</div>
+                        <input id="find_start" class="inputclear form-control" type="text" placeholder="yyyy-mm-dd" data-date-format="yyyy-MM-dd">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">创建结束日期</div>
+                        <input id="find_end" class="inputclear form-control" type="text" placeholder="yyyy-mm-dd" data-date-format="yyyy-MM-dd">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                    <!-- 查询条件控件 -->
+                        <div class="input-group-addon">身份证号</div>
+                        <input id="find_certNo" class="inputclear form-control" type="text">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">状态</div>
+                        <select class="form-control chosen-select" id="find_status">
+                                <option value="-1">所有</option>
+                                <option value="0000">正常</option>
+                                <option value="0001">冻结</option>
+                                <option value="0002">注销</option>
+                                <option value="0004">初始状态</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <script>$.include("parts/pages/querybtn_msb.shtml");</script>
+                </div>
+                <div class="col-sm-5 form-group">
+                    <label style="color: #963;font-size: 10px;">总数量:<input id="allCount" style="border: 0px;background-color: #bbdba1;width: 80px;padding: 0 5px;margin: 0 5px" readonly=true /></label>
+                    <label style="color: #963;font-size: 10px;">总份额:<input id="allAmt" style="border: 0px;background-color: #bbdba1;width: 120px;padding: 0 5px;margin: 0 5px" readonly=true /></label>
+                </div>
+                
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container col-md-12" >
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+    <script>$.include("parts/pages/quicksidebar.shtml");</script>
+
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+
+
+<script type="text/javascript">$.include("parts/pages/xwatable-form.shtml");</script>
+<script>$.include("parts/pages/foot_table.shtml");</script>
+<script type="text/javascript" src="assets/addons/jquery.uuid.js"></script>
+
+<script type="text/javascript">
+
+var addexpansionfield=function(){ 
+		return {
+        f: function(){              
+			return {
+					id:Math.uuid(32)
+					};
+        }
+   };
+}();
+
+var statusFormatter=function(){
+    return {
+        f: function(val){
+            if(val&&val=="0000") return "正常";
+            else if(val&&val=="0001") return "冻结";
+            else if(val&&val=="0002") return "注销";
+            else if(val&&val=="0004") return "初始状态";
+            else  return "未知状态";
+        },
+    };
+}();
+var statusEditBuilder=function(val){
+    console.log("leftflag::"+val);
+    if(val=="0000"){
+        return "正常";
+    }else if(val=="0001"){
+        return "冻结";
+    }else if(val=="0002"){
+        return "注销";
+    }else if(val=="0004"){
+        return "初始状态";
+    }else{
+    	return "未知状态";
+    }
+};
+function initStatisticsInfo(url,param){
+	//$('#allCount').val(Restful.find("/restface/exfrontuserprodacct/getAllCountAndAmt",null)[0].allCount);
+    //$('#allAmt').val(Restful.find("/restface/exfrontuserprodacct/getAllCountAndAmt",null)[0].allAmt);
+    var data = Restful.find(url,param);
+    
+    $('#allCount').val(data!=null?data[0].allCount:0);
+    $('#allAmt').val(data!=null?data[0].allAmt:0);
+}
+$(function(){ 
+	//初始化页面标题
+	initTitle();
+	initStatisticsInfo("/restface/exfrontuserprodacct/getAllCountAndAmt",null);
+    var parentidrql=RQLBuilder.equal("leafFlag", "0");
+	$("#find_start").datepicker({
+		format: 'yyyy-mm-dd'
+	}); $("#find_end").datepicker({
+		format: 'yyyy-mm-dd'
+	});
+     var xw=XWATable.init(
+        {
+            //----------------table的选项-------
+            pageSize: 10,                //Initial pagesize
+                    // filter: true,               //Show filter fields
+                    // sorting: true,              //Enable sorting
+            columnPicker: true,         //Show the columnPicker button
+            transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+            // pageSizes: [1,5,8,12,200],  //Set custom pageSizes. Leave empty array to hide button.
+            // hidePagerOnEmpty: true,     //Removes the pager if data is empty.
+            checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+            checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+            rowClicked: function(data) {    
+                console.log('row clicked');   //data.event holds the original jQuery event.
+                console.log(data);            //data.row holds the underlying row you supplied.
+            },
+            xwattr:'detail',
+            xwtitle:'详细信息',
+            //----------------基本restful地址---
+            restbase: restpath +'/frontuserprodacct',
+            key_column: "id",
+            //---------------行定义
+            coldefs: [
+                      {      
+                          col:"id",
+                          friendly: "主键",
+                          unique: true,
+                          nonedit:"nosend",
+                          hidden:true
+                      },
+                      {
+                          col:"userId",
+                          friendly: "用户Id",
+                          //nonedit:"nosend",
+                          //hidden:true
+                      },
+                      {
+                          col:"mchntId",
+                          friendly: "商户号",
+                          nonedit:"nosend"
+                      },
+                      {
+                          col:"landAcctNo",
+                          friendly: "电子账户号",
+                      },{
+                          col:"custChName",
+                          friendly: "用户姓名",
+                      },{
+                          col:"custEnName",
+                          friendly: "英文姓名",
+                          hidden:true,
+                      },
+					  {
+                          col:"cert_type",
+                          friendly: "证件类别",
+                          hidden:true,
+                          nonedit:"nosend",
+                      },{
+                          col:"certNo",
+                          friendly: "证件号",
+                      },
+                      {
+                          col:"totalProfitLastDay",
+                          friendly: "昨日总收益",
+                          hidden:true,
+                      },
+                      {
+                          col:"profitDay",
+                          friendly: "日收益",
+                          hidden:true,
+                      },
+                      {
+                          col:"totalAmt",
+                          friendly: "总份额",
+                          hidden:true,
+                      },
+                      {
+                          col:"depositAmt",
+                          friendly: "日申购额",
+                          hidden:true,
+                      },
+                      {
+                          col:"withdrawAmt",
+                          friendly: "日赎回额",
+                          hidden:true,
+                      },
+                      {
+                          col:"totalDepositAmt",
+                          friendly: "总份额",
+                      },
+					  {
+                          col:"telNo",
+                          friendly: "电话",
+                          hidden:true,
+                      },{
+                          col:"email",
+                          friendly: "邮箱",
+                          hidden:true,
+                      },
+                      {
+                          col:"createTime",
+                          friendly: "创建时间",
+                      },
+                      {
+                          col:"updTime",
+                          friendly: "更新时间",
+                          sortOrder: "desc",
+                      },
+                       {
+                          col:"status",
+                          friendly: "状态",
+                          filterTooltip:true,    
+                          readonly:true,                 
+                          format: statusFormatter,
+                          inputsource: "custom",
+                          inputbuilder: "statusEditBuilder",
+                        },
+                ],
+            //---------------查询时过滤条件
+            findFilter: function(){//find function
+                var mchntId,leaf,mchntName,certNo,artName,start,end,custChName,userId;
+       			var paramJson = {};
+       			var paramArr = new Array();
+       			if($('#find_userId').val().length>0){
+                	userId=RQLBuilder.equal("user_id",$('#find_userId').val());
+                	var param = {};
+       				param["userId"]=$('#find_userId').val();
+       				paramArr.push(param);
+                }
+       			if($('#find_mchntId').val().length>0){
+                	mchntId=RQLBuilder.equal("mchnt_id",$('#find_mchntId').val());
+                	var param = {};
+       				param["mchntId"]=$('#find_mchntId').val();
+       				paramArr.push(param);
+                }
+                if($('#find_custChName').val().length>0){
+                	custChName=RQLBuilder.like("custChName",$('#find_custChName').val());
+                	var param = {};
+       				param["custChName"]=$('#find_custChName').val();
+       				paramArr.push(param);
+                }
+                if($('#find_status').val()!=-1){
+                	leaf=RQLBuilder.equal("status",$('#find_status').val());
+                	var param = {};
+       				param["status"]=$('#find_status').val();
+       				paramArr.push(param);
+                }
+                if($('#find_certNo').val().length>0){
+                	certNo=RQLBuilder.equal("cert_no",$('#find_certNo').val());
+                	var param = {};
+       				param["certNo"]=$('#find_certNo').val();
+       				paramArr.push(param);
+                }
+                if($('#find_start').val().length>0){
+                	start=RQLBuilder.condition("create_time","$gte",$('#find_start').val()+" 00:00:00");
+                	var param = {};
+       				param["startDate"]=$('#find_start').val()+" 00:00:00";
+       				paramArr.push(param);
+                }
+                if($('#find_end').val().length>0){
+                	end=RQLBuilder.condition("create_time","$lte",$('#find_end').val()+" 23:59:59");
+                	var param = {};
+       				param["endDate"]=$('#find_end').val()+" 23:59:59";
+       				paramArr.push(param);
+                }
+                var filter=RQLBuilder.and([
+                       certNo,leaf,mchntId,start,end,custChName,userId
+                    ]);
+                paramJson["$and"]=paramArr;
+                initStatisticsInfo("/restface/exfrontuserprodacct/getAllCountAndAmt",JSON.stringify(paramJson));
+                //var date1 = Restful.find("/restface/exfrontuserprodacct/getAllCountAndAmt1",JSON.stringify(jsonQuery));
+                //var date = Restful.find("/restface/exfrontuserprodacct/getAllCountAndAmt",JSON.stringify(paramJson));
+                return filter.rql();
+            }
+        }//--init
+    );//--end init
+
+    //$('#find_leaf').select2();
+    $('#find_mchntName').on('input',function(e){
+        console.log("changing::"+e.target.value);
+        if(!e.target.value){
+            xw.autoResetSearch();
+        }
+    });
+
+    
+//-----------------ENDOFSCIPT------
+}
+);
+
+</script><!-- End of User Script-->
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>
