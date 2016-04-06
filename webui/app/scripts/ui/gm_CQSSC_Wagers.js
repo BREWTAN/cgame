@@ -130,7 +130,7 @@ CQSSC_Wagers = React.createClass({
   },
   handleSelectConfirm: function() {
     var bonnerMoney, cb, countAnMoney, money, newstate, scCOM, scState, selectList, totalWagers, v, wname;
-    wname = GL_CQSSC.getWanfaName(this.state.wanfa, this.state.wanfaLine2, this.state.wanfaLine3);
+    wname = GL_CQSSC.getWanfaName(this.refs["wagerselector"].state.wanfa, this.refs["wagerselector"].state.wanfaLine2, this.refs["wagerselector"].state.wanfaLine3);
     scCOM = this.refs["selectconfirm"];
     scState = scCOM.state;
     if (scState.wagercount < 1) {
@@ -170,6 +170,7 @@ CQSSC_Wagers = React.createClass({
     return React.createElement("div", {
       "className": "gamearea"
     }, React.createElement(CQSSC_WagerSelector, {
+      "ref": "wagerselector",
       "changeWagerCount": this.changeWagerCount,
       "handleDiagOpen": this.handleDiagOpen
     }), React.createElement("div", {

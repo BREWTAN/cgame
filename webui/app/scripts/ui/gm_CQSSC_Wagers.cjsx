@@ -92,7 +92,7 @@ CQSSC_Wagers = React.createClass(
         @handleDiagOpen(items,title,{padding:"10px 10px 10px 20px"},CB,{items:confirmitems,self:@})
 
     handleSelectConfirm: () ->
-        wname = GL_CQSSC.getWanfaName(@state.wanfa,@state.wanfaLine2,@state.wanfaLine3)
+        wname = GL_CQSSC.getWanfaName(@refs["wagerselector"].state.wanfa,@refs["wagerselector"].state.wanfaLine2,@refs["wagerselector"].state.wanfaLine3)
         scCOM = @refs["selectconfirm"]
         scState = scCOM.state
         if scState.wagercount < 1
@@ -125,7 +125,7 @@ CQSSC_Wagers = React.createClass(
 
         return (
             <div className="gamearea">
-                <CQSSC_WagerSelector changeWagerCount={@changeWagerCount} handleDiagOpen={@handleDiagOpen}/>
+                <CQSSC_WagerSelector ref = "wagerselector" changeWagerCount={@changeWagerCount} handleDiagOpen={@handleDiagOpen}/>
                 <div className="row wagerarea" style={marginBottom:"0px"}>
                     { selectconfirmCom }
                 </div>
