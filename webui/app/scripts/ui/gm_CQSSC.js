@@ -1,4 +1,4 @@
-var CQSSC_Wagers, Divider, FlatButton, GL_CQSSC, PopupDiag, RaisedButton, React, gm_CQSSC, injectTapEventPlugin;
+var CQSSC_Wagers, Divider, FlatButton, GL_CQSSC, PopupDiag, RaisedButton, React, WagerHistory, gm_CQSSC, injectTapEventPlugin;
 
 React = require("react");
 
@@ -15,6 +15,8 @@ GL_CQSSC = require('../libs/gl_CQSSC.js');
 PopupDiag = require("./PopupDialog.js");
 
 CQSSC_Wagers = require("./gm_CQSSC_Wagers.js");
+
+WagerHistory = require("./gm_WagerHistory.js");
 
 gm_CQSSC = React.createClass({
   getInitialState: function() {
@@ -39,8 +41,8 @@ gm_CQSSC = React.createClass({
       "className": "col-md-9"
     }, React.createElement(CQSSC_Wagers, {
       "handleDiagOpen": this.handleDiagOpen
-    }), React.createElement("div", {
-      "className": "wagerHistory"
+    }), React.createElement(WagerHistory, {
+      "handleDiagOpen": this.handleDiagOpen
     })), React.createElement("div", {
       "className": "col-md-3"
     }, React.createElement("div", {

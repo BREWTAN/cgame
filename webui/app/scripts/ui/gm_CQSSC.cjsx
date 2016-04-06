@@ -11,6 +11,7 @@ GL_CQSSC = require( '../libs/gl_CQSSC.js');
 PopupDiag = require("./PopupDialog.js");
 
 CQSSC_Wagers = require("./gm_CQSSC_Wagers.js")
+WagerHistory = require("./gm_WagerHistory.js")
 
 gm_CQSSC = React.createClass(
 
@@ -33,8 +34,7 @@ gm_CQSSC = React.createClass(
                 <div className="row">
                 <div className="col-md-9">
                     <CQSSC_Wagers handleDiagOpen={@handleDiagOpen}/>
-                    <div className = "wagerHistory">
-                    </div>
+                    <WagerHistory  handleDiagOpen={@handleDiagOpen}/>
                 </div>
                 <div className="col-md-3">
                     <div className="row">
