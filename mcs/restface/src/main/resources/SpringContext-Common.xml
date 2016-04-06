@@ -12,6 +12,6 @@
 
 	<context:annotation-config />
 	<context:component-scan base-package="onight.tfw.rest.db.service.impl" />
-	<context:component-scan base-package="onight.tfw.rest.gens.db" />
-	<context:component-scan base-package="onight.tfw.msc.mysqlgens.web.action" />
+	<context:component-scan base-package="onight.tfg.ordbgens" />
+	<context:component-scan base-package="onight.mgame.ordbgens.web.action" />
 </beans>

@@ -46,7 +46,7 @@ var restURL = "";//"/wpfrest/exrolemenu/"+$.cookie('userinfo');
 if($.cookie('userinfo')==undefined)
     //+=================================== >====
 /// 测试时候用！
-    restURL = "rest/sidebar.json";///
+    restURL = "crest/sidebar.json";///
 else{
     restURL = wpfrisk+"exrolemenu/"+$.cookie('userinfo').roles+"?t="+Date.parse(new Date());
 }

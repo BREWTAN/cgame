@@ -9,7 +9,7 @@
 	<base href="../" >
 
 	<meta charset="utf-8"/>
-	<title>民生宝-用户角色管理</title>
+	<title>TLT用户角色管理</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta charset="utf-8" />
 	    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
@@ -115,7 +115,7 @@ var statusFormatter=function(){
 function userRollerValidate(userId,roleId){   
  var result="";
   $.ajax({
-    url: wpfrest + 'sysuserrole/checkPermission',
+    url: wpfrest + 'tsysuserrole/checkPermission',
     dataType: 'json',
     data : {
         'userId':userId,
@@ -149,7 +149,7 @@ return result;
 /* function delop(userId,roleId)
 { 
   	  $.ajax({
-    url: wpfrest + 'sysuserrole/delNoPermission',
+    url: wpfrest + 'tsysuserrole/delNoPermission',
     dataType: 'json',
     data : {
         'userId':userId,
@@ -172,13 +172,13 @@ var statusEditBuilder=function(val){
 };
 
 var roleHelper=RefHelper.create({
-    ref_url:wpfrest+"/sysrole",
+    ref_url:wpfrest+"/tsysrole",
     ref_col:"roleId",
     ref_display:"roleName",
 });
 
 var roleHelper2=RefHelper.create({
-    ref_url:wpfrest+"/sysrole",
+    ref_url:wpfrest+"/tsysrole",
     ref_col:"roleName", 
     ref_display:"roleId",
 });
@@ -194,13 +194,13 @@ var roleFM=function(){
 }();
 
 var userHelper=RefHelper.create({
-    ref_url:wpfrest+"/sysuser",
+    ref_url:wpfrest+"/tsysuser",
     ref_col:"userId",
     ref_display:"userName",
 });
 
 var userHelper2=RefHelper.create({
-    ref_url:wpfrest+"/sysuser",
+    ref_url:wpfrest+"/tsysuser",
     ref_col:"userName",
     ref_display:"userId",
 });
@@ -247,7 +247,7 @@ $(function(){
                 console.log(data);            //data.row holds the underlying row you supplied.
             },
             //----------------基本restful地址---
-            restbase: wpfadmin + 'sysuserrole',
+            restbase: wpfadmin + 'tsysuserrole',
             key_column: "userRoleId",
             //---------------行定义
             coldefs: [
@@ -266,7 +266,7 @@ $(function(){
                             col:"userId",
                             friendly: "用户名",
                             inputsource: "select",
-                            ref_url: wpfrest+"/sysuser",
+                            ref_url: wpfrest+"/tsysuser",
                             ref_name: "userName",
                             ref_value: "userId",           
                             format: userFM,
@@ -276,7 +276,7 @@ $(function(){
                             col:"roleId",
                             friendly: "角色名",
                             inputsource: "select",
-                            ref_url: wpfrest+"/sysrole",
+                            ref_url: wpfrest+"/tsysrole",
                             ref_name: "roleName",
                             ref_value: "roleId", 
                             format: roleFM,

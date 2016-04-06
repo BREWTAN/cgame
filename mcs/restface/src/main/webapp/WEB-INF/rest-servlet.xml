@@ -41,8 +41,10 @@
 	<!-- 对包的扫描注入 -->
 	<context:annotation-config />
 
-	<context:component-scan base-package="onight.tfw.msc.mysqlgens.web.action" />
-	<context:component-scan base-package="onight.tfw.msc.mysqlgens.trade.mapper" />
+	<context:component-scan base-package="onight.mgame.ordbgens.web.action" />
+	<context:component-scan base-package="onight.tfg.ordbgens.sys.mapper" />
+	<context:component-scan base-package="onight.tfg.ordbgens.tfg.mapper" />
+	<context:component-scan base-package="onight.tfg.ordbgens.tlt.mapper" />
 
 	<context:component-scan base-package="onight.tfw.rest.web.action" />
 	<context:component-scan base-package="onight.tfw.rest.web.action.ext" />
