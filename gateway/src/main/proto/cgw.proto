@@ -21,11 +21,15 @@ message PWBet //投注一注
 	string bet_content = 3;//投注内容
 	uint32 bet_counts = 4;//注数
 	double bet_amounts = 5;//投注金额
-	int32 bet_money_unit = 6;//投注单元，以元为单位的
-	string bet_multi = 7;//投注倍数
-	string bonner_money_mode = 8;//奖金模式
-	string bonner_rate_mode = 9;//奖金模式
+	int32  bet_money_unit = 6;//投注单元，以元为单位的
+	uint32 bet_multi = 7;//投注倍数
+	double bonner_money_mode = 8;//奖金模式
+	double bonner_rate_mode = 9;//奖金模式
 	string vldcode = 20;//校验码
+	
+	string lname = 31;//玩法名称
+	string merchantid = 35;
+	
 }
 
 message PWBetResult //投注一注

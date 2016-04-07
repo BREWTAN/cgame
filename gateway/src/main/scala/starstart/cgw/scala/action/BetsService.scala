@@ -16,6 +16,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor
 import onight.tfw.mservice.NodeHelper
 import java.util.concurrent.ConcurrentLinkedQueue
 import scala.collection.JavaConversions.mapAsScalaMap
+import scala.collection.JavaConversions._
 import scala.collection.mutable.HashMap
 import java.sql.Timestamp
 import onight.tfw.async.CallBack
@@ -24,6 +25,12 @@ import java.util.concurrent.TimeUnit
 import starstart.cgw.pbgens.Cgw.PWBetResult
 import starstart.cgw.pbgens.Cgw.PWWager
 import starstart.cgw.pbgens.Cgw.PWRetWager
+import onight.tfw.ojpa.api.annotations.StoreDAO
+import scala.beans.BeanProperty
+import onight.tfw.ojpa.api.OJpaDAO
+import onight.tfg.ordbgens.tlt.entity.TLTCoreBet
+import onight.tfw.otransio.api.PackHeader
+import starstart.cgw.scala.persist.MysqlDaos
 
 @NActorProvider
 object CGWBetActor extends SessionModules[PWWager] {
@@ -33,12 +40,29 @@ object CGWBetActor extends SessionModules[PWWager] {
 object CGWBetService extends OLog with PBUtils with LService[PWWager] {
 
   override def cmd: String = "BET";
+  
 
+  
   def onPBPacket(pack: FramePacket, pbo: PWWager, handler: CompleteHandler) = {
     //    log.debug("guava==" + VMDaos.guCache.getIfPresent(pbo.getLogid()));      val ret = PBActRet.newBuilder();
     val ret = PWRetWager.newBuilder();
-    
     ret.setRetcode("0000").setRetmsg("ok");
+    
+    log.debug("getBug from IP:{},betscount={}", pack.getExtStrProp(PackHeader.PEER_IP),pbo.getBetsCount)
+    
+    
+    pbo.getBetsList().map { bet => 
+          val dbbet = pbBeanUtil.copyFromPB(bet, new TLTCoreBet)
+          pbBeanUtil.copyFromPB(pbo, dbbet)
+          
+          println("dbbet = "+dbbet)
+          
+          dbbet.setTickNo(UUIDGenerator.generate());
+          dbbet.setBetIp(pack.getExtStrProp(PackHeader.PEER_IP));
+          
+          MysqlDaos.corebetDAO.insert(dbbet);
+    }
+    
 //    if (pbo == null) {
 //      ret.setDesc("Packet_Error").setStatus("0001") setRetcode (RetCode.FAILED);
       handler.onFinished(PacketHelper.toPBReturn(pack, ret.build()));

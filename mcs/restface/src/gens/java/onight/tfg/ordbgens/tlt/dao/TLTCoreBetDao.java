@@ -337,7 +337,7 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				sb.append(",");
 			
 				if(record.getBetDatetime()==null){
-						sb.append("null");
+						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
 				}else{
 					sb.append("'"+record.getBetDatetime()+"'");
 				}

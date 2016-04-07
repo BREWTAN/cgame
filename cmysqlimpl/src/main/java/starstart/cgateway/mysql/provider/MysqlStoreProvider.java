@@ -35,7 +35,7 @@ public class MysqlStoreProvider extends ORDBProvider {
 	
 	@Override
 	public String getProviderid() {
-		return "actmysql";
+		return "cmysql";
 	}
 
 }

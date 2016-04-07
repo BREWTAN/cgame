@@ -1,12 +1,10 @@
 package starstart.cgame.flows.nsttl.flows;
 
 import starstart.cgame.flows.enums.SettleSteps;
-import starstart.cgame.flows.land.util.Constants;
 
 public class FlowCtrl {
 	FlowNode rootRyb;
 	FlowNode rootP2p;
-	//FlowNode rootGf;
 	
 	FlowNode rootBanlance;
 	FlowNode rootBanlanceFNLN;
@@ -166,10 +164,6 @@ public class FlowCtrl {
 			return getNextSteps(rootRyb, current);
 		}else if(stepCode.endsWith("P2P")){
 			return getNextSteps(rootP2p, current);
-		}else if(stepCode.endsWith(Constants.OFAG)){
-			return getNextSteps(rootBanlance, current);
-		}else if(stepCode.endsWith(Constants.FNLN)){
-			return getNextSteps(rootBanlanceFNLN, current);
 		}else  if(stepCode.endsWith("UPD_R")){
 			return getNextSteps(rootUpdRYB, current);
 		}
