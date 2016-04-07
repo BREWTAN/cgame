@@ -3,4 +3,5 @@
 build/
 .cache
 .gradle
+bin/
 
