@@ -129,7 +129,7 @@ public class DaoExamplePlugin extends PluginAdapter {
 			return "double";
 		}
 		else if(type==JdbcType.BIGINT.TYPE_CODE||type==JdbcType.BIGINT.TYPE_CODE||type==JdbcType.SMALLINT.TYPE_CODE){
-			return "int";
+			return "int64";
 		}
 		else if(type==JdbcType.TIMESTAMP.TYPE_CODE){
 			return "int64";

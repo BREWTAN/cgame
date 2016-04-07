@@ -369,6 +369,273 @@ object TFGDAOs {
   }
 
 
+  case class KOTFCChannelProduct(
+ val ROW_ID: String = null
+, val GAME_ID: String = null
+, val CHANNEL_ID: String = null
+, val PRODUCT_ID: String = null
+, val NOTE: String = null
+, val AUTHOR: String = null
+, val RECTIME: Timestamp = null
+  	)
+
+  object TFCChannelProductDAO extends SimpleDAO[KOTFCChannelProduct] {
+    val ttag = classTag[KOTFCChannelProduct];
+    val tablename = "TFC_CHANNEL_PRODUCT";
+    val keyname = "ROW_ID"
+  }
+
+
+  case class KOTFCCoinType(
+ val COIN_TYPE_ID: String = null
+, val COIN_NAME: String = null
+, val COIN_SCRIPT: String = null
+, val HAVE_CHILD: Option[Int] = null
+, val CAN_SPLIT: Option[Int] = null
+, val USE_LEVEL: Option[Int] = null
+  	)
+
+  object TFCCoinTypeDAO extends SimpleDAO[KOTFCCoinType] {
+    val ttag = classTag[KOTFCCoinType];
+    val tablename = "TFC_COIN_TYPE";
+    val keyname = "COIN_TYPE_ID"
+  }
+
+
+  case class KOTFCConfigUpdateLog(
+ val CONFIG_TYPE: String = null
+, val UPDATE_TIME: Timestamp = null
+, val NOTE: String = null
+  	)
+
+  object TFCConfigUpdateLogDAO extends SimpleDAO[KOTFCConfigUpdateLog] {
+    val ttag = classTag[KOTFCConfigUpdateLog];
+    val tablename = "TFC_CONFIG_UPDATE_LOG";
+    val keyname = "CONFIG_TYPE"
+  }
+
+
+  case class KOTFCGameSupportCoin(
+ val ROW_ID: String = null
+, val COIN_TYPE_ID: String = null
+, val GAME_ID: String = null
+  	)
+
+  object TFCGameSupportCoinDAO extends SimpleDAO[KOTFCGameSupportCoin] {
+    val ttag = classTag[KOTFCGameSupportCoin];
+    val tablename = "TFC_GAME_SUPPORT_COIN";
+    val keyname = "ROW_ID"
+  }
+
+
+  case class KOTFCOrder(
+ val ORDER_ID: String = null
+, val USER_ID: Option[Int] = null
+, val ORDER_STATUS: Option[Int] = null
+, val ITEM_ID: String = null
+, val COIN_NUM: Option[Int] = null
+, val STORAGE_TIME: Timestamp = null
+, val HANDLE_TIME: Timestamp = null
+  	)
+
+  object TFCOrderDAO extends SimpleDAO[KOTFCOrder] {
+    val ttag = classTag[KOTFCOrder];
+    val tablename = "TFC_ORDER";
+    val keyname = "ORDER_ID"
+  }
+
+
+  case class KOTFCOrderDetail(
+ val ROW_ID: String = null
+, val USER_ID: Option[Int] = null
+, val HANDLE_TIME: Timestamp = null
+, val HANLDE_STATUS: Option[Int] = null
+, val NUM_BEFORE: Option[Int] = null
+, val CHANGE_NUM: Option[Int] = null
+, val NUM_AFTER: Option[Int] = null
+, val NOTE: String = null
+  	)
+
+  object TFCOrderDetailDAO extends SimpleDAO[KOTFCOrderDetail] {
+    val ttag = classTag[KOTFCOrderDetail];
+    val tablename = "TFC_ORDER_DETAIL";
+    val keyname = "ROW_ID"
+  }
+
+
+  case class KOTFCSequence(
+ val NAME: String = null
+, val CURRENT_VALUE: Option[Int] = null
+, val _INCREMENT: Option[Int] = null
+  	)
+
+  object TFCSequenceDAO extends SimpleDAO[KOTFCSequence] {
+    val ttag = classTag[KOTFCSequence];
+    val tablename = "TFC_SEQUENCE";
+    val keyname = "NAME"
+  }
+
+
+  case class KOTFCUserCoin(
+ val COIN_ROWID: String = null
+, val COIN_TYPE_ID: String = null
+, val USER_ID: Option[Int] = null
+, val START_TIME: Timestamp = null
+, val EXPIRE_TIME: Timestamp = null
+, val COIN_NUM: Option[Int] = null
+, val LOCK_COUNT: Option[Int] = null
+, val SHOW_CHILD: Option[Int] = null
+  	)
+
+  object TFCUserCoinDAO extends SimpleDAO[KOTFCUserCoin] {
+    val ttag = classTag[KOTFCUserCoin];
+    val tablename = "TFC_USER_COIN";
+    val keyname = "COIN_ROWID"
+  }
+
+
+  case class KOTFCUserCoinChangeDetail(
+ val COIN_ROW_ID: String = null
+, val COIN_TYPE_ID: String = null
+, val REC_TIME: Timestamp = null
+, val USER_ID: Option[Int] = null
+, val CHANGE_NUM: Option[Int] = null
+, val REMAIN_NUM: Option[Int] = null
+, val LOCK_ID: String = null
+, val CHANNEL_ID: String = null
+, val PRODUCT_ID: String = null
+, val FLOW_NUMBER: String = null
+, val USER_IP: String = null
+, val SERVER_IP: String = null
+, val GAME_ID: Option[Int] = null
+  	)
+
+  object TFCUserCoinChangeDetailDAO extends SimpleDAO[KOTFCUserCoinChangeDetail] {
+    val ttag = classTag[KOTFCUserCoinChangeDetail];
+    val tablename = "TFC_USER_COIN_CHANGE_DETAIL";
+    val keyname = "COIN_ROW_ID"
+  }
+
+
+  case class KOTFCUserCoinChangeLimit(
+ val COIN_ROW_ID: String = null
+, val IN_NUM: Option[Int] = null
+, val OUT_NUM: Option[Int] = null
+, val CHANGE_NUM: Option[Int] = null
+, val LASTUPDATETIME: Timestamp = null
+, val RESETTIME: Timestamp = null
+  	)
+
+  object TFCUserCoinChangeLimitDAO extends SimpleDAO[KOTFCUserCoinChangeLimit] {
+    val ttag = classTag[KOTFCUserCoinChangeLimit];
+    val tablename = "TFC_USER_COIN_CHANGE_LIMIT";
+    val keyname = "COIN_ROW_ID"
+  }
+
+
+  case class KOTFCUserCoinReclaimDetail(
+ val ROW_ID: String = null
+, val COIN_TYPE_ID: String = null
+, val REC_TIME: Timestamp = null
+, val USER_ID: Option[Int] = null
+, val RECLAIM_NUM: Option[Int] = null
+, val REQ_NUM: Option[Int] = null
+, val CHANGED_NUM: Option[Int] = null
+, val LOCK_ID: String = null
+, val CHANNEL_ID: String = null
+, val PRODUCT_ID: String = null
+, val FLOW_NUMBER: String = null
+, val USER_IP: String = null
+, val SERVER_IP: String = null
+, val GAME_ID: String = null
+  	)
+
+  object TFCUserCoinReclaimDetailDAO extends SimpleDAO[KOTFCUserCoinReclaimDetail] {
+    val ttag = classTag[KOTFCUserCoinReclaimDetail];
+    val tablename = "TFC_USER_COIN_RECLAIM_DETAIL";
+    val keyname = "ROW_ID"
+  }
+
+
+  case class KOTFCUserLock(
+ val ROW_ID: String = null
+, val LOCK_ID: String = null
+, val USER_ID: String = null
+, val COIN_ROW_ID: String = null
+, val GAME_ID: String = null
+, val SERVER_IP: String = null
+, val SERVER_NAME: String = null
+, val COIN_TYPE_ID: String = null
+, val LOCK_NUM: Option[Int] = null
+, val REC_DATE: Timestamp = null
+  	)
+
+  object TFCUserLockDAO extends SimpleDAO[KOTFCUserLock] {
+    val ttag = classTag[KOTFCUserLock];
+    val tablename = "TFC_USER_LOCK";
+    val keyname = "ROW_ID"
+  }
+
+
+  case class KOTFCUserLockcs(
+ val USER_ID: String = null
+, val READ_COUNT: Option[Int] = null
+, val WRITE_COUNT: Option[Int] = null
+  	)
+
+  object TFCUserLockcsDAO extends SimpleDAO[KOTFCUserLockcs] {
+    val ttag = classTag[KOTFCUserLockcs];
+    val tablename = "TFC_USER_LOCKCS";
+    val keyname = "USER_ID"
+  }
+
+
+  case class KOTFCUserLockChangeDetail(
+ val ROW_ID: String = null
+, val COIN_TYPE_ID: String = null
+, val REC_TIME: Timestamp = null
+, val LOCK_ID: String = null
+, val USER_ID: String = null
+, val CHANGE_NUM: Option[Int] = null
+, val LOCKED_NUM: Option[Int] = null
+, val CHANNEL_ID: String = null
+, val PRODUCT_ID: String = null
+, val FLOW_NUMBER: String = null
+, val USER_IP: String = null
+, val SERVER_IP: String = null
+, val GAME_ID: String = null
+  	)
+
+  object TFCUserLockChangeDetailDAO extends SimpleDAO[KOTFCUserLockChangeDetail] {
+    val ttag = classTag[KOTFCUserLockChangeDetail];
+    val tablename = "TFC_USER_LOCK_CHANGE_DETAIL";
+    val keyname = "ROW_ID"
+  }
+
+
+  case class KOTFCUseLockDetail(
+ val ROW_ID: String = null
+, val COIN_TYPE_ID: String = null
+, val REC_TIME: Timestamp = null
+, val ACTIONTYPE: Option[Int] = null
+, val LOCK_ID: String = null
+, val USER_ID: String = null
+, val SERVER_IP: String = null
+, val GAME_ID: String = null
+, val SERVER_NAME: String = null
+, val LOCK_NUM: Option[Int] = null
+, val CHANGE_NUM: Option[Int] = null
+, val REMAIN_NUM: Option[Int] = null
+, val OTHER_LOCK_NUM: Option[Int] = null
+  	)
+
+  object TFCUseLockDetailDAO extends SimpleDAO[KOTFCUseLockDetail] {
+    val ttag = classTag[KOTFCUseLockDetail];
+    val tablename = "TFC_USE_LOCK_DETAIL";
+    val keyname = "ROW_ID"
+  }
+
+
   case class KOTLTBetAuto(
  val ID: Option[Int] = null
 , val AUTOBET_NO: String = null
@@ -741,170 +1008,6 @@ object TFGDAOs {
     val ttag = classTag[KOTLTUserBank];
     val tablename = "TLT_USER_BANK";
     val keyname = "ID"
-  }
-
-
-  case class KOTActFund(
- val FUND_NO: String = null
-, val ACT_NO: String = null
-, val CUST_ID: String = null
-, val MCHNT_ID: String = null
-, val ACT_TYPE: String = null
-, val MNY_SMB: String = null
-, val CATALOG: String = null
-, val CHANNEL_ID: String = null
-, val CUR_BAL: Option[Double] = null
-, val FREEZE_TOTAL: Option[Double] = null
-, val INCOME_TOTAL: Option[Double] = null
-, val PAYOUT_TOTAL: Option[Double] = null
-, val FOTBID_AMOUNT: Option[Double] = null
-, val FOTBID_FLAG: Option[Char] = null
-, val ACT_STAT: String = null
-, val ACT_BAL_WARN_FLAG: String = null
-, val UPDATE_ACT_LOG_ID: String = null
-, val CREATE_TIME: Timestamp = null
-, val UPDATE_TIME: Timestamp = null
-, val MODIFY_ID: String = null
-  	)
-
-  object TActFundDAO extends SimpleDAO[KOTActFund] {
-    val ttag = classTag[KOTActFund];
-    val tablename = "T_ACT_FUND";
-    val keyname = "FUND_NO"
-  }
-
-
-  case class KOTActInfo(
- val ACT_NO: String = null
-, val ACT_NAME: String = null
-, val CUST_ID: String = null
-, val MCHNT_ID: String = null
-, val ACT_TYPE: String = null
-, val MNY_SMB: String = null
-, val CHANNEL_ID: String = null
-, val CATALOG: String = null
-, val ACT_YINIT_BAL: Option[Double] = null
-, val ACT_DINIT_BAL: Option[Double] = null
-, val ACT_CUR_BAL: Option[Double] = null
-, val ACT_STAT: Option[Double] = null
-, val ACT_MAXOD_AMT: Option[Double] = null
-, val ACT_CTRL_BAL: Option[Double] = null
-, val ACT_BAL_WARN_FLAG: String = null
-, val CREATE_TIME: Timestamp = null
-, val UPDATE_TIME: Timestamp = null
-, val MODIFY_ID: String = null
-, val MEMO: String = null
-  	)
-
-  object TActInfoDAO extends SimpleDAO[KOTActInfo] {
-    val ttag = classTag[KOTActInfo];
-    val tablename = "T_ACT_INFO";
-    val keyname = "ACT_NO"
-  }
-
-
-  case class KOTActInterest(
- val INST_LOGID: String = null
-, val INTEREST_DATE: String = null
-, val FUND_NO: String = null
-, val ACT_NO: String = null
-, val INTEREST_TYPE: String = null
-, val INTEREST_AMOUNT: Option[Double] = null
-, val GMT_CREATE: Timestamp = null
-, val GMT_MODIFY: Timestamp = null
-, val TRADE_DATE: String = null
-, val RATE_VALUE: Option[Double] = null
-, val UNIT_NO: String = null
-  	)
-
-  object TActInterestDAO extends SimpleDAO[KOTActInterest] {
-    val ttag = classTag[KOTActInterest];
-    val tablename = "T_ACT_INTEREST";
-    val keyname = "INST_LOGID"
-  }
-
-
-  case class KOTActTransLogs(
- val LOG_UUID: String = null
-, val SETT_DATE: String = null
-, val CONS_DATE: String = null
-, val TX_SNO: String = null
-, val TRANS_CODE: String = null
-, val SUB_TRANS_CODE: String = null
-, val BIZ_TYPE: String = null
-, val BIZ_DTL_TYPE: String = null
-, val FROM_FUND_NO: String = null
-, val TO_FUND_NO: String = null
-, val DC_TYPE: String = null
-, val AMT: Option[Double] = null
-, val CNT: Option[Int] = null
-, val FLAG_CANCEL: Option[Char] = null
-, val RELATED_TRANS_ID: String = null
-, val STATUS: String = null
-, val ACT_BAL_AFTER: Option[Double] = null
-, val ACT_BAL_BEFORE: Option[Double] = null
-, val EXT_ID1: String = null
-, val EXT_ID2: String = null
-, val EXT_COMMETS: String = null
-, val CREATE_TIME: Timestamp = null
-, val UPDATE_TIME: Timestamp = null
-  	)
-
-  object TActTransLogsDAO extends SimpleDAO[KOTActTransLogs] {
-    val ttag = classTag[KOTActTransLogs];
-    val tablename = "T_ACT_TRANS_LOGS";
-    val keyname = "LOG_UUID"
-  }
-
-
-  case class KOTActTransLogsDebt(
- val LOG_UUID: String = null
-, val FROM_FUND_NO: String = null
-, val TO_FUND_NO: String = null
-, val FLAG_CANCEL: Option[Char] = null
-, val RELATED_TRANS_ID: String = null
-, val STATUS: String = null
-, val CREATE_TIME: Timestamp = null
-, val UPDATE_TIME: Timestamp = null
-  	)
-
-  object TActTransLogsDebtDAO extends SimpleDAO[KOTActTransLogsDebt] {
-    val ttag = classTag[KOTActTransLogsDebt];
-    val tablename = "T_ACT_TRANS_LOGS_DEBT";
-    val keyname = "LOG_UUID"
-  }
-
-
-  case class KOTActTransLogsHis(
- val LOG_UUID: String = null
-, val SETT_DATE: String = null
-, val CONS_DATE: String = null
-, val TX_SNO: String = null
-, val TRANS_CODE: String = null
-, val SUB_TRANS_CODE: String = null
-, val BIZ_TYPE: String = null
-, val BIZ_DTL_TYPE: String = null
-, val FROM_FUND_NO: String = null
-, val TO_FUND_NO: String = null
-, val DC_TYPE: String = null
-, val AMT: Option[Double] = null
-, val CNT: Option[Int] = null
-, val FLAG_CANCEL: Option[Char] = null
-, val RELATED_TRANS_ID: String = null
-, val STATUS: String = null
-, val ACT_BAL_AFTER: Option[Double] = null
-, val ACT_BAL_BEFORE: Option[Double] = null
-, val EXT_ID1: String = null
-, val EXT_ID2: String = null
-, val EXT_COMMETS: String = null
-, val CREATE_TIME: Timestamp = null
-, val UPDATE_TIME: Timestamp = null
-  	)
-
-  object TActTransLogsHisDAO extends SimpleDAO[KOTActTransLogsHis] {
-    val ttag = classTag[KOTActTransLogsHis];
-    val tablename = "T_ACT_TRANS_LOGS_HIS";
-    val keyname = "LOG_UUID"
   }
 
 

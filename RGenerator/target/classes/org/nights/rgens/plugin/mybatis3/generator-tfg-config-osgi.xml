@@ -22,23 +22,22 @@
 		</javaTypeResolver>
 
 		<javaModelGenerator targetPackage="onight.tfg.ordbgens"
-			targetProject="/Users/brew/Documents/KJ/MING/svn/mgame/mysqlimpl/src/gens/java">
+			targetProject="../cgwmysql/src/gens/java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="false" />
 		</javaModelGenerator>
 
 		<sqlMapGenerator targetPackage="onight.tfg.ordbgens"
-			targetProject="/Users/brew/Documents/KJ/MING/svn/mgame/mysqlimpl/src/gens/java">
+			targetProject="../cgwmysql/src/gens/java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
 		<javaClientGenerator type="ANNOTATEDMAPPER"
 			targetPackage="onight.tfg.ordbgens"
-			targetProject="/Users/brew/Documents/KJ/MING/svn/mgame/mysqlimpl/src/gens/java">
+			targetProject="../cgwmysql/src/gens/java">
 			<property name="enableSubPackages" value="true" />
-			<property name="pbdir"
-				value="/Users/brew/Documents/KJ/MING/svn/mgame/mysqlimpl/src/gens/proto/pbgens.proto" />
-
+			<property name="pbdir"	value="../cgwmysql/src/gens/proto/pbgens.proto" />
+			<!-- <property name="sodir" value="../cgwmysql/src/gens/scala"/> -->
 		</javaClientGenerator>
 
 		<table tableName="^T_SYS_.*" domainObjectName="sys" />

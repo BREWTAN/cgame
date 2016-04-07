@@ -39,8 +39,8 @@ public class MyBatis3GeneratorUtil {
 
 		for (String name : new String[] { "tfg" }) {
 			packShortName = name;
-			Def.GEN_CTRL = true;
-			String xmlName = "generator-" + name + "-config.xml";
+			Def.GEN_CTRL = false;
+			String xmlName = "generator-" + name + "-config-osgi.xml";
 			testGenerateMyBatis(xmlName, tmpSource);
 		}
 
@@ -140,7 +140,7 @@ public class MyBatis3GeneratorUtil {
 				String sodir = context.getJavaClientGeneratorConfiguration().getProperty("sodir") + File.separator
 						+ javamodelPkg.replaceAll("\\.", File.separator) + File.separator + "so";
 				if (StringUtils.isNotBlank(sodir)) {
-					System.out.println("sbdir==" + sodir);
+					System.out.println("sbdir==" + sodir); 
 					genScalaBeans(configClasses, tmpSource, "scala.ftl", new File(sodir, packShortName.toUpperCase() + ".scala"));
 				}
 			}
