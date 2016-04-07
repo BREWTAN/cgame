@@ -1,0 +1,6 @@
+build
+bin
+.gradle
+gradle
+felix-cache
+classes
