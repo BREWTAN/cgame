@@ -289,5 +289,53 @@
  		<property name="mapper" ref="tLTUserBankMapper" />
  		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
  	</bean>
+	<bean id="tActFundMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.act.mapper.TActFundMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tactfundDao" class="onight.tfg.ordbgens.act.dao.TActFundDao" >
+ 		<property name="mapper" ref="tActFundMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
+	<bean id="tActInfoMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.act.mapper.TActInfoMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tactinfoDao" class="onight.tfg.ordbgens.act.dao.TActInfoDao" >
+ 		<property name="mapper" ref="tActInfoMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
+	<bean id="tActInterestMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.act.mapper.TActInterestMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tactinterestDao" class="onight.tfg.ordbgens.act.dao.TActInterestDao" >
+ 		<property name="mapper" ref="tActInterestMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
+	<bean id="tActTransLogsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.act.mapper.TActTransLogsMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tacttranslogsDao" class="onight.tfg.ordbgens.act.dao.TActTransLogsDao" >
+ 		<property name="mapper" ref="tActTransLogsMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
+	<bean id="tActTransLogsDebtMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.act.mapper.TActTransLogsDebtMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tacttranslogsdebtDao" class="onight.tfg.ordbgens.act.dao.TActTransLogsDebtDao" >
+ 		<property name="mapper" ref="tActTransLogsDebtMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
+	<bean id="tActTransLogsHisMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.act.mapper.TActTransLogsHisMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tacttranslogshisDao" class="onight.tfg.ordbgens.act.dao.TActTransLogsHisDao" >
+ 		<property name="mapper" ref="tActTransLogsHisMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
 	
 </beans>
