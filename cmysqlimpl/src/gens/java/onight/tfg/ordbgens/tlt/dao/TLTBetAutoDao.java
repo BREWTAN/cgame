@@ -137,10 +137,7 @@ public class TLTBetAutoDao extends ExtendDaoSupper<TLTBetAuto, TLTBetAutoExample
 		TLTBetAutoExample example = new TLTBetAutoExample();
 		if(record!=null){
 			Criteria criteria = example.createCriteria();
-							if(record.getId()!=null){
-				criteria.andIdEqualTo(record.getId());
-				}
-				if(record.getAutobetNo()!=null){
+							if(record.getAutobetNo()!=null){
 				criteria.andAutobetNoEqualTo(record.getAutobetNo());
 				}
 				if(record.getUserId()!=null){
@@ -152,8 +149,8 @@ public class TLTBetAutoDao extends ExtendDaoSupper<TLTBetAuto, TLTBetAutoExample
 				if(record.getLname()!=null){
 				criteria.andLnameEqualTo(record.getLname());
 				}
-				if(record.getPlaytype()!=null){
-				criteria.andPlaytypeEqualTo(record.getPlaytype());
+				if(record.getPlayType()!=null){
+				criteria.andPlayTypeEqualTo(record.getPlayType());
 				}
 				if(record.getLpgId()!=null){
 				criteria.andLpgIdEqualTo(record.getLpgId());
@@ -169,6 +166,12 @@ public class TLTBetAutoDao extends ExtendDaoSupper<TLTBetAuto, TLTBetAutoExample
 				}
 				if(record.getIssueNum()!=null){
 				criteria.andIssueNumEqualTo(record.getIssueNum());
+				}
+				if(record.getTotalBetAmounts()!=null){
+				criteria.andTotalBetAmountsEqualTo(record.getTotalBetAmounts());
+				}
+				if(record.getTotalBetCounts()!=null){
+				criteria.andTotalBetCountsEqualTo(record.getTotalBetCounts());
 				}
 				if(record.getCompleteNum()!=null){
 				criteria.andCompleteNumEqualTo(record.getCompleteNum());
@@ -244,14 +247,6 @@ public class TLTBetAutoDao extends ExtendDaoSupper<TLTBetAuto, TLTBetAutoExample
 			
 				sb.append("(");
 			
-				if(record.getId()==null){
-						sb.append("null");
-				}else{
-					sb.append("'"+record.getId()+"'");
-				}
-			
-				sb.append(",");
-			
 				if(record.getAutobetNo()==null){
 						sb.append("null");
 				}else{
@@ -284,10 +279,10 @@ public class TLTBetAutoDao extends ExtendDaoSupper<TLTBetAuto, TLTBetAutoExample
 			
 				sb.append(",");
 			
-				if(record.getPlaytype()==null){
+				if(record.getPlayType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPlaytype()+"'");
+					sb.append("'"+record.getPlayType()+"'");
 				}
 			
 				sb.append(",");
@@ -328,6 +323,22 @@ public class TLTBetAutoDao extends ExtendDaoSupper<TLTBetAuto, TLTBetAutoExample
 						sb.append("'"+"0"+"'");						
 				}else{
 					sb.append("'"+record.getIssueNum()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getTotalBetAmounts()==null){
+						sb.append("null");
+				}else{
+					sb.append("'"+record.getTotalBetAmounts()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getTotalBetCounts()==null){
+						sb.append("null");
+				}else{
+					sb.append("'"+record.getTotalBetCounts()+"'");
 				}
 			
 				sb.append(",");

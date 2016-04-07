@@ -422,29 +422,30 @@ message PBTFCUseLockDetail
 
 message PBTLTBetAuto
 {
-	int64 id = 1;
-	string autobet_no = 2;
-	string user_id = 3;
-	string ltype = 4;
-	string lname = 5;
-	string playtype = 6;
-	string lpg_id = 7;
-	string lp_id = 8;
-	int64 create_time = 9;
-	string start_issue = 10;
-	int32 issue_num = 11;
-	int32 complete_num = 12;
-	int32 cancel_num = 13;
-	int32 bet_num = 14;
-	string bet_data = 15;
-	string bet_coins = 16;
-	string complete_coins = 17;
-	string cancel_coins = 18;
-	int32 mode = 19;
-	int32 times = 20;
-	int32 win_stop = 21;
-	int32 status = 22;
-	string bet_no = 23;
+	string autobet_no = 1;
+	string user_id = 2;
+	string ltype = 3;
+	string lname = 4;
+	string play_type = 5;
+	string lpg_id = 6;
+	string lp_id = 7;
+	int64 create_time = 8;
+	string start_issue = 9;
+	int32 issue_num = 10;
+	double total_bet_amounts = 11;
+	double total_bet_counts = 12;
+	int32 complete_num = 13;
+	int32 cancel_num = 14;
+	int32 bet_num = 15;
+	string bet_data = 16;
+	string bet_coins = 17;
+	string complete_coins = 18;
+	string cancel_coins = 19;
+	int32 mode = 20;
+	int32 times = 21;
+	int32 win_stop = 22;
+	int32 status = 23;
+	string bet_no = 24;
 }
 
 message PBTLTBonus
@@ -480,28 +481,30 @@ message PBTLTCoreBet
 	string tick_no = 1;
 	string ltype = 2;
 	string lname = 3;
-	string playtype = 4;
+	string play_type = 4;
 	string merchantid = 5;
-	string serialnum = 6;
-	double bet_amount = 7;
-	double boards = 8;
-	double multi = 9;
+	string serial_num = 6;
+	double bet_amounts = 7;
+	double bet_counts = 8;
+	double bet_multi = 9;
 	string issue_no = 10;
 	int64 bet_datetime = 11;
 	string bet_content = 12;
 	string bet_ip = 13;
-	int32 bet_moeny_unit = 14;
-	string version = 15;
-	double printtime = 16;
-	double bet_status = 17;
-	double notifystatus = 18;
-	string region = 19;
-	string failreason = 20;
-	string merchantuserid = 21;
-	string user_id = 22;
-	string autobet_no = 23;
-	string is_auto = 24;
-	string auto_ref_tickno = 25;
+	int32 bet_money_unit = 14;
+	double bonus_money_mode = 15;
+	double bonus_rate_mode = 16;
+	string version = 17;
+	double printtime = 18;
+	double bet_status = 19;
+	double notifystatus = 20;
+	string region = 21;
+	string failreason = 22;
+	string merchantuserid = 23;
+	string user_id = 24;
+	string autobet_no = 25;
+	string is_auto = 26;
+	string auto_ref_tickno = 27;
 }
 
 message PBTLTGroupType

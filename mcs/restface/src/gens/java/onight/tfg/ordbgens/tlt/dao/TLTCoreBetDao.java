@@ -146,23 +146,23 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getLname()!=null){
 				criteria.andLnameEqualTo(record.getLname());
 				}
-				if(record.getPlaytype()!=null){
-				criteria.andPlaytypeEqualTo(record.getPlaytype());
+				if(record.getPlayType()!=null){
+				criteria.andPlayTypeEqualTo(record.getPlayType());
 				}
 				if(record.getMerchantid()!=null){
 				criteria.andMerchantidEqualTo(record.getMerchantid());
 				}
-				if(record.getSerialnum()!=null){
-				criteria.andSerialnumEqualTo(record.getSerialnum());
+				if(record.getSerialNum()!=null){
+				criteria.andSerialNumEqualTo(record.getSerialNum());
 				}
-				if(record.getBetAmount()!=null){
-				criteria.andBetAmountEqualTo(record.getBetAmount());
+				if(record.getBetAmounts()!=null){
+				criteria.andBetAmountsEqualTo(record.getBetAmounts());
 				}
-				if(record.getBoards()!=null){
-				criteria.andBoardsEqualTo(record.getBoards());
+				if(record.getBetCounts()!=null){
+				criteria.andBetCountsEqualTo(record.getBetCounts());
 				}
-				if(record.getMulti()!=null){
-				criteria.andMultiEqualTo(record.getMulti());
+				if(record.getBetMulti()!=null){
+				criteria.andBetMultiEqualTo(record.getBetMulti());
 				}
 				if(record.getIssueNo()!=null){
 				criteria.andIssueNoEqualTo(record.getIssueNo());
@@ -176,8 +176,14 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getBetIp()!=null){
 				criteria.andBetIpEqualTo(record.getBetIp());
 				}
-				if(record.getBetMoenyUnit()!=null){
-				criteria.andBetMoenyUnitEqualTo(record.getBetMoenyUnit());
+				if(record.getBetMoneyUnit()!=null){
+				criteria.andBetMoneyUnitEqualTo(record.getBetMoneyUnit());
+				}
+				if(record.getBonusMoneyMode()!=null){
+				criteria.andBonusMoneyModeEqualTo(record.getBonusMoneyMode());
+				}
+				if(record.getBonusRateMode()!=null){
+				criteria.andBonusRateModeEqualTo(record.getBonusRateMode());
 				}
 				if(record.getVersion()!=null){
 				criteria.andVersionEqualTo(record.getVersion());
@@ -274,10 +280,10 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 			
 				sb.append(",");
 			
-				if(record.getPlaytype()==null){
+				if(record.getPlayType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPlaytype()+"'");
+					sb.append("'"+record.getPlayType()+"'");
 				}
 			
 				sb.append(",");
@@ -290,34 +296,34 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 			
 				sb.append(",");
 			
-				if(record.getSerialnum()==null){
+				if(record.getSerialNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getSerialnum()+"'");
+					sb.append("'"+record.getSerialNum()+"'");
 				}
 			
 				sb.append(",");
 			
-				if(record.getBetAmount()==null){
+				if(record.getBetAmounts()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBetAmount()+"'");
+					sb.append("'"+record.getBetAmounts()+"'");
 				}
 			
 				sb.append(",");
 			
-				if(record.getBoards()==null){
+				if(record.getBetCounts()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBoards()+"'");
+					sb.append("'"+record.getBetCounts()+"'");
 				}
 			
 				sb.append(",");
 			
-				if(record.getMulti()==null){
+				if(record.getBetMulti()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMulti()+"'");
+					sb.append("'"+record.getBetMulti()+"'");
 				}
 			
 				sb.append(",");
@@ -354,10 +360,26 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 			
 				sb.append(",");
 			
-				if(record.getBetMoenyUnit()==null){
+				if(record.getBetMoneyUnit()==null){
 						sb.append("'"+"1"+"'");						
 				}else{
-					sb.append("'"+record.getBetMoenyUnit()+"'");
+					sb.append("'"+record.getBetMoneyUnit()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getBonusMoneyMode()==null){
+						sb.append("null");
+				}else{
+					sb.append("'"+record.getBonusMoneyMode()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getBonusRateMode()==null){
+						sb.append("null");
+				}else{
+					sb.append("'"+record.getBonusRateMode()+"'");
 				}
 			
 				sb.append(",");
