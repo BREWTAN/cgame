@@ -36,28 +36,28 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 	}
 
 	@Override
-	public int deleteByExample(TFCUserCoinReclaimDetailExample example) {
+	public int deleteByExample(TFCUserCoinReclaimDetailExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFCUserCoinReclaimDetailKey key) {
+	public int deleteByPrimaryKey(TFCUserCoinReclaimDetailKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFCUserCoinReclaimDetail record)  {
+	public int insert(TFCUserCoinReclaimDetail record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFCUserCoinReclaimDetail record)  {
+	public int insertSelective(TFCUserCoinReclaimDetail record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFCUserCoinReclaimDetail> records)
+	public int batchUpdate(List<TFCUserCoinReclaimDetail> records) throws Exception
 			 {
 		for(TFCUserCoinReclaimDetail record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFCUserCoinReclaimDetail> records)
+	public int batchDelete(List<TFCUserCoinReclaimDetail> records) throws Exception
 			 {
 		for(TFCUserCoinReclaimDetail record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 	}
 
 	@Override
-	public int updateByExampleSelective(TFCUserCoinReclaimDetail record, TFCUserCoinReclaimDetailExample example)  {
+	public int updateByExampleSelective(TFCUserCoinReclaimDetail record, TFCUserCoinReclaimDetailExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFCUserCoinReclaimDetail record, TFCUserCoinReclaimDetailExample example) {
+	public int updateByExample(TFCUserCoinReclaimDetail record, TFCUserCoinReclaimDetailExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFCUserCoinReclaimDetail record) {
+	public int updateByPrimaryKeySelective(TFCUserCoinReclaimDetail record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFCUserCoinReclaimDetail record) {
+	public int updateByPrimaryKey(TFCUserCoinReclaimDetail record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFCUserCoinReclaimDetailExample());
 	}
 
@@ -196,7 +196,7 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFCUserCoinReclaimDetail> records) {
+	public int batchInsert(List<TFCUserCoinReclaimDetail> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -220,7 +220,8 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 				if(record.getRowId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRowId()+"'");
+				// java type==String
+						sb.append("'"+record.getRowId()+"'");
 				}
 			
 				sb.append(",");
@@ -228,7 +229,8 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 				if(record.getCoinTypeId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCoinTypeId()+"'");
+				// java type==String
+						sb.append("'"+record.getCoinTypeId()+"'");
 				}
 			
 				sb.append(",");
@@ -236,7 +238,9 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 				if(record.getRecTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRecTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getRecTime())+"'");
 				}
 			
 				sb.append(",");
@@ -244,7 +248,8 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==Long
+						sb.append("'"+record.getUserId()+"'");
 				}
 			
 				sb.append(",");
@@ -252,7 +257,8 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 				if(record.getReclaimNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getReclaimNum()+"'");
+				// java type==Long
+						sb.append("'"+record.getReclaimNum()+"'");
 				}
 			
 				sb.append(",");
@@ -260,7 +266,8 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 				if(record.getReqNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getReqNum()+"'");
+				// java type==Long
+						sb.append("'"+record.getReqNum()+"'");
 				}
 			
 				sb.append(",");
@@ -268,7 +275,8 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 				if(record.getChangedNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getChangedNum()+"'");
+				// java type==Long
+						sb.append("'"+record.getChangedNum()+"'");
 				}
 			
 				sb.append(",");
@@ -276,7 +284,8 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 				if(record.getLockId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLockId()+"'");
+				// java type==String
+						sb.append("'"+record.getLockId()+"'");
 				}
 			
 				sb.append(",");
@@ -284,7 +293,8 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 				if(record.getChannelId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getChannelId()+"'");
+				// java type==String
+						sb.append("'"+record.getChannelId()+"'");
 				}
 			
 				sb.append(",");
@@ -292,7 +302,8 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 				if(record.getProductId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getProductId()+"'");
+				// java type==String
+						sb.append("'"+record.getProductId()+"'");
 				}
 			
 				sb.append(",");
@@ -300,7 +311,8 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 				if(record.getFlowNumber()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getFlowNumber()+"'");
+				// java type==String
+						sb.append("'"+record.getFlowNumber()+"'");
 				}
 			
 				sb.append(",");
@@ -308,7 +320,8 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 				if(record.getUserIp()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserIp()+"'");
+				// java type==String
+						sb.append("'"+record.getUserIp()+"'");
 				}
 			
 				sb.append(",");
@@ -316,7 +329,8 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 				if(record.getServerIp()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getServerIp()+"'");
+				// java type==String
+						sb.append("'"+record.getServerIp()+"'");
 				}
 			
 				sb.append(",");
@@ -324,7 +338,8 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 				if(record.getGameId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getGameId()+"'");
+				// java type==String
+						sb.append("'"+record.getGameId()+"'");
 				}
 							sb.append(")");
 			
@@ -332,12 +347,12 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

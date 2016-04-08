@@ -36,28 +36,28 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 	}
 
 	@Override
-	public int deleteByExample(TLTCoreBetExample example) {
+	public int deleteByExample(TLTCoreBetExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TLTCoreBetKey key) {
+	public int deleteByPrimaryKey(TLTCoreBetKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TLTCoreBet record)  {
+	public int insert(TLTCoreBet record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TLTCoreBet record)  {
+	public int insertSelective(TLTCoreBet record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TLTCoreBet> records)
+	public int batchUpdate(List<TLTCoreBet> records) throws Exception
 			 {
 		for(TLTCoreBet record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TLTCoreBet> records)
+	public int batchDelete(List<TLTCoreBet> records) throws Exception
 			 {
 		for(TLTCoreBet record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 	}
 
 	@Override
-	public int updateByExampleSelective(TLTCoreBet record, TLTCoreBetExample example)  {
+	public int updateByExampleSelective(TLTCoreBet record, TLTCoreBetExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TLTCoreBet record, TLTCoreBetExample example) {
+	public int updateByExample(TLTCoreBet record, TLTCoreBetExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TLTCoreBet record) {
+	public int updateByPrimaryKeySelective(TLTCoreBet record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TLTCoreBet record) {
+	public int updateByPrimaryKey(TLTCoreBet record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TLTCoreBetExample());
 	}
 
@@ -235,7 +235,7 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TLTCoreBet> records) {
+	public int batchInsert(List<TLTCoreBet> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -475,12 +475,12 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

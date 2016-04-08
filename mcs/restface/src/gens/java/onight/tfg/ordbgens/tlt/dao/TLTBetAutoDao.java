@@ -36,28 +36,28 @@ public class TLTBetAutoDao extends ExtendDaoSupper<TLTBetAuto, TLTBetAutoExample
 	}
 
 	@Override
-	public int deleteByExample(TLTBetAutoExample example) {
+	public int deleteByExample(TLTBetAutoExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TLTBetAutoKey key) {
+	public int deleteByPrimaryKey(TLTBetAutoKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TLTBetAuto record)  {
+	public int insert(TLTBetAuto record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TLTBetAuto record)  {
+	public int insertSelective(TLTBetAuto record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TLTBetAuto> records)
+	public int batchUpdate(List<TLTBetAuto> records) throws Exception
 			 {
 		for(TLTBetAuto record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TLTBetAutoDao extends ExtendDaoSupper<TLTBetAuto, TLTBetAutoExample
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TLTBetAuto> records)
+	public int batchDelete(List<TLTBetAuto> records) throws Exception
 			 {
 		for(TLTBetAuto record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TLTBetAutoDao extends ExtendDaoSupper<TLTBetAuto, TLTBetAutoExample
 	}
 
 	@Override
-	public int updateByExampleSelective(TLTBetAuto record, TLTBetAutoExample example)  {
+	public int updateByExampleSelective(TLTBetAuto record, TLTBetAutoExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TLTBetAuto record, TLTBetAutoExample example) {
+	public int updateByExample(TLTBetAuto record, TLTBetAutoExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TLTBetAuto record) {
+	public int updateByPrimaryKeySelective(TLTBetAuto record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TLTBetAuto record) {
+	public int updateByPrimaryKey(TLTBetAuto record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TLTBetAutoDao extends ExtendDaoSupper<TLTBetAuto, TLTBetAutoExample
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TLTBetAutoExample());
 	}
 
@@ -226,7 +226,7 @@ public class TLTBetAutoDao extends ExtendDaoSupper<TLTBetAuto, TLTBetAutoExample
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TLTBetAuto> records) {
+	public int batchInsert(List<TLTBetAuto> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -442,12 +442,12 @@ public class TLTBetAutoDao extends ExtendDaoSupper<TLTBetAuto, TLTBetAutoExample
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

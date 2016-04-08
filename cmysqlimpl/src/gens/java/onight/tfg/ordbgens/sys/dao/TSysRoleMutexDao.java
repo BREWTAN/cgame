@@ -36,28 +36,28 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 	}
 
 	@Override
-	public int deleteByExample(TSysRoleMutexExample example) {
+	public int deleteByExample(TSysRoleMutexExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TSysRoleMutexKey key) {
+	public int deleteByPrimaryKey(TSysRoleMutexKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TSysRoleMutex record)  {
+	public int insert(TSysRoleMutex record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TSysRoleMutex record)  {
+	public int insertSelective(TSysRoleMutex record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TSysRoleMutex> records)
+	public int batchUpdate(List<TSysRoleMutex> records) throws Exception
 			 {
 		for(TSysRoleMutex record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TSysRoleMutex> records)
+	public int batchDelete(List<TSysRoleMutex> records) throws Exception
 			 {
 		for(TSysRoleMutex record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 	}
 
 	@Override
-	public int updateByExampleSelective(TSysRoleMutex record, TSysRoleMutexExample example)  {
+	public int updateByExampleSelective(TSysRoleMutex record, TSysRoleMutexExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TSysRoleMutex record, TSysRoleMutexExample example) {
+	public int updateByExample(TSysRoleMutex record, TSysRoleMutexExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TSysRoleMutex record) {
+	public int updateByPrimaryKeySelective(TSysRoleMutex record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TSysRoleMutex record) {
+	public int updateByPrimaryKey(TSysRoleMutex record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TSysRoleMutexExample());
 	}
 
@@ -166,7 +166,7 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TSysRoleMutex> records) {
+	public int batchInsert(List<TSysRoleMutex> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -190,7 +190,8 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 				if(record.getRoleMutexId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRoleMutexId()+"'");
+				// java type==String
+						sb.append("'"+record.getRoleMutexId()+"'");
 				}
 			
 				sb.append(",");
@@ -198,7 +199,8 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 				if(record.getRoleIdA()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRoleIdA()+"'");
+				// java type==String
+						sb.append("'"+record.getRoleIdA()+"'");
 				}
 			
 				sb.append(",");
@@ -206,7 +208,8 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 				if(record.getRoleIdB()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRoleIdB()+"'");
+				// java type==String
+						sb.append("'"+record.getRoleIdB()+"'");
 				}
 			
 				sb.append(",");
@@ -214,7 +217,8 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 				if(record.getStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getStatus()+"'");
 				}
 							sb.append(")");
 			
@@ -222,12 +226,12 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

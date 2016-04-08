@@ -36,28 +36,28 @@ public class TLTIssueHisDao extends ExtendDaoSupper<TLTIssueHis, TLTIssueHisExam
 	}
 
 	@Override
-	public int deleteByExample(TLTIssueHisExample example) {
+	public int deleteByExample(TLTIssueHisExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TLTIssueHisKey key) {
+	public int deleteByPrimaryKey(TLTIssueHisKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TLTIssueHis record)  {
+	public int insert(TLTIssueHis record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TLTIssueHis record)  {
+	public int insertSelective(TLTIssueHis record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TLTIssueHis> records)
+	public int batchUpdate(List<TLTIssueHis> records) throws Exception
 			 {
 		for(TLTIssueHis record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TLTIssueHisDao extends ExtendDaoSupper<TLTIssueHis, TLTIssueHisExam
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TLTIssueHis> records)
+	public int batchDelete(List<TLTIssueHis> records) throws Exception
 			 {
 		for(TLTIssueHis record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TLTIssueHisDao extends ExtendDaoSupper<TLTIssueHis, TLTIssueHisExam
 	}
 
 	@Override
-	public int updateByExampleSelective(TLTIssueHis record, TLTIssueHisExample example)  {
+	public int updateByExampleSelective(TLTIssueHis record, TLTIssueHisExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TLTIssueHis record, TLTIssueHisExample example) {
+	public int updateByExample(TLTIssueHis record, TLTIssueHisExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TLTIssueHis record) {
+	public int updateByPrimaryKeySelective(TLTIssueHis record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TLTIssueHis record) {
+	public int updateByPrimaryKey(TLTIssueHis record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TLTIssueHisDao extends ExtendDaoSupper<TLTIssueHis, TLTIssueHisExam
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TLTIssueHisExample());
 	}
 
@@ -220,7 +220,7 @@ public class TLTIssueHisDao extends ExtendDaoSupper<TLTIssueHis, TLTIssueHisExam
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TLTIssueHis> records) {
+	public int batchInsert(List<TLTIssueHis> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -420,12 +420,12 @@ public class TLTIssueHisDao extends ExtendDaoSupper<TLTIssueHis, TLTIssueHisExam
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

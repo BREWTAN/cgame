@@ -36,28 +36,28 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 	}
 
 	@Override
-	public int deleteByExample(TSysActionExample example) {
+	public int deleteByExample(TSysActionExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TSysActionKey key) {
+	public int deleteByPrimaryKey(TSysActionKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TSysAction record)  {
+	public int insert(TSysAction record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TSysAction record)  {
+	public int insertSelective(TSysAction record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TSysAction> records)
+	public int batchUpdate(List<TSysAction> records) throws Exception
 			 {
 		for(TSysAction record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TSysAction> records)
+	public int batchDelete(List<TSysAction> records) throws Exception
 			 {
 		for(TSysAction record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 	}
 
 	@Override
-	public int updateByExampleSelective(TSysAction record, TSysActionExample example)  {
+	public int updateByExampleSelective(TSysAction record, TSysActionExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TSysAction record, TSysActionExample example) {
+	public int updateByExample(TSysAction record, TSysActionExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TSysAction record) {
+	public int updateByPrimaryKeySelective(TSysAction record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TSysAction record) {
+	public int updateByPrimaryKey(TSysAction record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TSysActionExample());
 	}
 
@@ -172,7 +172,7 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TSysAction> records) {
+	public int batchInsert(List<TSysAction> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -196,7 +196,8 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 				if(record.getActionId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActionId()+"'");
+				// java type==Long
+						sb.append("'"+record.getActionId()+"'");
 				}
 			
 				sb.append(",");
@@ -204,7 +205,8 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 				if(record.getActionFlag()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActionFlag()+"'");
+				// java type==String
+						sb.append("'"+record.getActionFlag()+"'");
 				}
 			
 				sb.append(",");
@@ -212,7 +214,8 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 				if(record.getActionName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActionName()+"'");
+				// java type==String
+						sb.append("'"+record.getActionName()+"'");
 				}
 			
 				sb.append(",");
@@ -220,7 +223,8 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 				if(record.getActionDesc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActionDesc()+"'");
+				// java type==String
+						sb.append("'"+record.getActionDesc()+"'");
 				}
 			
 				sb.append(",");
@@ -228,7 +232,8 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 				if(record.getActionMenu()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActionMenu()+"'");
+				// java type==Long
+						sb.append("'"+record.getActionMenu()+"'");
 				}
 			
 				sb.append(",");
@@ -236,7 +241,8 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 				if(record.getField1()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getField1()+"'");
+				// java type==String
+						sb.append("'"+record.getField1()+"'");
 				}
 							sb.append(")");
 			
@@ -244,12 +250,12 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

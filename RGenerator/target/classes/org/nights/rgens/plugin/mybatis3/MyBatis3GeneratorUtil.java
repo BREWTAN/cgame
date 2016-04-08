@@ -40,11 +40,13 @@ public class MyBatis3GeneratorUtil {
 		for (String name : new String[] { "tfg" }) {
 			packShortName = name;
 			
-			String xmlName = "generator-" + name + "-config.xml";
-//			String xmlName = "generator-" + name + "-config-osgi.xml";
+//			String xmlName = "generator-" + name + "-config.xml";
+			String xmlName = "generator-" + name + "-config-osgi.xml";
 			
 			Def.GEN_CTRL = xmlName.endsWith("config.xml");
 			testGenerateMyBatis(xmlName, tmpSource);
+			
+			
 		}
 
 	}

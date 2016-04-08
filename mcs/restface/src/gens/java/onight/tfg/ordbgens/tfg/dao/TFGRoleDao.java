@@ -36,28 +36,28 @@ public class TFGRoleDao extends ExtendDaoSupper<TFGRole, TFGRoleExample, TFGRole
 	}
 
 	@Override
-	public int deleteByExample(TFGRoleExample example) {
+	public int deleteByExample(TFGRoleExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFGRoleKey key) {
+	public int deleteByPrimaryKey(TFGRoleKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFGRole record)  {
+	public int insert(TFGRole record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFGRole record)  {
+	public int insertSelective(TFGRole record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFGRole> records)
+	public int batchUpdate(List<TFGRole> records) throws Exception
 			 {
 		for(TFGRole record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFGRoleDao extends ExtendDaoSupper<TFGRole, TFGRoleExample, TFGRole
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFGRole> records)
+	public int batchDelete(List<TFGRole> records) throws Exception
 			 {
 		for(TFGRole record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFGRoleDao extends ExtendDaoSupper<TFGRole, TFGRoleExample, TFGRole
 	}
 
 	@Override
-	public int updateByExampleSelective(TFGRole record, TFGRoleExample example)  {
+	public int updateByExampleSelective(TFGRole record, TFGRoleExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFGRole record, TFGRoleExample example) {
+	public int updateByExample(TFGRole record, TFGRoleExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFGRole record) {
+	public int updateByPrimaryKeySelective(TFGRole record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFGRole record) {
+	public int updateByPrimaryKey(TFGRole record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFGRoleDao extends ExtendDaoSupper<TFGRole, TFGRoleExample, TFGRole
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFGRoleExample());
 	}
 
@@ -169,7 +169,7 @@ public class TFGRoleDao extends ExtendDaoSupper<TFGRole, TFGRoleExample, TFGRole
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFGRole> records) {
+	public int batchInsert(List<TFGRole> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -233,12 +233,12 @@ public class TFGRoleDao extends ExtendDaoSupper<TFGRole, TFGRoleExample, TFGRole
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

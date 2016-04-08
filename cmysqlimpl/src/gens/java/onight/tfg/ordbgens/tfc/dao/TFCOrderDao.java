@@ -36,28 +36,28 @@ public class TFCOrderDao extends ExtendDaoSupper<TFCOrder, TFCOrderExample, TFCO
 	}
 
 	@Override
-	public int deleteByExample(TFCOrderExample example) {
+	public int deleteByExample(TFCOrderExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFCOrderKey key) {
+	public int deleteByPrimaryKey(TFCOrderKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFCOrder record)  {
+	public int insert(TFCOrder record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFCOrder record)  {
+	public int insertSelective(TFCOrder record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFCOrder> records)
+	public int batchUpdate(List<TFCOrder> records) throws Exception
 			 {
 		for(TFCOrder record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFCOrderDao extends ExtendDaoSupper<TFCOrder, TFCOrderExample, TFCO
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFCOrder> records)
+	public int batchDelete(List<TFCOrder> records) throws Exception
 			 {
 		for(TFCOrder record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFCOrderDao extends ExtendDaoSupper<TFCOrder, TFCOrderExample, TFCO
 	}
 
 	@Override
-	public int updateByExampleSelective(TFCOrder record, TFCOrderExample example)  {
+	public int updateByExampleSelective(TFCOrder record, TFCOrderExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFCOrder record, TFCOrderExample example) {
+	public int updateByExample(TFCOrder record, TFCOrderExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFCOrder record) {
+	public int updateByPrimaryKeySelective(TFCOrder record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFCOrder record) {
+	public int updateByPrimaryKey(TFCOrder record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFCOrderDao extends ExtendDaoSupper<TFCOrder, TFCOrderExample, TFCO
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFCOrderExample());
 	}
 
@@ -175,7 +175,7 @@ public class TFCOrderDao extends ExtendDaoSupper<TFCOrder, TFCOrderExample, TFCO
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFCOrder> records) {
+	public int batchInsert(List<TFCOrder> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -199,7 +199,8 @@ public class TFCOrderDao extends ExtendDaoSupper<TFCOrder, TFCOrderExample, TFCO
 				if(record.getOrderId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getOrderId()+"'");
+				// java type==String
+						sb.append("'"+record.getOrderId()+"'");
 				}
 			
 				sb.append(",");
@@ -207,7 +208,8 @@ public class TFCOrderDao extends ExtendDaoSupper<TFCOrder, TFCOrderExample, TFCO
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==Long
+						sb.append("'"+record.getUserId()+"'");
 				}
 			
 				sb.append(",");
@@ -215,7 +217,8 @@ public class TFCOrderDao extends ExtendDaoSupper<TFCOrder, TFCOrderExample, TFCO
 				if(record.getOrderStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getOrderStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getOrderStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -223,7 +226,8 @@ public class TFCOrderDao extends ExtendDaoSupper<TFCOrder, TFCOrderExample, TFCO
 				if(record.getItemId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getItemId()+"'");
+				// java type==String
+						sb.append("'"+record.getItemId()+"'");
 				}
 			
 				sb.append(",");
@@ -231,7 +235,8 @@ public class TFCOrderDao extends ExtendDaoSupper<TFCOrder, TFCOrderExample, TFCO
 				if(record.getCoinNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCoinNum()+"'");
+				// java type==Long
+						sb.append("'"+record.getCoinNum()+"'");
 				}
 			
 				sb.append(",");
@@ -239,7 +244,9 @@ public class TFCOrderDao extends ExtendDaoSupper<TFCOrder, TFCOrderExample, TFCO
 				if(record.getStorageTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStorageTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getStorageTime())+"'");
 				}
 			
 				sb.append(",");
@@ -247,7 +254,9 @@ public class TFCOrderDao extends ExtendDaoSupper<TFCOrder, TFCOrderExample, TFCO
 				if(record.getHandleTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getHandleTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getHandleTime())+"'");
 				}
 							sb.append(")");
 			
@@ -255,12 +264,12 @@ public class TFCOrderDao extends ExtendDaoSupper<TFCOrder, TFCOrderExample, TFCO
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

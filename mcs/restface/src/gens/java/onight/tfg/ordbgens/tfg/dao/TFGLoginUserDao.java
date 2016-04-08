@@ -36,28 +36,28 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 	}
 
 	@Override
-	public int deleteByExample(TFGLoginUserExample example) {
+	public int deleteByExample(TFGLoginUserExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFGLoginUserKey key) {
+	public int deleteByPrimaryKey(TFGLoginUserKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFGLoginUser record)  {
+	public int insert(TFGLoginUser record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFGLoginUser record)  {
+	public int insertSelective(TFGLoginUser record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFGLoginUser> records)
+	public int batchUpdate(List<TFGLoginUser> records) throws Exception
 			 {
 		for(TFGLoginUser record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFGLoginUser> records)
+	public int batchDelete(List<TFGLoginUser> records) throws Exception
 			 {
 		for(TFGLoginUser record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 	}
 
 	@Override
-	public int updateByExampleSelective(TFGLoginUser record, TFGLoginUserExample example)  {
+	public int updateByExampleSelective(TFGLoginUser record, TFGLoginUserExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFGLoginUser record, TFGLoginUserExample example) {
+	public int updateByExample(TFGLoginUser record, TFGLoginUserExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFGLoginUser record) {
+	public int updateByPrimaryKeySelective(TFGLoginUser record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFGLoginUser record) {
+	public int updateByPrimaryKey(TFGLoginUser record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFGLoginUserExample());
 	}
 
@@ -205,7 +205,7 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFGLoginUser> records) {
+	public int batchInsert(List<TFGLoginUser> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -365,12 +365,12 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

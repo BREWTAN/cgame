@@ -36,28 +36,28 @@ public class TSysRoleActionDao extends ExtendDaoSupper<TSysRoleAction, TSysRoleA
 	}
 
 	@Override
-	public int deleteByExample(TSysRoleActionExample example) {
+	public int deleteByExample(TSysRoleActionExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TSysRoleActionKey key) {
+	public int deleteByPrimaryKey(TSysRoleActionKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TSysRoleAction record)  {
+	public int insert(TSysRoleAction record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TSysRoleAction record)  {
+	public int insertSelective(TSysRoleAction record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TSysRoleAction> records)
+	public int batchUpdate(List<TSysRoleAction> records) throws Exception
 			 {
 		for(TSysRoleAction record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TSysRoleActionDao extends ExtendDaoSupper<TSysRoleAction, TSysRoleA
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TSysRoleAction> records)
+	public int batchDelete(List<TSysRoleAction> records) throws Exception
 			 {
 		for(TSysRoleAction record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TSysRoleActionDao extends ExtendDaoSupper<TSysRoleAction, TSysRoleA
 	}
 
 	@Override
-	public int updateByExampleSelective(TSysRoleAction record, TSysRoleActionExample example)  {
+	public int updateByExampleSelective(TSysRoleAction record, TSysRoleActionExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TSysRoleAction record, TSysRoleActionExample example) {
+	public int updateByExample(TSysRoleAction record, TSysRoleActionExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TSysRoleAction record) {
+	public int updateByPrimaryKeySelective(TSysRoleAction record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TSysRoleAction record) {
+	public int updateByPrimaryKey(TSysRoleAction record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TSysRoleActionDao extends ExtendDaoSupper<TSysRoleAction, TSysRoleA
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TSysRoleActionExample());
 	}
 
@@ -166,7 +166,7 @@ public class TSysRoleActionDao extends ExtendDaoSupper<TSysRoleAction, TSysRoleA
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TSysRoleAction> records) {
+	public int batchInsert(List<TSysRoleAction> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -190,7 +190,8 @@ public class TSysRoleActionDao extends ExtendDaoSupper<TSysRoleAction, TSysRoleA
 				if(record.getId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getId()+"'");
+				// java type==String
+						sb.append("'"+record.getId()+"'");
 				}
 			
 				sb.append(",");
@@ -198,7 +199,8 @@ public class TSysRoleActionDao extends ExtendDaoSupper<TSysRoleAction, TSysRoleA
 				if(record.getActionId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActionId()+"'");
+				// java type==Long
+						sb.append("'"+record.getActionId()+"'");
 				}
 			
 				sb.append(",");
@@ -206,7 +208,8 @@ public class TSysRoleActionDao extends ExtendDaoSupper<TSysRoleAction, TSysRoleA
 				if(record.getRoleId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRoleId()+"'");
+				// java type==String
+						sb.append("'"+record.getRoleId()+"'");
 				}
 			
 				sb.append(",");
@@ -214,7 +217,8 @@ public class TSysRoleActionDao extends ExtendDaoSupper<TSysRoleAction, TSysRoleA
 				if(record.getStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==Long
+						sb.append("'"+record.getStatus()+"'");
 				}
 							sb.append(")");
 			
@@ -222,12 +226,12 @@ public class TSysRoleActionDao extends ExtendDaoSupper<TSysRoleAction, TSysRoleA
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

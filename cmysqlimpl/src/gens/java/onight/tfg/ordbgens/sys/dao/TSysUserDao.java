@@ -36,28 +36,28 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 	}
 
 	@Override
-	public int deleteByExample(TSysUserExample example) {
+	public int deleteByExample(TSysUserExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TSysUserKey key) {
+	public int deleteByPrimaryKey(TSysUserKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TSysUser record)  {
+	public int insert(TSysUser record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TSysUser record)  {
+	public int insertSelective(TSysUser record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TSysUser> records)
+	public int batchUpdate(List<TSysUser> records) throws Exception
 			 {
 		for(TSysUser record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TSysUser> records)
+	public int batchDelete(List<TSysUser> records) throws Exception
 			 {
 		for(TSysUser record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 	}
 
 	@Override
-	public int updateByExampleSelective(TSysUser record, TSysUserExample example)  {
+	public int updateByExampleSelective(TSysUser record, TSysUserExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TSysUser record, TSysUserExample example) {
+	public int updateByExample(TSysUser record, TSysUserExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TSysUser record) {
+	public int updateByPrimaryKeySelective(TSysUser record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TSysUser record) {
+	public int updateByPrimaryKey(TSysUser record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TSysUserExample());
 	}
 
@@ -199,7 +199,7 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TSysUser> records) {
+	public int batchInsert(List<TSysUser> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -223,7 +223,8 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==String
+						sb.append("'"+record.getUserId()+"'");
 				}
 			
 				sb.append(",");
@@ -231,7 +232,8 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getBranchId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBranchId()+"'");
+				// java type==String
+						sb.append("'"+record.getBranchId()+"'");
 				}
 			
 				sb.append(",");
@@ -239,7 +241,8 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getLoginName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLoginName()+"'");
+				// java type==String
+						sb.append("'"+record.getLoginName()+"'");
 				}
 			
 				sb.append(",");
@@ -247,7 +250,8 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getUserName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserName()+"'");
+				// java type==String
+						sb.append("'"+record.getUserName()+"'");
 				}
 			
 				sb.append(",");
@@ -255,7 +259,8 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getMobile()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMobile()+"'");
+				// java type==String
+						sb.append("'"+record.getMobile()+"'");
 				}
 			
 				sb.append(",");
@@ -263,7 +268,8 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getUserWorkaddress()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserWorkaddress()+"'");
+				// java type==String
+						sb.append("'"+record.getUserWorkaddress()+"'");
 				}
 			
 				sb.append(",");
@@ -271,7 +277,8 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==String
+						sb.append("'"+record.getStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -279,7 +286,8 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getPassword()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPassword()+"'");
+				// java type==String
+						sb.append("'"+record.getPassword()+"'");
 				}
 			
 				sb.append(",");
@@ -287,7 +295,9 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getUpdateTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUpdateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getUpdateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -295,7 +305,9 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getCreateTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCreateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCreateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -303,7 +315,8 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getCreatedBy()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCreatedBy()+"'");
+				// java type==String
+						sb.append("'"+record.getCreatedBy()+"'");
 				}
 			
 				sb.append(",");
@@ -311,7 +324,8 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getModifiedBy()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getModifiedBy()+"'");
+				// java type==String
+						sb.append("'"+record.getModifiedBy()+"'");
 				}
 			
 				sb.append(",");
@@ -319,7 +333,8 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getEmail()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getEmail()+"'");
+				// java type==String
+						sb.append("'"+record.getEmail()+"'");
 				}
 			
 				sb.append(",");
@@ -327,7 +342,8 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getDataEnviron()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getDataEnviron()+"'");
+				// java type==Integer
+						sb.append("'"+record.getDataEnviron()+"'");
 				}
 			
 				sb.append(",");
@@ -335,7 +351,8 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 				if(record.getIcon()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getIcon()+"'");
+				// java type==String
+						sb.append("'"+record.getIcon()+"'");
 				}
 							sb.append(")");
 			
@@ -343,12 +360,12 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

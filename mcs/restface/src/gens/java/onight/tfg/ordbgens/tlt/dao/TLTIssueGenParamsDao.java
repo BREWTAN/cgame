@@ -36,28 +36,28 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 	}
 
 	@Override
-	public int deleteByExample(TLTIssueGenParamsExample example) {
+	public int deleteByExample(TLTIssueGenParamsExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TLTIssueGenParamsKey key) {
+	public int deleteByPrimaryKey(TLTIssueGenParamsKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TLTIssueGenParams record)  {
+	public int insert(TLTIssueGenParams record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TLTIssueGenParams record)  {
+	public int insertSelective(TLTIssueGenParams record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TLTIssueGenParams> records)
+	public int batchUpdate(List<TLTIssueGenParams> records) throws Exception
 			 {
 		for(TLTIssueGenParams record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TLTIssueGenParams> records)
+	public int batchDelete(List<TLTIssueGenParams> records) throws Exception
 			 {
 		for(TLTIssueGenParams record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 	}
 
 	@Override
-	public int updateByExampleSelective(TLTIssueGenParams record, TLTIssueGenParamsExample example)  {
+	public int updateByExampleSelective(TLTIssueGenParams record, TLTIssueGenParamsExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TLTIssueGenParams record, TLTIssueGenParamsExample example) {
+	public int updateByExample(TLTIssueGenParams record, TLTIssueGenParamsExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TLTIssueGenParams record) {
+	public int updateByPrimaryKeySelective(TLTIssueGenParams record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TLTIssueGenParams record) {
+	public int updateByPrimaryKey(TLTIssueGenParams record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TLTIssueGenParamsExample());
 	}
 
@@ -187,7 +187,7 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TLTIssueGenParams> records) {
+	public int batchInsert(List<TLTIssueGenParams> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -299,12 +299,12 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

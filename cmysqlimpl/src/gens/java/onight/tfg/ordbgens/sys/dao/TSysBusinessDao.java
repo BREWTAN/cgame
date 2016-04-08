@@ -36,28 +36,28 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 	}
 
 	@Override
-	public int deleteByExample(TSysBusinessExample example) {
+	public int deleteByExample(TSysBusinessExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TSysBusinessKey key) {
+	public int deleteByPrimaryKey(TSysBusinessKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TSysBusiness record)  {
+	public int insert(TSysBusiness record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TSysBusiness record)  {
+	public int insertSelective(TSysBusiness record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TSysBusiness> records)
+	public int batchUpdate(List<TSysBusiness> records) throws Exception
 			 {
 		for(TSysBusiness record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TSysBusiness> records)
+	public int batchDelete(List<TSysBusiness> records) throws Exception
 			 {
 		for(TSysBusiness record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 	}
 
 	@Override
-	public int updateByExampleSelective(TSysBusiness record, TSysBusinessExample example)  {
+	public int updateByExampleSelective(TSysBusiness record, TSysBusinessExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TSysBusiness record, TSysBusinessExample example) {
+	public int updateByExample(TSysBusiness record, TSysBusinessExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TSysBusiness record) {
+	public int updateByPrimaryKeySelective(TSysBusiness record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TSysBusiness record) {
+	public int updateByPrimaryKey(TSysBusiness record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TSysBusinessExample());
 	}
 
@@ -184,7 +184,7 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TSysBusiness> records) {
+	public int batchInsert(List<TSysBusiness> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -208,7 +208,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBusinessId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBusinessId()+"'");
+				// java type==String
+						sb.append("'"+record.getBusinessId()+"'");
 				}
 			
 				sb.append(",");
@@ -216,7 +217,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBusinessName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBusinessName()+"'");
+				// java type==String
+						sb.append("'"+record.getBusinessName()+"'");
 				}
 			
 				sb.append(",");
@@ -224,7 +226,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBusinessDesc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBusinessDesc()+"'");
+				// java type==String
+						sb.append("'"+record.getBusinessDesc()+"'");
 				}
 			
 				sb.append(",");
@@ -232,7 +235,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBusinessManager()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBusinessManager()+"'");
+				// java type==String
+						sb.append("'"+record.getBusinessManager()+"'");
 				}
 			
 				sb.append(",");
@@ -240,7 +244,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBusinessMobile()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBusinessMobile()+"'");
+				// java type==String
+						sb.append("'"+record.getBusinessMobile()+"'");
 				}
 			
 				sb.append(",");
@@ -248,7 +253,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBusinessSeq()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBusinessSeq()+"'");
+				// java type==Integer
+						sb.append("'"+record.getBusinessSeq()+"'");
 				}
 			
 				sb.append(",");
@@ -256,7 +262,9 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBeginTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBeginTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getBeginTime())+"'");
 				}
 			
 				sb.append(",");
@@ -264,7 +272,9 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getEndTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getEndTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getEndTime())+"'");
 				}
 			
 				sb.append(",");
@@ -272,7 +282,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -280,7 +291,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBusinessDataPermission()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBusinessDataPermission()+"'");
+				// java type==Integer
+						sb.append("'"+record.getBusinessDataPermission()+"'");
 				}
 							sb.append(")");
 			
@@ -288,12 +300,12 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

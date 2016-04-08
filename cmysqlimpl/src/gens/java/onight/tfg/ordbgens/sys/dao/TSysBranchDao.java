@@ -36,28 +36,28 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 	}
 
 	@Override
-	public int deleteByExample(TSysBranchExample example) {
+	public int deleteByExample(TSysBranchExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TSysBranchKey key) {
+	public int deleteByPrimaryKey(TSysBranchKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TSysBranch record)  {
+	public int insert(TSysBranch record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TSysBranch record)  {
+	public int insertSelective(TSysBranch record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TSysBranch> records)
+	public int batchUpdate(List<TSysBranch> records) throws Exception
 			 {
 		for(TSysBranch record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TSysBranch> records)
+	public int batchDelete(List<TSysBranch> records) throws Exception
 			 {
 		for(TSysBranch record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 	}
 
 	@Override
-	public int updateByExampleSelective(TSysBranch record, TSysBranchExample example)  {
+	public int updateByExampleSelective(TSysBranch record, TSysBranchExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TSysBranch record, TSysBranchExample example) {
+	public int updateByExample(TSysBranch record, TSysBranchExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TSysBranch record) {
+	public int updateByPrimaryKeySelective(TSysBranch record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TSysBranch record) {
+	public int updateByPrimaryKey(TSysBranch record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TSysBranchExample());
 	}
 
@@ -190,7 +190,7 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TSysBranch> records) {
+	public int batchInsert(List<TSysBranch> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -214,7 +214,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getId()+"'");
+				// java type==String
+						sb.append("'"+record.getId()+"'");
 				}
 			
 				sb.append(",");
@@ -222,7 +223,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getBranchId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBranchId()+"'");
+				// java type==String
+						sb.append("'"+record.getBranchId()+"'");
 				}
 			
 				sb.append(",");
@@ -230,7 +232,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getBranchDesc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBranchDesc()+"'");
+				// java type==String
+						sb.append("'"+record.getBranchDesc()+"'");
 				}
 			
 				sb.append(",");
@@ -238,7 +241,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getBranchName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBranchName()+"'");
+				// java type==String
+						sb.append("'"+record.getBranchName()+"'");
 				}
 			
 				sb.append(",");
@@ -246,7 +250,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getBranchManager()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBranchManager()+"'");
+				// java type==String
+						sb.append("'"+record.getBranchManager()+"'");
 				}
 			
 				sb.append(",");
@@ -254,7 +259,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getMobile()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMobile()+"'");
+				// java type==String
+						sb.append("'"+record.getMobile()+"'");
 				}
 			
 				sb.append(",");
@@ -262,7 +268,9 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getBeginTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBeginTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getBeginTime())+"'");
 				}
 			
 				sb.append(",");
@@ -270,7 +278,9 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getEndTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getEndTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getEndTime())+"'");
 				}
 			
 				sb.append(",");
@@ -278,7 +288,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getParentId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getParentId()+"'");
+				// java type==String
+						sb.append("'"+record.getParentId()+"'");
 				}
 			
 				sb.append(",");
@@ -286,7 +297,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getLeafFlag()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLeafFlag()+"'");
+				// java type==Integer
+						sb.append("'"+record.getLeafFlag()+"'");
 				}
 			
 				sb.append(",");
@@ -294,7 +306,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getBranchSeq()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBranchSeq()+"'");
+				// java type==Integer
+						sb.append("'"+record.getBranchSeq()+"'");
 				}
 			
 				sb.append(",");
@@ -302,7 +315,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getLevel()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLevel()+"'");
+				// java type==Integer
+						sb.append("'"+record.getLevel()+"'");
 				}
 							sb.append(")");
 			
@@ -310,12 +324,12 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

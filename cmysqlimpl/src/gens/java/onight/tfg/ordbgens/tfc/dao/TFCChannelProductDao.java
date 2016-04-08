@@ -36,28 +36,28 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 	}
 
 	@Override
-	public int deleteByExample(TFCChannelProductExample example) {
+	public int deleteByExample(TFCChannelProductExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFCChannelProductKey key) {
+	public int deleteByPrimaryKey(TFCChannelProductKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFCChannelProduct record)  {
+	public int insert(TFCChannelProduct record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFCChannelProduct record)  {
+	public int insertSelective(TFCChannelProduct record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFCChannelProduct> records)
+	public int batchUpdate(List<TFCChannelProduct> records) throws Exception
 			 {
 		for(TFCChannelProduct record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFCChannelProduct> records)
+	public int batchDelete(List<TFCChannelProduct> records) throws Exception
 			 {
 		for(TFCChannelProduct record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 	}
 
 	@Override
-	public int updateByExampleSelective(TFCChannelProduct record, TFCChannelProductExample example)  {
+	public int updateByExampleSelective(TFCChannelProduct record, TFCChannelProductExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFCChannelProduct record, TFCChannelProductExample example) {
+	public int updateByExample(TFCChannelProduct record, TFCChannelProductExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFCChannelProduct record) {
+	public int updateByPrimaryKeySelective(TFCChannelProduct record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFCChannelProduct record) {
+	public int updateByPrimaryKey(TFCChannelProduct record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFCChannelProductExample());
 	}
 
@@ -175,7 +175,7 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFCChannelProduct> records) {
+	public int batchInsert(List<TFCChannelProduct> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -199,7 +199,8 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 				if(record.getRowId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRowId()+"'");
+				// java type==String
+						sb.append("'"+record.getRowId()+"'");
 				}
 			
 				sb.append(",");
@@ -207,7 +208,8 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 				if(record.getGameId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getGameId()+"'");
+				// java type==String
+						sb.append("'"+record.getGameId()+"'");
 				}
 			
 				sb.append(",");
@@ -215,7 +217,8 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 				if(record.getChannelId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getChannelId()+"'");
+				// java type==String
+						sb.append("'"+record.getChannelId()+"'");
 				}
 			
 				sb.append(",");
@@ -223,7 +226,8 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 				if(record.getProductId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getProductId()+"'");
+				// java type==String
+						sb.append("'"+record.getProductId()+"'");
 				}
 			
 				sb.append(",");
@@ -231,7 +235,8 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 				if(record.getNote()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getNote()+"'");
+				// java type==String
+						sb.append("'"+record.getNote()+"'");
 				}
 			
 				sb.append(",");
@@ -239,7 +244,8 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 				if(record.getAuthor()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getAuthor()+"'");
+				// java type==String
+						sb.append("'"+record.getAuthor()+"'");
 				}
 			
 				sb.append(",");
@@ -247,7 +253,9 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 				if(record.getRectime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRectime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getRectime())+"'");
 				}
 							sb.append(")");
 			
@@ -255,12 +263,12 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

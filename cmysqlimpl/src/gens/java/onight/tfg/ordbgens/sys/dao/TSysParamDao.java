@@ -36,28 +36,28 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 	}
 
 	@Override
-	public int deleteByExample(TSysParamExample example) {
+	public int deleteByExample(TSysParamExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TSysParamKey key) {
+	public int deleteByPrimaryKey(TSysParamKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TSysParam record)  {
+	public int insert(TSysParam record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TSysParam record)  {
+	public int insertSelective(TSysParam record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TSysParam> records)
+	public int batchUpdate(List<TSysParam> records) throws Exception
 			 {
 		for(TSysParam record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TSysParam> records)
+	public int batchDelete(List<TSysParam> records) throws Exception
 			 {
 		for(TSysParam record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 	}
 
 	@Override
-	public int updateByExampleSelective(TSysParam record, TSysParamExample example)  {
+	public int updateByExampleSelective(TSysParam record, TSysParamExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TSysParam record, TSysParamExample example) {
+	public int updateByExample(TSysParam record, TSysParamExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TSysParam record) {
+	public int updateByPrimaryKeySelective(TSysParam record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TSysParam record) {
+	public int updateByPrimaryKey(TSysParam record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TSysParamExample());
 	}
 
@@ -178,7 +178,7 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TSysParam> records) {
+	public int batchInsert(List<TSysParam> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -202,7 +202,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getParamId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getParamId()+"'");
+				// java type==String
+						sb.append("'"+record.getParamId()+"'");
 				}
 			
 				sb.append(",");
@@ -210,7 +211,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getParamType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getParamType()+"'");
+				// java type==String
+						sb.append("'"+record.getParamType()+"'");
 				}
 			
 				sb.append(",");
@@ -218,7 +220,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getParamValue()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getParamValue()+"'");
+				// java type==String
+						sb.append("'"+record.getParamValue()+"'");
 				}
 			
 				sb.append(",");
@@ -226,7 +229,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getDsc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getDsc()+"'");
+				// java type==String
+						sb.append("'"+record.getDsc()+"'");
 				}
 			
 				sb.append(",");
@@ -234,7 +238,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getCrtTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCrtTime()+"'");
+				// java type==String
+						sb.append("'"+record.getCrtTime()+"'");
 				}
 			
 				sb.append(",");
@@ -242,7 +247,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getField1()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getField1()+"'");
+				// java type==String
+						sb.append("'"+record.getField1()+"'");
 				}
 			
 				sb.append(",");
@@ -250,7 +256,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getField2()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getField2()+"'");
+				// java type==String
+						sb.append("'"+record.getField2()+"'");
 				}
 			
 				sb.append(",");
@@ -258,7 +265,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getField3()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getField3()+"'");
+				// java type==String
+						sb.append("'"+record.getField3()+"'");
 				}
 							sb.append(")");
 			
@@ -266,12 +274,12 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

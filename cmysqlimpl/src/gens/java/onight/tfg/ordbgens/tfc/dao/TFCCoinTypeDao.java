@@ -36,28 +36,28 @@ public class TFCCoinTypeDao extends ExtendDaoSupper<TFCCoinType, TFCCoinTypeExam
 	}
 
 	@Override
-	public int deleteByExample(TFCCoinTypeExample example) {
+	public int deleteByExample(TFCCoinTypeExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFCCoinTypeKey key) {
+	public int deleteByPrimaryKey(TFCCoinTypeKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFCCoinType record)  {
+	public int insert(TFCCoinType record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFCCoinType record)  {
+	public int insertSelective(TFCCoinType record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFCCoinType> records)
+	public int batchUpdate(List<TFCCoinType> records) throws Exception
 			 {
 		for(TFCCoinType record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFCCoinTypeDao extends ExtendDaoSupper<TFCCoinType, TFCCoinTypeExam
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFCCoinType> records)
+	public int batchDelete(List<TFCCoinType> records) throws Exception
 			 {
 		for(TFCCoinType record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFCCoinTypeDao extends ExtendDaoSupper<TFCCoinType, TFCCoinTypeExam
 	}
 
 	@Override
-	public int updateByExampleSelective(TFCCoinType record, TFCCoinTypeExample example)  {
+	public int updateByExampleSelective(TFCCoinType record, TFCCoinTypeExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFCCoinType record, TFCCoinTypeExample example) {
+	public int updateByExample(TFCCoinType record, TFCCoinTypeExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFCCoinType record) {
+	public int updateByPrimaryKeySelective(TFCCoinType record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFCCoinType record) {
+	public int updateByPrimaryKey(TFCCoinType record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFCCoinTypeDao extends ExtendDaoSupper<TFCCoinType, TFCCoinTypeExam
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFCCoinTypeExample());
 	}
 
@@ -172,7 +172,7 @@ public class TFCCoinTypeDao extends ExtendDaoSupper<TFCCoinType, TFCCoinTypeExam
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFCCoinType> records) {
+	public int batchInsert(List<TFCCoinType> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -196,7 +196,8 @@ public class TFCCoinTypeDao extends ExtendDaoSupper<TFCCoinType, TFCCoinTypeExam
 				if(record.getCoinTypeId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCoinTypeId()+"'");
+				// java type==String
+						sb.append("'"+record.getCoinTypeId()+"'");
 				}
 			
 				sb.append(",");
@@ -204,7 +205,8 @@ public class TFCCoinTypeDao extends ExtendDaoSupper<TFCCoinType, TFCCoinTypeExam
 				if(record.getCoinName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCoinName()+"'");
+				// java type==String
+						sb.append("'"+record.getCoinName()+"'");
 				}
 			
 				sb.append(",");
@@ -212,7 +214,8 @@ public class TFCCoinTypeDao extends ExtendDaoSupper<TFCCoinType, TFCCoinTypeExam
 				if(record.getCoinScript()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCoinScript()+"'");
+				// java type==String
+						sb.append("'"+record.getCoinScript()+"'");
 				}
 			
 				sb.append(",");
@@ -220,7 +223,8 @@ public class TFCCoinTypeDao extends ExtendDaoSupper<TFCCoinType, TFCCoinTypeExam
 				if(record.getHaveChild()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getHaveChild()+"'");
+				// java type==Integer
+						sb.append("'"+record.getHaveChild()+"'");
 				}
 			
 				sb.append(",");
@@ -228,7 +232,8 @@ public class TFCCoinTypeDao extends ExtendDaoSupper<TFCCoinType, TFCCoinTypeExam
 				if(record.getCanSplit()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCanSplit()+"'");
+				// java type==Integer
+						sb.append("'"+record.getCanSplit()+"'");
 				}
 			
 				sb.append(",");
@@ -236,7 +241,8 @@ public class TFCCoinTypeDao extends ExtendDaoSupper<TFCCoinType, TFCCoinTypeExam
 				if(record.getUseLevel()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUseLevel()+"'");
+				// java type==Integer
+						sb.append("'"+record.getUseLevel()+"'");
 				}
 							sb.append(")");
 			
@@ -244,12 +250,12 @@ public class TFCCoinTypeDao extends ExtendDaoSupper<TFCCoinType, TFCCoinTypeExam
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

@@ -36,28 +36,28 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 	}
 
 	@Override
-	public int deleteByExample(TLTBonusgroupExample example) {
+	public int deleteByExample(TLTBonusgroupExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TLTBonusgroupKey key) {
+	public int deleteByPrimaryKey(TLTBonusgroupKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TLTBonusgroup record)  {
+	public int insert(TLTBonusgroup record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TLTBonusgroup record)  {
+	public int insertSelective(TLTBonusgroup record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TLTBonusgroup> records)
+	public int batchUpdate(List<TLTBonusgroup> records) throws Exception
 			 {
 		for(TLTBonusgroup record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TLTBonusgroup> records)
+	public int batchDelete(List<TLTBonusgroup> records) throws Exception
 			 {
 		for(TLTBonusgroup record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 	}
 
 	@Override
-	public int updateByExampleSelective(TLTBonusgroup record, TLTBonusgroupExample example)  {
+	public int updateByExampleSelective(TLTBonusgroup record, TLTBonusgroupExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TLTBonusgroup record, TLTBonusgroupExample example) {
+	public int updateByExample(TLTBonusgroup record, TLTBonusgroupExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TLTBonusgroup record) {
+	public int updateByPrimaryKeySelective(TLTBonusgroup record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TLTBonusgroup record) {
+	public int updateByPrimaryKey(TLTBonusgroup record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TLTBonusgroupExample());
 	}
 
@@ -181,7 +181,7 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TLTBonusgroup> records) {
+	public int batchInsert(List<TLTBonusgroup> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -205,7 +205,8 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getId()+"'");
+				// java type==Long
+						sb.append("'"+record.getId()+"'");
 				}
 			
 				sb.append(",");
@@ -213,7 +214,8 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getLtype()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLtype()+"'");
+				// java type==String
+						sb.append("'"+record.getLtype()+"'");
 				}
 			
 				sb.append(",");
@@ -221,7 +223,8 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getPlayType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPlayType()+"'");
+				// java type==String
+						sb.append("'"+record.getPlayType()+"'");
 				}
 			
 				sb.append(",");
@@ -229,7 +232,8 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getCnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getCnName()+"'");
+				// java type==String
+						sb.append("'"+record.getCnName()+"'");
 				}
 			
 				sb.append(",");
@@ -237,7 +241,8 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getEnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getEnName()+"'");
+				// java type==String
+						sb.append("'"+record.getEnName()+"'");
 				}
 			
 				sb.append(",");
@@ -245,7 +250,8 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getStatus()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -253,7 +259,9 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getCreateTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCreateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCreateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -261,7 +269,9 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getUpdateTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUpdateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getUpdateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -269,7 +279,8 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==Long
+						sb.append("'"+record.getUserId()+"'");
 				}
 							sb.append(")");
 			
@@ -277,12 +288,12 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

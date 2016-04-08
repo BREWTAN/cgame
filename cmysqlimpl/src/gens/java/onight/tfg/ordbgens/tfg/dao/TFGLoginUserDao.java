@@ -36,28 +36,28 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 	}
 
 	@Override
-	public int deleteByExample(TFGLoginUserExample example) {
+	public int deleteByExample(TFGLoginUserExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFGLoginUserKey key) {
+	public int deleteByPrimaryKey(TFGLoginUserKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFGLoginUser record)  {
+	public int insert(TFGLoginUser record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFGLoginUser record)  {
+	public int insertSelective(TFGLoginUser record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFGLoginUser> records)
+	public int batchUpdate(List<TFGLoginUser> records) throws Exception
 			 {
 		for(TFGLoginUser record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFGLoginUser> records)
+	public int batchDelete(List<TFGLoginUser> records) throws Exception
 			 {
 		for(TFGLoginUser record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 	}
 
 	@Override
-	public int updateByExampleSelective(TFGLoginUser record, TFGLoginUserExample example)  {
+	public int updateByExampleSelective(TFGLoginUser record, TFGLoginUserExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFGLoginUser record, TFGLoginUserExample example) {
+	public int updateByExample(TFGLoginUser record, TFGLoginUserExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFGLoginUser record) {
+	public int updateByPrimaryKeySelective(TFGLoginUser record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFGLoginUser record) {
+	public int updateByPrimaryKey(TFGLoginUser record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFGLoginUserExample());
 	}
 
@@ -205,7 +205,7 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFGLoginUser> records) {
+	public int batchInsert(List<TFGLoginUser> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -229,7 +229,8 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==Long
+						sb.append("'"+record.getUserId()+"'");
 				}
 			
 				sb.append(",");
@@ -237,7 +238,8 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getLoginId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLoginId()+"'");
+				// java type==String
+						sb.append("'"+record.getLoginId()+"'");
 				}
 			
 				sb.append(",");
@@ -245,7 +247,8 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getNickname()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getNickname()+"'");
+				// java type==String
+						sb.append("'"+record.getNickname()+"'");
 				}
 			
 				sb.append(",");
@@ -253,7 +256,8 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getEmail()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getEmail()+"'");
+				// java type==String
+						sb.append("'"+record.getEmail()+"'");
 				}
 			
 				sb.append(",");
@@ -261,7 +265,8 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getMobile()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMobile()+"'");
+				// java type==String
+						sb.append("'"+record.getMobile()+"'");
 				}
 			
 				sb.append(",");
@@ -269,7 +274,8 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getThirdLoginid1()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getThirdLoginid1()+"'");
+				// java type==String
+						sb.append("'"+record.getThirdLoginid1()+"'");
 				}
 			
 				sb.append(",");
@@ -277,7 +283,8 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getThirdLoginid2()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getThirdLoginid2()+"'");
+				// java type==String
+						sb.append("'"+record.getThirdLoginid2()+"'");
 				}
 			
 				sb.append(",");
@@ -285,7 +292,8 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getRegType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRegType()+"'");
+				// java type==String
+						sb.append("'"+record.getRegType()+"'");
 				}
 			
 				sb.append(",");
@@ -293,7 +301,8 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -301,7 +310,8 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getPassword()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPassword()+"'");
+				// java type==String
+						sb.append("'"+record.getPassword()+"'");
 				}
 			
 				sb.append(",");
@@ -309,7 +319,8 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getTradePassword()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getTradePassword()+"'");
+				// java type==String
+						sb.append("'"+record.getTradePassword()+"'");
 				}
 			
 				sb.append(",");
@@ -317,7 +328,9 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getUpdateTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUpdateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getUpdateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -325,7 +338,9 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getCreateTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCreateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCreateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -333,7 +348,9 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getLastLoginTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLastLoginTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getLastLoginTime())+"'");
 				}
 			
 				sb.append(",");
@@ -341,7 +358,8 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getLastLoginIp()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLastLoginIp()+"'");
+				// java type==String
+						sb.append("'"+record.getLastLoginIp()+"'");
 				}
 			
 				sb.append(",");
@@ -349,7 +367,8 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getLastLoginTerminal()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getLastLoginTerminal()+"'");
+				// java type==Integer
+						sb.append("'"+record.getLastLoginTerminal()+"'");
 				}
 			
 				sb.append(",");
@@ -357,7 +376,8 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				if(record.getLastLoginSysinfo()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getLastLoginSysinfo()+"'");
+				// java type==String
+						sb.append("'"+record.getLastLoginSysinfo()+"'");
 				}
 							sb.append(")");
 			
@@ -365,12 +385,12 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

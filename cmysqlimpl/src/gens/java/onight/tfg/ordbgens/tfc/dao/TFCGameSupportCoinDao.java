@@ -36,28 +36,28 @@ public class TFCGameSupportCoinDao extends ExtendDaoSupper<TFCGameSupportCoin, T
 	}
 
 	@Override
-	public int deleteByExample(TFCGameSupportCoinExample example) {
+	public int deleteByExample(TFCGameSupportCoinExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFCGameSupportCoinKey key) {
+	public int deleteByPrimaryKey(TFCGameSupportCoinKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFCGameSupportCoin record)  {
+	public int insert(TFCGameSupportCoin record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFCGameSupportCoin record)  {
+	public int insertSelective(TFCGameSupportCoin record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFCGameSupportCoin> records)
+	public int batchUpdate(List<TFCGameSupportCoin> records) throws Exception
 			 {
 		for(TFCGameSupportCoin record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFCGameSupportCoinDao extends ExtendDaoSupper<TFCGameSupportCoin, T
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFCGameSupportCoin> records)
+	public int batchDelete(List<TFCGameSupportCoin> records) throws Exception
 			 {
 		for(TFCGameSupportCoin record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFCGameSupportCoinDao extends ExtendDaoSupper<TFCGameSupportCoin, T
 	}
 
 	@Override
-	public int updateByExampleSelective(TFCGameSupportCoin record, TFCGameSupportCoinExample example)  {
+	public int updateByExampleSelective(TFCGameSupportCoin record, TFCGameSupportCoinExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFCGameSupportCoin record, TFCGameSupportCoinExample example) {
+	public int updateByExample(TFCGameSupportCoin record, TFCGameSupportCoinExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFCGameSupportCoin record) {
+	public int updateByPrimaryKeySelective(TFCGameSupportCoin record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFCGameSupportCoin record) {
+	public int updateByPrimaryKey(TFCGameSupportCoin record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFCGameSupportCoinDao extends ExtendDaoSupper<TFCGameSupportCoin, T
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFCGameSupportCoinExample());
 	}
 
@@ -163,7 +163,7 @@ public class TFCGameSupportCoinDao extends ExtendDaoSupper<TFCGameSupportCoin, T
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFCGameSupportCoin> records) {
+	public int batchInsert(List<TFCGameSupportCoin> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -187,7 +187,8 @@ public class TFCGameSupportCoinDao extends ExtendDaoSupper<TFCGameSupportCoin, T
 				if(record.getRowId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRowId()+"'");
+				// java type==String
+						sb.append("'"+record.getRowId()+"'");
 				}
 			
 				sb.append(",");
@@ -195,7 +196,8 @@ public class TFCGameSupportCoinDao extends ExtendDaoSupper<TFCGameSupportCoin, T
 				if(record.getCoinTypeId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCoinTypeId()+"'");
+				// java type==String
+						sb.append("'"+record.getCoinTypeId()+"'");
 				}
 			
 				sb.append(",");
@@ -203,7 +205,8 @@ public class TFCGameSupportCoinDao extends ExtendDaoSupper<TFCGameSupportCoin, T
 				if(record.getGameId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getGameId()+"'");
+				// java type==String
+						sb.append("'"+record.getGameId()+"'");
 				}
 							sb.append(")");
 			
@@ -211,12 +214,12 @@ public class TFCGameSupportCoinDao extends ExtendDaoSupper<TFCGameSupportCoin, T
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

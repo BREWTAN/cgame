@@ -36,28 +36,28 @@ public class TFGUserIdListDao extends ExtendDaoSupper<TFGUserIdList, TFGUserIdLi
 	}
 
 	@Override
-	public int deleteByExample(TFGUserIdListExample example) {
+	public int deleteByExample(TFGUserIdListExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFGUserIdListKey key) {
+	public int deleteByPrimaryKey(TFGUserIdListKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFGUserIdList record)  {
+	public int insert(TFGUserIdList record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFGUserIdList record)  {
+	public int insertSelective(TFGUserIdList record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFGUserIdList> records)
+	public int batchUpdate(List<TFGUserIdList> records) throws Exception
 			 {
 		for(TFGUserIdList record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFGUserIdListDao extends ExtendDaoSupper<TFGUserIdList, TFGUserIdLi
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFGUserIdList> records)
+	public int batchDelete(List<TFGUserIdList> records) throws Exception
 			 {
 		for(TFGUserIdList record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFGUserIdListDao extends ExtendDaoSupper<TFGUserIdList, TFGUserIdLi
 	}
 
 	@Override
-	public int updateByExampleSelective(TFGUserIdList record, TFGUserIdListExample example)  {
+	public int updateByExampleSelective(TFGUserIdList record, TFGUserIdListExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFGUserIdList record, TFGUserIdListExample example) {
+	public int updateByExample(TFGUserIdList record, TFGUserIdListExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFGUserIdList record) {
+	public int updateByPrimaryKeySelective(TFGUserIdList record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFGUserIdList record) {
+	public int updateByPrimaryKey(TFGUserIdList record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFGUserIdListDao extends ExtendDaoSupper<TFGUserIdList, TFGUserIdLi
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFGUserIdListExample());
 	}
 
@@ -160,7 +160,7 @@ public class TFGUserIdListDao extends ExtendDaoSupper<TFGUserIdList, TFGUserIdLi
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFGUserIdList> records) {
+	public int batchInsert(List<TFGUserIdList> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -184,7 +184,8 @@ public class TFGUserIdListDao extends ExtendDaoSupper<TFGUserIdList, TFGUserIdLi
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==Long
+						sb.append("'"+record.getUserId()+"'");
 				}
 			
 				sb.append(",");
@@ -192,7 +193,8 @@ public class TFGUserIdListDao extends ExtendDaoSupper<TFGUserIdList, TFGUserIdLi
 				if(record.getStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getStatus()+"'");
 				}
 							sb.append(")");
 			
@@ -200,12 +202,12 @@ public class TFGUserIdListDao extends ExtendDaoSupper<TFGUserIdList, TFGUserIdLi
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

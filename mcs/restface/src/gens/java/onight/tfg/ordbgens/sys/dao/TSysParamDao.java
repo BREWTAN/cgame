@@ -36,28 +36,28 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 	}
 
 	@Override
-	public int deleteByExample(TSysParamExample example) {
+	public int deleteByExample(TSysParamExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TSysParamKey key) {
+	public int deleteByPrimaryKey(TSysParamKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TSysParam record)  {
+	public int insert(TSysParam record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TSysParam record)  {
+	public int insertSelective(TSysParam record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TSysParam> records)
+	public int batchUpdate(List<TSysParam> records) throws Exception
 			 {
 		for(TSysParam record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TSysParam> records)
+	public int batchDelete(List<TSysParam> records) throws Exception
 			 {
 		for(TSysParam record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 	}
 
 	@Override
-	public int updateByExampleSelective(TSysParam record, TSysParamExample example)  {
+	public int updateByExampleSelective(TSysParam record, TSysParamExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TSysParam record, TSysParamExample example) {
+	public int updateByExample(TSysParam record, TSysParamExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TSysParam record) {
+	public int updateByPrimaryKeySelective(TSysParam record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TSysParam record) {
+	public int updateByPrimaryKey(TSysParam record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TSysParamExample());
 	}
 
@@ -178,7 +178,7 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TSysParam> records) {
+	public int batchInsert(List<TSysParam> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -266,12 +266,12 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

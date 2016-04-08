@@ -36,28 +36,28 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 	}
 
 	@Override
-	public int deleteByExample(TLTLimitedNumExample example) {
+	public int deleteByExample(TLTLimitedNumExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TLTLimitedNumKey key) {
+	public int deleteByPrimaryKey(TLTLimitedNumKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TLTLimitedNum record)  {
+	public int insert(TLTLimitedNum record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TLTLimitedNum record)  {
+	public int insertSelective(TLTLimitedNum record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TLTLimitedNum> records)
+	public int batchUpdate(List<TLTLimitedNum> records) throws Exception
 			 {
 		for(TLTLimitedNum record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TLTLimitedNum> records)
+	public int batchDelete(List<TLTLimitedNum> records) throws Exception
 			 {
 		for(TLTLimitedNum record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 	}
 
 	@Override
-	public int updateByExampleSelective(TLTLimitedNum record, TLTLimitedNumExample example)  {
+	public int updateByExampleSelective(TLTLimitedNum record, TLTLimitedNumExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TLTLimitedNum record, TLTLimitedNumExample example) {
+	public int updateByExample(TLTLimitedNum record, TLTLimitedNumExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TLTLimitedNum record) {
+	public int updateByPrimaryKeySelective(TLTLimitedNum record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TLTLimitedNum record) {
+	public int updateByPrimaryKey(TLTLimitedNum record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TLTLimitedNumExample());
 	}
 
@@ -184,7 +184,7 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TLTLimitedNum> records) {
+	public int batchInsert(List<TLTLimitedNum> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -208,7 +208,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getUuid()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUuid()+"'");
+				// java type==String
+						sb.append("'"+record.getUuid()+"'");
 				}
 			
 				sb.append(",");
@@ -216,7 +217,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getIssueNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getIssueNo()+"'");
+				// java type==String
+						sb.append("'"+record.getIssueNo()+"'");
 				}
 			
 				sb.append(",");
@@ -224,7 +226,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getLimitedNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLimitedNum()+"'");
+				// java type==String
+						sb.append("'"+record.getLimitedNum()+"'");
 				}
 			
 				sb.append(",");
@@ -232,7 +235,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getLtype()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLtype()+"'");
+				// java type==String
+						sb.append("'"+record.getLtype()+"'");
 				}
 			
 				sb.append(",");
@@ -240,7 +244,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getPlayType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPlayType()+"'");
+				// java type==String
+						sb.append("'"+record.getPlayType()+"'");
 				}
 			
 				sb.append(",");
@@ -248,7 +253,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getExtrafield1()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getExtrafield1()+"'");
+				// java type==String
+						sb.append("'"+record.getExtrafield1()+"'");
 				}
 			
 				sb.append(",");
@@ -256,7 +262,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getExtrafield2()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getExtrafield2()+"'");
+				// java type==String
+						sb.append("'"+record.getExtrafield2()+"'");
 				}
 			
 				sb.append(",");
@@ -264,7 +271,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getExtrafield3()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getExtrafield3()+"'");
+				// java type==Integer
+						sb.append("'"+record.getExtrafield3()+"'");
 				}
 			
 				sb.append(",");
@@ -272,7 +280,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getExtrafield4()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getExtrafield4()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getExtrafield4()+"'");
 				}
 			
 				sb.append(",");
@@ -280,7 +289,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getExtrafield5()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getExtrafield5()+"'");
+				// java type==Long
+						sb.append("'"+record.getExtrafield5()+"'");
 				}
 							sb.append(")");
 			
@@ -288,12 +298,12 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

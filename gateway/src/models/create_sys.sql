@@ -61,7 +61,7 @@ create table T_SYS_BUSINESS
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
 
 /*==============================================================*/
-/* Table: T_TRADE_PARAM                                             */
+/* Table: T_SYS_PARAM                                             */
 /*==============================================================*/
 drop table if exists T_SYS_PARAM;
 create table T_SYS_PARAM

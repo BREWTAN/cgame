@@ -36,28 +36,28 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 	}
 
 	@Override
-	public int deleteByExample(TLTPlayTypeExample example) {
+	public int deleteByExample(TLTPlayTypeExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TLTPlayTypeKey key) {
+	public int deleteByPrimaryKey(TLTPlayTypeKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TLTPlayType record)  {
+	public int insert(TLTPlayType record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TLTPlayType record)  {
+	public int insertSelective(TLTPlayType record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TLTPlayType> records)
+	public int batchUpdate(List<TLTPlayType> records) throws Exception
 			 {
 		for(TLTPlayType record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TLTPlayType> records)
+	public int batchDelete(List<TLTPlayType> records) throws Exception
 			 {
 		for(TLTPlayType record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 	}
 
 	@Override
-	public int updateByExampleSelective(TLTPlayType record, TLTPlayTypeExample example)  {
+	public int updateByExampleSelective(TLTPlayType record, TLTPlayTypeExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TLTPlayType record, TLTPlayTypeExample example) {
+	public int updateByExample(TLTPlayType record, TLTPlayTypeExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TLTPlayType record) {
+	public int updateByPrimaryKeySelective(TLTPlayType record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TLTPlayType record) {
+	public int updateByPrimaryKey(TLTPlayType record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TLTPlayTypeExample());
 	}
 
@@ -214,7 +214,7 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TLTPlayType> records) {
+	public int batchInsert(List<TLTPlayType> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -238,7 +238,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getPlayType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPlayType()+"'");
+				// java type==String
+						sb.append("'"+record.getPlayType()+"'");
 				}
 			
 				sb.append(",");
@@ -246,7 +247,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getLtype()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLtype()+"'");
+				// java type==String
+						sb.append("'"+record.getLtype()+"'");
 				}
 			
 				sb.append(",");
@@ -254,7 +256,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getGroupType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getGroupType()+"'");
+				// java type==String
+						sb.append("'"+record.getGroupType()+"'");
 				}
 			
 				sb.append(",");
@@ -262,7 +265,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getLpgId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLpgId()+"'");
+				// java type==String
+						sb.append("'"+record.getLpgId()+"'");
 				}
 			
 				sb.append(",");
@@ -270,7 +274,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getCnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getCnName()+"'");
+				// java type==String
+						sb.append("'"+record.getCnName()+"'");
 				}
 			
 				sb.append(",");
@@ -278,7 +283,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getEnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getEnName()+"'");
+				// java type==String
+						sb.append("'"+record.getEnName()+"'");
 				}
 			
 				sb.append(",");
@@ -286,7 +292,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getLockFunc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLockFunc()+"'");
+				// java type==String
+						sb.append("'"+record.getLockFunc()+"'");
 				}
 			
 				sb.append(",");
@@ -294,7 +301,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getLockTable()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLockTable()+"'");
+				// java type==String
+						sb.append("'"+record.getLockTable()+"'");
 				}
 			
 				sb.append(",");
@@ -302,7 +310,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getLockStatus()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getLockStatus()+"'");
+				// java type==Boolean
+						sb.append("'"+record.getLockStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -310,7 +319,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getModeYjfl()==null){
 						sb.append("'"+"1,2,3,4"+"'");						
 				}else{
-					sb.append("'"+record.getModeYjfl()+"'");
+				// java type==String
+						sb.append("'"+record.getModeYjfl()+"'");
 				}
 			
 				sb.append(",");
@@ -318,7 +328,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getIsandvalue()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getIsandvalue()+"'");
+				// java type==Boolean
+						sb.append("'"+record.getIsandvalue()+"'");
 				}
 			
 				sb.append(",");
@@ -326,7 +337,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getMaxBuyCodenum()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getMaxBuyCodenum()+"'");
+				// java type==Integer
+						sb.append("'"+record.getMaxBuyCodenum()+"'");
 				}
 			
 				sb.append(",");
@@ -334,7 +346,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getWinFunc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getWinFunc()+"'");
+				// java type==String
+						sb.append("'"+record.getWinFunc()+"'");
 				}
 			
 				sb.append(",");
@@ -342,7 +355,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getWinBeginpos()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getWinBeginpos()+"'");
+				// java type==Integer
+						sb.append("'"+record.getWinBeginpos()+"'");
 				}
 			
 				sb.append(",");
@@ -350,7 +364,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getWinCodenum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getWinCodenum()+"'");
+				// java type==Integer
+						sb.append("'"+record.getWinCodenum()+"'");
 				}
 			
 				sb.append(",");
@@ -358,7 +373,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getWinDiscontinuouspos()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getWinDiscontinuouspos()+"'");
+				// java type==Integer
+						sb.append("'"+record.getWinDiscontinuouspos()+"'");
 				}
 			
 				sb.append(",");
@@ -366,7 +382,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getWinCheckfunc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getWinCheckfunc()+"'");
+				// java type==String
+						sb.append("'"+record.getWinCheckfunc()+"'");
 				}
 			
 				sb.append(",");
@@ -374,7 +391,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getWinPaybonusfunc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getWinPaybonusfunc()+"'");
+				// java type==String
+						sb.append("'"+record.getWinPaybonusfunc()+"'");
 				}
 			
 				sb.append(",");
@@ -382,7 +400,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getEnable()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getEnable()+"'");
+				// java type==Boolean
+						sb.append("'"+record.getEnable()+"'");
 				}
 			
 				sb.append(",");
@@ -390,7 +409,8 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getRemark()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRemark()+"'");
+				// java type==String
+						sb.append("'"+record.getRemark()+"'");
 				}
 							sb.append(")");
 			
@@ -398,12 +418,12 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

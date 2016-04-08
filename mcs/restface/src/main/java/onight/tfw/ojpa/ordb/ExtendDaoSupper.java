@@ -14,42 +14,42 @@ public abstract class ExtendDaoSupper<T, D, K> implements StaticTableDaoSupport<
 	}
 
 	@Override
-	public int deleteByExample(D example) {
+	public int deleteByExample(D example)  throws Exception{
 		throw new NotSuportException("DaoNotSupport");
 	}
 
 	@Override
-	public int deleteByPrimaryKey(K key) {
+	public int deleteByPrimaryKey(K key)  throws Exception{
 		throw new NotSuportException("DaoNotSupport");
 	}
 
 	@Override
-	public int insert(T record) {
+	public int insert(T record)  throws Exception{
 		throw new NotSuportException("DaoNotSupport");
 	}
 
 	@Override
-	public int insertSelective(T record) {
+	public int insertSelective(T record)  throws Exception{
 		throw new NotSuportException("DaoNotSupport");
 	}
 
 	@Override
-	public int batchInsert(List<T> records) {
+	public int batchInsert(List<T> records)  throws Exception{
 		throw new NotSuportException("DaoNotSupport");
 	}
 
 	@Override
-	public int batchUpdate(List<T> records) {
+	public int batchUpdate(List<T> records)  throws Exception{
 		throw new NotSuportException("DaoNotSupport");
 	}
 
 	@Override
-	public int batchDelete(List<T> records) {
+	public int batchDelete(List<T> records)  throws Exception{
 		throw new NotSuportException("DaoNotSupport");
 	}
 
 	@Override
-	public List<T> selectByExample(D example) {
+	public List<T> selectByExample(D example)  {
 		throw new NotSuportException("DaoNotSupport");
 	}
 
@@ -69,22 +69,22 @@ public abstract class ExtendDaoSupper<T, D, K> implements StaticTableDaoSupport<
 	}
 
 	@Override
-	public int updateByExampleSelective(T record, D example) {
+	public int updateByExampleSelective(T record, D example) throws Exception {
 		throw new NotSuportException("DaoNotSupport");
 	}
 
 	@Override
-	public int updateByExample(T record, D example) {
+	public int updateByExample(T record, D example)  throws Exception{
 		throw new NotSuportException("DaoNotSupport");
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(T record) {
+	public int updateByPrimaryKeySelective(T record)  throws Exception{
 		throw new NotSuportException("DaoNotSupport");
 	}
 
 	@Override
-	public int updateByPrimaryKey(T record) {
+	public int updateByPrimaryKey(T record)  throws Exception{
 		throw new NotSuportException("DaoNotSupport");
 	}
 
@@ -94,7 +94,7 @@ public abstract class ExtendDaoSupper<T, D, K> implements StaticTableDaoSupport<
 	}
 
 	@Override
-	public void deleteAll() {
+	public void deleteAll() throws Exception {
 		throw new NotSuportException("DaoNotSupport");
 
 	}

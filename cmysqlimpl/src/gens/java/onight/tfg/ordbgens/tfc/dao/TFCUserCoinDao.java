@@ -36,28 +36,28 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 	}
 
 	@Override
-	public int deleteByExample(TFCUserCoinExample example) {
+	public int deleteByExample(TFCUserCoinExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFCUserCoinKey key) {
+	public int deleteByPrimaryKey(TFCUserCoinKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFCUserCoin record)  {
+	public int insert(TFCUserCoin record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFCUserCoin record)  {
+	public int insertSelective(TFCUserCoin record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFCUserCoin> records)
+	public int batchUpdate(List<TFCUserCoin> records) throws Exception
 			 {
 		for(TFCUserCoin record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFCUserCoin> records)
+	public int batchDelete(List<TFCUserCoin> records) throws Exception
 			 {
 		for(TFCUserCoin record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 	}
 
 	@Override
-	public int updateByExampleSelective(TFCUserCoin record, TFCUserCoinExample example)  {
+	public int updateByExampleSelective(TFCUserCoin record, TFCUserCoinExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFCUserCoin record, TFCUserCoinExample example) {
+	public int updateByExample(TFCUserCoin record, TFCUserCoinExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFCUserCoin record) {
+	public int updateByPrimaryKeySelective(TFCUserCoin record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFCUserCoin record) {
+	public int updateByPrimaryKey(TFCUserCoin record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFCUserCoinExample());
 	}
 
@@ -178,7 +178,7 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFCUserCoin> records) {
+	public int batchInsert(List<TFCUserCoin> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -202,7 +202,8 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 				if(record.getCoinRowid()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCoinRowid()+"'");
+				// java type==String
+						sb.append("'"+record.getCoinRowid()+"'");
 				}
 			
 				sb.append(",");
@@ -210,7 +211,8 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 				if(record.getCoinTypeId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCoinTypeId()+"'");
+				// java type==String
+						sb.append("'"+record.getCoinTypeId()+"'");
 				}
 			
 				sb.append(",");
@@ -218,7 +220,8 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==Long
+						sb.append("'"+record.getUserId()+"'");
 				}
 			
 				sb.append(",");
@@ -226,7 +229,9 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 				if(record.getStartTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStartTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getStartTime())+"'");
 				}
 			
 				sb.append(",");
@@ -234,7 +239,9 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 				if(record.getExpireTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getExpireTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getExpireTime())+"'");
 				}
 			
 				sb.append(",");
@@ -242,7 +249,8 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 				if(record.getCoinNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCoinNum()+"'");
+				// java type==Long
+						sb.append("'"+record.getCoinNum()+"'");
 				}
 			
 				sb.append(",");
@@ -250,7 +258,8 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 				if(record.getLockCount()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLockCount()+"'");
+				// java type==Long
+						sb.append("'"+record.getLockCount()+"'");
 				}
 			
 				sb.append(",");
@@ -258,7 +267,8 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 				if(record.getShowChild()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getShowChild()+"'");
+				// java type==Integer
+						sb.append("'"+record.getShowChild()+"'");
 				}
 							sb.append(")");
 			
@@ -266,12 +276,12 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

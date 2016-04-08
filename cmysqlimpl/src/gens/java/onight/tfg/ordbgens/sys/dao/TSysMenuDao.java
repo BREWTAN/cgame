@@ -36,28 +36,28 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 	}
 
 	@Override
-	public int deleteByExample(TSysMenuExample example) {
+	public int deleteByExample(TSysMenuExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TSysMenuKey key) {
+	public int deleteByPrimaryKey(TSysMenuKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TSysMenu record)  {
+	public int insert(TSysMenu record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TSysMenu record)  {
+	public int insertSelective(TSysMenu record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TSysMenu> records)
+	public int batchUpdate(List<TSysMenu> records) throws Exception
 			 {
 		for(TSysMenu record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TSysMenu> records)
+	public int batchDelete(List<TSysMenu> records) throws Exception
 			 {
 		for(TSysMenu record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 	}
 
 	@Override
-	public int updateByExampleSelective(TSysMenu record, TSysMenuExample example)  {
+	public int updateByExampleSelective(TSysMenu record, TSysMenuExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TSysMenu record, TSysMenuExample example) {
+	public int updateByExample(TSysMenu record, TSysMenuExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TSysMenu record) {
+	public int updateByPrimaryKeySelective(TSysMenu record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TSysMenu record) {
+	public int updateByPrimaryKey(TSysMenu record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TSysMenuExample());
 	}
 
@@ -181,7 +181,7 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TSysMenu> records) {
+	public int batchInsert(List<TSysMenu> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -205,7 +205,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getMenuId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMenuId()+"'");
+				// java type==Integer
+						sb.append("'"+record.getMenuId()+"'");
 				}
 			
 				sb.append(",");
@@ -213,7 +214,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getMenuName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMenuName()+"'");
+				// java type==String
+						sb.append("'"+record.getMenuName()+"'");
 				}
 			
 				sb.append(",");
@@ -221,7 +223,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getMenuDesc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMenuDesc()+"'");
+				// java type==String
+						sb.append("'"+record.getMenuDesc()+"'");
 				}
 			
 				sb.append(",");
@@ -229,7 +232,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getMenuSeq()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMenuSeq()+"'");
+				// java type==Integer
+						sb.append("'"+record.getMenuSeq()+"'");
 				}
 			
 				sb.append(",");
@@ -237,7 +241,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getMenuUrl()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMenuUrl()+"'");
+				// java type==String
+						sb.append("'"+record.getMenuUrl()+"'");
 				}
 			
 				sb.append(",");
@@ -245,7 +250,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getParentId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getParentId()+"'");
+				// java type==Integer
+						sb.append("'"+record.getParentId()+"'");
 				}
 			
 				sb.append(",");
@@ -253,7 +259,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getLeafFlag()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLeafFlag()+"'");
+				// java type==Integer
+						sb.append("'"+record.getLeafFlag()+"'");
 				}
 			
 				sb.append(",");
@@ -261,7 +268,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getLevel()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLevel()+"'");
+				// java type==Integer
+						sb.append("'"+record.getLevel()+"'");
 				}
 			
 				sb.append(",");
@@ -269,7 +277,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getIcon()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getIcon()+"'");
+				// java type==String
+						sb.append("'"+record.getIcon()+"'");
 				}
 							sb.append(")");
 			
@@ -277,12 +286,12 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

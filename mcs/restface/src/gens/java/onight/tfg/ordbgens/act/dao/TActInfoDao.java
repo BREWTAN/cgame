@@ -36,28 +36,28 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 	}
 
 	@Override
-	public int deleteByExample(TActInfoExample example) {
+	public int deleteByExample(TActInfoExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TActInfoKey key) {
+	public int deleteByPrimaryKey(TActInfoKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TActInfo record)  {
+	public int insert(TActInfo record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TActInfo record)  {
+	public int insertSelective(TActInfo record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TActInfo> records)
+	public int batchUpdate(List<TActInfo> records) throws Exception
 			 {
 		for(TActInfo record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TActInfo> records)
+	public int batchDelete(List<TActInfo> records) throws Exception
 			 {
 		for(TActInfo record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 	}
 
 	@Override
-	public int updateByExampleSelective(TActInfo record, TActInfoExample example)  {
+	public int updateByExampleSelective(TActInfo record, TActInfoExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TActInfo record, TActInfoExample example) {
+	public int updateByExample(TActInfo record, TActInfoExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TActInfo record) {
+	public int updateByPrimaryKeySelective(TActInfo record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TActInfo record) {
+	public int updateByPrimaryKey(TActInfo record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TActInfoExample());
 	}
 
@@ -211,7 +211,7 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TActInfo> records) {
+	public int batchInsert(List<TActInfo> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -387,12 +387,12 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

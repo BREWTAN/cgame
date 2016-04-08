@@ -36,28 +36,28 @@ public class TFCUserCoinChangeLimitDao extends ExtendDaoSupper<TFCUserCoinChange
 	}
 
 	@Override
-	public int deleteByExample(TFCUserCoinChangeLimitExample example) {
+	public int deleteByExample(TFCUserCoinChangeLimitExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFCUserCoinChangeLimitKey key) {
+	public int deleteByPrimaryKey(TFCUserCoinChangeLimitKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFCUserCoinChangeLimit record)  {
+	public int insert(TFCUserCoinChangeLimit record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFCUserCoinChangeLimit record)  {
+	public int insertSelective(TFCUserCoinChangeLimit record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFCUserCoinChangeLimit> records)
+	public int batchUpdate(List<TFCUserCoinChangeLimit> records) throws Exception
 			 {
 		for(TFCUserCoinChangeLimit record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFCUserCoinChangeLimitDao extends ExtendDaoSupper<TFCUserCoinChange
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFCUserCoinChangeLimit> records)
+	public int batchDelete(List<TFCUserCoinChangeLimit> records) throws Exception
 			 {
 		for(TFCUserCoinChangeLimit record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFCUserCoinChangeLimitDao extends ExtendDaoSupper<TFCUserCoinChange
 	}
 
 	@Override
-	public int updateByExampleSelective(TFCUserCoinChangeLimit record, TFCUserCoinChangeLimitExample example)  {
+	public int updateByExampleSelective(TFCUserCoinChangeLimit record, TFCUserCoinChangeLimitExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFCUserCoinChangeLimit record, TFCUserCoinChangeLimitExample example) {
+	public int updateByExample(TFCUserCoinChangeLimit record, TFCUserCoinChangeLimitExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFCUserCoinChangeLimit record) {
+	public int updateByPrimaryKeySelective(TFCUserCoinChangeLimit record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFCUserCoinChangeLimit record) {
+	public int updateByPrimaryKey(TFCUserCoinChangeLimit record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFCUserCoinChangeLimitDao extends ExtendDaoSupper<TFCUserCoinChange
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFCUserCoinChangeLimitExample());
 	}
 
@@ -172,7 +172,7 @@ public class TFCUserCoinChangeLimitDao extends ExtendDaoSupper<TFCUserCoinChange
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFCUserCoinChangeLimit> records) {
+	public int batchInsert(List<TFCUserCoinChangeLimit> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -196,7 +196,8 @@ public class TFCUserCoinChangeLimitDao extends ExtendDaoSupper<TFCUserCoinChange
 				if(record.getCoinRowId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCoinRowId()+"'");
+				// java type==String
+						sb.append("'"+record.getCoinRowId()+"'");
 				}
 			
 				sb.append(",");
@@ -204,7 +205,8 @@ public class TFCUserCoinChangeLimitDao extends ExtendDaoSupper<TFCUserCoinChange
 				if(record.getInNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getInNum()+"'");
+				// java type==Long
+						sb.append("'"+record.getInNum()+"'");
 				}
 			
 				sb.append(",");
@@ -212,7 +214,8 @@ public class TFCUserCoinChangeLimitDao extends ExtendDaoSupper<TFCUserCoinChange
 				if(record.getOutNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getOutNum()+"'");
+				// java type==Long
+						sb.append("'"+record.getOutNum()+"'");
 				}
 			
 				sb.append(",");
@@ -220,7 +223,8 @@ public class TFCUserCoinChangeLimitDao extends ExtendDaoSupper<TFCUserCoinChange
 				if(record.getChangeNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getChangeNum()+"'");
+				// java type==Long
+						sb.append("'"+record.getChangeNum()+"'");
 				}
 			
 				sb.append(",");
@@ -228,7 +232,9 @@ public class TFCUserCoinChangeLimitDao extends ExtendDaoSupper<TFCUserCoinChange
 				if(record.getLastupdatetime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLastupdatetime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getLastupdatetime())+"'");
 				}
 			
 				sb.append(",");
@@ -236,7 +242,9 @@ public class TFCUserCoinChangeLimitDao extends ExtendDaoSupper<TFCUserCoinChange
 				if(record.getResettime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getResettime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getResettime())+"'");
 				}
 							sb.append(")");
 			
@@ -244,12 +252,12 @@ public class TFCUserCoinChangeLimitDao extends ExtendDaoSupper<TFCUserCoinChange
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

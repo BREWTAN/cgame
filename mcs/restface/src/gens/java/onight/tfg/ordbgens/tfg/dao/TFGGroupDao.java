@@ -36,28 +36,28 @@ public class TFGGroupDao extends ExtendDaoSupper<TFGGroup, TFGGroupExample, TFGG
 	}
 
 	@Override
-	public int deleteByExample(TFGGroupExample example) {
+	public int deleteByExample(TFGGroupExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFGGroupKey key) {
+	public int deleteByPrimaryKey(TFGGroupKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFGGroup record)  {
+	public int insert(TFGGroup record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFGGroup record)  {
+	public int insertSelective(TFGGroup record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFGGroup> records)
+	public int batchUpdate(List<TFGGroup> records) throws Exception
 			 {
 		for(TFGGroup record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFGGroupDao extends ExtendDaoSupper<TFGGroup, TFGGroupExample, TFGG
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFGGroup> records)
+	public int batchDelete(List<TFGGroup> records) throws Exception
 			 {
 		for(TFGGroup record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFGGroupDao extends ExtendDaoSupper<TFGGroup, TFGGroupExample, TFGG
 	}
 
 	@Override
-	public int updateByExampleSelective(TFGGroup record, TFGGroupExample example)  {
+	public int updateByExampleSelective(TFGGroup record, TFGGroupExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFGGroup record, TFGGroupExample example) {
+	public int updateByExample(TFGGroup record, TFGGroupExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFGGroup record) {
+	public int updateByPrimaryKeySelective(TFGGroup record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFGGroup record) {
+	public int updateByPrimaryKey(TFGGroup record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFGGroupDao extends ExtendDaoSupper<TFGGroup, TFGGroupExample, TFGG
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFGGroupExample());
 	}
 
@@ -169,7 +169,7 @@ public class TFGGroupDao extends ExtendDaoSupper<TFGGroup, TFGGroupExample, TFGG
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFGGroup> records) {
+	public int batchInsert(List<TFGGroup> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -233,12 +233,12 @@ public class TFGGroupDao extends ExtendDaoSupper<TFGGroup, TFGGroupExample, TFGG
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

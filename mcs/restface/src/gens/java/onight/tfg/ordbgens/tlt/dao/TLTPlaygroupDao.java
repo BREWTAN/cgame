@@ -36,28 +36,28 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 	}
 
 	@Override
-	public int deleteByExample(TLTPlaygroupExample example) {
+	public int deleteByExample(TLTPlaygroupExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TLTPlaygroupKey key) {
+	public int deleteByPrimaryKey(TLTPlaygroupKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TLTPlaygroup record)  {
+	public int insert(TLTPlaygroup record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TLTPlaygroup record)  {
+	public int insertSelective(TLTPlaygroup record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TLTPlaygroup> records)
+	public int batchUpdate(List<TLTPlaygroup> records) throws Exception
 			 {
 		for(TLTPlaygroup record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TLTPlaygroup> records)
+	public int batchDelete(List<TLTPlaygroup> records) throws Exception
 			 {
 		for(TLTPlaygroup record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 	}
 
 	@Override
-	public int updateByExampleSelective(TLTPlaygroup record, TLTPlaygroupExample example)  {
+	public int updateByExampleSelective(TLTPlaygroup record, TLTPlaygroupExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TLTPlaygroup record, TLTPlaygroupExample example) {
+	public int updateByExample(TLTPlaygroup record, TLTPlaygroupExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TLTPlaygroup record) {
+	public int updateByPrimaryKeySelective(TLTPlaygroup record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TLTPlaygroup record) {
+	public int updateByPrimaryKey(TLTPlaygroup record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TLTPlaygroupExample());
 	}
 
@@ -193,7 +193,7 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TLTPlaygroup> records) {
+	public int batchInsert(List<TLTPlaygroup> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -321,12 +321,12 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

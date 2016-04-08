@@ -36,28 +36,28 @@ public class TFCConfigUpdateLogDao extends ExtendDaoSupper<TFCConfigUpdateLog, T
 	}
 
 	@Override
-	public int deleteByExample(TFCConfigUpdateLogExample example) {
+	public int deleteByExample(TFCConfigUpdateLogExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFCConfigUpdateLogKey key) {
+	public int deleteByPrimaryKey(TFCConfigUpdateLogKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFCConfigUpdateLog record)  {
+	public int insert(TFCConfigUpdateLog record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFCConfigUpdateLog record)  {
+	public int insertSelective(TFCConfigUpdateLog record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFCConfigUpdateLog> records)
+	public int batchUpdate(List<TFCConfigUpdateLog> records) throws Exception
 			 {
 		for(TFCConfigUpdateLog record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFCConfigUpdateLogDao extends ExtendDaoSupper<TFCConfigUpdateLog, T
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFCConfigUpdateLog> records)
+	public int batchDelete(List<TFCConfigUpdateLog> records) throws Exception
 			 {
 		for(TFCConfigUpdateLog record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFCConfigUpdateLogDao extends ExtendDaoSupper<TFCConfigUpdateLog, T
 	}
 
 	@Override
-	public int updateByExampleSelective(TFCConfigUpdateLog record, TFCConfigUpdateLogExample example)  {
+	public int updateByExampleSelective(TFCConfigUpdateLog record, TFCConfigUpdateLogExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFCConfigUpdateLog record, TFCConfigUpdateLogExample example) {
+	public int updateByExample(TFCConfigUpdateLog record, TFCConfigUpdateLogExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFCConfigUpdateLog record) {
+	public int updateByPrimaryKeySelective(TFCConfigUpdateLog record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFCConfigUpdateLog record) {
+	public int updateByPrimaryKey(TFCConfigUpdateLog record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFCConfigUpdateLogDao extends ExtendDaoSupper<TFCConfigUpdateLog, T
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFCConfigUpdateLogExample());
 	}
 
@@ -163,7 +163,7 @@ public class TFCConfigUpdateLogDao extends ExtendDaoSupper<TFCConfigUpdateLog, T
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFCConfigUpdateLog> records) {
+	public int batchInsert(List<TFCConfigUpdateLog> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -187,7 +187,8 @@ public class TFCConfigUpdateLogDao extends ExtendDaoSupper<TFCConfigUpdateLog, T
 				if(record.getConfigType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getConfigType()+"'");
+				// java type==String
+						sb.append("'"+record.getConfigType()+"'");
 				}
 			
 				sb.append(",");
@@ -195,7 +196,9 @@ public class TFCConfigUpdateLogDao extends ExtendDaoSupper<TFCConfigUpdateLog, T
 				if(record.getUpdateTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUpdateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getUpdateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -203,7 +206,8 @@ public class TFCConfigUpdateLogDao extends ExtendDaoSupper<TFCConfigUpdateLog, T
 				if(record.getNote()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getNote()+"'");
+				// java type==String
+						sb.append("'"+record.getNote()+"'");
 				}
 							sb.append(")");
 			
@@ -211,12 +215,12 @@ public class TFCConfigUpdateLogDao extends ExtendDaoSupper<TFCConfigUpdateLog, T
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

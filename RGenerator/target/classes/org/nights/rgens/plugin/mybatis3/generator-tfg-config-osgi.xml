@@ -39,7 +39,6 @@
 			<property name="pbdir"	value="../cmysqlimpl/src/gens/proto/pbgens.proto" />
 			<!-- <property name="sodir" value="../cgwmysql/src/gens/scala"/> -->
 		</javaClientGenerator>
-
 		<table tableName="^T_SYS_.*" domainObjectName="sys" />
 		<table tableName="^TFG_.*" domainObjectName="tfg" />
 		<table tableName="^TFC_.*" domainObjectName="tfc" />

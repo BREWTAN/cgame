@@ -36,28 +36,28 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 	}
 
 	@Override
-	public int deleteByExample(TFCOrderDetailExample example) {
+	public int deleteByExample(TFCOrderDetailExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFCOrderDetailKey key) {
+	public int deleteByPrimaryKey(TFCOrderDetailKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFCOrderDetail record)  {
+	public int insert(TFCOrderDetail record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFCOrderDetail record)  {
+	public int insertSelective(TFCOrderDetail record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFCOrderDetail> records)
+	public int batchUpdate(List<TFCOrderDetail> records) throws Exception
 			 {
 		for(TFCOrderDetail record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFCOrderDetail> records)
+	public int batchDelete(List<TFCOrderDetail> records) throws Exception
 			 {
 		for(TFCOrderDetail record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 	}
 
 	@Override
-	public int updateByExampleSelective(TFCOrderDetail record, TFCOrderDetailExample example)  {
+	public int updateByExampleSelective(TFCOrderDetail record, TFCOrderDetailExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFCOrderDetail record, TFCOrderDetailExample example) {
+	public int updateByExample(TFCOrderDetail record, TFCOrderDetailExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFCOrderDetail record) {
+	public int updateByPrimaryKeySelective(TFCOrderDetail record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFCOrderDetail record) {
+	public int updateByPrimaryKey(TFCOrderDetail record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFCOrderDetailExample());
 	}
 
@@ -178,7 +178,7 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFCOrderDetail> records) {
+	public int batchInsert(List<TFCOrderDetail> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -202,7 +202,8 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 				if(record.getRowId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRowId()+"'");
+				// java type==String
+						sb.append("'"+record.getRowId()+"'");
 				}
 			
 				sb.append(",");
@@ -210,7 +211,8 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==Long
+						sb.append("'"+record.getUserId()+"'");
 				}
 			
 				sb.append(",");
@@ -218,7 +220,9 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 				if(record.getHandleTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getHandleTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getHandleTime())+"'");
 				}
 			
 				sb.append(",");
@@ -226,7 +230,8 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 				if(record.getHanldeStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getHanldeStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getHanldeStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -234,7 +239,8 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 				if(record.getNumBefore()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getNumBefore()+"'");
+				// java type==Long
+						sb.append("'"+record.getNumBefore()+"'");
 				}
 			
 				sb.append(",");
@@ -242,7 +248,8 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 				if(record.getChangeNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getChangeNum()+"'");
+				// java type==Long
+						sb.append("'"+record.getChangeNum()+"'");
 				}
 			
 				sb.append(",");
@@ -250,7 +257,8 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 				if(record.getNumAfter()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getNumAfter()+"'");
+				// java type==Long
+						sb.append("'"+record.getNumAfter()+"'");
 				}
 			
 				sb.append(",");
@@ -258,7 +266,8 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 				if(record.getNote()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getNote()+"'");
+				// java type==String
+						sb.append("'"+record.getNote()+"'");
 				}
 							sb.append(")");
 			
@@ -266,12 +275,12 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

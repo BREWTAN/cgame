@@ -36,28 +36,28 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 	}
 
 	@Override
-	public int deleteByExample(TSysBranchExample example) {
+	public int deleteByExample(TSysBranchExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TSysBranchKey key) {
+	public int deleteByPrimaryKey(TSysBranchKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TSysBranch record)  {
+	public int insert(TSysBranch record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TSysBranch record)  {
+	public int insertSelective(TSysBranch record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TSysBranch> records)
+	public int batchUpdate(List<TSysBranch> records) throws Exception
 			 {
 		for(TSysBranch record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TSysBranch> records)
+	public int batchDelete(List<TSysBranch> records) throws Exception
 			 {
 		for(TSysBranch record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 	}
 
 	@Override
-	public int updateByExampleSelective(TSysBranch record, TSysBranchExample example)  {
+	public int updateByExampleSelective(TSysBranch record, TSysBranchExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TSysBranch record, TSysBranchExample example) {
+	public int updateByExample(TSysBranch record, TSysBranchExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TSysBranch record) {
+	public int updateByPrimaryKeySelective(TSysBranch record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TSysBranch record) {
+	public int updateByPrimaryKey(TSysBranch record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TSysBranchExample());
 	}
 
@@ -190,7 +190,7 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TSysBranch> records) {
+	public int batchInsert(List<TSysBranch> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -310,12 +310,12 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

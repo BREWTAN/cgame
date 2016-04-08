@@ -97,6 +97,7 @@ public class DaoExamplePlugin extends PluginAdapter {
 			classinfo.getColumnAndProps().add(new String[]{col.getActualColumnName(),col.getDefaultValue(),
 					"get"+StringUtils.capitalize(col.getJavaProperty()),
 					col.getJavaProperty(),
+					col.getFullyQualifiedJavaType().getShortName()
 			});
 			classinfo.getColumnInfos().add(new Columinfo(jdbctype2PBType(col.getJdbcType()),col.getActualColumnName().toLowerCase()
 					,jdbctype2SOType(col.getJdbcType()),col.getActualColumnName().toUpperCase()

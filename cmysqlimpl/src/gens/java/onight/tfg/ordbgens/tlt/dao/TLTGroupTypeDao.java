@@ -36,28 +36,28 @@ public class TLTGroupTypeDao extends ExtendDaoSupper<TLTGroupType, TLTGroupTypeE
 	}
 
 	@Override
-	public int deleteByExample(TLTGroupTypeExample example) {
+	public int deleteByExample(TLTGroupTypeExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TLTGroupTypeKey key) {
+	public int deleteByPrimaryKey(TLTGroupTypeKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TLTGroupType record)  {
+	public int insert(TLTGroupType record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TLTGroupType record)  {
+	public int insertSelective(TLTGroupType record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TLTGroupType> records)
+	public int batchUpdate(List<TLTGroupType> records) throws Exception
 			 {
 		for(TLTGroupType record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TLTGroupTypeDao extends ExtendDaoSupper<TLTGroupType, TLTGroupTypeE
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TLTGroupType> records)
+	public int batchDelete(List<TLTGroupType> records) throws Exception
 			 {
 		for(TLTGroupType record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TLTGroupTypeDao extends ExtendDaoSupper<TLTGroupType, TLTGroupTypeE
 	}
 
 	@Override
-	public int updateByExampleSelective(TLTGroupType record, TLTGroupTypeExample example)  {
+	public int updateByExampleSelective(TLTGroupType record, TLTGroupTypeExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TLTGroupType record, TLTGroupTypeExample example) {
+	public int updateByExample(TLTGroupType record, TLTGroupTypeExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TLTGroupType record) {
+	public int updateByPrimaryKeySelective(TLTGroupType record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TLTGroupType record) {
+	public int updateByPrimaryKey(TLTGroupType record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TLTGroupTypeDao extends ExtendDaoSupper<TLTGroupType, TLTGroupTypeE
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TLTGroupTypeExample());
 	}
 
@@ -166,7 +166,7 @@ public class TLTGroupTypeDao extends ExtendDaoSupper<TLTGroupType, TLTGroupTypeE
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TLTGroupType> records) {
+	public int batchInsert(List<TLTGroupType> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -190,7 +190,8 @@ public class TLTGroupTypeDao extends ExtendDaoSupper<TLTGroupType, TLTGroupTypeE
 				if(record.getGroupType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getGroupType()+"'");
+				// java type==String
+						sb.append("'"+record.getGroupType()+"'");
 				}
 			
 				sb.append(",");
@@ -198,7 +199,8 @@ public class TLTGroupTypeDao extends ExtendDaoSupper<TLTGroupType, TLTGroupTypeE
 				if(record.getCnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getCnName()+"'");
+				// java type==String
+						sb.append("'"+record.getCnName()+"'");
 				}
 			
 				sb.append(",");
@@ -206,7 +208,8 @@ public class TLTGroupTypeDao extends ExtendDaoSupper<TLTGroupType, TLTGroupTypeE
 				if(record.getEnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getEnName()+"'");
+				// java type==String
+						sb.append("'"+record.getEnName()+"'");
 				}
 			
 				sb.append(",");
@@ -214,7 +217,8 @@ public class TLTGroupTypeDao extends ExtendDaoSupper<TLTGroupType, TLTGroupTypeE
 				if(record.getRemark()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getRemark()+"'");
+				// java type==String
+						sb.append("'"+record.getRemark()+"'");
 				}
 							sb.append(")");
 			
@@ -222,12 +226,12 @@ public class TLTGroupTypeDao extends ExtendDaoSupper<TLTGroupType, TLTGroupTypeE
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

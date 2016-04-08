@@ -36,28 +36,28 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 	}
 
 	@Override
-	public int deleteByExample(TActTransLogsExample example) {
+	public int deleteByExample(TActTransLogsExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TActTransLogsKey key) {
+	public int deleteByPrimaryKey(TActTransLogsKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TActTransLogs record)  {
+	public int insert(TActTransLogs record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TActTransLogs record)  {
+	public int insertSelective(TActTransLogs record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TActTransLogs> records)
+	public int batchUpdate(List<TActTransLogs> records) throws Exception
 			 {
 		for(TActTransLogs record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TActTransLogs> records)
+	public int batchDelete(List<TActTransLogs> records) throws Exception
 			 {
 		for(TActTransLogs record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 	}
 
 	@Override
-	public int updateByExampleSelective(TActTransLogs record, TActTransLogsExample example)  {
+	public int updateByExampleSelective(TActTransLogs record, TActTransLogsExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TActTransLogs record, TActTransLogsExample example) {
+	public int updateByExample(TActTransLogs record, TActTransLogsExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TActTransLogs record) {
+	public int updateByPrimaryKeySelective(TActTransLogs record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TActTransLogs record) {
+	public int updateByPrimaryKey(TActTransLogs record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TActTransLogsExample());
 	}
 
@@ -223,7 +223,7 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TActTransLogs> records) {
+	public int batchInsert(List<TActTransLogs> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -431,12 +431,12 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

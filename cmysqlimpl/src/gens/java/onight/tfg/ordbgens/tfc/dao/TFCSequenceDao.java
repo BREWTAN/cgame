@@ -36,28 +36,28 @@ public class TFCSequenceDao extends ExtendDaoSupper<TFCSequence, TFCSequenceExam
 	}
 
 	@Override
-	public int deleteByExample(TFCSequenceExample example) {
+	public int deleteByExample(TFCSequenceExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFCSequenceKey key) {
+	public int deleteByPrimaryKey(TFCSequenceKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFCSequence record)  {
+	public int insert(TFCSequence record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFCSequence record)  {
+	public int insertSelective(TFCSequence record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFCSequence> records)
+	public int batchUpdate(List<TFCSequence> records) throws Exception
 			 {
 		for(TFCSequence record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFCSequenceDao extends ExtendDaoSupper<TFCSequence, TFCSequenceExam
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFCSequence> records)
+	public int batchDelete(List<TFCSequence> records) throws Exception
 			 {
 		for(TFCSequence record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFCSequenceDao extends ExtendDaoSupper<TFCSequence, TFCSequenceExam
 	}
 
 	@Override
-	public int updateByExampleSelective(TFCSequence record, TFCSequenceExample example)  {
+	public int updateByExampleSelective(TFCSequence record, TFCSequenceExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFCSequence record, TFCSequenceExample example) {
+	public int updateByExample(TFCSequence record, TFCSequenceExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFCSequence record) {
+	public int updateByPrimaryKeySelective(TFCSequence record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFCSequence record) {
+	public int updateByPrimaryKey(TFCSequence record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFCSequenceDao extends ExtendDaoSupper<TFCSequence, TFCSequenceExam
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFCSequenceExample());
 	}
 
@@ -163,7 +163,7 @@ public class TFCSequenceDao extends ExtendDaoSupper<TFCSequence, TFCSequenceExam
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFCSequence> records) {
+	public int batchInsert(List<TFCSequence> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -187,7 +187,8 @@ public class TFCSequenceDao extends ExtendDaoSupper<TFCSequence, TFCSequenceExam
 				if(record.getName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getName()+"'");
+				// java type==String
+						sb.append("'"+record.getName()+"'");
 				}
 			
 				sb.append(",");
@@ -195,7 +196,8 @@ public class TFCSequenceDao extends ExtendDaoSupper<TFCSequence, TFCSequenceExam
 				if(record.getCurrentValue()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCurrentValue()+"'");
+				// java type==Long
+						sb.append("'"+record.getCurrentValue()+"'");
 				}
 			
 				sb.append(",");
@@ -203,7 +205,8 @@ public class TFCSequenceDao extends ExtendDaoSupper<TFCSequence, TFCSequenceExam
 				if(record.getIncrement()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getIncrement()+"'");
+				// java type==Integer
+						sb.append("'"+record.getIncrement()+"'");
 				}
 							sb.append(")");
 			
@@ -211,12 +214,12 @@ public class TFCSequenceDao extends ExtendDaoSupper<TFCSequence, TFCSequenceExam
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

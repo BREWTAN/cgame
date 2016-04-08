@@ -36,28 +36,28 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 	}
 
 	@Override
-	public int deleteByExample(TLTLimitedNumExample example) {
+	public int deleteByExample(TLTLimitedNumExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TLTLimitedNumKey key) {
+	public int deleteByPrimaryKey(TLTLimitedNumKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TLTLimitedNum record)  {
+	public int insert(TLTLimitedNum record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TLTLimitedNum record)  {
+	public int insertSelective(TLTLimitedNum record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TLTLimitedNum> records)
+	public int batchUpdate(List<TLTLimitedNum> records) throws Exception
 			 {
 		for(TLTLimitedNum record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TLTLimitedNum> records)
+	public int batchDelete(List<TLTLimitedNum> records) throws Exception
 			 {
 		for(TLTLimitedNum record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 	}
 
 	@Override
-	public int updateByExampleSelective(TLTLimitedNum record, TLTLimitedNumExample example)  {
+	public int updateByExampleSelective(TLTLimitedNum record, TLTLimitedNumExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TLTLimitedNum record, TLTLimitedNumExample example) {
+	public int updateByExample(TLTLimitedNum record, TLTLimitedNumExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TLTLimitedNum record) {
+	public int updateByPrimaryKeySelective(TLTLimitedNum record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TLTLimitedNum record) {
+	public int updateByPrimaryKey(TLTLimitedNum record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TLTLimitedNumExample());
 	}
 
@@ -184,7 +184,7 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TLTLimitedNum> records) {
+	public int batchInsert(List<TLTLimitedNum> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -288,12 +288,12 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

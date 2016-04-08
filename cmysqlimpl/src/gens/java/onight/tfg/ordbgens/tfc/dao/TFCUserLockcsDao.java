@@ -36,28 +36,28 @@ public class TFCUserLockcsDao extends ExtendDaoSupper<TFCUserLockcs, TFCUserLock
 	}
 
 	@Override
-	public int deleteByExample(TFCUserLockcsExample example) {
+	public int deleteByExample(TFCUserLockcsExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFCUserLockcsKey key) {
+	public int deleteByPrimaryKey(TFCUserLockcsKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFCUserLockcs record)  {
+	public int insert(TFCUserLockcs record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFCUserLockcs record)  {
+	public int insertSelective(TFCUserLockcs record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFCUserLockcs> records)
+	public int batchUpdate(List<TFCUserLockcs> records) throws Exception
 			 {
 		for(TFCUserLockcs record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFCUserLockcsDao extends ExtendDaoSupper<TFCUserLockcs, TFCUserLock
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFCUserLockcs> records)
+	public int batchDelete(List<TFCUserLockcs> records) throws Exception
 			 {
 		for(TFCUserLockcs record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFCUserLockcsDao extends ExtendDaoSupper<TFCUserLockcs, TFCUserLock
 	}
 
 	@Override
-	public int updateByExampleSelective(TFCUserLockcs record, TFCUserLockcsExample example)  {
+	public int updateByExampleSelective(TFCUserLockcs record, TFCUserLockcsExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFCUserLockcs record, TFCUserLockcsExample example) {
+	public int updateByExample(TFCUserLockcs record, TFCUserLockcsExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFCUserLockcs record) {
+	public int updateByPrimaryKeySelective(TFCUserLockcs record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFCUserLockcs record) {
+	public int updateByPrimaryKey(TFCUserLockcs record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFCUserLockcsDao extends ExtendDaoSupper<TFCUserLockcs, TFCUserLock
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFCUserLockcsExample());
 	}
 
@@ -163,7 +163,7 @@ public class TFCUserLockcsDao extends ExtendDaoSupper<TFCUserLockcs, TFCUserLock
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFCUserLockcs> records) {
+	public int batchInsert(List<TFCUserLockcs> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -187,7 +187,8 @@ public class TFCUserLockcsDao extends ExtendDaoSupper<TFCUserLockcs, TFCUserLock
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==String
+						sb.append("'"+record.getUserId()+"'");
 				}
 			
 				sb.append(",");
@@ -195,7 +196,8 @@ public class TFCUserLockcsDao extends ExtendDaoSupper<TFCUserLockcs, TFCUserLock
 				if(record.getReadCount()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getReadCount()+"'");
+				// java type==Long
+						sb.append("'"+record.getReadCount()+"'");
 				}
 			
 				sb.append(",");
@@ -203,7 +205,8 @@ public class TFCUserLockcsDao extends ExtendDaoSupper<TFCUserLockcs, TFCUserLock
 				if(record.getWriteCount()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getWriteCount()+"'");
+				// java type==Long
+						sb.append("'"+record.getWriteCount()+"'");
 				}
 							sb.append(")");
 			
@@ -211,12 +214,12 @@ public class TFCUserLockcsDao extends ExtendDaoSupper<TFCUserLockcs, TFCUserLock
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

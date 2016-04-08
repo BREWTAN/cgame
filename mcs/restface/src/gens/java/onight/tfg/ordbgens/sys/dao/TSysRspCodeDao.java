@@ -36,28 +36,28 @@ public class TSysRspCodeDao extends ExtendDaoSupper<TSysRspCode, TSysRspCodeExam
 	}
 
 	@Override
-	public int deleteByExample(TSysRspCodeExample example) {
+	public int deleteByExample(TSysRspCodeExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TSysRspCodeKey key) {
+	public int deleteByPrimaryKey(TSysRspCodeKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TSysRspCode record)  {
+	public int insert(TSysRspCode record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TSysRspCode record)  {
+	public int insertSelective(TSysRspCode record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TSysRspCode> records)
+	public int batchUpdate(List<TSysRspCode> records) throws Exception
 			 {
 		for(TSysRspCode record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TSysRspCodeDao extends ExtendDaoSupper<TSysRspCode, TSysRspCodeExam
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TSysRspCode> records)
+	public int batchDelete(List<TSysRspCode> records) throws Exception
 			 {
 		for(TSysRspCode record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TSysRspCodeDao extends ExtendDaoSupper<TSysRspCode, TSysRspCodeExam
 	}
 
 	@Override
-	public int updateByExampleSelective(TSysRspCode record, TSysRspCodeExample example)  {
+	public int updateByExampleSelective(TSysRspCode record, TSysRspCodeExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TSysRspCode record, TSysRspCodeExample example) {
+	public int updateByExample(TSysRspCode record, TSysRspCodeExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TSysRspCode record) {
+	public int updateByPrimaryKeySelective(TSysRspCode record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TSysRspCode record) {
+	public int updateByPrimaryKey(TSysRspCode record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TSysRspCodeDao extends ExtendDaoSupper<TSysRspCode, TSysRspCodeExam
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TSysRspCodeExample());
 	}
 
@@ -169,7 +169,7 @@ public class TSysRspCodeDao extends ExtendDaoSupper<TSysRspCode, TSysRspCodeExam
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TSysRspCode> records) {
+	public int batchInsert(List<TSysRspCode> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -233,12 +233,12 @@ public class TSysRspCodeDao extends ExtendDaoSupper<TSysRspCode, TSysRspCodeExam
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

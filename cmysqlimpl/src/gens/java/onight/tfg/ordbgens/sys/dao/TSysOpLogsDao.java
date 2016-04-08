@@ -36,28 +36,28 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 	}
 
 	@Override
-	public int deleteByExample(TSysOpLogsExample example) {
+	public int deleteByExample(TSysOpLogsExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TSysOpLogsKey key) {
+	public int deleteByPrimaryKey(TSysOpLogsKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TSysOpLogs record)  {
+	public int insert(TSysOpLogs record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TSysOpLogs record)  {
+	public int insertSelective(TSysOpLogs record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TSysOpLogs> records)
+	public int batchUpdate(List<TSysOpLogs> records) throws Exception
 			 {
 		for(TSysOpLogs record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TSysOpLogs> records)
+	public int batchDelete(List<TSysOpLogs> records) throws Exception
 			 {
 		for(TSysOpLogs record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 	}
 
 	@Override
-	public int updateByExampleSelective(TSysOpLogs record, TSysOpLogsExample example)  {
+	public int updateByExampleSelective(TSysOpLogs record, TSysOpLogsExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TSysOpLogs record, TSysOpLogsExample example) {
+	public int updateByExample(TSysOpLogs record, TSysOpLogsExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TSysOpLogs record) {
+	public int updateByPrimaryKeySelective(TSysOpLogs record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TSysOpLogs record) {
+	public int updateByPrimaryKey(TSysOpLogs record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TSysOpLogsExample());
 	}
 
@@ -169,7 +169,7 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TSysOpLogs> records) {
+	public int batchInsert(List<TSysOpLogs> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -193,7 +193,8 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 				if(record.getId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getId()+"'");
+				// java type==String
+						sb.append("'"+record.getId()+"'");
 				}
 			
 				sb.append(",");
@@ -201,7 +202,8 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 				if(record.getSkeys()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getSkeys()+"'");
+				// java type==String
+						sb.append("'"+record.getSkeys()+"'");
 				}
 			
 				sb.append(",");
@@ -209,7 +211,8 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 				if(record.getContents()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getContents()+"'");
+				// java type==String
+						sb.append("'"+record.getContents()+"'");
 				}
 			
 				sb.append(",");
@@ -217,7 +220,8 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 				if(record.getLevel()==null){
 						sb.append("'"+"INFO"+"'");						
 				}else{
-					sb.append("'"+record.getLevel()+"'");
+				// java type==String
+						sb.append("'"+record.getLevel()+"'");
 				}
 			
 				sb.append(",");
@@ -225,7 +229,9 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 				if(record.getCrtTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCrtTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCrtTime())+"'");
 				}
 							sb.append(")");
 			
@@ -233,12 +239,12 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

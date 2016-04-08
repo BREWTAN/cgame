@@ -36,28 +36,28 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 	}
 
 	@Override
-	public int deleteByExample(TLTLtypeExample example) {
+	public int deleteByExample(TLTLtypeExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TLTLtypeKey key) {
+	public int deleteByPrimaryKey(TLTLtypeKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TLTLtype record)  {
+	public int insert(TLTLtype record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TLTLtype record)  {
+	public int insertSelective(TLTLtype record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TLTLtype> records)
+	public int batchUpdate(List<TLTLtype> records) throws Exception
 			 {
 		for(TLTLtype record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TLTLtype> records)
+	public int batchDelete(List<TLTLtype> records) throws Exception
 			 {
 		for(TLTLtype record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 	}
 
 	@Override
-	public int updateByExampleSelective(TLTLtype record, TLTLtypeExample example)  {
+	public int updateByExampleSelective(TLTLtype record, TLTLtypeExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TLTLtype record, TLTLtypeExample example) {
+	public int updateByExample(TLTLtype record, TLTLtypeExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TLTLtype record) {
+	public int updateByPrimaryKeySelective(TLTLtype record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TLTLtype record) {
+	public int updateByPrimaryKey(TLTLtype record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TLTLtypeExample());
 	}
 
@@ -217,7 +217,7 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TLTLtype> records) {
+	public int batchInsert(List<TLTLtype> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -409,12 +409,12 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

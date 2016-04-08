@@ -36,28 +36,28 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 	}
 
 	@Override
-	public int deleteByExample(TFCUserLockChangeDetailExample example) {
+	public int deleteByExample(TFCUserLockChangeDetailExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFCUserLockChangeDetailKey key) {
+	public int deleteByPrimaryKey(TFCUserLockChangeDetailKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFCUserLockChangeDetail record)  {
+	public int insert(TFCUserLockChangeDetail record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFCUserLockChangeDetail record)  {
+	public int insertSelective(TFCUserLockChangeDetail record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFCUserLockChangeDetail> records)
+	public int batchUpdate(List<TFCUserLockChangeDetail> records) throws Exception
 			 {
 		for(TFCUserLockChangeDetail record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFCUserLockChangeDetail> records)
+	public int batchDelete(List<TFCUserLockChangeDetail> records) throws Exception
 			 {
 		for(TFCUserLockChangeDetail record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 	}
 
 	@Override
-	public int updateByExampleSelective(TFCUserLockChangeDetail record, TFCUserLockChangeDetailExample example)  {
+	public int updateByExampleSelective(TFCUserLockChangeDetail record, TFCUserLockChangeDetailExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFCUserLockChangeDetail record, TFCUserLockChangeDetailExample example) {
+	public int updateByExample(TFCUserLockChangeDetail record, TFCUserLockChangeDetailExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFCUserLockChangeDetail record) {
+	public int updateByPrimaryKeySelective(TFCUserLockChangeDetail record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFCUserLockChangeDetail record) {
+	public int updateByPrimaryKey(TFCUserLockChangeDetail record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFCUserLockChangeDetailExample());
 	}
 
@@ -193,7 +193,7 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFCUserLockChangeDetail> records) {
+	public int batchInsert(List<TFCUserLockChangeDetail> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -217,7 +217,8 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 				if(record.getRowId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRowId()+"'");
+				// java type==String
+						sb.append("'"+record.getRowId()+"'");
 				}
 			
 				sb.append(",");
@@ -225,7 +226,8 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 				if(record.getCoinTypeId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCoinTypeId()+"'");
+				// java type==String
+						sb.append("'"+record.getCoinTypeId()+"'");
 				}
 			
 				sb.append(",");
@@ -233,7 +235,9 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 				if(record.getRecTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRecTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getRecTime())+"'");
 				}
 			
 				sb.append(",");
@@ -241,7 +245,8 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 				if(record.getLockId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLockId()+"'");
+				// java type==String
+						sb.append("'"+record.getLockId()+"'");
 				}
 			
 				sb.append(",");
@@ -249,7 +254,8 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==String
+						sb.append("'"+record.getUserId()+"'");
 				}
 			
 				sb.append(",");
@@ -257,7 +263,8 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 				if(record.getChangeNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getChangeNum()+"'");
+				// java type==Long
+						sb.append("'"+record.getChangeNum()+"'");
 				}
 			
 				sb.append(",");
@@ -265,7 +272,8 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 				if(record.getLockedNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLockedNum()+"'");
+				// java type==Long
+						sb.append("'"+record.getLockedNum()+"'");
 				}
 			
 				sb.append(",");
@@ -273,7 +281,8 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 				if(record.getChannelId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getChannelId()+"'");
+				// java type==String
+						sb.append("'"+record.getChannelId()+"'");
 				}
 			
 				sb.append(",");
@@ -281,7 +290,8 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 				if(record.getProductId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getProductId()+"'");
+				// java type==String
+						sb.append("'"+record.getProductId()+"'");
 				}
 			
 				sb.append(",");
@@ -289,7 +299,8 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 				if(record.getFlowNumber()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getFlowNumber()+"'");
+				// java type==String
+						sb.append("'"+record.getFlowNumber()+"'");
 				}
 			
 				sb.append(",");
@@ -297,7 +308,8 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 				if(record.getUserIp()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserIp()+"'");
+				// java type==String
+						sb.append("'"+record.getUserIp()+"'");
 				}
 			
 				sb.append(",");
@@ -305,7 +317,8 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 				if(record.getServerIp()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getServerIp()+"'");
+				// java type==String
+						sb.append("'"+record.getServerIp()+"'");
 				}
 			
 				sb.append(",");
@@ -313,7 +326,8 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 				if(record.getGameId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getGameId()+"'");
+				// java type==String
+						sb.append("'"+record.getGameId()+"'");
 				}
 							sb.append(")");
 			
@@ -321,12 +335,12 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

@@ -36,28 +36,28 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 	}
 
 	@Override
-	public int deleteByExample(TLTLtypeExample example) {
+	public int deleteByExample(TLTLtypeExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TLTLtypeKey key) {
+	public int deleteByPrimaryKey(TLTLtypeKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TLTLtype record)  {
+	public int insert(TLTLtype record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TLTLtype record)  {
+	public int insertSelective(TLTLtype record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TLTLtype> records)
+	public int batchUpdate(List<TLTLtype> records) throws Exception
 			 {
 		for(TLTLtype record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TLTLtype> records)
+	public int batchDelete(List<TLTLtype> records) throws Exception
 			 {
 		for(TLTLtype record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 	}
 
 	@Override
-	public int updateByExampleSelective(TLTLtype record, TLTLtypeExample example)  {
+	public int updateByExampleSelective(TLTLtype record, TLTLtypeExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TLTLtype record, TLTLtypeExample example) {
+	public int updateByExample(TLTLtype record, TLTLtypeExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TLTLtype record) {
+	public int updateByPrimaryKeySelective(TLTLtype record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TLTLtype record) {
+	public int updateByPrimaryKey(TLTLtype record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TLTLtypeExample());
 	}
 
@@ -217,7 +217,7 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TLTLtype> records) {
+	public int batchInsert(List<TLTLtype> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -241,7 +241,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getLtype()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLtype()+"'");
+				// java type==String
+						sb.append("'"+record.getLtype()+"'");
 				}
 			
 				sb.append(",");
@@ -249,7 +250,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getGroupType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getGroupType()+"'");
+				// java type==String
+						sb.append("'"+record.getGroupType()+"'");
 				}
 			
 				sb.append(",");
@@ -257,7 +259,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getCnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getCnName()+"'");
+				// java type==String
+						sb.append("'"+record.getCnName()+"'");
 				}
 			
 				sb.append(",");
@@ -265,7 +268,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getEnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getEnName()+"'");
+				// java type==String
+						sb.append("'"+record.getEnName()+"'");
 				}
 			
 				sb.append(",");
@@ -273,7 +277,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getCodeList()==null){
 						sb.append("'"+"0,1,2,3,4,5,6,7,8,9"+"'");						
 				}else{
-					sb.append("'"+record.getCodeList()+"'");
+				// java type==String
+						sb.append("'"+record.getCodeList()+"'");
 				}
 			
 				sb.append(",");
@@ -281,7 +286,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getCodeLen()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getCodeLen()+"'");
+				// java type==Integer
+						sb.append("'"+record.getCodeLen()+"'");
 				}
 			
 				sb.append(",");
@@ -289,7 +295,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getSort()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getSort()+"'");
+				// java type==Byte
+						sb.append("'"+record.getSort()+"'");
 				}
 			
 				sb.append(",");
@@ -297,7 +304,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getEnable()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getEnable()+"'");
+				// java type==Boolean
+						sb.append("'"+record.getEnable()+"'");
 				}
 			
 				sb.append(",");
@@ -305,7 +313,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getRemark()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRemark()+"'");
+				// java type==String
+						sb.append("'"+record.getRemark()+"'");
 				}
 			
 				sb.append(",");
@@ -313,7 +322,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getDelayTime()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getDelayTime()+"'");
+				// java type==Integer
+						sb.append("'"+record.getDelayTime()+"'");
 				}
 			
 				sb.append(",");
@@ -321,7 +331,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getCatchCodeCount()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getCatchCodeCount()+"'");
+				// java type==Integer
+						sb.append("'"+record.getCatchCodeCount()+"'");
 				}
 			
 				sb.append(",");
@@ -329,7 +340,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getCatchCodeInterval()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getCatchCodeInterval()+"'");
+				// java type==Integer
+						sb.append("'"+record.getCatchCodeInterval()+"'");
 				}
 			
 				sb.append(",");
@@ -337,7 +349,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getMinLeft()==null){
 						sb.append("'"+"0.000"+"'");						
 				}else{
-					sb.append("'"+record.getMinLeft()+"'");
+				// java type==Float
+						sb.append("'"+record.getMinLeft()+"'");
 				}
 			
 				sb.append(",");
@@ -345,7 +358,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getMinSpread()==null){
 						sb.append("'"+"0.000"+"'");						
 				}else{
-					sb.append("'"+record.getMinSpread()+"'");
+				// java type==Float
+						sb.append("'"+record.getMinSpread()+"'");
 				}
 			
 				sb.append(",");
@@ -353,7 +367,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getIssueNoFmt()==null){
 						sb.append("'"+"yyyymmdd-nnn"+"'");						
 				}else{
-					sb.append("'"+record.getIssueNoFmt()+"'");
+				// java type==String
+						sb.append("'"+record.getIssueNoFmt()+"'");
 				}
 			
 				sb.append(",");
@@ -361,7 +376,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getClearYmd()==null){
 						sb.append("'"+"Y,M,D"+"'");						
 				}else{
-					sb.append("'"+record.getClearYmd()+"'");
+				// java type==String
+						sb.append("'"+record.getClearYmd()+"'");
 				}
 			
 				sb.append(",");
@@ -369,7 +385,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getLotteryCycle()==null){
 						sb.append("'"+"1,2,3,4,5,6,7"+"'");						
 				}else{
-					sb.append("'"+record.getLotteryCycle()+"'");
+				// java type==String
+						sb.append("'"+record.getLotteryCycle()+"'");
 				}
 			
 				sb.append(",");
@@ -377,7 +394,9 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getCloseStime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCloseStime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCloseStime())+"'");
 				}
 			
 				sb.append(",");
@@ -385,7 +404,9 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getCloseEtime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCloseEtime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCloseEtime())+"'");
 				}
 			
 				sb.append(",");
@@ -393,7 +414,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getRebate()==null){
 						sb.append("'"+"0.0"+"'");						
 				}else{
-					sb.append("'"+record.getRebate()+"'");
+				// java type==Float
+						sb.append("'"+record.getRebate()+"'");
 				}
 			
 				sb.append(",");
@@ -401,7 +423,8 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getDeloRebate()==null){
 						sb.append("'"+"0.0"+"'");						
 				}else{
-					sb.append("'"+record.getDeloRebate()+"'");
+				// java type==Float
+						sb.append("'"+record.getDeloRebate()+"'");
 				}
 							sb.append(")");
 			
@@ -409,12 +432,12 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

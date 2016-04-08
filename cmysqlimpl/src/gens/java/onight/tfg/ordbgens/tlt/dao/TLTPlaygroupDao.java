@@ -36,28 +36,28 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 	}
 
 	@Override
-	public int deleteByExample(TLTPlaygroupExample example) {
+	public int deleteByExample(TLTPlaygroupExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TLTPlaygroupKey key) {
+	public int deleteByPrimaryKey(TLTPlaygroupKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TLTPlaygroup record)  {
+	public int insert(TLTPlaygroup record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TLTPlaygroup record)  {
+	public int insertSelective(TLTPlaygroup record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TLTPlaygroup> records)
+	public int batchUpdate(List<TLTPlaygroup> records) throws Exception
 			 {
 		for(TLTPlaygroup record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TLTPlaygroup> records)
+	public int batchDelete(List<TLTPlaygroup> records) throws Exception
 			 {
 		for(TLTPlaygroup record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 	}
 
 	@Override
-	public int updateByExampleSelective(TLTPlaygroup record, TLTPlaygroupExample example)  {
+	public int updateByExampleSelective(TLTPlaygroup record, TLTPlaygroupExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TLTPlaygroup record, TLTPlaygroupExample example) {
+	public int updateByExample(TLTPlaygroup record, TLTPlaygroupExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TLTPlaygroup record) {
+	public int updateByPrimaryKeySelective(TLTPlaygroup record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TLTPlaygroup record) {
+	public int updateByPrimaryKey(TLTPlaygroup record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TLTPlaygroupExample());
 	}
 
@@ -193,7 +193,7 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TLTPlaygroup> records) {
+	public int batchInsert(List<TLTPlaygroup> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -217,7 +217,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getId()+"'");
+				// java type==Long
+						sb.append("'"+record.getId()+"'");
 				}
 			
 				sb.append(",");
@@ -225,7 +226,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getLtype()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLtype()+"'");
+				// java type==String
+						sb.append("'"+record.getLtype()+"'");
 				}
 			
 				sb.append(",");
@@ -233,7 +235,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getPlayType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPlayType()+"'");
+				// java type==String
+						sb.append("'"+record.getPlayType()+"'");
 				}
 			
 				sb.append(",");
@@ -241,7 +244,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getCnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getCnName()+"'");
+				// java type==String
+						sb.append("'"+record.getCnName()+"'");
 				}
 			
 				sb.append(",");
@@ -249,7 +253,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getEnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getEnName()+"'");
+				// java type==String
+						sb.append("'"+record.getEnName()+"'");
 				}
 			
 				sb.append(",");
@@ -257,7 +262,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getLockTable()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLockTable()+"'");
+				// java type==String
+						sb.append("'"+record.getLockTable()+"'");
 				}
 			
 				sb.append(",");
@@ -265,7 +271,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getAwardLevel()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getAwardLevel()+"'");
+				// java type==Integer
+						sb.append("'"+record.getAwardLevel()+"'");
 				}
 			
 				sb.append(",");
@@ -273,7 +280,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getCost()==null){
 						sb.append("'"+"0.00"+"'");						
 				}else{
-					sb.append("'"+record.getCost()+"'");
+				// java type==Float
+						sb.append("'"+record.getCost()+"'");
 				}
 			
 				sb.append(",");
@@ -281,7 +289,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getEnable()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getEnable()+"'");
+				// java type==Boolean
+						sb.append("'"+record.getEnable()+"'");
 				}
 			
 				sb.append(",");
@@ -289,7 +298,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getRemark()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRemark()+"'");
+				// java type==String
+						sb.append("'"+record.getRemark()+"'");
 				}
 			
 				sb.append(",");
@@ -297,7 +307,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getRebate()==null){
 						sb.append("'"+"0.0"+"'");						
 				}else{
-					sb.append("'"+record.getRebate()+"'");
+				// java type==Float
+						sb.append("'"+record.getRebate()+"'");
 				}
 			
 				sb.append(",");
@@ -305,7 +316,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getDeloRebate()==null){
 						sb.append("'"+"0.0"+"'");						
 				}else{
-					sb.append("'"+record.getDeloRebate()+"'");
+				// java type==Float
+						sb.append("'"+record.getDeloRebate()+"'");
 				}
 			
 				sb.append(",");
@@ -313,7 +325,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getViewgroup()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getViewgroup()+"'");
+				// java type==String
+						sb.append("'"+record.getViewgroup()+"'");
 				}
 							sb.append(")");
 			
@@ -321,12 +334,12 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

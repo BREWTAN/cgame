@@ -1,36 +1,28 @@
 package starstart.cgw.scala.action
 
-import scala.concurrent.ExecutionContext.Implicits.global
-import onight.osgi.annotation.NActorProvider
-import onight.scala.commons.PBUtils
-import onight.tfw.outils.serialize.UUIDGenerator
-import onight.tfw.async.CompleteHandler
-import onight.scala.commons.LService
-import onight.oapi.scala.traits.OLog
-import onight.scala.commons.SessionModules
-import onight.tfw.otransio.api.beans.FramePacket
-import onight.tfw.otransio.api.PacketHelper
-import scala.collection.mutable.MutableList
-import scala.collection.mutable.ListBuffer
-import java.util.concurrent.ScheduledThreadPoolExecutor
-import onight.tfw.mservice.NodeHelper
-import java.util.concurrent.ConcurrentLinkedQueue
-import scala.collection.JavaConversions.mapAsScalaMap
-import scala.collection.JavaConversions._
-import scala.collection.mutable.HashMap
-import java.sql.Timestamp
-import onight.tfw.async.CallBack
-import org.apache.commons.lang3.StringUtils
-import java.util.concurrent.TimeUnit
-import starstart.cgw.pbgens.Cgw.PWBetResult
-import starstart.cgw.pbgens.Cgw.PWWager
-import starstart.cgw.pbgens.Cgw.PWRetWager
-import onight.tfw.ojpa.api.annotations.StoreDAO
 import scala.beans.BeanProperty
-import onight.tfw.ojpa.api.OJpaDAO
+import scala.collection.JavaConversions._
+import scala.collection.JavaConversions.mapAsScalaMap
+import scala.concurrent.ExecutionContext.Implicits.global
+import onight.oapi.scala.traits.OLog
+import onight.osgi.annotation.NActorProvider
+import onight.scala.commons.LService
+import onight.scala.commons.PBUtils
+import onight.scala.commons.SessionModules
+import onight.starstarts.utils.MD5
 import onight.tfg.ordbgens.tlt.entity.TLTCoreBet
+import onight.tfw.async.CompleteHandler
+import onight.tfw.ojpa.api.OJpaDAO
 import onight.tfw.otransio.api.PackHeader
-import starstart.cgw.scala.persist.MysqlDaos
+import onight.tfw.otransio.api.PacketHelper
+import onight.tfw.otransio.api.beans.FramePacket
+import onight.tfw.outils.serialize.DESCoder
+import onight.tfw.outils.serialize.UUIDGenerator
+import starstart.cgw.pbgens.Cgw.PWBetResult
+import starstart.cgw.pbgens.Cgw.PWRetWager
+import starstart.cgw.pbgens.Cgw.PWWager
+import starstart.cgw.scala.service.MysqlDaos
+import java.util.Date
 
 @NActorProvider
 object CGWBetActor extends SessionModules[PWWager] {
@@ -40,47 +32,41 @@ object CGWBetActor extends SessionModules[PWWager] {
 object CGWBetService extends OLog with PBUtils with LService[PWWager] {
 
   override def cmd: String = "BET";
-  
 
-  
   def onPBPacket(pack: FramePacket, pbo: PWWager, handler: CompleteHandler) = {
     //    log.debug("guava==" + VMDaos.guCache.getIfPresent(pbo.getLogid()));      val ret = PBActRet.newBuilder();
     val ret = PWRetWager.newBuilder();
-    ret.setRetcode("0000").setRetmsg("ok");
-    
-    log.debug("getBug from IP:{},betscount={}", pack.getExtStrProp(PackHeader.PEER_IP),pbo.getBetsCount)
-    
-    
-    pbo.getBetsList().map { bet => 
-          val dbbet = pbBeanUtil.copyFromPB(bet, new TLTCoreBet)
-          pbBeanUtil.copyFromPB(pbo, dbbet)
-          
-          println("dbbet = "+dbbet)
-          
-          dbbet.setTickNo(UUIDGenerator.generate());
-          dbbet.setBetIp(pack.getExtStrProp(PackHeader.PEER_IP));
-          
-          MysqlDaos.corebetDAO.insert(dbbet);
-    }
-    
-//    if (pbo == null) {
-//      ret.setDesc("Packet_Error").setStatus("0001") setRetcode (RetCode.FAILED);
-      handler.onFinished(PacketHelper.toPBReturn(pack, ret.build()));
-//    } else if (StringUtils.isBlank(pbo.getActNo)) {
-//      ret.setDesc("账户号不能为空").setStatus("0002") setRetcode (RetCode.FAILED);
-//      handler.onFinished(PacketHelper.toPBReturn(pack, ret.build()));
-//    } else {
-//      val vmap = pbo.getAllFields.map({ kv =>
-//        (kv._1.getName.toUpperCase(), kv._2)
-//      })
-//      vmap.put("CREATE_TIME",  java.lang.Long.valueOf(System.currentTimeMillis()))
-//      vmap.put("ACT_STAT", "0")
-//      val v = TActInfoDAO.instanceFromMap(vmap.asInstanceOf[HashMap[String, Object]])
-//
-//      ret.setActNo(v.ACT_NO)
-//      buckets.offer((v, handler, ret, pack));
-//
-//    }
 
+    log.debug("getBug from IP:{},betscount={}", pack.getExtStrProp(PackHeader.PEER_IP), pbo.getBetsCount)
+    ret.setRetcode("9999").setRetmsg("UNKNOW ERROR");
+
+    val bets = pbo.getBetsList().map { bet =>
+      val dbbet = pbBeanUtil.copyFromPB(bet, new TLTCoreBet)
+      pbBeanUtil.copyFromPB(pbo, dbbet)
+
+      dbbet.setBetDatetime(new Date());
+      dbbet.setTickNo(UUIDGenerator.generate());
+      val serialnum = MD5.getMD5(("starstart-ming:" + dbbet.getTickNo));
+      dbbet.setBetIp(pack.getExtStrProp(PackHeader.PEER_IP));
+      dbbet.setSerialNum(serialnum)
+      dbbet.setPrinttime(System.currentTimeMillis());
+      dbbet
+    }
+
+    try {
+
+      MysqlDaos.corebetDAO.batchInsert(bets);
+      bets.map { dbbet =>
+        val retbet = PWBetResult.newBuilder()
+        retbet.setBetStatus("0000").setSerialNum(dbbet.getSerialNum).setVldcode(MD5.getMD5(DESCoder.desEncrypt(dbbet.getSerialNum, "zzzz-starstartsFFFF")))
+        ret.addBetrets(retbet);
+      }
+      ret.setRetcode("0000").setRetmsg("ok");
+    } catch {
+      case e: Exception =>
+        log.error( "投注异常",e)
+        ret.setRetcode("0001").setRetmsg(e.getMessage)
+    }
+    handler.onFinished(PacketHelper.toPBReturn(pack, ret.build()));
   }
 }

@@ -36,28 +36,28 @@ public class TFGUserRoleDao extends ExtendDaoSupper<TFGUserRole, TFGUserRoleExam
 	}
 
 	@Override
-	public int deleteByExample(TFGUserRoleExample example) {
+	public int deleteByExample(TFGUserRoleExample example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(TFGUserRoleKey key) {
+	public int deleteByPrimaryKey(TFGUserRoleKey key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(TFGUserRole record)  {
+	public int insert(TFGUserRole record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(TFGUserRole record)  {
+	public int insertSelective(TFGUserRole record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<TFGUserRole> records)
+	public int batchUpdate(List<TFGUserRole> records) throws Exception
 			 {
 		for(TFGUserRole record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class TFGUserRoleDao extends ExtendDaoSupper<TFGUserRole, TFGUserRoleExam
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<TFGUserRole> records)
+	public int batchDelete(List<TFGUserRole> records) throws Exception
 			 {
 		for(TFGUserRole record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class TFGUserRoleDao extends ExtendDaoSupper<TFGUserRole, TFGUserRoleExam
 	}
 
 	@Override
-	public int updateByExampleSelective(TFGUserRole record, TFGUserRoleExample example)  {
+	public int updateByExampleSelective(TFGUserRole record, TFGUserRoleExample example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(TFGUserRole record, TFGUserRoleExample example) {
+	public int updateByExample(TFGUserRole record, TFGUserRoleExample example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(TFGUserRole record) {
+	public int updateByPrimaryKeySelective(TFGUserRole record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(TFGUserRole record) {
+	public int updateByPrimaryKey(TFGUserRole record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class TFGUserRoleDao extends ExtendDaoSupper<TFGUserRole, TFGUserRoleExam
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new TFGUserRoleExample());
 	}
 
@@ -166,7 +166,7 @@ public class TFGUserRoleDao extends ExtendDaoSupper<TFGUserRole, TFGUserRoleExam
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<TFGUserRole> records) {
+	public int batchInsert(List<TFGUserRole> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -222,12 +222,12 @@ public class TFGUserRoleDao extends ExtendDaoSupper<TFGUserRole, TFGUserRoleExam
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

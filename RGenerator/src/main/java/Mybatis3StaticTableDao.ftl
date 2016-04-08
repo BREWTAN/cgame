@@ -36,28 +36,28 @@ public class ${domainClazz}Dao extends ExtendDaoSupper<${domainClazz}, ${domainC
 	}
 
 	@Override
-	public int deleteByExample(${domainClazz}Example example) {
+	public int deleteByExample(${domainClazz}Example example)  throws Exception{
 		return mapper.deleteByExample(example);
 	}
 
 	@Override
-	public int deleteByPrimaryKey(${domainClazz}Key key) {
+	public int deleteByPrimaryKey(${domainClazz}Key key)  throws Exception{
 		return mapper.deleteByPrimaryKey(key);
 	}
 
 	@Override
-	public int insert(${domainClazz} record)  {
+	public int insert(${domainClazz} record)   throws Exception{
 		return mapper.insert(record);
 	}
 
 	@Override
-	public int insertSelective(${domainClazz} record)  {
+	public int insertSelective(${domainClazz} record)   throws Exception{
 		return mapper.insertSelective(record);
 	}
 
 	@Override
 	//@Transactional
-	public int batchUpdate(List<${domainClazz}> records)
+	public int batchUpdate(List<${domainClazz}> records) throws Exception
 			 {
 		for(${domainClazz} record : records){
 			mapper.updateByPrimaryKeySelective(record);
@@ -67,7 +67,7 @@ public class ${domainClazz}Dao extends ExtendDaoSupper<${domainClazz}, ${domainC
 
 	@Override
 	//@Transactional
-	public int batchDelete(List<${domainClazz}> records)
+	public int batchDelete(List<${domainClazz}> records) throws Exception
 			 {
 		for(${domainClazz} record : records){
 			mapper.deleteByPrimaryKey(record);
@@ -103,22 +103,22 @@ public class ${domainClazz}Dao extends ExtendDaoSupper<${domainClazz}, ${domainC
 	}
 
 	@Override
-	public int updateByExampleSelective(${domainClazz} record, ${domainClazz}Example example)  {
+	public int updateByExampleSelective(${domainClazz} record, ${domainClazz}Example example)  throws Exception {
 		return mapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
-	public int updateByExample(${domainClazz} record, ${domainClazz}Example example) {
+	public int updateByExample(${domainClazz} record, ${domainClazz}Example example)  throws Exception{
 		return mapper.updateByExample(record, example);
 	}
 
 	@Override
-	public int updateByPrimaryKeySelective(${domainClazz} record) {
+	public int updateByPrimaryKeySelective(${domainClazz} record)  throws Exception{
 		return mapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
-	public int updateByPrimaryKey(${domainClazz} record) {
+	public int updateByPrimaryKey(${domainClazz} record)  throws Exception{
 		return mapper.updateByPrimaryKey(record);
 	}
 
@@ -128,7 +128,7 @@ public class ${domainClazz}Dao extends ExtendDaoSupper<${domainClazz}, ${domainC
 	}
 
 	@Override
-	public void deleteAll()  {
+	public void deleteAll()  throws Exception {
 		mapper.deleteByExample(new ${domainClazz}Example());
 	}
 
@@ -154,7 +154,7 @@ public class ${domainClazz}Dao extends ExtendDaoSupper<${domainClazz}, ${domainC
 	
 	@Override
 	//@Transactional
-	public int batchInsert(List<${domainClazz}> records) {
+	public int batchInsert(List<${domainClazz}> records) throws Exception {
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
@@ -185,9 +185,15 @@ public class ${domainClazz}Dao extends ExtendDaoSupper<${domainClazz}, ${domainC
 						sb.append("'"+"${columns[1]}"+"'");						
 				<#else>
 						sb.append("null");
-				</#if>
+				</#if> 
 				}else{
-					sb.append("'"+record.${columns[2]}()+"'");
+				// java type==${columns[4]}
+					<#if columns[4] == "Date" >
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.${columns[2]}())+"'");
+					<#else>
+						sb.append("'"+record.${columns[2]}()+"'");
+					</#if>
 				}
 			</#list>
 							sb.append(")");
@@ -196,12 +202,12 @@ public class ${domainClazz}Dao extends ExtendDaoSupper<${domainClazz}, ${domainC
 			result=st.executeUpdate(sb.toString());
 			conn.commit();
 		} catch (SQLException e) {
-			e.printStackTrace();
 			try {
 				conn.rollback();
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
+			throw e;
 		}finally{
 			if(st!=null){
 				try {

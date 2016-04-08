@@ -37,12 +37,12 @@ buildscript{
 }
 
 dependencies {
-	compile 'onight.tfw:onight.tfw.oapi:2.1.2'
+	compile 'onight.tfw:onight.tfw.oapi:2.1.3'
 	compile 'onight.osgi:npojo:1.2.0'
 	compile 'org.projectlombok:lombok:1.16.6'
 	compile 'org.apache.commons:commons-lang3:3.4'
 	compile 'org.slf4j:slf4j-api:1.7.12'
-	compile "onight.tfw:onight.tfw.ordbutils:2.0.0"
+	compile "onight.tfw:onight.tfw.ordbutils:2.0.1"
 	testCompile 'junit:junit:4.12'
 	compile 'org.apache.felix:org.apache.felix.ipojo.annotations:1.12.1'
 }
