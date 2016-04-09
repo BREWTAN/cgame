@@ -200,7 +200,7 @@ object CGWMsgMergeService extends OLog with PBUtils with LService[PWMergeProxy] 
         p.failure(e);
       }
     };
-    Sender.ps.asyncSend(forwordpack).whenDone(cb);
+    Sender.ps.asyncSend(forwordpack,cb);
     p.future;
   }
 
