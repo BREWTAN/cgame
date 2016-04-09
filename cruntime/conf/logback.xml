@@ -16,9 +16,9 @@
             </encoder>
         </appender>
 
-	<root level="ERROR">
-		<!-- <appender-ref ref="STDOUT" /> -->
-		<appender-ref ref="FILE" />
+	<root level="debug">
+		<appender-ref ref="STDOUT" />
+		<!-- <appender-ref ref="FILE" /> -->
 	</root>
 	
 <logger name="org.eclipse.jetty" level="info">

@@ -142,7 +142,7 @@ object CGWMsgMergeService extends OLog with PBUtils with LService[PWMergeProxy] 
     forwordpack.getExtHead.appendFrom(proxypack.getExts.getBytes)
     forwordpack.getExtHead().getHiddenkvs.putAll(pack.getExtHead.getHiddenkvs);
     forwordpack.getExtHead().getIgnorekvs.putAll(pack.getExtHead.getIgnorekvs);
-    
+
     forwordpack.setBody(proxypack.getJsbody.getBytes)
     val cb = new CallBack[FramePacket]() {
       def onSuccess(v: FramePacket) {
@@ -157,37 +157,36 @@ object CGWMsgMergeService extends OLog with PBUtils with LService[PWMergeProxy] 
               val srcnode = jsonmapper.readTree(pbv.getJsbody)
               log.debug("srcnode=" + srcnode)
               log.debug("dstnode=" + dstnode)
-              var overrided = false;
+              var overrided: Int = 0;
               proxypack.getClonefieldsList.foreach { key =>
                 //replace with last packet element
                 val keys = key.split("->");
                 if (keys.length == 2) {
-//                  log.debug("replaceKEY:{}", keys);
+                  //                  log.debug("replaceKEY:{}", keys);
                   val v = getAndSetvalue(srcnode, getpathkey(keys(0)), "", None)
                   if (v != MissingNode.getInstance) {
                     if (getAndSetvalue(dstnode, getpathkey(keys(1)), "", Some(v)) != MissingNode.getInstance) {
-//                      log.debug("overrided:OK.for key:,dstnode=:{}" + dstnode)
-                      overrided = true;
-
+                      //                      log.debug("overrided:OK.for key:,dstnode=:{}" + dstnode)
+                      overrided = overrided + 1;
                     }
                   }
                 }
               }
-              if (overrided) {
-//                log.debug("overrided:OK.for key:,dstnode=:{}" + dstnode)
+              if (overrided != proxypack.getClonefieldsList.size()) {
+                log.debug("cannot send to next because props not found");
+                Future { PBFramePacket.newBuilder() }
+              } else {
+                //                log.debug("overrided:OK.for key:,dstnode=:{}" + dstnode)
                 nextPacketbuilder.setJsbody(dstnode.toString());
                 proxyPacket(v, nextPacketbuilder.build(), nextp)
-              } else {
-                proxyPacket(v, xp, nextp)
               }
             } else {
               proxyPacket(v, xp, nextp)
-
             }
           }
           Future.sequence(nexts).onComplete { results =>
             results.map(_.map { result =>
-//              log.debug("next.merge:OK:" + result)
+              //              log.debug("next.merge:OK:" + result)
               pbv.addNextpacks(result)
             })
             p.success(pbv);
