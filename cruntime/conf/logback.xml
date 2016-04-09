@@ -7,9 +7,18 @@
 			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{48}:%L - %msg%n</pattern>
 		</encoder>
 	</appender>
+	
+	 <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+            <file>/tmp/osgi.log</file>
+            <append>true</append>
+            <encoder>
+                <pattern>%d{HH:mm:ss.SSS} %-5level %logger{64}:%L - %msg%n</pattern>
+            </encoder>
+        </appender>
 
-	<root level="debug">
-		<appender-ref ref="STDOUT" />
+	<root level="ERROR">
+		<!-- <appender-ref ref="STDOUT" /> -->
+		<appender-ref ref="FILE" />
 	</root>
 	
 <logger name="org.eclipse.jetty" level="info">
@@ -22,7 +31,7 @@
 	<logger name = "com.lambdaworks.redis" level = "info"/>
 	
 
-	<logger name="onight.osgi.otransio.nio" level="error">
+	<logger name="onight.osgi.otransio" level="error">
 	</logger>
 
 	<logger name="com.github.mauricio.async,io.netty" level="info"/>

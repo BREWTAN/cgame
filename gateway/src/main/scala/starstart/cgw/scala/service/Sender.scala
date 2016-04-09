@@ -13,9 +13,11 @@ import onight.tfw.otransio.api.IPacketSender
 @NActorProvider
 object Sender extends SessionModules[Message] {
   
+  
+   override def getCmds(): Array[String] = Array( "SEN" )
+
   @BeanProperty
   @PSender
-  var ps:IPacketSender = null;
+  var ps: IPacketSender = null;
 
-  
 }

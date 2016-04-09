@@ -3,6 +3,12 @@
 syntax = "proto3";
 
 package starstart.cgw.pbgens;
+import "google/protobuf/descriptor.proto";
+ 
+extend google.protobuf.FieldOptions {
+   string siotype = 50002;
+}
+ 
 
 enum PWModule{
 	CGW = 0;
@@ -79,11 +85,12 @@ message PWRetWager
 message PBFramePacket{
 	string gcmd = 1 ;//代理的gcmd
 	string exts = 2;//扩展头
-	string jsondatas = 3 ;//请求的json数据
-	bytes pbdatas = 4;//请求的pb数据 
+	string jsbody = 3 [  jstype  = JS_NORMAL ];//请求的json数据
+	bytes pbbody = 4;//请求的pb数据 
 	string pack_id = 11;//包在多个请求中的的id
 	repeated PBFramePacket nextpacks = 20;//下一个请求
-}
+	repeated string clonefields = 21;//传到给下个节点的属性字段
+}	
 
 message PWMergeProxy
 {
