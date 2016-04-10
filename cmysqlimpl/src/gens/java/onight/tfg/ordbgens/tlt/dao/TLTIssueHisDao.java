@@ -191,17 +191,20 @@ public class TLTIssueHisDao extends ExtendDaoSupper<TLTIssueHis, TLTIssueHisExam
 				if(record.getLockStatus()!=null){
 				criteria.andLockStatusEqualTo(record.getLockStatus());
 				}
-				if(record.getProcessStatus()!=null){
-				criteria.andProcessStatusEqualTo(record.getProcessStatus());
-				}
 				if(record.getCreateTime()!=null){
 				criteria.andCreateTimeEqualTo(record.getCreateTime());
 				}
 				if(record.getModifyTime()!=null){
 				criteria.andModifyTimeEqualTo(record.getModifyTime());
 				}
+				if(record.getIssueStatus()!=null){
+				criteria.andIssueStatusEqualTo(record.getIssueStatus());
+				}
 				if(record.getStatus()!=null){
 				criteria.andStatusEqualTo(record.getStatus());
+				}
+				if(record.getBackupTime()!=null){
+				criteria.andBackupTimeEqualTo(record.getBackupTime());
 				}
 
 		}
@@ -411,15 +414,6 @@ public class TLTIssueHisDao extends ExtendDaoSupper<TLTIssueHis, TLTIssueHisExam
 			
 				sb.append(",");
 			
-				if(record.getProcessStatus()==null){
-						sb.append("'"+"0"+"'");						
-				}else{
-				// java type==Integer
-						sb.append("'"+record.getProcessStatus()+"'");
-				}
-			
-				sb.append(",");
-			
 				if(record.getCreateTime()==null){
 						sb.append("null");
 				}else{
@@ -440,11 +434,30 @@ public class TLTIssueHisDao extends ExtendDaoSupper<TLTIssueHis, TLTIssueHisExam
 			
 				sb.append(",");
 			
+				if(record.getIssueStatus()==null){
+						sb.append("'"+"0"+"'");						
+				}else{
+				// java type==String
+						sb.append("'"+record.getIssueStatus()+"'");
+				}
+			
+				sb.append(",");
+			
 				if(record.getStatus()==null){
 						sb.append("'"+"1"+"'");						
 				}else{
 				// java type==String
 						sb.append("'"+record.getStatus()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getBackupTime()==null){
+						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
+				}else{
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getBackupTime())+"'");
 				}
 							sb.append(")");
 			

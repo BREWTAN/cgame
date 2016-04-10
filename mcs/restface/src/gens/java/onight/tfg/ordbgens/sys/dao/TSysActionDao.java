@@ -196,7 +196,8 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 				if(record.getActionId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActionId()+"'");
+				// java type==Long
+						sb.append("'"+record.getActionId()+"'");
 				}
 			
 				sb.append(",");
@@ -204,7 +205,8 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 				if(record.getActionFlag()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActionFlag()+"'");
+				// java type==String
+						sb.append("'"+record.getActionFlag()+"'");
 				}
 			
 				sb.append(",");
@@ -212,7 +214,8 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 				if(record.getActionName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActionName()+"'");
+				// java type==String
+						sb.append("'"+record.getActionName()+"'");
 				}
 			
 				sb.append(",");
@@ -220,7 +223,8 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 				if(record.getActionDesc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActionDesc()+"'");
+				// java type==String
+						sb.append("'"+record.getActionDesc()+"'");
 				}
 			
 				sb.append(",");
@@ -228,7 +232,8 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 				if(record.getActionMenu()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActionMenu()+"'");
+				// java type==Long
+						sb.append("'"+record.getActionMenu()+"'");
 				}
 			
 				sb.append(",");
@@ -236,7 +241,8 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 				if(record.getField1()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getField1()+"'");
+				// java type==String
+						sb.append("'"+record.getField1()+"'");
 				}
 							sb.append(")");
 			

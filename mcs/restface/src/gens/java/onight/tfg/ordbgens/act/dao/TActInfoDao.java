@@ -235,7 +235,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getActNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActNo()+"'");
+				// java type==String
+						sb.append("'"+record.getActNo()+"'");
 				}
 			
 				sb.append(",");
@@ -243,7 +244,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getActName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActName()+"'");
+				// java type==String
+						sb.append("'"+record.getActName()+"'");
 				}
 			
 				sb.append(",");
@@ -251,7 +253,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getCustId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCustId()+"'");
+				// java type==String
+						sb.append("'"+record.getCustId()+"'");
 				}
 			
 				sb.append(",");
@@ -259,7 +262,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getMchntId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMchntId()+"'");
+				// java type==String
+						sb.append("'"+record.getMchntId()+"'");
 				}
 			
 				sb.append(",");
@@ -267,7 +271,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getActType()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getActType()+"'");
+				// java type==String
+						sb.append("'"+record.getActType()+"'");
 				}
 			
 				sb.append(",");
@@ -275,7 +280,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getMnySmb()==null){
 						sb.append("'"+"CNY"+"'");						
 				}else{
-					sb.append("'"+record.getMnySmb()+"'");
+				// java type==String
+						sb.append("'"+record.getMnySmb()+"'");
 				}
 			
 				sb.append(",");
@@ -283,7 +289,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getChannelId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getChannelId()+"'");
+				// java type==String
+						sb.append("'"+record.getChannelId()+"'");
 				}
 			
 				sb.append(",");
@@ -291,7 +298,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getCatalog()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getCatalog()+"'");
+				// java type==String
+						sb.append("'"+record.getCatalog()+"'");
 				}
 			
 				sb.append(",");
@@ -299,7 +307,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getActYinitBal()==null){
 						sb.append("'"+"0.00000000"+"'");						
 				}else{
-					sb.append("'"+record.getActYinitBal()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getActYinitBal()+"'");
 				}
 			
 				sb.append(",");
@@ -307,7 +316,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getActDinitBal()==null){
 						sb.append("'"+"0.00000000"+"'");						
 				}else{
-					sb.append("'"+record.getActDinitBal()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getActDinitBal()+"'");
 				}
 			
 				sb.append(",");
@@ -315,15 +325,17 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getActCurBal()==null){
 						sb.append("'"+"0.00000000"+"'");						
 				}else{
-					sb.append("'"+record.getActCurBal()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getActCurBal()+"'");
 				}
 			
 				sb.append(",");
 			
 				if(record.getActStat()==null){
-						sb.append("'"+"0.00000000"+"'");						
+						sb.append("'"+"0.0"+"'");						
 				}else{
-					sb.append("'"+record.getActStat()+"'");
+				// java type==String
+						sb.append("'"+record.getActStat()+"'");
 				}
 			
 				sb.append(",");
@@ -331,7 +343,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getActMaxodAmt()==null){
 						sb.append("'"+"0.00000000"+"'");						
 				}else{
-					sb.append("'"+record.getActMaxodAmt()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getActMaxodAmt()+"'");
 				}
 			
 				sb.append(",");
@@ -339,7 +352,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getActCtrlBal()==null){
 						sb.append("'"+"0.00000000"+"'");						
 				}else{
-					sb.append("'"+record.getActCtrlBal()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getActCtrlBal()+"'");
 				}
 			
 				sb.append(",");
@@ -347,7 +361,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getActBalWarnFlag()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActBalWarnFlag()+"'");
+				// java type==String
+						sb.append("'"+record.getActBalWarnFlag()+"'");
 				}
 			
 				sb.append(",");
@@ -355,7 +370,9 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getCreateTime()==null){
 						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
 				}else{
-					sb.append("'"+record.getCreateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCreateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -363,7 +380,9 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getUpdateTime()==null){
 						sb.append("'"+"0000-00-00 00:00:00"+"'");						
 				}else{
-					sb.append("'"+record.getUpdateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getUpdateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -371,7 +390,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getModifyId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getModifyId()+"'");
+				// java type==String
+						sb.append("'"+record.getModifyId()+"'");
 				}
 			
 				sb.append(",");
@@ -379,7 +399,8 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 				if(record.getMemo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMemo()+"'");
+				// java type==String
+						sb.append("'"+record.getMemo()+"'");
 				}
 							sb.append(")");
 			

@@ -3,19 +3,9 @@ package starstart.cgame.flows.nsttl.flows;
 import starstart.cgame.flows.enums.SettleSteps;
 
 public class FlowCtrl {
-	FlowNode rootRyb;
-	FlowNode rootP2p;
-	
-	FlowNode rootBanlance;
-	FlowNode rootBanlanceFNLN;
-	FlowNode rootUpdRYB;
+	FlowNode root_CSQQC;
 	public void build() {
-		
-		
-		
-		/** OFAG：开放式理财类产品 流程  **/
-		
-		rootUpdRYB= new FlowNode(SettleSteps.Start_Upd_R);
+		root_CSQQC= new FlowNode(SettleSteps.INIT);
 		//收益
 		FlowNode prodUpdRyb = FlowNode.buildStreamFlow(new SettleSteps[] {
 				SettleSteps.Prod_Query_Upd_R,

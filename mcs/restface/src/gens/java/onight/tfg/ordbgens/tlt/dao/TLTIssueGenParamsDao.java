@@ -211,7 +211,8 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				if(record.getGenId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getGenId()+"'");
+				// java type==Long
+						sb.append("'"+record.getGenId()+"'");
 				}
 			
 				sb.append(",");
@@ -219,7 +220,8 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				if(record.getLtype()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLtype()+"'");
+				// java type==String
+						sb.append("'"+record.getLtype()+"'");
 				}
 			
 				sb.append(",");
@@ -227,7 +229,8 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				if(record.getSaleStime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getSaleStime()+"'");
+				// java type==String
+						sb.append("'"+record.getSaleStime()+"'");
 				}
 			
 				sb.append(",");
@@ -235,7 +238,8 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				if(record.getSaleEtime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getSaleEtime()+"'");
+				// java type==String
+						sb.append("'"+record.getSaleEtime()+"'");
 				}
 			
 				sb.append(",");
@@ -243,7 +247,8 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				if(record.getSaleFiEtime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getSaleFiEtime()+"'");
+				// java type==String
+						sb.append("'"+record.getSaleFiEtime()+"'");
 				}
 			
 				sb.append(",");
@@ -251,7 +256,8 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				if(record.getSaleCycle()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getSaleCycle()+"'");
+				// java type==Integer
+						sb.append("'"+record.getSaleCycle()+"'");
 				}
 			
 				sb.append(",");
@@ -259,7 +265,8 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				if(record.getWaitRlDur()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getWaitRlDur()+"'");
+				// java type==Integer
+						sb.append("'"+record.getWaitRlDur()+"'");
 				}
 			
 				sb.append(",");
@@ -267,7 +274,8 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				if(record.getCancelDur()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getCancelDur()+"'");
+				// java type==Integer
+						sb.append("'"+record.getCancelDur()+"'");
 				}
 			
 				sb.append(",");
@@ -275,7 +283,8 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				if(record.getInputDur()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getInputDur()+"'");
+				// java type==Integer
+						sb.append("'"+record.getInputDur()+"'");
 				}
 			
 				sb.append(",");
@@ -283,7 +292,8 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				if(record.getSort()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getSort()+"'");
+				// java type==Byte
+						sb.append("'"+record.getSort()+"'");
 				}
 			
 				sb.append(",");
@@ -291,7 +301,8 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				if(record.getEnable()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getEnable()+"'");
+				// java type==Boolean
+						sb.append("'"+record.getEnable()+"'");
 				}
 							sb.append(")");
 			

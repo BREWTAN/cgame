@@ -277,7 +277,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==Long
+						sb.append("'"+record.getUserId()+"'");
 				}
 			
 				sb.append(",");
@@ -285,7 +286,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getNickname()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getNickname()+"'");
+				// java type==String
+						sb.append("'"+record.getNickname()+"'");
 				}
 			
 				sb.append(",");
@@ -293,7 +295,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getParentId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getParentId()+"'");
+				// java type==Long
+						sb.append("'"+record.getParentId()+"'");
 				}
 			
 				sb.append(",");
@@ -301,7 +304,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getRecommendId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRecommendId()+"'");
+				// java type==Long
+						sb.append("'"+record.getRecommendId()+"'");
 				}
 			
 				sb.append(",");
@@ -309,7 +313,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getUserType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserType()+"'");
+				// java type==String
+						sb.append("'"+record.getUserType()+"'");
 				}
 			
 				sb.append(",");
@@ -317,7 +322,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getSecurityEmail()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getSecurityEmail()+"'");
+				// java type==String
+						sb.append("'"+record.getSecurityEmail()+"'");
 				}
 			
 				sb.append(",");
@@ -325,7 +331,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getRealName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRealName()+"'");
+				// java type==String
+						sb.append("'"+record.getRealName()+"'");
 				}
 			
 				sb.append(",");
@@ -333,7 +340,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -341,7 +349,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getIdNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getIdNo()+"'");
+				// java type==String
+						sb.append("'"+record.getIdNo()+"'");
 				}
 			
 				sb.append(",");
@@ -349,7 +358,9 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getUpdateTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUpdateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getUpdateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -357,7 +368,9 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getCreateTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCreateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCreateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -365,7 +378,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getQqId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getQqId()+"'");
+				// java type==String
+						sb.append("'"+record.getQqId()+"'");
 				}
 			
 				sb.append(",");
@@ -373,7 +387,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getWechatId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getWechatId()+"'");
+				// java type==String
+						sb.append("'"+record.getWechatId()+"'");
 				}
 			
 				sb.append(",");
@@ -381,7 +396,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getMobile()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMobile()+"'");
+				// java type==String
+						sb.append("'"+record.getMobile()+"'");
 				}
 			
 				sb.append(",");
@@ -389,7 +405,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getEmail()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getEmail()+"'");
+				// java type==String
+						sb.append("'"+record.getEmail()+"'");
 				}
 			
 				sb.append(",");
@@ -397,7 +414,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getRenren()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRenren()+"'");
+				// java type==String
+						sb.append("'"+record.getRenren()+"'");
 				}
 			
 				sb.append(",");
@@ -405,7 +423,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getWeibo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getWeibo()+"'");
+				// java type==String
+						sb.append("'"+record.getWeibo()+"'");
 				}
 			
 				sb.append(",");
@@ -413,7 +432,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getFace()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getFace()+"'");
+				// java type==Integer
+						sb.append("'"+record.getFace()+"'");
 				}
 			
 				sb.append(",");
@@ -421,7 +441,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getFaceUrl()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getFaceUrl()+"'");
+				// java type==String
+						sb.append("'"+record.getFaceUrl()+"'");
 				}
 			
 				sb.append(",");
@@ -429,7 +450,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getGender()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getGender()+"'");
+				// java type==Integer
+						sb.append("'"+record.getGender()+"'");
 				}
 			
 				sb.append(",");
@@ -437,7 +459,9 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getBirthday()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBirthday()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getBirthday())+"'");
 				}
 			
 				sb.append(",");
@@ -445,7 +469,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getCountry()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCountry()+"'");
+				// java type==String
+						sb.append("'"+record.getCountry()+"'");
 				}
 			
 				sb.append(",");
@@ -453,7 +478,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getProvince()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getProvince()+"'");
+				// java type==String
+						sb.append("'"+record.getProvince()+"'");
 				}
 			
 				sb.append(",");
@@ -461,7 +487,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getCity()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getCity()+"'");
+				// java type==String
+						sb.append("'"+record.getCity()+"'");
 				}
 			
 				sb.append(",");
@@ -469,7 +496,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getHomeAddress()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getHomeAddress()+"'");
+				// java type==String
+						sb.append("'"+record.getHomeAddress()+"'");
 				}
 			
 				sb.append(",");
@@ -477,7 +505,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getWorkAddress()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getWorkAddress()+"'");
+				// java type==String
+						sb.append("'"+record.getWorkAddress()+"'");
 				}
 			
 				sb.append(",");
@@ -485,7 +514,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getMobile1()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMobile1()+"'");
+				// java type==String
+						sb.append("'"+record.getMobile1()+"'");
 				}
 			
 				sb.append(",");
@@ -493,7 +523,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getMobile2()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMobile2()+"'");
+				// java type==String
+						sb.append("'"+record.getMobile2()+"'");
 				}
 			
 				sb.append(",");
@@ -501,7 +532,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getMobile3()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMobile3()+"'");
+				// java type==String
+						sb.append("'"+record.getMobile3()+"'");
 				}
 			
 				sb.append(",");
@@ -509,7 +541,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getMobilehis()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMobilehis()+"'");
+				// java type==String
+						sb.append("'"+record.getMobilehis()+"'");
 				}
 			
 				sb.append(",");
@@ -517,7 +550,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getRemark()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRemark()+"'");
+				// java type==String
+						sb.append("'"+record.getRemark()+"'");
 				}
 			
 				sb.append(",");
@@ -525,7 +559,9 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getRegTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRegTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getRegTime())+"'");
 				}
 			
 				sb.append(",");
@@ -533,7 +569,8 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				if(record.getRegIp()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRegIp()+"'");
+				// java type==String
+						sb.append("'"+record.getRegIp()+"'");
 				}
 							sb.append(")");
 			

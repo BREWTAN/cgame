@@ -321,6 +321,30 @@
  		<property name="mapper" ref="tLTCoreBetMapper" />
  		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
  	</bean>
+	<bean id="tLTCoreRewardMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTCoreRewardMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tltcorerewardDao" class="onight.tfg.ordbgens.tlt.dao.TLTCoreRewardDao" >
+ 		<property name="mapper" ref="tLTCoreRewardMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
+	<bean id="tLTCoreTickMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTCoreTickMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tltcoretickDao" class="onight.tfg.ordbgens.tlt.dao.TLTCoreTickDao" >
+ 		<property name="mapper" ref="tLTCoreTickMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
+	<bean id="tLTCoreWinMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTCoreWinMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tltcorewinDao" class="onight.tfg.ordbgens.tlt.dao.TLTCoreWinDao" >
+ 		<property name="mapper" ref="tLTCoreWinMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
 	<bean id="tLTGroupTypeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTGroupTypeMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
@@ -351,6 +375,30 @@
 	</bean>
 	 <bean id="tltissuehisDao" class="onight.tfg.ordbgens.tlt.dao.TLTIssueHisDao" >
  		<property name="mapper" ref="tLTIssueHisMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
+	<bean id="tLTIssueStatusParamsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTIssueStatusParamsMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tltissuestatusparamsDao" class="onight.tfg.ordbgens.tlt.dao.TLTIssueStatusParamsDao" >
+ 		<property name="mapper" ref="tLTIssueStatusParamsMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
+	<bean id="tLTIssueStepsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTIssueStepsMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tltissuestepsDao" class="onight.tfg.ordbgens.tlt.dao.TLTIssueStepsDao" >
+ 		<property name="mapper" ref="tLTIssueStepsMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
+	<bean id="tLTIssueStepsHisMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTIssueStepsHisMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tltissuestepshisDao" class="onight.tfg.ordbgens.tlt.dao.TLTIssueStepsHisDao" >
+ 		<property name="mapper" ref="tLTIssueStepsHisMapper" />
  		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
  	</bean>
 	<bean id="tLTLimitedFeatureMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">

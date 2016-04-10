@@ -190,7 +190,8 @@ public class TSysRoleDao extends ExtendDaoSupper<TSysRole, TSysRoleExample, TSys
 				if(record.getRoleId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRoleId()+"'");
+				// java type==String
+						sb.append("'"+record.getRoleId()+"'");
 				}
 			
 				sb.append(",");
@@ -198,7 +199,8 @@ public class TSysRoleDao extends ExtendDaoSupper<TSysRole, TSysRoleExample, TSys
 				if(record.getRoleName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRoleName()+"'");
+				// java type==String
+						sb.append("'"+record.getRoleName()+"'");
 				}
 			
 				sb.append(",");
@@ -206,7 +208,8 @@ public class TSysRoleDao extends ExtendDaoSupper<TSysRole, TSysRoleExample, TSys
 				if(record.getRoleDesc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRoleDesc()+"'");
+				// java type==String
+						sb.append("'"+record.getRoleDesc()+"'");
 				}
 			
 				sb.append(",");
@@ -214,7 +217,8 @@ public class TSysRoleDao extends ExtendDaoSupper<TSysRole, TSysRoleExample, TSys
 				if(record.getStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getStatus()+"'");
 				}
 							sb.append(")");
 			

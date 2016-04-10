@@ -205,7 +205,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getMenuId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMenuId()+"'");
+				// java type==Integer
+						sb.append("'"+record.getMenuId()+"'");
 				}
 			
 				sb.append(",");
@@ -213,7 +214,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getMenuName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMenuName()+"'");
+				// java type==String
+						sb.append("'"+record.getMenuName()+"'");
 				}
 			
 				sb.append(",");
@@ -221,7 +223,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getMenuDesc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMenuDesc()+"'");
+				// java type==String
+						sb.append("'"+record.getMenuDesc()+"'");
 				}
 			
 				sb.append(",");
@@ -229,7 +232,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getMenuSeq()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMenuSeq()+"'");
+				// java type==Integer
+						sb.append("'"+record.getMenuSeq()+"'");
 				}
 			
 				sb.append(",");
@@ -237,7 +241,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getMenuUrl()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMenuUrl()+"'");
+				// java type==String
+						sb.append("'"+record.getMenuUrl()+"'");
 				}
 			
 				sb.append(",");
@@ -245,7 +250,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getParentId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getParentId()+"'");
+				// java type==Integer
+						sb.append("'"+record.getParentId()+"'");
 				}
 			
 				sb.append(",");
@@ -253,7 +259,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getLeafFlag()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLeafFlag()+"'");
+				// java type==Integer
+						sb.append("'"+record.getLeafFlag()+"'");
 				}
 			
 				sb.append(",");
@@ -261,7 +268,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getLevel()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLevel()+"'");
+				// java type==Integer
+						sb.append("'"+record.getLevel()+"'");
 				}
 			
 				sb.append(",");
@@ -269,7 +277,8 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 				if(record.getIcon()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getIcon()+"'");
+				// java type==String
+						sb.append("'"+record.getIcon()+"'");
 				}
 							sb.append(")");
 			

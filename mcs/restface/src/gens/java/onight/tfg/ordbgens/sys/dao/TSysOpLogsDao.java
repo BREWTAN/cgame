@@ -193,7 +193,8 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 				if(record.getId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getId()+"'");
+				// java type==String
+						sb.append("'"+record.getId()+"'");
 				}
 			
 				sb.append(",");
@@ -201,7 +202,8 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 				if(record.getSkeys()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getSkeys()+"'");
+				// java type==String
+						sb.append("'"+record.getSkeys()+"'");
 				}
 			
 				sb.append(",");
@@ -209,7 +211,8 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 				if(record.getContents()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getContents()+"'");
+				// java type==String
+						sb.append("'"+record.getContents()+"'");
 				}
 			
 				sb.append(",");
@@ -217,7 +220,8 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 				if(record.getLevel()==null){
 						sb.append("'"+"INFO"+"'");						
 				}else{
-					sb.append("'"+record.getLevel()+"'");
+				// java type==String
+						sb.append("'"+record.getLevel()+"'");
 				}
 			
 				sb.append(",");
@@ -225,7 +229,9 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 				if(record.getCrtTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCrtTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCrtTime())+"'");
 				}
 							sb.append(")");
 			

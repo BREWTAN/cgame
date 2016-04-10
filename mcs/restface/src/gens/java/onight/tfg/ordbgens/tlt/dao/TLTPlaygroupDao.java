@@ -217,7 +217,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getId()+"'");
+				// java type==Long
+						sb.append("'"+record.getId()+"'");
 				}
 			
 				sb.append(",");
@@ -225,7 +226,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getLtype()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLtype()+"'");
+				// java type==String
+						sb.append("'"+record.getLtype()+"'");
 				}
 			
 				sb.append(",");
@@ -233,7 +235,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getPlayType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPlayType()+"'");
+				// java type==String
+						sb.append("'"+record.getPlayType()+"'");
 				}
 			
 				sb.append(",");
@@ -241,7 +244,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getCnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getCnName()+"'");
+				// java type==String
+						sb.append("'"+record.getCnName()+"'");
 				}
 			
 				sb.append(",");
@@ -249,7 +253,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getEnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getEnName()+"'");
+				// java type==String
+						sb.append("'"+record.getEnName()+"'");
 				}
 			
 				sb.append(",");
@@ -257,7 +262,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getLockTable()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLockTable()+"'");
+				// java type==String
+						sb.append("'"+record.getLockTable()+"'");
 				}
 			
 				sb.append(",");
@@ -265,7 +271,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getAwardLevel()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getAwardLevel()+"'");
+				// java type==Integer
+						sb.append("'"+record.getAwardLevel()+"'");
 				}
 			
 				sb.append(",");
@@ -273,7 +280,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getCost()==null){
 						sb.append("'"+"0.00"+"'");						
 				}else{
-					sb.append("'"+record.getCost()+"'");
+				// java type==Float
+						sb.append("'"+record.getCost()+"'");
 				}
 			
 				sb.append(",");
@@ -281,7 +289,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getEnable()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getEnable()+"'");
+				// java type==Boolean
+						sb.append("'"+record.getEnable()+"'");
 				}
 			
 				sb.append(",");
@@ -289,7 +298,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getRemark()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRemark()+"'");
+				// java type==String
+						sb.append("'"+record.getRemark()+"'");
 				}
 			
 				sb.append(",");
@@ -297,7 +307,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getRebate()==null){
 						sb.append("'"+"0.0"+"'");						
 				}else{
-					sb.append("'"+record.getRebate()+"'");
+				// java type==Float
+						sb.append("'"+record.getRebate()+"'");
 				}
 			
 				sb.append(",");
@@ -305,7 +316,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getDeloRebate()==null){
 						sb.append("'"+"0.0"+"'");						
 				}else{
-					sb.append("'"+record.getDeloRebate()+"'");
+				// java type==Float
+						sb.append("'"+record.getDeloRebate()+"'");
 				}
 			
 				sb.append(",");
@@ -313,7 +325,8 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getViewgroup()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getViewgroup()+"'");
+				// java type==String
+						sb.append("'"+record.getViewgroup()+"'");
 				}
 							sb.append(")");
 			

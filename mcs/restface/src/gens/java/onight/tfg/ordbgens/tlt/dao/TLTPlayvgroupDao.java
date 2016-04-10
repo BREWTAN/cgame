@@ -196,7 +196,8 @@ public class TLTPlayvgroupDao extends ExtendDaoSupper<TLTPlayvgroup, TLTPlayvgro
 				if(record.getId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getId()+"'");
+				// java type==Long
+						sb.append("'"+record.getId()+"'");
 				}
 			
 				sb.append(",");
@@ -204,7 +205,8 @@ public class TLTPlayvgroupDao extends ExtendDaoSupper<TLTPlayvgroup, TLTPlayvgro
 				if(record.getLtype()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLtype()+"'");
+				// java type==String
+						sb.append("'"+record.getLtype()+"'");
 				}
 			
 				sb.append(",");
@@ -212,7 +214,8 @@ public class TLTPlayvgroupDao extends ExtendDaoSupper<TLTPlayvgroup, TLTPlayvgro
 				if(record.getPlayType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPlayType()+"'");
+				// java type==String
+						sb.append("'"+record.getPlayType()+"'");
 				}
 			
 				sb.append(",");
@@ -220,7 +223,8 @@ public class TLTPlayvgroupDao extends ExtendDaoSupper<TLTPlayvgroup, TLTPlayvgro
 				if(record.getCnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getCnName()+"'");
+				// java type==String
+						sb.append("'"+record.getCnName()+"'");
 				}
 			
 				sb.append(",");
@@ -228,7 +232,8 @@ public class TLTPlayvgroupDao extends ExtendDaoSupper<TLTPlayvgroup, TLTPlayvgro
 				if(record.getEnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getEnName()+"'");
+				// java type==String
+						sb.append("'"+record.getEnName()+"'");
 				}
 			
 				sb.append(",");
@@ -236,7 +241,8 @@ public class TLTPlayvgroupDao extends ExtendDaoSupper<TLTPlayvgroup, TLTPlayvgro
 				if(record.getDefaultPg()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getDefaultPg()+"'");
+				// java type==Integer
+						sb.append("'"+record.getDefaultPg()+"'");
 				}
 							sb.append(")");
 			

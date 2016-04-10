@@ -214,7 +214,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getId()+"'");
+				// java type==String
+						sb.append("'"+record.getId()+"'");
 				}
 			
 				sb.append(",");
@@ -222,7 +223,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getBranchId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBranchId()+"'");
+				// java type==String
+						sb.append("'"+record.getBranchId()+"'");
 				}
 			
 				sb.append(",");
@@ -230,7 +232,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getBranchDesc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBranchDesc()+"'");
+				// java type==String
+						sb.append("'"+record.getBranchDesc()+"'");
 				}
 			
 				sb.append(",");
@@ -238,7 +241,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getBranchName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBranchName()+"'");
+				// java type==String
+						sb.append("'"+record.getBranchName()+"'");
 				}
 			
 				sb.append(",");
@@ -246,7 +250,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getBranchManager()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBranchManager()+"'");
+				// java type==String
+						sb.append("'"+record.getBranchManager()+"'");
 				}
 			
 				sb.append(",");
@@ -254,7 +259,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getMobile()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMobile()+"'");
+				// java type==String
+						sb.append("'"+record.getMobile()+"'");
 				}
 			
 				sb.append(",");
@@ -262,7 +268,9 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getBeginTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBeginTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getBeginTime())+"'");
 				}
 			
 				sb.append(",");
@@ -270,7 +278,9 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getEndTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getEndTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getEndTime())+"'");
 				}
 			
 				sb.append(",");
@@ -278,7 +288,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getParentId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getParentId()+"'");
+				// java type==String
+						sb.append("'"+record.getParentId()+"'");
 				}
 			
 				sb.append(",");
@@ -286,7 +297,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getLeafFlag()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLeafFlag()+"'");
+				// java type==Integer
+						sb.append("'"+record.getLeafFlag()+"'");
 				}
 			
 				sb.append(",");
@@ -294,7 +306,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getBranchSeq()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBranchSeq()+"'");
+				// java type==Integer
+						sb.append("'"+record.getBranchSeq()+"'");
 				}
 			
 				sb.append(",");
@@ -302,7 +315,8 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 				if(record.getLevel()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLevel()+"'");
+				// java type==Integer
+						sb.append("'"+record.getLevel()+"'");
 				}
 							sb.append(")");
 			

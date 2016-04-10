@@ -193,7 +193,8 @@ public class TFGRoleDao extends ExtendDaoSupper<TFGRole, TFGRoleExample, TFGRole
 				if(record.getRoleId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRoleId()+"'");
+				// java type==String
+						sb.append("'"+record.getRoleId()+"'");
 				}
 			
 				sb.append(",");
@@ -201,7 +202,8 @@ public class TFGRoleDao extends ExtendDaoSupper<TFGRole, TFGRoleExample, TFGRole
 				if(record.getParentRoleId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getParentRoleId()+"'");
+				// java type==String
+						sb.append("'"+record.getParentRoleId()+"'");
 				}
 			
 				sb.append(",");
@@ -209,7 +211,8 @@ public class TFGRoleDao extends ExtendDaoSupper<TFGRole, TFGRoleExample, TFGRole
 				if(record.getRoleName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRoleName()+"'");
+				// java type==String
+						sb.append("'"+record.getRoleName()+"'");
 				}
 			
 				sb.append(",");
@@ -217,7 +220,8 @@ public class TFGRoleDao extends ExtendDaoSupper<TFGRole, TFGRoleExample, TFGRole
 				if(record.getRoleDesc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRoleDesc()+"'");
+				// java type==String
+						sb.append("'"+record.getRoleDesc()+"'");
 				}
 			
 				sb.append(",");
@@ -225,7 +229,8 @@ public class TFGRoleDao extends ExtendDaoSupper<TFGRole, TFGRoleExample, TFGRole
 				if(record.getStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==String
+						sb.append("'"+record.getStatus()+"'");
 				}
 							sb.append(")");
 			

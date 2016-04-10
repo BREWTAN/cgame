@@ -1,4 +1,4 @@
-var Dialog, FlatButton, FontAwesome, History, Loader, LoadingDiag, Login, Paper, PromiseState, RaisedButton, React, Router, TextField, connect, injectTapEventPlugin, linkState, ref, ref1, request;
+var Dialog, FlatButton, FontAwesome, History, Loader, LoadingDiag, Login, PBHelper, Paper, PromiseState, RaisedButton, React, Router, TextField, UserInfo, connect, injectTapEventPlugin, linkState, ref, ref1, request;
 
 React = require("react");
 
@@ -19,6 +19,10 @@ Loader = require('halogen/RingLoader');
 LoadingDiag = require("./loadingDiag.js");
 
 FontAwesome = require('react-fontawesome');
+
+PBHelper = require('../libs/PBHelper.js');
+
+UserInfo = require('../libs/UserInfo.js');
 
 ref = require('react-refetch'), connect = ref.connect, PromiseState = ref.PromiseState;
 
@@ -42,40 +46,58 @@ Login = React.createClass({
     };
   },
   handleLoginCB: function(err, res) {
+    var packMap;
     console.log("LoginCB:" + JSON.stringify(res.body));
-    if (res.body !== null && res.body.body.code === "0000") {
-      console.log("login Success");
-      this.context.history.pushState(null, "/ug/qcssc");
-    } else if (res.body === null) {
+    packMap = PBHelper.parseFramePacket(res.body);
+    if (!packMap) {
       this.setState({
         open: true,
         message: "登录失败:网络请求异常"
       });
+    } else if (packMap["0"].bizcode === '0000') {
+      UserInfo.setLoginRet(packMap);
+      this.context.history.pushState(null, "/ug/qcssc");
     } else {
       this.setState({
         open: true,
-        message: "登录失败:" + res.body.body.desc
+        message: "登录失败:" + packMap["0"].desc
       });
     }
   },
   handleOpen: function() {
     console.log("handleOpen::" + this.context.history);
-    request.post('/orest/ssm/pbsin.do?fh=VSINSSM000000J00').send({
-      login_id: this.state.login_id,
-      password: this.state.password,
-      op: '0',
-      res_id: 'web'
+    request.post('/pbface/cgw/pbmer.do?fh=VMERCGW000000J00').send({
+      packets: [
+        {
+          gcmd: "SINSSM",
+          jsbody: {
+            login_id: this.state.login_id,
+            password: this.state.password,
+            op: '0',
+            resourceid: "webui"
+          },
+          pack_id: "0",
+          nextpacks: [
+            {
+              gcmd: "QUEACT",
+              jsbody: {
+                fund_no: "*"
+              },
+              pack_id: "100"
+            }
+          ],
+          clonefields: ["user_id->act_no"]
+        }
+      ]
     }).end(this.handleLoginCB);
   },
   handleClose: function() {
-    console.log("handleClose::");
     this.setState({
       open: false
     });
   },
   render: function() {
     var actions, pstyle, style;
-    console.log("render::login:message=" + this.state.message);
     actions = [
       React.createElement(FlatButton, {
         "label": "Cancel",

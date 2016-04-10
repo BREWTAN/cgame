@@ -193,7 +193,8 @@ public class TFGGroupDao extends ExtendDaoSupper<TFGGroup, TFGGroupExample, TFGG
 				if(record.getGroupId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getGroupId()+"'");
+				// java type==String
+						sb.append("'"+record.getGroupId()+"'");
 				}
 			
 				sb.append(",");
@@ -201,7 +202,8 @@ public class TFGGroupDao extends ExtendDaoSupper<TFGGroup, TFGGroupExample, TFGG
 				if(record.getParentGroupId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getParentGroupId()+"'");
+				// java type==String
+						sb.append("'"+record.getParentGroupId()+"'");
 				}
 			
 				sb.append(",");
@@ -209,7 +211,8 @@ public class TFGGroupDao extends ExtendDaoSupper<TFGGroup, TFGGroupExample, TFGG
 				if(record.getGroupName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getGroupName()+"'");
+				// java type==String
+						sb.append("'"+record.getGroupName()+"'");
 				}
 			
 				sb.append(",");
@@ -217,7 +220,8 @@ public class TFGGroupDao extends ExtendDaoSupper<TFGGroup, TFGGroupExample, TFGG
 				if(record.getGroupDesc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getGroupDesc()+"'");
+				// java type==String
+						sb.append("'"+record.getGroupDesc()+"'");
 				}
 			
 				sb.append(",");
@@ -225,7 +229,8 @@ public class TFGGroupDao extends ExtendDaoSupper<TFGGroup, TFGGroupExample, TFGG
 				if(record.getStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==String
+						sb.append("'"+record.getStatus()+"'");
 				}
 							sb.append(")");
 			

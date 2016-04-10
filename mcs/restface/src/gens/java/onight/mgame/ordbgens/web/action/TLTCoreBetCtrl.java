@@ -172,11 +172,11 @@ public class TLTCoreBetCtrl extends BasicCtrl {
 				}
 				
 			
-			if(true && akey.getTickNo() == null ){
+			if(true && akey.getBetNo() == null ){
 				list = new ArrayList<TLTCoreBet>();
 			}else{
 				TLTCoreBetExample example = new TLTCoreBetExample();
-				example.createCriteria().andTickNoEqualTo(akey.getTickNo());
+				example.createCriteria().andBetNoEqualTo(akey.getBetNo());
 				list = tLTCoreBetMapper.selectByExample(example);
 			}
 			totalCount = list.size();
@@ -208,7 +208,7 @@ public class TLTCoreBetCtrl extends BasicCtrl {
 					FieldUtils.setObjectValue(akey, keyField, key);
 				}
 				
-			if(true && akey.getTickNo() != null ){
+			if(true && akey.getBetNo() != null ){
 				tLTCoreBetMapper.deleteByPrimaryKey(akey);
 				return ReturnInfo.Success;
 			}
@@ -241,7 +241,7 @@ public class TLTCoreBetCtrl extends BasicCtrl {
 					FieldUtils.setObjectValue(akey, keyField, key);
 				}
 				TLTCoreBetExample example = new TLTCoreBetExample();
-				example.createCriteria().andTickNoEqualTo(akey.getTickNo());
+				example.createCriteria().andBetNoEqualTo(akey.getBetNo());
 				tLTCoreBetMapper.updateByExampleSelective(info, example);
 			}
 			return ReturnInfo.Success;

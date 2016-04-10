@@ -190,7 +190,8 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 				if(record.getRoleMutexId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRoleMutexId()+"'");
+				// java type==String
+						sb.append("'"+record.getRoleMutexId()+"'");
 				}
 			
 				sb.append(",");
@@ -198,7 +199,8 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 				if(record.getRoleIdA()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRoleIdA()+"'");
+				// java type==String
+						sb.append("'"+record.getRoleIdA()+"'");
 				}
 			
 				sb.append(",");
@@ -206,7 +208,8 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 				if(record.getRoleIdB()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRoleIdB()+"'");
+				// java type==String
+						sb.append("'"+record.getRoleIdB()+"'");
 				}
 			
 				sb.append(",");
@@ -214,7 +217,8 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 				if(record.getStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getStatus()+"'");
 				}
 							sb.append(")");
 			

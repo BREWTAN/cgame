@@ -205,7 +205,8 @@ public class TLTUserBankDao extends ExtendDaoSupper<TLTUserBank, TLTUserBankExam
 				if(record.getId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getId()+"'");
+				// java type==Long
+						sb.append("'"+record.getId()+"'");
 				}
 			
 				sb.append(",");
@@ -213,7 +214,8 @@ public class TLTUserBankDao extends ExtendDaoSupper<TLTUserBank, TLTUserBankExam
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==Long
+						sb.append("'"+record.getUserId()+"'");
 				}
 			
 				sb.append(",");
@@ -221,7 +223,8 @@ public class TLTUserBankDao extends ExtendDaoSupper<TLTUserBank, TLTUserBankExam
 				if(record.getBankCode()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBankCode()+"'");
+				// java type==String
+						sb.append("'"+record.getBankCode()+"'");
 				}
 			
 				sb.append(",");
@@ -229,7 +232,8 @@ public class TLTUserBankDao extends ExtendDaoSupper<TLTUserBank, TLTUserBankExam
 				if(record.getBankName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBankName()+"'");
+				// java type==String
+						sb.append("'"+record.getBankName()+"'");
 				}
 			
 				sb.append(",");
@@ -237,7 +241,8 @@ public class TLTUserBankDao extends ExtendDaoSupper<TLTUserBank, TLTUserBankExam
 				if(record.getUsername()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getUsername()+"'");
+				// java type==String
+						sb.append("'"+record.getUsername()+"'");
 				}
 			
 				sb.append(",");
@@ -245,7 +250,8 @@ public class TLTUserBankDao extends ExtendDaoSupper<TLTUserBank, TLTUserBankExam
 				if(record.getAccount()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getAccount()+"'");
+				// java type==String
+						sb.append("'"+record.getAccount()+"'");
 				}
 			
 				sb.append(",");
@@ -253,7 +259,8 @@ public class TLTUserBankDao extends ExtendDaoSupper<TLTUserBank, TLTUserBankExam
 				if(record.getMobile()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getMobile()+"'");
+				// java type==String
+						sb.append("'"+record.getMobile()+"'");
 				}
 			
 				sb.append(",");
@@ -261,7 +268,8 @@ public class TLTUserBankDao extends ExtendDaoSupper<TLTUserBank, TLTUserBankExam
 				if(record.getPassword()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPassword()+"'");
+				// java type==String
+						sb.append("'"+record.getPassword()+"'");
 				}
 			
 				sb.append(",");
@@ -269,7 +277,8 @@ public class TLTUserBankDao extends ExtendDaoSupper<TLTUserBank, TLTUserBankExam
 				if(record.getEnable()==null){
 						sb.append("'"+"1"+"'");						
 				}else{
-					sb.append("'"+record.getEnable()+"'");
+				// java type==Boolean
+						sb.append("'"+record.getEnable()+"'");
 				}
 							sb.append(")");
 			

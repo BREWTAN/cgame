@@ -202,7 +202,8 @@ public class TActTransLogsDebtDao extends ExtendDaoSupper<TActTransLogsDebt, TAc
 				if(record.getLogUuid()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLogUuid()+"'");
+				// java type==String
+						sb.append("'"+record.getLogUuid()+"'");
 				}
 			
 				sb.append(",");
@@ -210,7 +211,8 @@ public class TActTransLogsDebtDao extends ExtendDaoSupper<TActTransLogsDebt, TAc
 				if(record.getFromFundNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getFromFundNo()+"'");
+				// java type==String
+						sb.append("'"+record.getFromFundNo()+"'");
 				}
 			
 				sb.append(",");
@@ -218,7 +220,8 @@ public class TActTransLogsDebtDao extends ExtendDaoSupper<TActTransLogsDebt, TAc
 				if(record.getToFundNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getToFundNo()+"'");
+				// java type==String
+						sb.append("'"+record.getToFundNo()+"'");
 				}
 			
 				sb.append(",");
@@ -226,7 +229,8 @@ public class TActTransLogsDebtDao extends ExtendDaoSupper<TActTransLogsDebt, TAc
 				if(record.getFlagCancel()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getFlagCancel()+"'");
+				// java type==String
+						sb.append("'"+record.getFlagCancel()+"'");
 				}
 			
 				sb.append(",");
@@ -234,7 +238,8 @@ public class TActTransLogsDebtDao extends ExtendDaoSupper<TActTransLogsDebt, TAc
 				if(record.getRelatedTransId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRelatedTransId()+"'");
+				// java type==String
+						sb.append("'"+record.getRelatedTransId()+"'");
 				}
 			
 				sb.append(",");
@@ -242,7 +247,8 @@ public class TActTransLogsDebtDao extends ExtendDaoSupper<TActTransLogsDebt, TAc
 				if(record.getStatus()==null){
 						sb.append("'"+"0000"+"'");						
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==String
+						sb.append("'"+record.getStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -250,7 +256,9 @@ public class TActTransLogsDebtDao extends ExtendDaoSupper<TActTransLogsDebt, TAc
 				if(record.getCreateTime()==null){
 						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
 				}else{
-					sb.append("'"+record.getCreateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCreateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -258,7 +266,9 @@ public class TActTransLogsDebtDao extends ExtendDaoSupper<TActTransLogsDebt, TAc
 				if(record.getUpdateTime()==null){
 						sb.append("'"+"0000-00-00 00:00:00"+"'");						
 				}else{
-					sb.append("'"+record.getUpdateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getUpdateTime())+"'");
 				}
 							sb.append(")");
 			

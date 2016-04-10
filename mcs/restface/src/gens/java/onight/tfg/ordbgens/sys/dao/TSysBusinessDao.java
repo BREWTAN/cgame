@@ -208,7 +208,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBusinessId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBusinessId()+"'");
+				// java type==String
+						sb.append("'"+record.getBusinessId()+"'");
 				}
 			
 				sb.append(",");
@@ -216,7 +217,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBusinessName()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBusinessName()+"'");
+				// java type==String
+						sb.append("'"+record.getBusinessName()+"'");
 				}
 			
 				sb.append(",");
@@ -224,7 +226,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBusinessDesc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBusinessDesc()+"'");
+				// java type==String
+						sb.append("'"+record.getBusinessDesc()+"'");
 				}
 			
 				sb.append(",");
@@ -232,7 +235,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBusinessManager()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBusinessManager()+"'");
+				// java type==String
+						sb.append("'"+record.getBusinessManager()+"'");
 				}
 			
 				sb.append(",");
@@ -240,7 +244,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBusinessMobile()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBusinessMobile()+"'");
+				// java type==String
+						sb.append("'"+record.getBusinessMobile()+"'");
 				}
 			
 				sb.append(",");
@@ -248,7 +253,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBusinessSeq()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBusinessSeq()+"'");
+				// java type==Integer
+						sb.append("'"+record.getBusinessSeq()+"'");
 				}
 			
 				sb.append(",");
@@ -256,7 +262,9 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBeginTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBeginTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getBeginTime())+"'");
 				}
 			
 				sb.append(",");
@@ -264,7 +272,9 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getEndTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getEndTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getEndTime())+"'");
 				}
 			
 				sb.append(",");
@@ -272,7 +282,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -280,7 +291,8 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 				if(record.getBusinessDataPermission()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBusinessDataPermission()+"'");
+				// java type==Integer
+						sb.append("'"+record.getBusinessDataPermission()+"'");
 				}
 							sb.append(")");
 			

@@ -184,7 +184,8 @@ public class TFGUserIdListDao extends ExtendDaoSupper<TFGUserIdList, TFGUserIdLi
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==Long
+						sb.append("'"+record.getUserId()+"'");
 				}
 			
 				sb.append(",");
@@ -192,7 +193,8 @@ public class TFGUserIdListDao extends ExtendDaoSupper<TFGUserIdList, TFGUserIdLi
 				if(record.getStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getStatus()+"'");
 				}
 							sb.append(")");
 			

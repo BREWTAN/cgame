@@ -1,4 +1,4 @@
-var AppBar, DropDownMenu, FlatButton, FontAwesome, GameTexts, IconButton, IconMenu, MenuItem, RaisedButton, React, Tab, Tabs, UserMenu, injectTapEventPlugin;
+var AppBar, DropDownMenu, FlatButton, FontAwesome, GameTexts, IconButton, IconMenu, MenuItem, PBHelper, RaisedButton, React, Tab, Tabs, UserInfo, UserMenu, injectTapEventPlugin, request;
 
 React = require("react");
 
@@ -24,6 +24,12 @@ AppBar = require('material-ui/lib/app-bar');
 
 IconButton = require('material-ui/lib/icon-button');
 
+PBHelper = require('../libs/PBHelper.js');
+
+UserInfo = require('../libs/UserInfo.js');
+
+request = require('superagent');
+
 GameTexts = ["重庆时时彩", "日本时时彩", "双色球", "大乐透"];
 
 UserMenu = React.createClass({
@@ -31,7 +37,8 @@ UserMenu = React.createClass({
     return {
       slideIndex: 0,
       gameIndex: 0,
-      username: '张三'
+      username: '张三',
+      refreshing: false
     };
   },
   handleChangeTab: function(vv) {
@@ -41,7 +48,41 @@ UserMenu = React.createClass({
     });
   },
   handleRefreshUserTitle: function(event, index, value) {
-    return console.log("handleChangeGame:index=" + index + ",value=" + value);
+    var self;
+    console.log("handleChangeGame:index=" + index + ",value=" + value);
+    this.setState({
+      refreshing: false
+    });
+    self = this;
+    return request.post('/pbface/cgw/pbmer.do?fh=VMERCGW000000J00').send({
+      packets: [
+        {
+          gcmd: "QUEACT",
+          jsbody: {
+            fund_no: "*",
+            act_no: UserInfo.getActNO()
+          },
+          pack_id: "100"
+        }
+      ]
+    }).end(function(err, res) {
+      var packMap;
+      console.log("get refreh back:" + JSON.stringify(res));
+      packMap = PBHelper.parseFramePacket(res.body);
+      if (!packMap) {
+        return console.log("网络请求异常");
+      } else if (packMap["100"].pbfund) {
+        UserInfo.updateMoney(packMap["100"].pbfund);
+        return self.setState({
+          refreshing: false
+        });
+      } else {
+        return self.setState({
+          open: true,
+          message: "登录失败:" + packMap["0"].desc
+        });
+      }
+    });
   },
   handleClickDropDown: function(e, item) {
     return console.log("downlistgame" + item.props.value);
@@ -53,7 +94,7 @@ UserMenu = React.createClass({
     });
   },
   render: function() {
-    var styles, titlenode;
+    var styles, titlenode, totalmoney, usermoneys;
     styles = {
       bar: {
         backgroundColor: "white",
@@ -82,6 +123,9 @@ UserMenu = React.createClass({
         color: "#FF6D00"
       }
     };
+    usermoneys = UserInfo.getUserMoneys();
+    totalmoney = PBHelper.formatMoney(usermoneys.totalmoney);
+    console.log("usermoneys=" + JSON.stringify(usermoneys));
     titlenode = React.createElement("div", {
       "id": "usertitle",
       "className": "row col-md-12"
@@ -92,7 +136,7 @@ UserMenu = React.createClass({
       "className": 'fa-lg '
     }), React.createElement("span", {
       "className": "money"
-    }, "  121,213,139元"), React.createElement(IconButton, {
+    }, "  ", totalmoney, "元"), React.createElement(IconButton, {
       "iconStyle": styles.iconButtonStyle,
       "onTouchTap": this.handleRefreshUserTitle,
       "iconClassName": 'fa fa-refresh fa-fw'

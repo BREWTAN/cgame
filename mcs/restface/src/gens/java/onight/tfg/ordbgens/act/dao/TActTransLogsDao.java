@@ -247,7 +247,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getLogUuid()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLogUuid()+"'");
+				// java type==String
+						sb.append("'"+record.getLogUuid()+"'");
 				}
 			
 				sb.append(",");
@@ -255,7 +256,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getSettDate()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getSettDate()+"'");
+				// java type==String
+						sb.append("'"+record.getSettDate()+"'");
 				}
 			
 				sb.append(",");
@@ -263,7 +265,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getConsDate()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getConsDate()+"'");
+				// java type==String
+						sb.append("'"+record.getConsDate()+"'");
 				}
 			
 				sb.append(",");
@@ -271,7 +274,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getTxSno()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getTxSno()+"'");
+				// java type==String
+						sb.append("'"+record.getTxSno()+"'");
 				}
 			
 				sb.append(",");
@@ -279,7 +283,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getTransCode()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getTransCode()+"'");
+				// java type==String
+						sb.append("'"+record.getTransCode()+"'");
 				}
 			
 				sb.append(",");
@@ -287,7 +292,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getSubTransCode()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getSubTransCode()+"'");
+				// java type==String
+						sb.append("'"+record.getSubTransCode()+"'");
 				}
 			
 				sb.append(",");
@@ -295,7 +301,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getBizType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBizType()+"'");
+				// java type==String
+						sb.append("'"+record.getBizType()+"'");
 				}
 			
 				sb.append(",");
@@ -303,7 +310,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getBizDtlType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBizDtlType()+"'");
+				// java type==String
+						sb.append("'"+record.getBizDtlType()+"'");
 				}
 			
 				sb.append(",");
@@ -311,7 +319,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getFromFundNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getFromFundNo()+"'");
+				// java type==String
+						sb.append("'"+record.getFromFundNo()+"'");
 				}
 			
 				sb.append(",");
@@ -319,7 +328,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getToFundNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getToFundNo()+"'");
+				// java type==String
+						sb.append("'"+record.getToFundNo()+"'");
 				}
 			
 				sb.append(",");
@@ -327,7 +337,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getDcType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getDcType()+"'");
+				// java type==String
+						sb.append("'"+record.getDcType()+"'");
 				}
 			
 				sb.append(",");
@@ -335,7 +346,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getAmt()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getAmt()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getAmt()+"'");
 				}
 			
 				sb.append(",");
@@ -343,7 +355,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getCnt()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCnt()+"'");
+				// java type==Integer
+						sb.append("'"+record.getCnt()+"'");
 				}
 			
 				sb.append(",");
@@ -351,7 +364,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getFlagCancel()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getFlagCancel()+"'");
+				// java type==String
+						sb.append("'"+record.getFlagCancel()+"'");
 				}
 			
 				sb.append(",");
@@ -359,7 +373,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getRelatedTransId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRelatedTransId()+"'");
+				// java type==String
+						sb.append("'"+record.getRelatedTransId()+"'");
 				}
 			
 				sb.append(",");
@@ -367,7 +382,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getStatus()==null){
 						sb.append("'"+"0000"+"'");						
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==String
+						sb.append("'"+record.getStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -375,7 +391,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getActBalAfter()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActBalAfter()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getActBalAfter()+"'");
 				}
 			
 				sb.append(",");
@@ -383,7 +400,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getActBalBefore()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActBalBefore()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getActBalBefore()+"'");
 				}
 			
 				sb.append(",");
@@ -391,7 +409,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getExtId1()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getExtId1()+"'");
+				// java type==String
+						sb.append("'"+record.getExtId1()+"'");
 				}
 			
 				sb.append(",");
@@ -399,7 +418,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getExtId2()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getExtId2()+"'");
+				// java type==String
+						sb.append("'"+record.getExtId2()+"'");
 				}
 			
 				sb.append(",");
@@ -407,7 +427,8 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getExtCommets()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getExtCommets()+"'");
+				// java type==String
+						sb.append("'"+record.getExtCommets()+"'");
 				}
 			
 				sb.append(",");
@@ -415,7 +436,9 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getCreateTime()==null){
 						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
 				}else{
-					sb.append("'"+record.getCreateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCreateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -423,7 +446,9 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 				if(record.getUpdateTime()==null){
 						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
 				}else{
-					sb.append("'"+record.getUpdateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getUpdateTime())+"'");
 				}
 							sb.append(")");
 			

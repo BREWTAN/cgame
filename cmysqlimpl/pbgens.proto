@@ -432,20 +432,18 @@ message PBTLTBetAuto
 	int64 create_time = 8;
 	string start_issue = 9;
 	int32 issue_num = 10;
-	double total_bet_amounts = 11;
-	double total_bet_counts = 12;
+	double total_tick_amounts = 11;
+	double total_tick_counts = 12;
 	int32 complete_num = 13;
 	int32 cancel_num = 14;
-	int32 bet_num = 15;
-	string bet_data = 16;
-	string bet_coins = 17;
-	string complete_coins = 18;
-	string cancel_coins = 19;
-	int32 mode = 20;
-	int32 times = 21;
-	int32 win_stop = 22;
-	int32 status = 23;
-	string bet_no = 24;
+	string bet_data = 15;
+	string complete_coins = 16;
+	string cancel_coins = 17;
+	int32 mode = 18;
+	int32 times = 19;
+	int32 win_stop = 20;
+	int32 status = 21;
+	string tick_no = 22;
 }
 
 message PBTLTBonus
@@ -478,33 +476,124 @@ message PBTLTBonusgroup
 
 message PBTLTCoreBet
 {
+	string bet_no = 1;
+	string tick_no = 2;
+	string ltype = 3;
+	string lname = 4;
+	string play_type = 5;
+	string merchantid = 6;
+	string serial_num = 7;
+	double bet_amounts = 8;
+	double bet_counts = 9;
+	double bet_multi = 10;
+	string issue_no = 11;
+	int64 bet_datetime = 12;
+	string bet_content = 13;
+	string bet_ip = 14;
+	int32 bet_money_unit = 15;
+	double bonus_money_mode = 16;
+	double bonus_rate_mode = 17;
+	string version = 18;
+	int64 print_time = 19;
+	string bet_status = 20;
+	string notifystatus = 21;
+	string region = 22;
+	string failreason = 23;
+	string merchantuserid = 24;
+	string user_id = 25;
+	string autobet_no = 26;
+	string is_auto = 27;
+	string auto_ref_tickno = 28;
+	double cost_fund0 = 29;
+	double cost_fund1 = 30;
+	double cost_fund2 = 31;
+	double cost_fund3 = 32;
+	string fund_ref_id = 33;
+	string issue_lock = 34;
+}
+
+message PBTLTCoreReward
+{
+	string uuid = 1;
+	string tick_no = 2;
+	string bet_no = 3;
+	string merchantid = 4;
+	string user_id = 5;
+	double issue_no = 6;
+	string ltype = 7;
+	string play_type = 8;
+	int64 create_date = 9;
+	int64 modify_date = 10;
+	double bet_amount = 11;
+	double bet_counts = 12;
+	double reward_amount = 13;
+	double reward_ratio = 14;
+	double fund_reward_amount = 15;
+	string fund_ref_id_reward = 16;
+	string fund_ref_id_cancel = 17;
+	int64 fund_reward_date = 18;
+	string fund_reward_status = 19;
+	int64 fund_cancel_date = 20;
+	string serial_num = 21;
+	string status = 22;
+}
+
+message PBTLTCoreTick
+{
 	string tick_no = 1;
 	string ltype = 2;
-	string lname = 3;
-	string play_type = 4;
-	string merchantid = 5;
-	string serial_num = 6;
-	double bet_amounts = 7;
-	double bet_counts = 8;
-	double bet_multi = 9;
-	string issue_no = 10;
-	int64 bet_datetime = 11;
-	string bet_content = 12;
-	string bet_ip = 13;
-	int32 bet_money_unit = 14;
-	double bonus_money_mode = 15;
-	double bonus_rate_mode = 16;
-	string version = 17;
-	double printtime = 18;
-	double bet_status = 19;
-	double notifystatus = 20;
-	string region = 21;
-	string failreason = 22;
-	string merchantuserid = 23;
-	string user_id = 24;
-	string autobet_no = 25;
-	string is_auto = 26;
-	string auto_ref_tickno = 27;
+	string merchantid = 3;
+	string serial_num = 4;
+	double tick_amounts = 5;
+	double tick_bet_counts = 6;
+	string issue_no = 7;
+	int64 bet_datetime = 8;
+	string bet_ip = 9;
+	int64 print_time = 10;
+	string tick_status = 11;
+	string notifystatus = 12;
+	string region = 13;
+	string failreason = 14;
+	string merchantuserid = 15;
+	string user_id = 16;
+	string autobet_no = 17;
+	string is_auto = 18;
+	string auto_ref_tickno = 19;
+	double cost_fund0 = 20;
+	double cost_fund1 = 21;
+	double cost_fund2 = 22;
+	double cost_fund3 = 23;
+	string fund_ref_id = 24;
+	string issue_lock = 25;
+}
+
+message PBTLTCoreWin
+{
+	string uuid = 1;
+	string tick_no = 2;
+	string bet_no = 3;
+	string merchantid = 4;
+	string user_id = 5;
+	double issue_no = 6;
+	string ltype = 7;
+	string play_type = 8;
+	string division_type = 9;
+	string division_level = 10;
+	double division_num = 11;
+	double level_bonus_amount = 12;
+	string status = 13;
+	double award_money = 14;
+	double bonus_money = 15;
+	int32 sum_division_type = 16;
+	int64 create_date = 17;
+	int64 modify_date = 18;
+	double fund_return_amount = 19;
+	string fund_ref_id_return = 20;
+	string fund_ref_id_cancel = 21;
+	int64 fund_return_date = 22;
+	string fund_return_status = 23;
+	int64 fund_cancel_date = 24;
+	string serial_num = 25;
 }
 
 message PBTLTGroupType
@@ -535,10 +624,9 @@ message PBTLTIssue
 	int32 send_status = 16;
 	int32 autobet_status = 17;
 	int32 lock_status = 18;
-	int32 process_status = 19;
-	int64 create_time = 20;
-	int64 modify_time = 21;
-	string status = 22;
+	int64 create_time = 19;
+	int64 modify_time = 20;
+	string issue_status = 21;
 }
 
 message PBTLTIssueGenParams
@@ -576,20 +664,70 @@ message PBTLTIssueHis
 	int32 send_status = 16;
 	int32 autobet_status = 17;
 	int32 lock_status = 18;
-	int32 process_status = 19;
-	int64 create_time = 20;
-	int64 modify_time = 21;
+	int64 create_time = 19;
+	int64 modify_time = 20;
+	string issue_status = 21;
 	string status = 22;
+	int64 backup_time = 23;
+}
+
+message PBTLTIssueStatusParams
+{
+	int64 gen_id = 1;
+	string ltype = 2;
+	string gs_ecode = 3;
+	string gs_name = 4;
+	int32 timesec_offset = 5;
+	string gs_order = 6;
+	string next_orders = 7;
+	string state = 8;
+}
+
+message PBTLTIssueSteps
+{
+	string issue_step_id = 1;
+	string ltype = 2;
+	string issue_no = 3;
+	string step_status = 4;
+	int64 create_time = 5;
+	int64 modify_time = 6;
+	string operator_id = 7;
+	string gs_ecode = 8;
+	string gs_name = 9;
+	int32 timesec_offset = 10;
+	string gs_order = 11;
+	string next_orders = 12;
+	int64 ref_param_gen_id = 13;
+	string auto_gonext = 14;
+}
+
+message PBTLTIssueStepsHis
+{
+	string issue_step_id = 1;
+	string ltype = 2;
+	string issue_no = 3;
+	string step_status = 4;
+	int64 create_time = 5;
+	int64 modify_time = 6;
+	string operator_id = 7;
+	string gs_ecode = 8;
+	string gs_name = 9;
+	int32 timesec_offset = 10;
+	string gs_order = 11;
+	string next_orders = 12;
+	int64 ref_param_gen_id = 13;
+	string auto_gonext = 14;
+	int64 backup_time = 15;
 }
 
 message PBTLTLimitedFeature
 {
-	string uuid = 1;
-	string issue_no = 2;
-	string play_type = 3;
-	string wagerdata = 4;
-	double createdate = 5;
-	string region = 6;
+	string caskey = 1;
+	string region = 2;
+	string issue_no = 3;
+	string play_type = 4;
+	string wagerdata = 5;
+	double createdate = 6;
 	string ltype = 7;
 	double bonus_limit = 8;
 	double bets_boards_limit = 9;

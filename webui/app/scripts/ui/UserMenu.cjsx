@@ -15,6 +15,10 @@ IconMenu = require('material-ui/lib/menus/icon-menu');
 AppBar = require('material-ui/lib/app-bar');
 IconButton =require('material-ui/lib/icon-button');
 
+PBHelper = require('../libs/PBHelper.js');
+UserInfo = require('../libs/UserInfo.js');
+request = require('superagent');
+
 
 GameTexts = ["重庆时时彩","日本时时彩","双色球","大乐透"]
 
@@ -25,6 +29,7 @@ UserMenu = React.createClass(
         slideIndex: 0,
         gameIndex: 0,
         username:'张三'
+        refreshing:false
 
     handleChangeTab:(vv) ->
         console.log("changetab:"+vv)
@@ -32,7 +37,38 @@ UserMenu = React.createClass(
             slideIndex: vv
 
     handleRefreshUserTitle:(event, index, value) ->
-        console.log("handleChangeGame:index="+index+",value="+value)
+        #console.log("handleChangeGame:index="+index+",value="+value)
+        @setState
+            refreshing:false
+        self = @;
+        request.post('/pbface/cgw/pbmer.do?fh=VMERCGW000000J00')
+           .send({
+             packets: [
+               {
+                 gcmd: "QUEACT",
+                 jsbody: {
+                    fund_no: "*",
+                    act_no: UserInfo.getActNO()
+                 },
+                 pack_id: "100"
+               }
+             ]
+           })
+           .end( (err,res) ->
+            #console.log("get refreh back:"+JSON.stringify(res))
+            packMap = PBHelper.parseFramePacket(res.body);
+            if !packMap
+                console.log("网络请求异常")
+            else if packMap["100"].pbfund
+               #console.log("login Success:"+JSON.stringify(packMap))
+                UserInfo.updateMoney(packMap["100"].pbfund)
+                self.setState
+                    refreshing:false
+            else
+                self.setState
+                    open:true
+                    message:"登录失败:"+packMap["0"].desc
+           );
 
 
     handleClickDropDown:(e,item) ->
@@ -72,9 +108,16 @@ UserMenu = React.createClass(
             color:"#FF6D00"
           }
         };
+
+        usermoneys = UserInfo.getUserMoneys()
+
+        totalmoney = PBHelper.formatMoney(usermoneys.totalmoney)
+
+        console.log("usermoneys="+JSON.stringify(usermoneys))
+
         titlenode=(
                 <div id="usertitle" className="row col-md-12">
-                    <div className="col-md-4"><span>您好,</span> <span>{@state.username}</span>&nbsp;&nbsp;&nbsp;<FontAwesome name='jpy' className='fa-lg ' /><span className="money">  121,213,139元</span>
+                    <div className="col-md-4"><span>您好,</span> <span>{@state.username}</span>&nbsp;&nbsp;&nbsp;<FontAwesome name='jpy' className='fa-lg ' /><span className="money">  {totalmoney}元</span>
                     <IconButton iconStyle={styles.iconButtonStyle} onTouchTap={@handleRefreshUserTitle} iconClassName='fa fa-refresh fa-fw' />
                     </div>
                     <div className="col-md-5">|<FlatButton style={styles.btn} labelStyle={styles.title} label="充值"/>|<FlatButton style={styles.btn} labelStyle={styles.title} label="提现" />

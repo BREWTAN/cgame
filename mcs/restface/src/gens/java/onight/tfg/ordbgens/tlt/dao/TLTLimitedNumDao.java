@@ -208,7 +208,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getUuid()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUuid()+"'");
+				// java type==String
+						sb.append("'"+record.getUuid()+"'");
 				}
 			
 				sb.append(",");
@@ -216,7 +217,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getIssueNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getIssueNo()+"'");
+				// java type==String
+						sb.append("'"+record.getIssueNo()+"'");
 				}
 			
 				sb.append(",");
@@ -224,7 +226,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getLimitedNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLimitedNum()+"'");
+				// java type==String
+						sb.append("'"+record.getLimitedNum()+"'");
 				}
 			
 				sb.append(",");
@@ -232,7 +235,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getLtype()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLtype()+"'");
+				// java type==String
+						sb.append("'"+record.getLtype()+"'");
 				}
 			
 				sb.append(",");
@@ -240,7 +244,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getPlayType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPlayType()+"'");
+				// java type==String
+						sb.append("'"+record.getPlayType()+"'");
 				}
 			
 				sb.append(",");
@@ -248,7 +253,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getExtrafield1()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getExtrafield1()+"'");
+				// java type==String
+						sb.append("'"+record.getExtrafield1()+"'");
 				}
 			
 				sb.append(",");
@@ -256,7 +262,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getExtrafield2()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getExtrafield2()+"'");
+				// java type==String
+						sb.append("'"+record.getExtrafield2()+"'");
 				}
 			
 				sb.append(",");
@@ -264,7 +271,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getExtrafield3()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getExtrafield3()+"'");
+				// java type==Integer
+						sb.append("'"+record.getExtrafield3()+"'");
 				}
 			
 				sb.append(",");
@@ -272,7 +280,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getExtrafield4()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getExtrafield4()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getExtrafield4()+"'");
 				}
 			
 				sb.append(",");
@@ -280,7 +289,8 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 				if(record.getExtrafield5()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getExtrafield5()+"'");
+				// java type==Long
+						sb.append("'"+record.getExtrafield5()+"'");
 				}
 							sb.append(")");
 			

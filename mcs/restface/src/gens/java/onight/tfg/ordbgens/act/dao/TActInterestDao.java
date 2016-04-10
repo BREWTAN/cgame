@@ -211,7 +211,8 @@ public class TActInterestDao extends ExtendDaoSupper<TActInterest, TActInterestE
 				if(record.getInstLogid()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getInstLogid()+"'");
+				// java type==String
+						sb.append("'"+record.getInstLogid()+"'");
 				}
 			
 				sb.append(",");
@@ -219,7 +220,8 @@ public class TActInterestDao extends ExtendDaoSupper<TActInterest, TActInterestE
 				if(record.getInterestDate()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getInterestDate()+"'");
+				// java type==String
+						sb.append("'"+record.getInterestDate()+"'");
 				}
 			
 				sb.append(",");
@@ -227,7 +229,8 @@ public class TActInterestDao extends ExtendDaoSupper<TActInterest, TActInterestE
 				if(record.getFundNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getFundNo()+"'");
+				// java type==String
+						sb.append("'"+record.getFundNo()+"'");
 				}
 			
 				sb.append(",");
@@ -235,7 +238,8 @@ public class TActInterestDao extends ExtendDaoSupper<TActInterest, TActInterestE
 				if(record.getActNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActNo()+"'");
+				// java type==String
+						sb.append("'"+record.getActNo()+"'");
 				}
 			
 				sb.append(",");
@@ -243,7 +247,8 @@ public class TActInterestDao extends ExtendDaoSupper<TActInterest, TActInterestE
 				if(record.getInterestType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getInterestType()+"'");
+				// java type==String
+						sb.append("'"+record.getInterestType()+"'");
 				}
 			
 				sb.append(",");
@@ -251,7 +256,8 @@ public class TActInterestDao extends ExtendDaoSupper<TActInterest, TActInterestE
 				if(record.getInterestAmount()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getInterestAmount()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getInterestAmount()+"'");
 				}
 			
 				sb.append(",");
@@ -259,7 +265,9 @@ public class TActInterestDao extends ExtendDaoSupper<TActInterest, TActInterestE
 				if(record.getGmtCreate()==null){
 						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
 				}else{
-					sb.append("'"+record.getGmtCreate()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getGmtCreate())+"'");
 				}
 			
 				sb.append(",");
@@ -267,7 +275,9 @@ public class TActInterestDao extends ExtendDaoSupper<TActInterest, TActInterestE
 				if(record.getGmtModify()==null){
 						sb.append("'"+"0000-00-00 00:00:00"+"'");						
 				}else{
-					sb.append("'"+record.getGmtModify()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getGmtModify())+"'");
 				}
 			
 				sb.append(",");
@@ -275,7 +285,8 @@ public class TActInterestDao extends ExtendDaoSupper<TActInterest, TActInterestE
 				if(record.getTradeDate()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getTradeDate()+"'");
+				// java type==String
+						sb.append("'"+record.getTradeDate()+"'");
 				}
 			
 				sb.append(",");
@@ -283,7 +294,8 @@ public class TActInterestDao extends ExtendDaoSupper<TActInterest, TActInterestE
 				if(record.getRateValue()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRateValue()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getRateValue()+"'");
 				}
 			
 				sb.append(",");
@@ -291,7 +303,8 @@ public class TActInterestDao extends ExtendDaoSupper<TActInterest, TActInterestE
 				if(record.getUnitNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUnitNo()+"'");
+				// java type==String
+						sb.append("'"+record.getUnitNo()+"'");
 				}
 							sb.append(")");
 			

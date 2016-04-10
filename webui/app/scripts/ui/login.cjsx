@@ -9,6 +9,8 @@ Paper = require( 'material-ui/lib/paper');
 Loader = require('halogen/RingLoader');
 LoadingDiag = require("./loadingDiag.js")
 FontAwesome = require('react-fontawesome');
+PBHelper = require('../libs/PBHelper.js');
+UserInfo = require('../libs/UserInfo.js');
 
 { connect, PromiseState } = require( 'react-refetch');
 { Router,History } =require( 'react-router')
@@ -31,18 +33,22 @@ Login = React.createClass(
     handleLoginCB:(err,res) ->
         console.log("LoginCB:"+JSON.stringify(res.body))
         #router.push("comment")
-        if res.body!=null and res.body.body.code=="0000"
-            console.log("login Success")
-            @context.history.pushState(null,"/ug/qcssc")
-        else if res.body == null
+
+        packMap = PBHelper.parseFramePacket(res.body);
+
+        if !packMap
             @setState
                 open:true
                 message:"登录失败:网络请求异常"
 
+        else if packMap["0"].bizcode == '0000'
+           #console.log("login Success:"+JSON.stringify(packMap))
+            UserInfo.setLoginRet(packMap)
+            @context.history.pushState(null,"/ug/qcssc")
         else
             @setState
                 open:true
-                message:"登录失败:"+res.body.body.desc
+                message:"登录失败:"+packMap["0"].desc
         return
 
     handleOpen :()  ->
@@ -50,8 +56,31 @@ Login = React.createClass(
         #@props.onLoginSuccess("abc")
 
         #@setState({open:true})
-        request.post('/orest/ssm/pbsin.do?fh=VSINSSM000000J00')
-           .send({ login_id: @state.login_id, password: @state.password, op: '0', res_id: 'web' })
+        request.post('/pbface/cgw/pbmer.do?fh=VMERCGW000000J00')
+           .send({
+             packets: [
+               {
+                 gcmd: "SINSSM",
+                 jsbody: {
+                   login_id: @state.login_id,
+                   password: @state.password,
+                   op: '0',
+                   resourceid: "webui"
+                 },
+                 pack_id: "0",
+                 nextpacks: [
+                   {
+                     gcmd: "QUEACT",
+                     jsbody: {
+                       fund_no: "*"
+                     },
+                     pack_id: "100"
+                   }
+                 ],
+                 clonefields:["user_id->act_no"]
+               }
+             ]
+           })
            .end(@handleLoginCB);
 　
         #@setState open: true
@@ -59,13 +88,13 @@ Login = React.createClass(
 
 
     handleClose : ()  ->
-        console.log("handleClose::");
+        #console.log("handleClose::");
         @setState open: false
         return
 
 
     render:() ->
-        console.log("render::login:message="+@state.message)
+        #console.log("render::login:message="+@state.message)
         actions = [
             <FlatButton
                 label="Cancel"

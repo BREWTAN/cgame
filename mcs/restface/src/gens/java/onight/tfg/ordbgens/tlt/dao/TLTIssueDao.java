@@ -191,17 +191,14 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getLockStatus()!=null){
 				criteria.andLockStatusEqualTo(record.getLockStatus());
 				}
-				if(record.getProcessStatus()!=null){
-				criteria.andProcessStatusEqualTo(record.getProcessStatus());
-				}
 				if(record.getCreateTime()!=null){
 				criteria.andCreateTimeEqualTo(record.getCreateTime());
 				}
 				if(record.getModifyTime()!=null){
 				criteria.andModifyTimeEqualTo(record.getModifyTime());
 				}
-				if(record.getStatus()!=null){
-				criteria.andStatusEqualTo(record.getStatus());
+				if(record.getIssueStatus()!=null){
+				criteria.andIssueStatusEqualTo(record.getIssueStatus());
 				}
 
 		}
@@ -244,7 +241,8 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getIssueId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getIssueId()+"'");
+				// java type==Long
+						sb.append("'"+record.getIssueId()+"'");
 				}
 			
 				sb.append(",");
@@ -252,7 +250,8 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getLtype()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLtype()+"'");
+				// java type==String
+						sb.append("'"+record.getLtype()+"'");
 				}
 			
 				sb.append(",");
@@ -260,7 +259,8 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getIssueNo()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getIssueNo()+"'");
+				// java type==String
+						sb.append("'"+record.getIssueNo()+"'");
 				}
 			
 				sb.append(",");
@@ -268,7 +268,8 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getLotteryNo()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getLotteryNo()+"'");
+				// java type==String
+						sb.append("'"+record.getLotteryNo()+"'");
 				}
 			
 				sb.append(",");
@@ -276,7 +277,8 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getIssueDate()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getIssueDate()+"'");
+				// java type==String
+						sb.append("'"+record.getIssueDate()+"'");
 				}
 			
 				sb.append(",");
@@ -284,7 +286,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getPreStime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPreStime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getPreStime())+"'");
 				}
 			
 				sb.append(",");
@@ -292,7 +296,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getPreEtime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPreEtime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getPreEtime())+"'");
 				}
 			
 				sb.append(",");
@@ -300,7 +306,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getSaleStime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getSaleStime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getSaleStime())+"'");
 				}
 			
 				sb.append(",");
@@ -308,7 +316,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getSaleEtime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getSaleEtime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getSaleEtime())+"'");
 				}
 			
 				sb.append(",");
@@ -316,7 +326,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getRealStime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRealStime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getRealStime())+"'");
 				}
 			
 				sb.append(",");
@@ -324,7 +336,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getRealEtime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRealEtime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getRealEtime())+"'");
 				}
 			
 				sb.append(",");
@@ -332,7 +346,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getCancelLtime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCancelLtime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCancelLtime())+"'");
 				}
 			
 				sb.append(",");
@@ -340,7 +356,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getCloseshareDate()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCloseshareDate()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCloseshareDate())+"'");
 				}
 			
 				sb.append(",");
@@ -348,7 +366,8 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getRebateStatus()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getRebateStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getRebateStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -356,7 +375,8 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getWinStatus()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getWinStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getWinStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -364,7 +384,8 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getSendStatus()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getSendStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getSendStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -372,7 +393,8 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getAutobetStatus()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getAutobetStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getAutobetStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -380,15 +402,8 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getLockStatus()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getLockStatus()+"'");
-				}
-			
-				sb.append(",");
-			
-				if(record.getProcessStatus()==null){
-						sb.append("'"+"0"+"'");						
-				}else{
-					sb.append("'"+record.getProcessStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getLockStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -396,7 +411,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getCreateTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCreateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCreateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -404,15 +421,18 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getModifyTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getModifyTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getModifyTime())+"'");
 				}
 			
 				sb.append(",");
 			
-				if(record.getStatus()==null){
-						sb.append("'"+"1"+"'");						
+				if(record.getIssueStatus()==null){
+						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==String
+						sb.append("'"+record.getIssueStatus()+"'");
 				}
 							sb.append(")");
 			

@@ -238,7 +238,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getFundNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getFundNo()+"'");
+				// java type==String
+						sb.append("'"+record.getFundNo()+"'");
 				}
 			
 				sb.append(",");
@@ -246,7 +247,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getActNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActNo()+"'");
+				// java type==String
+						sb.append("'"+record.getActNo()+"'");
 				}
 			
 				sb.append(",");
@@ -254,7 +256,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getCustId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCustId()+"'");
+				// java type==String
+						sb.append("'"+record.getCustId()+"'");
 				}
 			
 				sb.append(",");
@@ -262,7 +265,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getMchntId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMchntId()+"'");
+				// java type==String
+						sb.append("'"+record.getMchntId()+"'");
 				}
 			
 				sb.append(",");
@@ -270,7 +274,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getActType()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getActType()+"'");
+				// java type==String
+						sb.append("'"+record.getActType()+"'");
 				}
 			
 				sb.append(",");
@@ -278,7 +283,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getMnySmb()==null){
 						sb.append("'"+"CNY"+"'");						
 				}else{
-					sb.append("'"+record.getMnySmb()+"'");
+				// java type==String
+						sb.append("'"+record.getMnySmb()+"'");
 				}
 			
 				sb.append(",");
@@ -286,7 +292,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getCatalog()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getCatalog()+"'");
+				// java type==String
+						sb.append("'"+record.getCatalog()+"'");
 				}
 			
 				sb.append(",");
@@ -294,7 +301,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getChannelId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getChannelId()+"'");
+				// java type==String
+						sb.append("'"+record.getChannelId()+"'");
 				}
 			
 				sb.append(",");
@@ -302,7 +310,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getCurBal()==null){
 						sb.append("'"+"0.00000000"+"'");						
 				}else{
-					sb.append("'"+record.getCurBal()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getCurBal()+"'");
 				}
 			
 				sb.append(",");
@@ -310,7 +319,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getFreezeTotal()==null){
 						sb.append("'"+"0.00000000"+"'");						
 				}else{
-					sb.append("'"+record.getFreezeTotal()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getFreezeTotal()+"'");
 				}
 			
 				sb.append(",");
@@ -318,7 +328,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getIncomeTotal()==null){
 						sb.append("'"+"0.00000000"+"'");						
 				}else{
-					sb.append("'"+record.getIncomeTotal()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getIncomeTotal()+"'");
 				}
 			
 				sb.append(",");
@@ -326,7 +337,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getPayoutTotal()==null){
 						sb.append("'"+"0.00000000"+"'");						
 				}else{
-					sb.append("'"+record.getPayoutTotal()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getPayoutTotal()+"'");
 				}
 			
 				sb.append(",");
@@ -334,7 +346,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getFotbidAmount()==null){
 						sb.append("'"+"0.00000000"+"'");						
 				}else{
-					sb.append("'"+record.getFotbidAmount()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getFotbidAmount()+"'");
 				}
 			
 				sb.append(",");
@@ -342,7 +355,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getFotbidFlag()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getFotbidFlag()+"'");
+				// java type==String
+						sb.append("'"+record.getFotbidFlag()+"'");
 				}
 			
 				sb.append(",");
@@ -350,7 +364,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getActStat()==null){
 						sb.append("'"+"0.0"+"'");						
 				}else{
-					sb.append("'"+record.getActStat()+"'");
+				// java type==String
+						sb.append("'"+record.getActStat()+"'");
 				}
 			
 				sb.append(",");
@@ -358,7 +373,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getActBalWarnFlag()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getActBalWarnFlag()+"'");
+				// java type==String
+						sb.append("'"+record.getActBalWarnFlag()+"'");
 				}
 			
 				sb.append(",");
@@ -366,7 +382,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getUpdateActLogId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUpdateActLogId()+"'");
+				// java type==String
+						sb.append("'"+record.getUpdateActLogId()+"'");
 				}
 			
 				sb.append(",");
@@ -374,7 +391,9 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getCreateTime()==null){
 						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
 				}else{
-					sb.append("'"+record.getCreateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCreateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -382,7 +401,9 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getUpdateTime()==null){
 						sb.append("'"+"0000-00-00 00:00:00"+"'");						
 				}else{
-					sb.append("'"+record.getUpdateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getUpdateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -390,7 +411,8 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				if(record.getModifyId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getModifyId()+"'");
+				// java type==String
+						sb.append("'"+record.getModifyId()+"'");
 				}
 							sb.append(")");
 			

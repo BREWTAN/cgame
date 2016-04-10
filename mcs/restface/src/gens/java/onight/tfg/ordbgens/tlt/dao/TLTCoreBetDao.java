@@ -137,7 +137,10 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 		TLTCoreBetExample example = new TLTCoreBetExample();
 		if(record!=null){
 			Criteria criteria = example.createCriteria();
-							if(record.getTickNo()!=null){
+							if(record.getBetNo()!=null){
+				criteria.andBetNoEqualTo(record.getBetNo());
+				}
+				if(record.getTickNo()!=null){
 				criteria.andTickNoEqualTo(record.getTickNo());
 				}
 				if(record.getLtype()!=null){
@@ -188,8 +191,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getVersion()!=null){
 				criteria.andVersionEqualTo(record.getVersion());
 				}
-				if(record.getPrinttime()!=null){
-				criteria.andPrinttimeEqualTo(record.getPrinttime());
+				if(record.getPrintTime()!=null){
+				criteria.andPrintTimeEqualTo(record.getPrintTime());
 				}
 				if(record.getBetStatus()!=null){
 				criteria.andBetStatusEqualTo(record.getBetStatus());
@@ -217,6 +220,24 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				}
 				if(record.getAutoRefTickno()!=null){
 				criteria.andAutoRefTicknoEqualTo(record.getAutoRefTickno());
+				}
+				if(record.getCostFund0()!=null){
+				criteria.andCostFund0EqualTo(record.getCostFund0());
+				}
+				if(record.getCostFund1()!=null){
+				criteria.andCostFund1EqualTo(record.getCostFund1());
+				}
+				if(record.getCostFund2()!=null){
+				criteria.andCostFund2EqualTo(record.getCostFund2());
+				}
+				if(record.getCostFund3()!=null){
+				criteria.andCostFund3EqualTo(record.getCostFund3());
+				}
+				if(record.getFundRefId()!=null){
+				criteria.andFundRefIdEqualTo(record.getFundRefId());
+				}
+				if(record.getIssueLock()!=null){
+				criteria.andIssueLockEqualTo(record.getIssueLock());
 				}
 
 		}
@@ -256,10 +277,20 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 			
 				sb.append("(");
 			
+				if(record.getBetNo()==null){
+						sb.append("null");
+				}else{
+				// java type==String
+						sb.append("'"+record.getBetNo()+"'");
+				}
+			
+				sb.append(",");
+			
 				if(record.getTickNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getTickNo()+"'");
+				// java type==String
+						sb.append("'"+record.getTickNo()+"'");
 				}
 			
 				sb.append(",");
@@ -267,7 +298,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getLtype()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLtype()+"'");
+				// java type==String
+						sb.append("'"+record.getLtype()+"'");
 				}
 			
 				sb.append(",");
@@ -275,7 +307,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getLname()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLname()+"'");
+				// java type==String
+						sb.append("'"+record.getLname()+"'");
 				}
 			
 				sb.append(",");
@@ -283,7 +316,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getPlayType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPlayType()+"'");
+				// java type==String
+						sb.append("'"+record.getPlayType()+"'");
 				}
 			
 				sb.append(",");
@@ -291,7 +325,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getMerchantid()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMerchantid()+"'");
+				// java type==String
+						sb.append("'"+record.getMerchantid()+"'");
 				}
 			
 				sb.append(",");
@@ -299,7 +334,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getSerialNum()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getSerialNum()+"'");
+				// java type==String
+						sb.append("'"+record.getSerialNum()+"'");
 				}
 			
 				sb.append(",");
@@ -307,7 +343,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getBetAmounts()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBetAmounts()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getBetAmounts()+"'");
 				}
 			
 				sb.append(",");
@@ -315,7 +352,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getBetCounts()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBetCounts()+"'");
+				// java type==Integer
+						sb.append("'"+record.getBetCounts()+"'");
 				}
 			
 				sb.append(",");
@@ -323,7 +361,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getBetMulti()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBetMulti()+"'");
+				// java type==Integer
+						sb.append("'"+record.getBetMulti()+"'");
 				}
 			
 				sb.append(",");
@@ -331,7 +370,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getIssueNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getIssueNo()+"'");
+				// java type==String
+						sb.append("'"+record.getIssueNo()+"'");
 				}
 			
 				sb.append(",");
@@ -339,7 +379,9 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getBetDatetime()==null){
 						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
 				}else{
-					sb.append("'"+record.getBetDatetime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getBetDatetime())+"'");
 				}
 			
 				sb.append(",");
@@ -347,7 +389,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getBetContent()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBetContent()+"'");
+				// java type==String
+						sb.append("'"+record.getBetContent()+"'");
 				}
 			
 				sb.append(",");
@@ -355,7 +398,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getBetIp()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getBetIp()+"'");
+				// java type==String
+						sb.append("'"+record.getBetIp()+"'");
 				}
 			
 				sb.append(",");
@@ -363,7 +407,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getBetMoneyUnit()==null){
 						sb.append("'"+"1"+"'");						
 				}else{
-					sb.append("'"+record.getBetMoneyUnit()+"'");
+				// java type==Integer
+						sb.append("'"+record.getBetMoneyUnit()+"'");
 				}
 			
 				sb.append(",");
@@ -371,7 +416,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getBonusMoneyMode()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBonusMoneyMode()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getBonusMoneyMode()+"'");
 				}
 			
 				sb.append(",");
@@ -379,7 +425,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getBonusRateMode()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getBonusRateMode()+"'");
+				// java type==BigDecimal
+						sb.append("'"+record.getBonusRateMode()+"'");
 				}
 			
 				sb.append(",");
@@ -387,15 +434,18 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getVersion()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getVersion()+"'");
+				// java type==String
+						sb.append("'"+record.getVersion()+"'");
 				}
 			
 				sb.append(",");
 			
-				if(record.getPrinttime()==null){
+				if(record.getPrintTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPrinttime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getPrintTime())+"'");
 				}
 			
 				sb.append(",");
@@ -403,7 +453,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getBetStatus()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getBetStatus()+"'");
+				// java type==String
+						sb.append("'"+record.getBetStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -411,7 +462,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getNotifystatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getNotifystatus()+"'");
+				// java type==String
+						sb.append("'"+record.getNotifystatus()+"'");
 				}
 			
 				sb.append(",");
@@ -419,7 +471,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getRegion()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRegion()+"'");
+				// java type==String
+						sb.append("'"+record.getRegion()+"'");
 				}
 			
 				sb.append(",");
@@ -427,7 +480,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getFailreason()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getFailreason()+"'");
+				// java type==String
+						sb.append("'"+record.getFailreason()+"'");
 				}
 			
 				sb.append(",");
@@ -435,7 +489,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getMerchantuserid()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getMerchantuserid()+"'");
+				// java type==String
+						sb.append("'"+record.getMerchantuserid()+"'");
 				}
 			
 				sb.append(",");
@@ -443,7 +498,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==String
+						sb.append("'"+record.getUserId()+"'");
 				}
 			
 				sb.append(",");
@@ -451,7 +507,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getAutobetNo()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getAutobetNo()+"'");
+				// java type==String
+						sb.append("'"+record.getAutobetNo()+"'");
 				}
 			
 				sb.append(",");
@@ -459,7 +516,8 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getIsAuto()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getIsAuto()+"'");
+				// java type==String
+						sb.append("'"+record.getIsAuto()+"'");
 				}
 			
 				sb.append(",");
@@ -467,7 +525,62 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getAutoRefTickno()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getAutoRefTickno()+"'");
+				// java type==String
+						sb.append("'"+record.getAutoRefTickno()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getCostFund0()==null){
+						sb.append("'"+"0.000000"+"'");						
+				}else{
+				// java type==BigDecimal
+						sb.append("'"+record.getCostFund0()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getCostFund1()==null){
+						sb.append("'"+"0.000000"+"'");						
+				}else{
+				// java type==BigDecimal
+						sb.append("'"+record.getCostFund1()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getCostFund2()==null){
+						sb.append("'"+"0.000000"+"'");						
+				}else{
+				// java type==BigDecimal
+						sb.append("'"+record.getCostFund2()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getCostFund3()==null){
+						sb.append("'"+"0.000000"+"'");						
+				}else{
+				// java type==BigDecimal
+						sb.append("'"+record.getCostFund3()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getFundRefId()==null){
+						sb.append("null");
+				}else{
+				// java type==String
+						sb.append("'"+record.getFundRefId()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getIssueLock()==null){
+						sb.append("'"+"0"+"'");						
+				}else{
+				// java type==String
+						sb.append("'"+record.getIssueLock()+"'");
 				}
 							sb.append(")");
 			

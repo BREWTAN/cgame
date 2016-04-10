@@ -191,17 +191,14 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getLockStatus()!=null){
 				criteria.andLockStatusEqualTo(record.getLockStatus());
 				}
-				if(record.getProcessStatus()!=null){
-				criteria.andProcessStatusEqualTo(record.getProcessStatus());
-				}
 				if(record.getCreateTime()!=null){
 				criteria.andCreateTimeEqualTo(record.getCreateTime());
 				}
 				if(record.getModifyTime()!=null){
 				criteria.andModifyTimeEqualTo(record.getModifyTime());
 				}
-				if(record.getStatus()!=null){
-				criteria.andStatusEqualTo(record.getStatus());
+				if(record.getIssueStatus()!=null){
+				criteria.andIssueStatusEqualTo(record.getIssueStatus());
 				}
 
 		}
@@ -411,15 +408,6 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 			
 				sb.append(",");
 			
-				if(record.getProcessStatus()==null){
-						sb.append("'"+"0"+"'");						
-				}else{
-				// java type==Integer
-						sb.append("'"+record.getProcessStatus()+"'");
-				}
-			
-				sb.append(",");
-			
 				if(record.getCreateTime()==null){
 						sb.append("null");
 				}else{
@@ -440,11 +428,11 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 			
 				sb.append(",");
 			
-				if(record.getStatus()==null){
-						sb.append("'"+"1"+"'");						
+				if(record.getIssueStatus()==null){
+						sb.append("'"+"0"+"'");						
 				}else{
 				// java type==String
-						sb.append("'"+record.getStatus()+"'");
+						sb.append("'"+record.getIssueStatus()+"'");
 				}
 							sb.append(")");
 			

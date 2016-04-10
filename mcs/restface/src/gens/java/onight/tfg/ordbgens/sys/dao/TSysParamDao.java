@@ -202,7 +202,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getParamId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getParamId()+"'");
+				// java type==String
+						sb.append("'"+record.getParamId()+"'");
 				}
 			
 				sb.append(",");
@@ -210,7 +211,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getParamType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getParamType()+"'");
+				// java type==String
+						sb.append("'"+record.getParamType()+"'");
 				}
 			
 				sb.append(",");
@@ -218,7 +220,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getParamValue()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getParamValue()+"'");
+				// java type==String
+						sb.append("'"+record.getParamValue()+"'");
 				}
 			
 				sb.append(",");
@@ -226,7 +229,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getDsc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getDsc()+"'");
+				// java type==String
+						sb.append("'"+record.getDsc()+"'");
 				}
 			
 				sb.append(",");
@@ -234,7 +238,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getCrtTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCrtTime()+"'");
+				// java type==String
+						sb.append("'"+record.getCrtTime()+"'");
 				}
 			
 				sb.append(",");
@@ -242,7 +247,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getField1()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getField1()+"'");
+				// java type==String
+						sb.append("'"+record.getField1()+"'");
 				}
 			
 				sb.append(",");
@@ -250,7 +256,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getField2()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getField2()+"'");
+				// java type==String
+						sb.append("'"+record.getField2()+"'");
 				}
 			
 				sb.append(",");
@@ -258,7 +265,8 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 				if(record.getField3()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getField3()+"'");
+				// java type==String
+						sb.append("'"+record.getField3()+"'");
 				}
 							sb.append(")");
 			

@@ -205,7 +205,8 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getId()+"'");
+				// java type==Long
+						sb.append("'"+record.getId()+"'");
 				}
 			
 				sb.append(",");
@@ -213,7 +214,8 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getLtype()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getLtype()+"'");
+				// java type==String
+						sb.append("'"+record.getLtype()+"'");
 				}
 			
 				sb.append(",");
@@ -221,7 +223,8 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getPlayType()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getPlayType()+"'");
+				// java type==String
+						sb.append("'"+record.getPlayType()+"'");
 				}
 			
 				sb.append(",");
@@ -229,7 +232,8 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getCnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getCnName()+"'");
+				// java type==String
+						sb.append("'"+record.getCnName()+"'");
 				}
 			
 				sb.append(",");
@@ -237,7 +241,8 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getEnName()==null){
 						sb.append("'"+""+"'");						
 				}else{
-					sb.append("'"+record.getEnName()+"'");
+				// java type==String
+						sb.append("'"+record.getEnName()+"'");
 				}
 			
 				sb.append(",");
@@ -245,7 +250,8 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getStatus()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==Integer
+						sb.append("'"+record.getStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -253,7 +259,9 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getCreateTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getCreateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getCreateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -261,7 +269,9 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getUpdateTime()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUpdateTime()+"'");
+				// java type==Date
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(record.getUpdateTime())+"'");
 				}
 			
 				sb.append(",");
@@ -269,7 +279,8 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==Long
+						sb.append("'"+record.getUserId()+"'");
 				}
 							sb.append(")");
 			

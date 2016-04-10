@@ -193,7 +193,8 @@ public class TSysRspCodeDao extends ExtendDaoSupper<TSysRspCode, TSysRspCodeExam
 				if(record.getId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getId()+"'");
+				// java type==String
+						sb.append("'"+record.getId()+"'");
 				}
 			
 				sb.append(",");
@@ -201,7 +202,8 @@ public class TSysRspCodeDao extends ExtendDaoSupper<TSysRspCode, TSysRspCodeExam
 				if(record.getProdId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getProdId()+"'");
+				// java type==String
+						sb.append("'"+record.getProdId()+"'");
 				}
 			
 				sb.append(",");
@@ -209,7 +211,8 @@ public class TSysRspCodeDao extends ExtendDaoSupper<TSysRspCode, TSysRspCodeExam
 				if(record.getOutRspCode()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getOutRspCode()+"'");
+				// java type==String
+						sb.append("'"+record.getOutRspCode()+"'");
 				}
 			
 				sb.append(",");
@@ -217,7 +220,8 @@ public class TSysRspCodeDao extends ExtendDaoSupper<TSysRspCode, TSysRspCodeExam
 				if(record.getInRspCode2()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getInRspCode2()+"'");
+				// java type==String
+						sb.append("'"+record.getInRspCode2()+"'");
 				}
 			
 				sb.append(",");
@@ -225,7 +229,8 @@ public class TSysRspCodeDao extends ExtendDaoSupper<TSysRspCode, TSysRspCodeExam
 				if(record.getRspDesc()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getRspDesc()+"'");
+				// java type==String
+						sb.append("'"+record.getRspDesc()+"'");
 				}
 							sb.append(")");
 			

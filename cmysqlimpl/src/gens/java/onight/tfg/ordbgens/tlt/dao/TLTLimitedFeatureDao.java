@@ -137,8 +137,11 @@ public class TLTLimitedFeatureDao extends ExtendDaoSupper<TLTLimitedFeature, TLT
 		TLTLimitedFeatureExample example = new TLTLimitedFeatureExample();
 		if(record!=null){
 			Criteria criteria = example.createCriteria();
-							if(record.getUuid()!=null){
-				criteria.andUuidEqualTo(record.getUuid());
+							if(record.getCaskey()!=null){
+				criteria.andCaskeyEqualTo(record.getCaskey());
+				}
+				if(record.getRegion()!=null){
+				criteria.andRegionEqualTo(record.getRegion());
 				}
 				if(record.getIssueNo()!=null){
 				criteria.andIssueNoEqualTo(record.getIssueNo());
@@ -151,9 +154,6 @@ public class TLTLimitedFeatureDao extends ExtendDaoSupper<TLTLimitedFeature, TLT
 				}
 				if(record.getCreatedate()!=null){
 				criteria.andCreatedateEqualTo(record.getCreatedate());
-				}
-				if(record.getRegion()!=null){
-				criteria.andRegionEqualTo(record.getRegion());
 				}
 				if(record.getLtype()!=null){
 				criteria.andLtypeEqualTo(record.getLtype());
@@ -232,11 +232,20 @@ public class TLTLimitedFeatureDao extends ExtendDaoSupper<TLTLimitedFeature, TLT
 			
 				sb.append("(");
 			
-				if(record.getUuid()==null){
+				if(record.getCaskey()==null){
 						sb.append("null");
 				}else{
 				// java type==String
-						sb.append("'"+record.getUuid()+"'");
+						sb.append("'"+record.getCaskey()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getRegion()==null){
+						sb.append("null");
+				}else{
+				// java type==String
+						sb.append("'"+record.getRegion()+"'");
 				}
 			
 				sb.append(",");
@@ -273,15 +282,6 @@ public class TLTLimitedFeatureDao extends ExtendDaoSupper<TLTLimitedFeature, TLT
 				}else{
 				// java type==Long
 						sb.append("'"+record.getCreatedate()+"'");
-				}
-			
-				sb.append(",");
-			
-				if(record.getRegion()==null){
-						sb.append("null");
-				}else{
-				// java type==String
-						sb.append("'"+record.getRegion()+"'");
 				}
 			
 				sb.append(",");

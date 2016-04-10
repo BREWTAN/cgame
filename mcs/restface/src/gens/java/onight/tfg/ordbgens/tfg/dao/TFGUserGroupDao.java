@@ -190,7 +190,8 @@ public class TFGUserGroupDao extends ExtendDaoSupper<TFGUserGroup, TFGUserGroupE
 				if(record.getUserGroupId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserGroupId()+"'");
+				// java type==String
+						sb.append("'"+record.getUserGroupId()+"'");
 				}
 			
 				sb.append(",");
@@ -198,7 +199,8 @@ public class TFGUserGroupDao extends ExtendDaoSupper<TFGUserGroup, TFGUserGroupE
 				if(record.getUserId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getUserId()+"'");
+				// java type==String
+						sb.append("'"+record.getUserId()+"'");
 				}
 			
 				sb.append(",");
@@ -206,7 +208,8 @@ public class TFGUserGroupDao extends ExtendDaoSupper<TFGUserGroup, TFGUserGroupE
 				if(record.getGroupId()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getGroupId()+"'");
+				// java type==String
+						sb.append("'"+record.getGroupId()+"'");
 				}
 			
 				sb.append(",");
@@ -214,7 +217,8 @@ public class TFGUserGroupDao extends ExtendDaoSupper<TFGUserGroup, TFGUserGroupE
 				if(record.getStatus()==null){
 						sb.append("null");
 				}else{
-					sb.append("'"+record.getStatus()+"'");
+				// java type==String
+						sb.append("'"+record.getStatus()+"'");
 				}
 							sb.append(")");
 			
