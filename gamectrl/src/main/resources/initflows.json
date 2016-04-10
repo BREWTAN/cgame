@@ -1,0 +1,106 @@
+{
+  "flows":
+  [
+    {
+      "ltype": "CQSSC",
+      "steps":[
+        {
+          "gs_ecode":"INIT",
+          "gs_chcode":"初始化",
+          "gs_desc":"游戏期号初始化，入库ISSUE表完成",
+          "timesec_offset":0,
+          "gs_order": "001",
+          "next_orders":"002"
+        },
+        {
+          "gs_ecode":"SALE_PREPARE",
+          "gs_chcode":"预售中",
+          "timesec_offset": -300,
+          "gs_desc":"与官方数据同步，期号数据准备成功，等待开售，一般提前5分钟来获取",
+          "gs_order": "002",
+          "next_orders":"003"
+        },
+        {
+          "gs_ecode":"SALE_PREPARE",
+          "gs_chcode":"正常销售中",
+          "timesec_offset":0,
+          "gs_desc":"游戏正常销售中*,-30表示提前30秒结束",
+          "gs_order": "003",
+          "next_orders":"005"
+        },
+        {
+          "gs_ecode":"SALE_PAUSE",
+          "gs_chcode":"暂停销售",
+          "timesec_offset":0,
+          "gs_desc":"游戏暂停销售*,一般是因为手动触发",
+          "gs_order": "004",
+          "next_orders":"005"
+        },
+        {
+          "gs_ecode":"SALE_DONE",
+          "gs_chcode":"销售结束",
+          "timesec_offset":-30,
+          "gs_desc":"游戏销售正常结束",
+          "gs_order": "005",
+          "next_orders":"006"
+        },
+        {
+          "gs_ecode":"WAGER_LOCK",
+          "gs_chcode":"数据封存",
+          "gs_desc":"备份并封存本期销售数据",
+          "gs_order": "006",
+          "next_orders": "007"
+        },
+        {
+          "gs_ecode":"WIN_NUM_GET",
+          "gs_chcode":"获取开奖号码",
+          "gs_desc":"获取官方开奖号码",
+          "gs_order": "007",
+          "next_orders":"008,009,010,011"
+        },
+        {
+          "gs_ecode":"WIN_OFFICIAL_BOARD_GET",
+          "gs_chcode":"获取官方开奖公告",
+          "gs_desc":"从互联网获取官方开奖公告",
+          "gs_order": "008",
+          "next_orders":""
+        },
+        {
+          "gs_ecode":"WIN_LOCAL_BOARD_GET",
+          "gs_chcode":"生成本地开奖公告",
+          "gs_desc":"生成本地的投注总数，总金额等简易报表内容",
+          "gs_order": "009",
+          "next_orders":""
+        },
+        {
+          "gs_ecode":"WIN_CALCULATE",
+          "gs_chcode":"算奖",
+          "gs_desc":"计算中奖结果",
+          "gs_order": "010",
+          "next_orders":"012"
+        },
+        {
+          "gs_ecode":"RETURN_FAILED_MONEY",
+          "gs_chcode":"失败退款",
+          "gs_desc":"因系统撤单等导致的失败进行退款",
+          "gs_order": "011",
+          "next_orders":""
+        },
+        {
+          "gs_ecode":"MONEY_DISPATCH",
+          "gs_chcode":"派奖",
+          "gs_desc":"将中奖金额派奖到资金账户",
+          "gs_order": "012",
+          "next_orders":"013"
+        },
+        {
+          "gs_ecode":"PROFIT_DISPATCH",
+          "gs_chcode":"返点",
+          "gs_desc":"计算返点给资金账户",
+          "gs_order": "013",
+          "next_orders":""
+        }
+      ]
+    }
+  ]
+}

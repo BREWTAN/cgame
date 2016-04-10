@@ -1,0 +1,58 @@
+
+
+syntax = "proto3";
+//import "google/protobuf/any.proto";
+
+package starstart.cgw.gamectrl.pbgens;
+	
+
+enum PBModule{
+	CGC = 0;
+};
+
+
+enum PBCommand{
+	CUR = 0 ;//当前期号
+	FLS = 1 ;//根据参数生成期号流程
+};
+
+message PBIssueFlowGen
+{
+	message PBIFlowStep{
+		string ltype = 2;//游戏类型
+		string gs_ecode = 3;//状态简称，英文
+		string gs_chcode = 4;//状态简称，中文
+		string gs_desc = 5;//状态描述，中文
+		int32 timesec_offset = 6; //以秒为单位的偏移
+		string gs_order = 7; //英文数字编号
+		string next_orders = 8;//下一个状态列表,逗号","分开
+		string status = 9; //当前状态
+	}
+	string ltype = 1  ;//游戏类型
+	repeated PBIFlowStep steps = 2; //状态的节点
+	string override_exists = 3;//是否覆盖当前的
+	string 	reload_type = 4 ;//重新加载类型,1:从资源文件里面，从数据库	
+} 
+message PBIssueFlowInit{
+	repeated PBIssueFlowGen  flows = 1;//
+}
+
+message PBRetCtrl
+{
+	string retcode = 1; //返回状态码，000000，表示成功
+	string retmsg = 2;//返回消息
+	//Any data = 3;//返回的数据
+};
+
+message PBRetIssueFlowGen 
+{
+	string retcode = 1; //返回状态码，000000，表示成功
+	string retmsg = 2;//返回消息
+	message IssueFlow{
+		string ltype = 1;//游戏类型
+		uint32 steps_count = 100;//插入的步骤总数	
+	}
+	
+	IssueFlow flows = 3;//游戏列表
+	
+}
