@@ -12,12 +12,15 @@ import starstart.cgw.gamectrl.pbgens.Gamectrl.PBModule
 //import org.apache.commons.lang3.StringUtils
 //import onight.act.ordbgens.act.pbo.PBModule
 
-abstract class SessionModules[T <: Message] extends AsyncPBActor[T] with OLog{
+class _SNoneClass {
+
+}
+abstract class SessionModules[T <: Message] extends AsyncPBActor[T] with OLog {
 
   override def getModule: String = PBModule.CGC.name()
 
   implicit val ctx =
-    classOf[BundleReference].cast(classOf[PBUtils].getClassLoader())
+    classOf[BundleReference].cast(classOf[_SNoneClass].getClassLoader())
       .getBundle()
       .getBundleContext();
 
