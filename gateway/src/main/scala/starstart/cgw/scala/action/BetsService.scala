@@ -49,7 +49,6 @@ object CGWBetService extends OLog with PBUtils with LService[PWWager] {
       val serialnum = MD5.getMD5(("starstart-ming:" + dbbet.getTickNo));
       dbbet.setBetIp(pack.getExtStrProp(PackHeader.PEER_IP));
       dbbet.setSerialNum(serialnum)
-      dbbet.setPrinttime(System.currentTimeMillis());
       dbbet
     }
 

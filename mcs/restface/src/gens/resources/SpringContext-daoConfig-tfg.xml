@@ -241,6 +241,14 @@
  		<property name="mapper" ref="tLTIssueMapper" />
  		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
  	</bean>
+	<bean id="tLTIssueFlowsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTIssueFlowsMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tltissueflowsDao" class="onight.tfg.ordbgens.tlt.dao.TLTIssueFlowsDao" >
+ 		<property name="mapper" ref="tLTIssueFlowsMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
 	<bean id="tLTIssueGenParamsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTIssueGenParamsMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
@@ -255,14 +263,6 @@
 	</bean>
 	 <bean id="tltissuehisDao" class="onight.tfg.ordbgens.tlt.dao.TLTIssueHisDao" >
  		<property name="mapper" ref="tLTIssueHisMapper" />
- 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
- 	</bean>
-	<bean id="tLTIssueStatusParamsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTIssueStatusParamsMapper" />
-		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
-	</bean>
-	 <bean id="tltissuestatusparamsDao" class="onight.tfg.ordbgens.tlt.dao.TLTIssueStatusParamsDao" >
- 		<property name="mapper" ref="tLTIssueStatusParamsMapper" />
  		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
  	</bean>
 	<bean id="tLTIssueStepsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">

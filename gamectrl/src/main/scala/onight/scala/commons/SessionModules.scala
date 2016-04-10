@@ -6,6 +6,7 @@ import onight.tfw.async.AsyncPBActor
 import onight.tfw.async.CompleteHandler
 import onight.tfw.otransio.api.beans.FramePacket
 import onight.oapi.scala.traits.OLog
+import starstart.cgw.gamectrl.pbgens.Gamectrl.PBModule
 //import onight.tfw.outils.serialize.SessionIDGenerator
 //import onight.tfw.mservice.NodeHelper
 //import org.apache.commons.lang3.StringUtils
@@ -13,7 +14,7 @@ import onight.oapi.scala.traits.OLog
 
 abstract class SessionModules[T <: Message] extends AsyncPBActor[T] with OLog{
 
-  override def getModule: String = "CTL"
+  override def getModule: String = PBModule.CGC.name()
 
   implicit val ctx =
     classOf[BundleReference].cast(classOf[PBUtils].getClassLoader())
