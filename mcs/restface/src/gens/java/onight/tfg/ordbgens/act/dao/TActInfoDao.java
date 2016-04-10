@@ -212,6 +212,7 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 	@Override
 	//@Transactional
 	public int batchInsert(List<TActInfo> records) throws Exception {
+		if(records.size()<=0)return 0;
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;

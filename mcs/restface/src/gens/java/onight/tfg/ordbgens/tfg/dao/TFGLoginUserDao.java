@@ -206,6 +206,7 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 	@Override
 	//@Transactional
 	public int batchInsert(List<TFGLoginUser> records) throws Exception {
+		if(records.size()<=0)return 0;
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;

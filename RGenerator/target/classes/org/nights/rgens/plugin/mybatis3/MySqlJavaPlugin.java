@@ -14,6 +14,7 @@ import org.mybatis.generator.api.PluginAdapter;
 import org.mybatis.generator.api.dom.java.Field;
 import org.mybatis.generator.api.dom.java.FullyQualifiedJavaType;
 import org.mybatis.generator.api.dom.java.InnerClass;
+import org.mybatis.generator.api.dom.java.Interface;
 import org.mybatis.generator.api.dom.java.JavaVisibility;
 import org.mybatis.generator.api.dom.java.Method;
 import org.mybatis.generator.api.dom.java.Parameter;
@@ -167,6 +168,8 @@ public class MySqlJavaPlugin extends PluginAdapter {
 		field.setVisibility(JavaVisibility.PROTECTED);
 		topLevelClass.addField(field);
 
+	
+		
 		method = new Method();
 		method.setName("setGroupSelClause");
 		method.setVisibility(JavaVisibility.PUBLIC);
@@ -183,6 +186,32 @@ public class MySqlJavaPlugin extends PluginAdapter {
 		method.setReturnType(FullyQualifiedJavaType.getStringInstance());
 		method.addBodyLine("  return groupSelClause;");
 		topLevelClass.addMethod(method);
+		
+		
+		//--add for update
+		field = new Field();
+		field.setName("forUpdate");
+		field.setType(FullyQualifiedJavaType.getBooleanPrimitiveInstance());
+		field.setVisibility(JavaVisibility.PROTECTED);
+		topLevelClass.addField(field);
+		
+		method = new Method();
+		method.setName("setForUpdate");
+		method.setVisibility(JavaVisibility.PUBLIC);
+		method.addParameter(new Parameter(FullyQualifiedJavaType
+				.getBooleanPrimitiveInstance(), "forUpdate"));
+		method.setReturnType(null);
+		method.addBodyLine(" this.forUpdate = forUpdate;");
+
+		topLevelClass.addMethod(method);
+
+		method = new Method();
+		method.setName("isForUpdate");
+		method.setVisibility(JavaVisibility.PUBLIC);
+		method.setReturnType(FullyQualifiedJavaType.getBooleanPrimitiveInstance());
+		method.addBodyLine("  return forUpdate;");
+		topLevelClass.addMethod(method);
+		//=----
 
 		field = new Field();
 		field.setName("groupByClause");
@@ -214,6 +243,8 @@ public class MySqlJavaPlugin extends PluginAdapter {
 				mod.addBodyLine("this.sumCol=null;");
 				mod.addBodyLine("this.groupSelClause=null;");
 				mod.addBodyLine("this.groupByClause=null;");
+				mod.addBodyLine("this.forUpdate=false;");
+
 			}
 			String examplename = introspectedTable.getExampleType().substring(
 					introspectedTable.getExampleType().lastIndexOf(".") + 1);
@@ -225,12 +256,14 @@ public class MySqlJavaPlugin extends PluginAdapter {
 		return true;
 	}
 
+	
 	@Override
 	public boolean providerGenerated(TopLevelClass topLevelClass,
 			IntrospectedTable introspectedTable) {
 		// TODO providerGenerated
 		String tableName = introspectedTable.getTableConfiguration()
 				.getTableName();
+		
 //		 ----------------truncate provider---------------
 //		 Method method = new Method();
 //		 method.setName("truncate");
@@ -241,6 +274,25 @@ public class MySqlJavaPlugin extends PluginAdapter {
 //		 ----------------truncate provider---------------
 		return true;
 	}
+
+	
+	@Override
+	public boolean clientSelectByPrimaryKeyMethodGenerated(Method method,
+			Interface interfaze, IntrospectedTable introspectedTable) {
+		// TODO Auto-generated method stub
+		return super.clientSelectByPrimaryKeyMethodGenerated(method, interfaze,
+				introspectedTable);
+	}
+
+
+	@Override
+	public boolean clientSelectByPrimaryKeyMethodGenerated(Method method,
+			TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
+		// TODO Auto-generated method stub
+		return super.clientSelectByPrimaryKeyMethodGenerated(method, topLevelClass,
+				introspectedTable);
+	}
+
 
 	@Override
 	public boolean providerSelectByExampleWithBLOBsMethodGenerated(
@@ -286,11 +338,14 @@ public class MySqlJavaPlugin extends PluginAdapter {
 	        "\t\t}");
 		
 		line.add("if(example != null){");
-		line.add("return SQL().concat(\" limit \"+example.getOffset()+\",\"+example.getLimit());");
+		
+		line.add("String retstr= SQL().concat(\" limit \"+example.getOffset()+\",\"+example.getLimit());");
 		
 //		line.add("return \"SELECT * FROM (SELECT A.*, ROWNUM RN FROM (\"+SQL()+\") A		WHERE ROWNUM < \"+(example.getLimit()+example.getOffset())+\") WHERE RN >= \"+(example.getOffset()) ;");
 
 //		line.add("return \"SELECT * FROM (SELECT A.*, rownumber() over() as RN FROM (\"+SQL()+\") A ) WHERE RN < \"+(example.getLimit()+example.getOffset())+\" AND RN >= \"+(example.getOffset()) ;");
+		
+		line.add("if(example.isForUpdate()) { return retstr+\"  FOR UPDATE \" ;} else { return retstr;}");
 		
 		line.add("}");
 		int linesNumber = method.getBodyLines().size();

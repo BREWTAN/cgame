@@ -167,6 +167,7 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 	@Override
 	//@Transactional
 	public int batchInsert(List<TSysRoleMutex> records) throws Exception {
+		if(records.size()<=0)return 0;
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;

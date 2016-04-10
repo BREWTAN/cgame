@@ -212,6 +212,7 @@ public class TLTLimitedFeatureDao extends ExtendDaoSupper<TLTLimitedFeature, TLT
 	@Override
 	//@Transactional
 	public int batchInsert(List<TLTLimitedFeature> records) throws Exception {
+		if(records.size()<=0)return 0;
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;

@@ -215,6 +215,7 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 	@Override
 	//@Transactional
 	public int batchInsert(List<TActFund> records) throws Exception {
+		if(records.size()<=0)return 0;
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;

@@ -188,6 +188,7 @@ public class TLTBonusDao extends ExtendDaoSupper<TLTBonus, TLTBonusExample, TLTB
 	@Override
 	//@Transactional
 	public int batchInsert(List<TLTBonus> records) throws Exception {
+		if(records.size()<=0)return 0;
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;

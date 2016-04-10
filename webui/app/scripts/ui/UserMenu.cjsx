@@ -39,7 +39,7 @@ UserMenu = React.createClass(
     handleRefreshUserTitle:(event, index, value) ->
         #console.log("handleChangeGame:index="+index+",value="+value)
         @setState
-            refreshing:false
+            refreshing:true
         self = @;
         request.post('/pbface/cgw/pbmer.do?fh=VMERCGW000000J00')
            .send({
@@ -62,12 +62,14 @@ UserMenu = React.createClass(
             else if packMap["100"].pbfund
                #console.log("login Success:"+JSON.stringify(packMap))
                 UserInfo.updateMoney(packMap["100"].pbfund)
-                self.setState
-                    refreshing:false
             else
                 self.setState
                     open:true
                     message:"登录失败:"+packMap["0"].desc
+
+            self.setState
+                refreshing:false
+
            );
 
 
@@ -89,9 +91,9 @@ UserMenu = React.createClass(
              padding:"0px",
              marginTop:"0px",
              verticalAlign:"0px"
-             minHeight:"48px",
-             fontSize:"16px",
-             width:"16px"
+             minHeight:"18px",
+             fontSize:"18px",
+             width:"18px"
 
           },
           btn:{
@@ -115,10 +117,14 @@ UserMenu = React.createClass(
 
         console.log("usermoneys="+JSON.stringify(usermoneys))
 
+        iconClassName = "fa fa-refresh fa-fw";
+
+        if @state.refreshing then iconClassName+= " rotateimage"
+
         titlenode=(
                 <div id="usertitle" className="row col-md-12">
                     <div className="col-md-4"><span>您好,</span> <span>{@state.username}</span>&nbsp;&nbsp;&nbsp;<FontAwesome name='jpy' className='fa-lg ' /><span className="money">  {totalmoney}元</span>
-                    <IconButton iconStyle={styles.iconButtonStyle} onTouchTap={@handleRefreshUserTitle} iconClassName='fa fa-refresh fa-fw' />
+                    <IconButton iconStyle={styles.iconButtonStyle} onTouchTap={@handleRefreshUserTitle} iconClassName={iconClassName} />
                     </div>
                     <div className="col-md-5">|<FlatButton style={styles.btn} labelStyle={styles.title} label="充值"/>|<FlatButton style={styles.btn} labelStyle={styles.title} label="提现" />
                             |<FlatButton  style={styles.btn} labelStyle={styles.title} label="转账" />　

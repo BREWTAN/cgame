@@ -179,6 +179,7 @@ public class TActTransLogsDebtDao extends ExtendDaoSupper<TActTransLogsDebt, TAc
 	@Override
 	//@Transactional
 	public int batchInsert(List<TActTransLogsDebt> records) throws Exception {
+		if(records.size()<=0)return 0;
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;

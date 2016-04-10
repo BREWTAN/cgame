@@ -170,6 +170,7 @@ public class TFGRoleDao extends ExtendDaoSupper<TFGRole, TFGRoleExample, TFGRole
 	@Override
 	//@Transactional
 	public int batchInsert(List<TFGRole> records) throws Exception {
+		if(records.size()<=0)return 0;
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;

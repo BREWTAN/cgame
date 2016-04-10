@@ -161,6 +161,7 @@ public class TFGUserIdListDao extends ExtendDaoSupper<TFGUserIdList, TFGUserIdLi
 	@Override
 	//@Transactional
 	public int batchInsert(List<TFGUserIdList> records) throws Exception {
+		if(records.size()<=0)return 0;
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;

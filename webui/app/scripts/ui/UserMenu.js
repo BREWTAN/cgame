@@ -49,9 +49,8 @@ UserMenu = React.createClass({
   },
   handleRefreshUserTitle: function(event, index, value) {
     var self;
-    console.log("handleChangeGame:index=" + index + ",value=" + value);
     this.setState({
-      refreshing: false
+      refreshing: true
     });
     self = this;
     return request.post('/pbface/cgw/pbmer.do?fh=VMERCGW000000J00').send({
@@ -67,21 +66,20 @@ UserMenu = React.createClass({
       ]
     }).end(function(err, res) {
       var packMap;
-      console.log("get refreh back:" + JSON.stringify(res));
       packMap = PBHelper.parseFramePacket(res.body);
       if (!packMap) {
-        return console.log("网络请求异常");
+        console.log("网络请求异常");
       } else if (packMap["100"].pbfund) {
         UserInfo.updateMoney(packMap["100"].pbfund);
-        return self.setState({
-          refreshing: false
-        });
       } else {
-        return self.setState({
+        self.setState({
           open: true,
           message: "登录失败:" + packMap["0"].desc
         });
       }
+      return self.setState({
+        refreshing: false
+      });
     });
   },
   handleClickDropDown: function(e, item) {
@@ -94,7 +92,7 @@ UserMenu = React.createClass({
     });
   },
   render: function() {
-    var styles, titlenode, totalmoney, usermoneys;
+    var iconClassName, styles, titlenode, totalmoney, usermoneys;
     styles = {
       bar: {
         backgroundColor: "white",
@@ -105,9 +103,9 @@ UserMenu = React.createClass({
         padding: "0px",
         marginTop: "0px",
         verticalAlign: "0px",
-        minHeight: "48px",
-        fontSize: "16px",
-        width: "16px"
+        minHeight: "18px",
+        fontSize: "18px",
+        width: "18px"
       },
       btn: {
         width: "60px",
@@ -126,6 +124,10 @@ UserMenu = React.createClass({
     usermoneys = UserInfo.getUserMoneys();
     totalmoney = PBHelper.formatMoney(usermoneys.totalmoney);
     console.log("usermoneys=" + JSON.stringify(usermoneys));
+    iconClassName = "fa fa-refresh fa-fw";
+    if (this.state.refreshing) {
+      iconClassName += " rotateimage";
+    }
     titlenode = React.createElement("div", {
       "id": "usertitle",
       "className": "row col-md-12"
@@ -139,7 +141,7 @@ UserMenu = React.createClass({
     }, "  ", totalmoney, "元"), React.createElement(IconButton, {
       "iconStyle": styles.iconButtonStyle,
       "onTouchTap": this.handleRefreshUserTitle,
-      "iconClassName": 'fa fa-refresh fa-fw'
+      "iconClassName": iconClassName
     })), React.createElement("div", {
       "className": "col-md-5"
     }, "|", React.createElement(FlatButton, {

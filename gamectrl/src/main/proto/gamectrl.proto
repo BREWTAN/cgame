@@ -14,6 +14,8 @@ enum PBModule{
 enum PBCommand{
 	CUR = 0 ;//当前期号
 	FLS = 1 ;//根据参数生成期号流程
+	ISG = 2;//生成游戏奖期
+	SRA = 100 ;//流程控制器
 };
 
 message PBIssueFlowGen
@@ -56,3 +58,46 @@ message PBRetIssueFlowGen
 	IssueFlow flows = 3;//游戏列表
 	
 }
+
+
+
+message PBIssue{
+	string ltype = 2;//游戏类型
+	string issue_no =3;//奖期编号
+	string lottery_no = 4;//开奖号码
+	string issue_date = 5;//日期：YYYYMMDD
+	string pre_stime = 6;//预期开始时间
+	string pre_etime = 7;//预期结束时间
+	string sale_stime = 8;//销售开始时间
+	string sale_etime = 9;//销售结束时间
+	string real_stime = 10;//实际开始时间
+	string real_etime = 11;//实际结束时间
+	string cancel_ltime = 12;//最后可撤单时间
+	string create_time = 19;//创建时间
+	string modify_time = 20;//最后修改时间
+	string issue_status = 21;//游戏状态
+	
+	
+}
+
+message PBIssueGen
+{
+	string ltype = 1  ;//游戏类型
+	string override_exists = 3;//是否覆盖当前的
+	repeated string days = 4 ;//奖期的日期
+	int32	offset = 5;//从第几期开始
+	int32	limit = 6;//个数限制，0表示无限制
+	
+}
+	
+message PBRetIssueGen
+{
+	string retcode = 1; //返回状态码，000000，表示成功
+	string retmsg = 2;//返回消息
+	PBIssueGen request=100;
+	
+	repeated PBIssue issues = 101;//奖期列表 
+}
+
+
+

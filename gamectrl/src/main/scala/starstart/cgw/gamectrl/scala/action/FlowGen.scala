@@ -2,7 +2,6 @@ package starstart.cgw.gamectrl.scala.action
 
 import onight.oapi.scala.traits.OLog
 import onight.osgi.annotation.NActorProvider
-import onight.scala.commons.LService
 import onight.scala.commons.SessionModules
 import onight.tfw.async.CompleteHandler
 import onight.tfw.otransio.api.PacketHelper
@@ -24,6 +23,7 @@ import onight.oapi.scala.commons.PBUtils
 import onight.tfg.ordbgens.tlt.entity.TLTIssueFlows
 import java.util.ArrayList
 import scala.collection.mutable.ListBuffer
+import onight.oapi.scala.commons.LService
 
 @NActorProvider
 object GCGenFlows extends SessionModules[PBIssueFlowGen] {
@@ -73,6 +73,7 @@ object GCGenFlowsService extends OLog with PBUtils with LService[PBIssueFlowGen]
         flowrows.add(flowrow);
       }
     }
+    
     val dbret = Mysqls.issueflowDAO.batchInsert(flowrows);
     
     println("steps==::" + flows + ":" + dbret);

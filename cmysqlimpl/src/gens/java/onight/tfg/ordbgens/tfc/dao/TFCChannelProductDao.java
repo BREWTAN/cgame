@@ -176,6 +176,7 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 	@Override
 	//@Transactional
 	public int batchInsert(List<TFCChannelProduct> records) throws Exception {
+		if(records.size()<=0)return 0;
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;

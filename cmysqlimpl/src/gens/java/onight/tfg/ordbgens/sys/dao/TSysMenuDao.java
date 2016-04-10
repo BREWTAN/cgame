@@ -182,6 +182,7 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 	@Override
 	//@Transactional
 	public int batchInsert(List<TSysMenu> records) throws Exception {
+		if(records.size()<=0)return 0;
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;

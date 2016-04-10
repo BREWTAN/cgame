@@ -8,6 +8,8 @@ import scala.beans.BeanProperty
 import onight.tfg.ordbgens.tlt.entity.TLTCoreBet
 import com.google.protobuf.Message
 import onight.tfg.ordbgens.tlt.entity.TLTIssueFlows
+import onight.tfg.ordbgens.tlt.entity.TLTIssueSteps
+import onight.tfg.ordbgens.tlt.entity.TLTIssue
 
 @NActorProvider
 object Mysqls extends SessionModules[Message] {
@@ -19,4 +21,12 @@ object Mysqls extends SessionModules[Message] {
   @StoreDAO(domain = classOf[TLTIssueFlows], target = "cmysql")
   @BeanProperty
   var issueflowDAO: OJpaDAO[TLTIssueFlows] = null
+
+  @StoreDAO(domain = classOf[TLTIssueSteps], target = "cmysql")
+  @BeanProperty
+  var issuestepsDAO: OJpaDAO[TLTIssueSteps] = null
+
+  @StoreDAO(domain = classOf[TLTIssue], target = "cmysql")
+  @BeanProperty
+  var issuesDAO: OJpaDAO[TLTIssue] = null
 }

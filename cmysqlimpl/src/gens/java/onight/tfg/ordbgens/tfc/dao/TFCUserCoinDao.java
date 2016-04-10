@@ -179,6 +179,7 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 	@Override
 	//@Transactional
 	public int batchInsert(List<TFCUserCoin> records) throws Exception {
+		if(records.size()<=0)return 0;
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;

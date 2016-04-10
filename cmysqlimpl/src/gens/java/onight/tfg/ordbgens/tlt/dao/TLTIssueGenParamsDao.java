@@ -188,6 +188,7 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 	@Override
 	//@Transactional
 	public int batchInsert(List<TLTIssueGenParams> records) throws Exception {
+		if(records.size()<=0)return 0;
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;

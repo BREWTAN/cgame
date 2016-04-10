@@ -155,6 +155,7 @@ public class ${domainClazz}Dao extends ExtendDaoSupper<${domainClazz}, ${domainC
 	@Override
 	//@Transactional
 	public int batchInsert(List<${domainClazz}> records) throws Exception {
+		if(records.size()<=0)return 0;
 		SqlSession session=sqlSessionFactory.openSession();
 		Connection conn = session.getConnection();
 		Statement st = null;
