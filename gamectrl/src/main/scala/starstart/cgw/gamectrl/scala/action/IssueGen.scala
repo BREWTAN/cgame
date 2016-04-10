@@ -67,7 +67,6 @@ object IssueGensService extends OLog with PBUtils with LService[PBIssueGen] {
     } catch {
       case e1: JPADuplicateIDException =>
         {
-          log.warn("Duplication:", e1);
           try {
             Mysqls.issuesDAO.doInTransaction(new TransactionExecutor {
               def doInTransaction: Object = {
