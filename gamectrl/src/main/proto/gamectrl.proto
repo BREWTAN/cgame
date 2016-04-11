@@ -8,6 +8,7 @@ package starstart.cgw.gamectrl.pbgens;
 
 enum PBModule{
 	CGC = 0;
+	NDP = 1;// 节点处理调用
 };
 
 
@@ -28,7 +29,11 @@ message PBIssueFlowGen
 		int32 timesec_offset = 6; //以秒为单位的偏移
 		string gs_order = 7; //英文数字编号
 		string next_orders = 8;//下一个状态列表,逗号","分开
-		string status = 9; //当前状态
+		string wait_orders = 9;//结束前需要等待的节点
+		string node_type = 10;//节点类型
+		string auto_gonext = 11; //是否为自动节点
+		string status = 12; //当前状态
+		
 	}
 	string ltype = 1  ;//游戏类型
 	repeated PBIFlowStep steps = 2; //状态的节点
@@ -60,8 +65,8 @@ message PBRetIssueFlowGen
 }
 
 
-
 message PBIssue{
+	string issue_id = 1;//期号编号：ltype-issue_no
 	string ltype = 2;//游戏类型
 	string issue_no =3;//奖期编号
 	string lottery_no = 4;//开奖号码
@@ -76,7 +81,6 @@ message PBIssue{
 	string create_time = 19;//创建时间
 	string modify_time = 20;//最后修改时间
 	string issue_status = 21;//游戏状态
-	
 	
 }
 
@@ -98,6 +102,47 @@ message PBRetIssueGen
 	
 	repeated PBIssue issues = 101;//奖期列表 
 }
+
+message PBIssueSteps
+{
+	string issue_step_id = 1;
+	string ltype = 2;
+	string issue_no = 3;
+	string step_status = 4;
+	string create_time = 5;
+	string modify_time = 6;
+	string operator_id = 7;
+	string gs_ecode = 8;
+	string gs_chcode = 9;
+	int32 timesec_offset = 10;
+	string gs_order = 11;
+	string next_orders = 12;
+	int64 ref_param_gen_id = 13;
+	string auto_gonext = 14;
+	int32 retry_times = 15;
+	string failed_reason = 16;
+}
+
+message PBStepCtrl
+{
+	string ltype = 1  ;//游戏类型
+	string gs_order = 3;//节点order
+	string issue_no  = 10;//期号
+	string issue_step_id = 11;//步骤id
+	string step_operator = 12;//操作者
+	PBIssueSteps issue_step  = 20;//步骤对象
+	
+}
+	
+message PBRetStepCtrl
+{
+	string retcode = 1; //返回状态码，000000，表示成功
+	string retmsg = 2;//返回消息
+	string step_operator = 100;//操作者
+	string bizcode = 101;//业务码
+}
+
+
 
 
 

@@ -161,8 +161,8 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				if(record.getGsEcode()!=null){
 				criteria.andGsEcodeEqualTo(record.getGsEcode());
 				}
-				if(record.getGsName()!=null){
-				criteria.andGsNameEqualTo(record.getGsName());
+				if(record.getGsChcode()!=null){
+				criteria.andGsChcodeEqualTo(record.getGsChcode());
 				}
 				if(record.getTimesecOffset()!=null){
 				criteria.andTimesecOffsetEqualTo(record.getTimesecOffset());
@@ -173,11 +173,23 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				if(record.getNextOrders()!=null){
 				criteria.andNextOrdersEqualTo(record.getNextOrders());
 				}
+				if(record.getWaitOrders()!=null){
+				criteria.andWaitOrdersEqualTo(record.getWaitOrders());
+				}
+				if(record.getNodeType()!=null){
+				criteria.andNodeTypeEqualTo(record.getNodeType());
+				}
 				if(record.getRefParamGenId()!=null){
 				criteria.andRefParamGenIdEqualTo(record.getRefParamGenId());
 				}
 				if(record.getAutoGonext()!=null){
 				criteria.andAutoGonextEqualTo(record.getAutoGonext());
+				}
+				if(record.getRetryTimes()!=null){
+				criteria.andRetryTimesEqualTo(record.getRetryTimes());
+				}
+				if(record.getFailedReason()!=null){
+				criteria.andFailedReasonEqualTo(record.getFailedReason());
 				}
 
 		}
@@ -292,11 +304,11 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 			
 				sb.append(",");
 			
-				if(record.getGsName()==null){
+				if(record.getGsChcode()==null){
 						sb.append("null");
 				}else{
 				// java type==String
-						sb.append("'"+record.getGsName()+"'");
+						sb.append("'"+record.getGsChcode()+"'");
 				}
 			
 				sb.append(",");
@@ -328,6 +340,24 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 			
 				sb.append(",");
 			
+				if(record.getWaitOrders()==null){
+						sb.append("'"+""+"'");						
+				}else{
+				// java type==String
+						sb.append("'"+record.getWaitOrders()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getNodeType()==null){
+						sb.append("'"+"0"+"'");						
+				}else{
+				// java type==String
+						sb.append("'"+record.getNodeType()+"'");
+				}
+			
+				sb.append(",");
+			
 				if(record.getRefParamGenId()==null){
 						sb.append("null");
 				}else{
@@ -342,6 +372,24 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				}else{
 				// java type==String
 						sb.append("'"+record.getAutoGonext()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getRetryTimes()==null){
+						sb.append("'"+"3"+"'");						
+				}else{
+				// java type==Integer
+						sb.append("'"+record.getRetryTimes()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getFailedReason()==null){
+						sb.append("'"+"10"+"'");						
+				}else{
+				// java type==String
+						sb.append("'"+record.getFailedReason()+"'");
 				}
 							sb.append(")");
 			

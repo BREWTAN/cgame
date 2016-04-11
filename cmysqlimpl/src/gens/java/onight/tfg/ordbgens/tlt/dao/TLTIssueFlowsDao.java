@@ -161,6 +161,15 @@ public class TLTIssueFlowsDao extends ExtendDaoSupper<TLTIssueFlows, TLTIssueFlo
 				if(record.getNextOrders()!=null){
 				criteria.andNextOrdersEqualTo(record.getNextOrders());
 				}
+				if(record.getWaitOrders()!=null){
+				criteria.andWaitOrdersEqualTo(record.getWaitOrders());
+				}
+				if(record.getNodeType()!=null){
+				criteria.andNodeTypeEqualTo(record.getNodeType());
+				}
+				if(record.getAutoGonext()!=null){
+				criteria.andAutoGonextEqualTo(record.getAutoGonext());
+				}
 				if(record.getStatus()!=null){
 				criteria.andStatusEqualTo(record.getStatus());
 				}
@@ -258,7 +267,7 @@ public class TLTIssueFlowsDao extends ExtendDaoSupper<TLTIssueFlows, TLTIssueFlo
 				sb.append(",");
 			
 				if(record.getGsOrder()==null){
-						sb.append("'"+"999"+"'");						
+						sb.append("'"+""+"'");						
 				}else{
 				// java type==String
 						sb.append("'"+record.getGsOrder()+"'");
@@ -267,10 +276,37 @@ public class TLTIssueFlowsDao extends ExtendDaoSupper<TLTIssueFlows, TLTIssueFlo
 				sb.append(",");
 			
 				if(record.getNextOrders()==null){
-						sb.append("'"+"999"+"'");						
+						sb.append("'"+""+"'");						
 				}else{
 				// java type==String
 						sb.append("'"+record.getNextOrders()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getWaitOrders()==null){
+						sb.append("'"+""+"'");						
+				}else{
+				// java type==String
+						sb.append("'"+record.getWaitOrders()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getNodeType()==null){
+						sb.append("'"+"0"+"'");						
+				}else{
+				// java type==String
+						sb.append("'"+record.getNodeType()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getAutoGonext()==null){
+						sb.append("'"+"1"+"'");						
+				}else{
+				// java type==String
+						sb.append("'"+record.getAutoGonext()+"'");
 				}
 			
 				sb.append(",");

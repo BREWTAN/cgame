@@ -33,8 +33,11 @@
 
 	<logger name="onight.osgi.otransio" level="error">
 	</logger>
+	<logger name = "org.mybatis.spring.SqlSessionUtils" level = "info"/>
 
 	<logger name="com.github.mauricio.async,io.netty" level="info"/>
+	<logger name = "com.mchange.v2.c3p0.impl.NewPooledConnection" level = "info"/>
+ 	
 	<logger name="com.datastax.driver.core" level="info">
 	</logger>
 	

@@ -34,7 +34,7 @@
           "timesec_offset":0,
           "gs_desc":"游戏暂停销售*,一般是因为手动触发",
           "gs_order": "004",
-          "next_orders":"005"
+          "next_orders":"003"
         },
         {
           "gs_ecode":"SALE_DONE",
@@ -63,14 +63,14 @@
           "gs_chcode":"获取官方开奖公告",
           "gs_desc":"从互联网获取官方开奖公告",
           "gs_order": "008",
-          "next_orders":""
+          "next_orders":"999"
         },
         {
           "gs_ecode":"WIN_LOCAL_BOARD_GET",
           "gs_chcode":"生成本地开奖公告",
           "gs_desc":"生成本地的投注总数，总金额等简易报表内容",
           "gs_order": "009",
-          "next_orders":""
+          "next_orders":"999"
         },
         {
           "gs_ecode":"WIN_CALCULATE",
@@ -84,7 +84,7 @@
           "gs_chcode":"失败退款",
           "gs_desc":"因系统撤单等导致的失败进行退款",
           "gs_order": "011",
-          "next_orders":""
+          "next_orders":"999"
         },
         {
           "gs_ecode":"MONEY_DISPATCH",
@@ -98,7 +98,15 @@
           "gs_chcode":"返点",
           "gs_desc":"计算返点给资金账户",
           "gs_order": "013",
-          "next_orders":""
+          "next_orders":"999"
+        },
+        {
+          "gs_ecode":"LAST",
+          "gs_chcode":"期结束",
+          "gs_desc":"本期结束",
+          "gs_order": "999",
+          "node_type":"1",
+          "wait_orders":"008,009,011,013"
         }
       ]
     }

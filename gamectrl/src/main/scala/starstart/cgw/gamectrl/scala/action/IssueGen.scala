@@ -32,6 +32,8 @@ import onight.tfw.ojpa.api.exception.JPADuplicateIDException
 import org.apache.commons.lang3.StringUtils
 import onight.tfg.ordbgens.tlt.entity.TLTIssueExample
 import onight.tfw.ojpa.api.TransactionExecutor
+import starstart.cgw.gamectrl.pbgens.Gamectrl.PBRetIssueGen
+import onight.tfg.ordbgens.tlt.entity.TLTIssueKey
 
 @NActorProvider
 object IssueGen extends SessionModules[PBIssueGen] {
@@ -45,8 +47,8 @@ object IssueGensService extends OLog with PBUtils with LService[PBIssueGen] {
 
   def onPBPacket(pack: FramePacket, pbo: PBIssueGen, handler: CompleteHandler) = {
     //    log.debug("guava==" + VMDaos.guCache.getIfPresent(pbo.getLogid()));      val ret = PBActRet.newBuilder();
-    val ret = PBRetIssueFlowGen.newBuilder();
-    ret.setRetcode("0000").setRetmsg("ok");
+    val ret = PBRetIssueGen.newBuilder();
+    ret.setRetcode("0000").setRetmsg("ok").setRequest(pbo);
 
     var records: List[TLTIssue] = null;
     try {
@@ -61,6 +63,7 @@ object IssueGensService extends OLog with PBUtils with LService[PBIssueGen] {
         }
       }
       records = pbrecords.map { x =>
+        ret.addIssues(x);
         pbBeanUtil.copyFromPB(x, new TLTIssue());
       }
       Mysqls.issuesDAO.batchInsert(records);
@@ -71,9 +74,7 @@ object IssueGensService extends OLog with PBUtils with LService[PBIssueGen] {
             Mysqls.issuesDAO.doInTransaction(new TransactionExecutor {
               def doInTransaction: Object = {
                 records.map { x =>
-                  val example = new TLTIssueExample
-                  example.createCriteria().andIssueNoEqualTo(x.getIssueNo);
-                  Mysqls.issuesDAO.deleteByExample(example)
+                  Mysqls.issuesDAO.deleteByPrimaryKey(new TLTIssueKey(x.getIssueId))
                 }
                 Mysqls.issuesDAO.batchInsert(records);
                 return "";

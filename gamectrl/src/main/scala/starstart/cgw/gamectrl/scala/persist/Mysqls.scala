@@ -10,6 +10,8 @@ import com.google.protobuf.Message
 import onight.tfg.ordbgens.tlt.entity.TLTIssueFlows
 import onight.tfg.ordbgens.tlt.entity.TLTIssueSteps
 import onight.tfg.ordbgens.tlt.entity.TLTIssue
+import onight.tfg.ordbgens.sys.entity.TSysParam
+import org.apache.commons.lang3.StringUtils
 
 @NActorProvider
 object Mysqls extends SessionModules[Message] {
@@ -29,4 +31,45 @@ object Mysqls extends SessionModules[Message] {
   @StoreDAO(domain = classOf[TLTIssue], target = "cmysql")
   @BeanProperty
   var issuesDAO: OJpaDAO[TLTIssue] = null
+
+  @StoreDAO(domain = classOf[TSysParam], target = "cmysql")
+  @BeanProperty
+  var paramDAO: OJpaDAO[TSysParam] = null
+
+  def getParamStr(key: String, defaultv: String = ""): String = {
+    if (StringUtils.isBlank(key)) {
+      return defaultv;
+    }
+    val ret = paramDAO.selectByPrimaryKey(key.trim());
+    if (ret != null) {
+      return StringUtils.trim(ret.getParamValue)
+    }
+    return defaultv;
+  }
+  def getParamInt(key: String, defaultv: Int = 0): Int = {
+    val vstr = getParamStr(key);
+    if (StringUtils.isBlank(vstr)) {
+      return defaultv;
+    }
+    try {
+      return Integer.parseInt(vstr)
+    } catch {
+      case _: Throwable =>
+    }
+    return defaultv
+  }
+
+  def getParamFloat(key: String, defaultv: Float = 0): Float = {
+    val vstr = getParamStr(key);
+    if (StringUtils.isBlank(vstr)) {
+      return defaultv;
+    }
+    try {
+      return vstr.toFloat
+    } catch {
+      case _: Throwable =>
+    }
+    return defaultv
+  }
+
 }

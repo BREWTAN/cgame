@@ -33,7 +33,7 @@ object GCGenFlows extends SessionModules[PBIssueFlowGen] {
 class FFlow {
 
 }
-// http://localhost:8081/cgc/pbfls.do?fh=VFLSCGC000000J00&bd={"reload_type":null}
+// http://localhost:8081/cgc/pbfls.do?fh=VFLSCGC000000J00&bd={}
 object GCGenFlowsService extends OLog with PBUtils with LService[PBIssueFlowGen] {
 
   override def cmd: String = PBCommand.FLS.name();

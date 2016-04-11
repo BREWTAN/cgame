@@ -606,7 +606,7 @@ message PBTLTGroupType
 
 message PBTLTIssue
 {
-	int64 issue_id = 1;
+	string issue_id = 1;
 	string ltype = 2;
 	string issue_no = 3;
 	string lottery_no = 4;
@@ -626,7 +626,9 @@ message PBTLTIssue
 	int32 lock_status = 18;
 	int64 create_time = 19;
 	int64 modify_time = 20;
-	string issue_status = 21;
+	int32 retry_times = 21;
+	string failed_reason = 22;
+	string issue_status = 23;
 }
 
 message PBTLTIssueFlows
@@ -639,7 +641,10 @@ message PBTLTIssueFlows
 	int32 timesec_offset = 6;
 	string gs_order = 7;
 	string next_orders = 8;
-	string status = 9;
+	string wait_orders = 9;
+	string node_type = 10;
+	string auto_gonext = 11;
+	string status = 12;
 }
 
 message PBTLTIssueGenParams
@@ -651,10 +656,12 @@ message PBTLTIssueGenParams
 	string sale_fi_etime = 5;
 	int32 sale_cycle = 6;
 	int32 wait_rl_dur = 7;
-	int32 cancel_dur = 8;
-	int32 input_dur = 9;
-	string sort = 10;
-	string enable = 11;
+	int32 pre_sale_sec = 8;
+	int32 pre_close_sale_sec = 9;
+	int32 cancel_dur = 10;
+	int32 input_dur = 11;
+	string sort = 12;
+	string enable = 13;
 }
 
 message PBTLTIssueHis
@@ -694,12 +701,16 @@ message PBTLTIssueSteps
 	int64 modify_time = 6;
 	string operator_id = 7;
 	string gs_ecode = 8;
-	string gs_name = 9;
+	string gs_chcode = 9;
 	int32 timesec_offset = 10;
 	string gs_order = 11;
 	string next_orders = 12;
-	int64 ref_param_gen_id = 13;
-	string auto_gonext = 14;
+	string wait_orders = 13;
+	string node_type = 14;
+	int64 ref_param_gen_id = 15;
+	string auto_gonext = 16;
+	int32 retry_times = 17;
+	string failed_reason = 18;
 }
 
 message PBTLTIssueStepsHis
@@ -724,11 +735,11 @@ message PBTLTIssueStepsHis
 message PBTLTLimitedFeature
 {
 	string caskey = 1;
-	string issue_no = 2;
-	string play_type = 3;
-	string wagerdata = 4;
-	double createdate = 5;
-	string region = 6;
+	string region = 2;
+	string issue_no = 3;
+	string play_type = 4;
+	string wagerdata = 5;
+	double createdate = 6;
 	string ltype = 7;
 	double bonus_limit = 8;
 	double bets_boards_limit = 9;

@@ -197,6 +197,12 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getModifyTime()!=null){
 				criteria.andModifyTimeEqualTo(record.getModifyTime());
 				}
+				if(record.getRetryTimes()!=null){
+				criteria.andRetryTimesEqualTo(record.getRetryTimes());
+				}
+				if(record.getFailedReason()!=null){
+				criteria.andFailedReasonEqualTo(record.getFailedReason());
+				}
 				if(record.getIssueStatus()!=null){
 				criteria.andIssueStatusEqualTo(record.getIssueStatus());
 				}
@@ -242,7 +248,7 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				if(record.getIssueId()==null){
 						sb.append("null");
 				}else{
-				// java type==Long
+				// java type==String
 						sb.append("'"+record.getIssueId()+"'");
 				}
 			
@@ -425,6 +431,24 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 						sb.append("'"+sdf.format(record.getModifyTime())+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getRetryTimes()==null){
+						sb.append("'"+"10"+"'");						
+				}else{
+				// java type==Integer
+						sb.append("'"+record.getRetryTimes()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getFailedReason()==null){
+						sb.append("'"+"10"+"'");						
+				}else{
+				// java type==String
+						sb.append("'"+record.getFailedReason()+"'");
 				}
 			
 				sb.append(",");

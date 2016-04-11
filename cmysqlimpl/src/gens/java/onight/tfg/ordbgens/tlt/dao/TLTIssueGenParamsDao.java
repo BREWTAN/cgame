@@ -158,6 +158,12 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				if(record.getWaitRlDur()!=null){
 				criteria.andWaitRlDurEqualTo(record.getWaitRlDur());
 				}
+				if(record.getPreSaleSec()!=null){
+				criteria.andPreSaleSecEqualTo(record.getPreSaleSec());
+				}
+				if(record.getPreCloseSaleSec()!=null){
+				criteria.andPreCloseSaleSecEqualTo(record.getPreCloseSaleSec());
+				}
 				if(record.getCancelDur()!=null){
 				criteria.andCancelDurEqualTo(record.getCancelDur());
 				}
@@ -268,6 +274,24 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getWaitRlDur()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getPreSaleSec()==null){
+						sb.append("'"+"60"+"'");						
+				}else{
+				// java type==Integer
+						sb.append("'"+record.getPreSaleSec()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getPreCloseSaleSec()==null){
+						sb.append("'"+"60"+"'");						
+				}else{
+				// java type==Integer
+						sb.append("'"+record.getPreCloseSaleSec()+"'");
 				}
 			
 				sb.append(",");

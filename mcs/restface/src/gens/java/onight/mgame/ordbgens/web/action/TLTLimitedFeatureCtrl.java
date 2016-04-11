@@ -171,12 +171,22 @@ public class TLTLimitedFeatureCtrl extends BasicCtrl {
 					FieldUtils.setObjectValue(akey, keyField, key);
 				}
 				
+				Field keyField=FieldUtils.allDeclaredField(TLTLimitedFeatureKey.class).get(0);
+
+				if(keyField.getType().isInstance(1)){
+					FieldUtils.setObjectValue(akey, keyField, Integer.parseInt(key));
+				}else if(keyField.getType().isInstance(1L)){
+					FieldUtils.setObjectValue(akey, keyField, Long.parseLong(key));
+				}else{
+					FieldUtils.setObjectValue(akey, keyField, key);
+				}
+				
 			
-			if(true && akey.getCaskey() == null ){
+			if(true && akey.getCaskey() == null  && akey.getRegion() == null ){
 				list = new ArrayList<TLTLimitedFeature>();
 			}else{
 				TLTLimitedFeatureExample example = new TLTLimitedFeatureExample();
-				example.createCriteria().andCaskeyEqualTo(akey.getCaskey());
+				example.createCriteria().andCaskeyEqualTo(akey.getCaskey()).andRegionEqualTo(akey.getRegion());
 				list = tLTLimitedFeatureMapper.selectByExample(example);
 			}
 			totalCount = list.size();
@@ -208,7 +218,17 @@ public class TLTLimitedFeatureCtrl extends BasicCtrl {
 					FieldUtils.setObjectValue(akey, keyField, key);
 				}
 				
-			if(true && akey.getCaskey() != null ){
+				Field keyField=FieldUtils.allDeclaredField(TLTLimitedFeatureKey.class).get(0);
+
+				if(keyField.getType().isInstance(1)){
+					FieldUtils.setObjectValue(akey, keyField, Integer.parseInt(key));
+				}else if(keyField.getType().isInstance(1L)){
+					FieldUtils.setObjectValue(akey, keyField, Long.parseLong(key));
+				}else{
+					FieldUtils.setObjectValue(akey, keyField, key);
+				}
+				
+			if(true && akey.getCaskey() != null  && akey.getRegion() != null ){
 				tLTLimitedFeatureMapper.deleteByPrimaryKey(akey);
 				return ReturnInfo.Success;
 			}
@@ -240,8 +260,18 @@ public class TLTLimitedFeatureCtrl extends BasicCtrl {
 				}else{
 					FieldUtils.setObjectValue(akey, keyField, key);
 				}
+				
+				Field keyField=FieldUtils.allDeclaredField(TLTLimitedFeatureKey.class).get(0);
+
+				if(keyField.getType().isInstance(1)){
+					FieldUtils.setObjectValue(akey, keyField, Integer.parseInt(key));
+				}else if(keyField.getType().isInstance(1L)){
+					FieldUtils.setObjectValue(akey, keyField, Long.parseLong(key));
+				}else{
+					FieldUtils.setObjectValue(akey, keyField, key);
+				}
 				TLTLimitedFeatureExample example = new TLTLimitedFeatureExample();
-				example.createCriteria().andCaskeyEqualTo(akey.getCaskey());
+				example.createCriteria().andCaskeyEqualTo(akey.getCaskey()).andRegionEqualTo(akey.getRegion());
 				tLTLimitedFeatureMapper.updateByExampleSelective(info, example);
 			}
 			return ReturnInfo.Success;

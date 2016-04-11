@@ -18,7 +18,7 @@ object IssueGenerator_CQSSC extends OLog {
     val dt_base = try {
       DateTimeFormat.forPattern("yyyyMMdd").parseDateTime(day);
     } catch {
-      case _ => log.warn("生成奖期失败，日期有误:{}", day); return null;
+      case _: Throwable => log.warn("生成奖期失败，日期有误:{}", day); return null;
     }
     if (dt_base == null) {
       log.warn("生成奖期失败，日期有误:{}", day);
@@ -31,6 +31,7 @@ object IssueGenerator_CQSSC extends OLog {
       r.filter { i => i > pbo.getOffset && (i <= pbo.getOffset + pbo.getLimit || pbo.getLimit == 0) }.map { step =>
         val issue_no = day + "-" + "%03d".format(step);
         val bd = PBIssue.newBuilder()
+        bd.setIssueId(pbo.getLtype + "_" + issue_no)
         bd.setLtype(pbo.getLtype)
         bd.setIssueNo(issue_no)
         bd.setIssueDate(day);
