@@ -27,11 +27,11 @@ object NodeProcessor extends OLog {
       return -1;
     }
     val up = new TLTIssueSteps();
-    up.setStepStatus("4")
+    up.setStepStatus("3")// 提交处理中
     up.setOperatorId(UUIDGenerator.generate())
     step.setOperatorId(up.getOperatorId);
     val example = new TLTIssueStepsExample
-    example.createCriteria().andIssueStepIdEqualTo(step.getIssueStepId).andStepStatusEqualTo("0")
+    example.createCriteria().andIssueStepIdEqualTo(step.getIssueStepId).andStepStatusEqualTo(step.getStepStatus)
     return Mysqls.issuestepsDAO.updateByExampleSelective(up, example);
   }
 
@@ -66,7 +66,7 @@ object NodeProcessor extends OLog {
     val up = new TLTIssueSteps();
     up.setStepStatus("5")
     val example = new TLTIssueStepsExample
-    example.createCriteria().andIssueStepIdEqualTo(step.getIssueStepId).andStepStatusEqualTo("4").andOperatorIdEqualTo(step.getOperatorId)
+    example.createCriteria().andIssueStepIdEqualTo(step.getIssueStepId).andOperatorIdEqualTo(step.getOperatorId)
     return Mysqls.issuestepsDAO.updateByExampleSelective(up, example);
 
   }

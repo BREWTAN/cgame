@@ -20,7 +20,8 @@ object P001_InitStart extends OProcessor with OLog {
     val curDT = new Date();
     if (curDT.after(issue.getSaleEtime)) {
       //实际已经结束了，属于追期
-      up.setIssueStatus("4")
+      up.setIssueStatus("7")
+      log.info("追期奖期开始:" + issue.getIssueId + ",status=" + up.getIssueStatus)
     } else if (curDT.before(issue.getPreEtime)) {
       up.setIssueStatus("1")
     }

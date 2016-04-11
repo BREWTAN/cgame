@@ -26,6 +26,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 import onight.tfw.ojpa.api.exception.JPADuplicateIDException
 import onight.tfg.ordbgens.tlt.entity.TLTIssueFlowsExample
 import scala.collection.mutable.ListBuffer
+import org.apache.commons.lang3.StringUtils
 @NActorProvider
 object FlowStepChecker extends SessionModules[PBIssueFlowGen] {
   override def service = FlowStepCheckerService
@@ -64,48 +65,55 @@ object FlowStepCheckerService extends OLog with PBUtils with LService[PBIssueFlo
     }
   }
   var runningCheck = new AtomicBoolean(false);
-  scheduler.scheduleAtFixedRate(new Runnable() {
+  scheduler.scheduleWithFixedDelay(new Runnable() {
     def run() = {
       if (runningCheck.compareAndSet(false, true)) {
-        try {
-          log.info("CRONT::CHECKING::")
-          val issueexample = new TLTIssueExample();
-          val now = new Date();
-          issueexample.createCriteria().andIssueStatusLessThan("8").andPreStimeLessThanOrEqualTo(now).andRetryTimesGreaterThan(1);
-          issueexample.setForUpdate(true);
+        val nodeNeedProc = ListBuffer[TLTIssueSteps]();
+        do {
+          try {
+            nodeNeedProc.clear()
+            log.info("CRONT::CHECKING::")
+            val issueexample = new TLTIssueExample();
+            val now = new Date();
+            issueexample.createCriteria().andIssueStatusLessThan("8").andPreStimeLessThanOrEqualTo(now).andRetryTimesGreaterThan(1);
+            issueexample.setForUpdate(true);
 
-          val nodeNeedProc = ListBuffer[TLTIssueSteps]();
+            Mysqls.issuesDAO.doInTransaction(new TransactionExecutor {
+              def doInTransaction: Object = {
+                val recs = Mysqls.issuesDAO.selectByExample(issueexample);
+                if (recs == null) {
+                  log.info("CRONT::未发现需要处理期号.");
+                  return ""
+                }
+                log.info("发现未处理期号个数为：" + recs.size());
+                recs.map { _.asInstanceOf[TLTIssue] }.map { issue =>
+                  try {
+                    //处理上次的任务，生成当期节点
+                    dealWithStepDone(issue);
+                    //处理本次任务
+                    dealWithStepNotDone(issue, nodeNeedProc);
 
-          Mysqls.issuesDAO.doInTransaction(new TransactionExecutor {
-            def doInTransaction: Object = {
-              val recs = Mysqls.issuesDAO.selectByExample(issueexample);
-              if (recs == null) {
-                log.info("CRONT::未发现需要处理期号.");
+                  } catch {
+                    case e: Throwable =>
+                      log.warn("处理期失败:" + issue.getIssueId, e)
+                      increIssueError(issue)
+                  }
+                }
                 return ""
               }
-              log.info("发现未处理期号个数为：" + recs.size());
-              recs.map { _.asInstanceOf[TLTIssue] }.map { issue =>
-                try {
-                  //处理上次的任务，生成当期节点
-                  dealWithStepDone(issue);
-                  //处理本次任务
-                  dealWithStepNotDone(issue, nodeNeedProc);
-                  
-                } catch {
-                  case e: Throwable =>
-                    log.warn("处理期失败:" + issue.getIssueId, e)
-                    increIssueError(issue)
-                }
-              }
-              return ""
+            })
+            nodeNeedProc.map { NodeProcessor.process(_) };
+
+            if (nodeNeedProc.size > 0) {
+              Thread.sleep(1000);
             }
-          })
-          nodeNeedProc.map { NodeProcessor.process(_) };
-        } catch {
-          case e: Throwable => log.debug("running ChechError:", e);
-        } finally {
-          runningCheck.compareAndSet(true, false);
-        }
+
+          } catch {
+            case e: Throwable => log.debug("running ChechError:", e);
+          } finally {
+            runningCheck.compareAndSet(true, false);
+          }
+        } while (nodeNeedProc.size > 0)
       } else {
         log.debug("Cannot Check:WAIT_FOR_LAST_FINISHED::")
       }
@@ -122,7 +130,7 @@ object FlowStepCheckerService extends OLog with PBUtils with LService[PBIssueFlo
     val nextsteps = if (steprecs.size() == 0) {
       StepsGenerator.newStepForIssue(issue);
     } else {
-      steprecs.filter { step => "5".equals(step.getStepStatus)  }.map { step =>
+      steprecs.filter { step => "5".equals(step.getStepStatus) }.map { step =>
         StepsGenerator.nextStepForIssue(issue, step.asInstanceOf[TLTIssueSteps])
       }.flatten
     }
@@ -133,7 +141,11 @@ object FlowStepCheckerService extends OLog with PBUtils with LService[PBIssueFlo
     if (nextsteps.size > 0) {
       nextsteps.foreach { step =>
         try {
-          Mysqls.issuestepsDAO.insertSelective(step)
+          val existexample = new TLTIssueStepsExample()
+          existexample.createCriteria().andIssueStepIdEqualTo(step.getIssueStepId)
+          if (Mysqls.issuestepsDAO.countByExample(existexample) == 0) { //不插入重复的
+            Mysqls.issuestepsDAO.insertSelective(step)
+          }
           success = success + 1;
         } catch {
           case e: JPADuplicateIDException => //如果尝试次数过多，则需要人工处理
@@ -168,7 +180,7 @@ object FlowStepCheckerService extends OLog with PBUtils with LService[PBIssueFlo
   //处理初始化的节点
   def dealWithStepNotDone(implicit issue: TLTIssue, nodeNeedProc: ListBuffer[TLTIssueSteps] = null) {
     val stepex = new TLTIssueStepsExample();
-    stepex.createCriteria().andIssueNoEqualTo(issue.getIssueNo).andStepStatusEqualTo("0").andLtypeEqualTo(issue.getLtype);
+    stepex.createCriteria().andIssueNoEqualTo(issue.getIssueNo).andStepStatusIn(List("0", "7", "1", "3")).andLtypeEqualTo(issue.getLtype);
     stepex.setForUpdate(true);
     val steprecs = Mysqls.issuestepsDAO.selectByExample(stepex).map { _.asInstanceOf[TLTIssueSteps] }
     log.debug("一共有待处理节点数：" + steprecs.size());
