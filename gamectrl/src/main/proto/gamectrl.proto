@@ -17,6 +17,7 @@ enum PBCommand{
 	FLS = 1 ;//根据参数生成期号流程
 	ISG = 2;//生成游戏奖期
 	SRA = 100 ;//流程控制器
+	SRF = 101 ;//异常流程控制器
 };
 
 message PBIssueFlowGen

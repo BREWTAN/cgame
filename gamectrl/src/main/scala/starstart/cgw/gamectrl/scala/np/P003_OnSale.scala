@@ -19,12 +19,12 @@ object P003_OnSaleProcessor extends OProcessor with OLog {
     val up = new TLTIssue();
     val curDT = new Date();
 
-    if (curDT.after(issue.getSaleEtime)) { //不是追期的话，设置为期后处理
+    if (curDT.after(issue.getCancelLtime)) { //不是追期的话，设置为期后处理
       val up = new TLTIssue();
       up.setIssueId(issue.getIssueId);
       up.setModifyTime(new Date());
       up.setRealEtime(curDT);
-      if (!StringUtils.equalsIgnoreCase("4", issue.getIssueStatus)) { //不是追期的话，设置为期后处理
+      if (!StringUtils.equalsIgnoreCase("7", issue.getIssueStatus)) { //不是追期的话，设置为期后处理
         up.setIssueStatus("2") //封闭期  
       }
       issue.setIssueStatus(up.getIssueStatus)
@@ -32,11 +32,11 @@ object P003_OnSaleProcessor extends OProcessor with OLog {
       log.info("奖期销售关闭中..." + issue.getIssueId + ",status=" + issue.getIssueStatus)
       return 1;
     } else {
-      val seconds = new Duration(new DateTime(curDT),new DateTime(issue.getSaleEtime));
+      val seconds = new Duration(new DateTime(curDT),new DateTime(issue.getCancelLtime));
       
       log.info("奖期未到关闭时间，继续销售中..." + issue.getIssueId + ",status=" + issue.getIssueStatus+",相差："+seconds.getMillis)
       
-      Thread.sleep(Math.max(100,seconds.getMillis-60*1000))
+//      Thread.sleep(Math.max(100,seconds.getMillis-60*1000))
       return -1;
     }
 

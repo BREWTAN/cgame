@@ -13,6 +13,7 @@ import starstart.cgw.gamectrl.scala.flow.NodeProcessor
 import starstart.cgw.gamectrl.scala.persist.Mysqls
 import org.apache.felix.ipojo.transaction.Transaction
 import onight.tfw.ojpa.api.TransactionExecutor
+import starstart.cgw.gamectrl.scala.flow.FlowStepCheckerService
 
 trait OProcessor extends OLog {
 
@@ -29,29 +30,39 @@ trait OProcessor extends OLog {
     val upex = new TLTIssueStepsExample();
     upex.createCriteria().andIssueStepIdEqualTo(issueStepId).andStepStatusEqualTo("3").andOperatorIdEqualTo(operator);
     upex.setForUpdate(true);
-    val ret = Mysqls.issuestepsDAO.doInTransaction(new TransactionExecutor {
-      def doInTransaction: Object = {
-        if (Mysqls.issuestepsDAO.updateByExampleSelective(up, upex) <= 0) {
-          log.info("节点处理错误，Operator：" + operator + ",dboperator=" + issueStep.getOperatorId
-            + " ,step.dbstatus=" + issueStep.getStepStatus + ":@stepid=" + issueStepId);
-          return "-2";
-        }
-        val ret = proc(issue.asInstanceOf[TLTIssue], issueStep, operator)
-        if (ret > 0) {
-          return "" + NodeProcessor.postProcess(issueStep)(issue); //修改流程状态
-        } else if (ret == -1) {
-          val upex = new TLTIssueStepsExample();
-          upex.createCriteria().andIssueStepIdEqualTo(issueStepId).andOperatorIdEqualTo(operator);
-          up.setOperatorId("");
-          up.setStepStatus(orgstatus);
-          Mysqls.issuestepsDAO.updateByExampleSelective(up, upex);
-          return "-1";
-        } else {
-          return "" + ret;
-        }
+    //    val ret = Mysqls.issuestepsDAO.doInTransaction(new TransactionExecutor {
+    //      def doInTransaction: Object = {
+    if (Mysqls.issuestepsDAO.updateByExampleSelective(up, upex) <= 0) {
+      log.info("节点处理错误，Operator：" + operator + ",dboperator=" + issueStep.getOperatorId
+        + " ,step.dbstatus=" + issueStep.getStepStatus + ":@stepid=" + issueStepId);
+      return -2;
+    }
+    var ret = 0
+    var reason: String = null;
+    try {
+      ret = proc(issue.asInstanceOf[TLTIssue], issueStep, operator)
+      if (ret > 0) {
+        return NodeProcessor.postProcess(issueStep)(issue); //修改流程状态
       }
-    })
-    return Integer.parseInt(ret + "");
+    } catch {
+      case e: Throwable =>
+        FlowStepCheckerService.increIssueStepError(issueStep)
+        ret = -1;
+        reason = e.getMessage;
+        log.warn("节点处理异常，Operator：" + operator + ",dboperator=" + issueStep.getOperatorId
+          + " ,step.dbstatus=" + issueStep.getStepStatus + ":@stepid=" + issueStepId,e);
+    }
+    
+    if (ret == -1) {
+      val upex = new TLTIssueStepsExample();
+      upex.createCriteria().andIssueStepIdEqualTo(issueStepId).andOperatorIdEqualTo(operator);
+      up.setOperatorId("");
+      up.setStepStatus(orgstatus);
+      Mysqls.issuestepsDAO.updateByExampleSelective(up, upex);
+    }
+    //      }
+    //    })
+    return -3;
 
   }
   def proc(issue: TLTIssue, issueStepId: TLTIssueSteps, operator: String): Int

@@ -1,39 +1,25 @@
 package starstart.cgw.gamectrl.scala.action
 
+import scala.collection.JavaConversions._
+import onight.oapi.scala.commons.LService
+import onight.oapi.scala.commons.PBUtils
 import onight.oapi.scala.traits.OLog
 import onight.osgi.annotation.NActorProvider
 import onight.scala.commons.SessionModules
+import onight.tfg.ordbgens.tlt.entity.TLTIssue
+import onight.tfg.ordbgens.tlt.entity.TLTIssueKey
 import onight.tfw.async.CompleteHandler
+import onight.tfw.ojpa.api.TransactionExecutor
+import onight.tfw.ojpa.api.exception.JPADuplicateIDException
 import onight.tfw.otransio.api.PacketHelper
 import onight.tfw.otransio.api.beans.FramePacket
 import starstart.cgw.gamectrl.pbgens.Gamectrl.PBCommand
-import starstart.cgw.gamectrl.pbgens.Gamectrl.PBIssueFlowGen
-import starstart.cgw.gamectrl.pbgens.Gamectrl.PBRetIssueFlowGen
-import scala.io.Codec
-import onight.tfw.outils.bean.JsonPBUtil
-import starstart.cgw.gamectrl.pbgens.Gamectrl.PBIssueFlowInit
-import starstart.cgw.gamectrl.scala.persist.Mysqls
-import org.osgi.framework.Bundle
-import onight.tfw.mservice.NodeHelper
-import onight.tfw.outils.conf.PropHelper
-import scala.collection.JavaConversions._
-import org.osgi.framework.BundleReference
-import onight.tfg.ordbgens.tlt.entity.TLTIssueFlowsKey
-import onight.oapi.scala.commons.PBUtils
-import onight.tfg.ordbgens.tlt.entity.TLTIssueFlows
-import java.util.ArrayList
-import scala.collection.mutable.ListBuffer
-import onight.oapi.scala.commons.LService
-import starstart.cgw.gamectrl.pbgens.Gamectrl.PBIssueGen
-import starstart.cgw.gamectrl.scala.service.IssueGenerator_CQSSC
 import starstart.cgw.gamectrl.pbgens.Gamectrl.PBIssue
-import onight.tfg.ordbgens.tlt.entity.TLTIssue
-import onight.tfw.ojpa.api.exception.JPADuplicateIDException
-import org.apache.commons.lang3.StringUtils
-import onight.tfg.ordbgens.tlt.entity.TLTIssueExample
-import onight.tfw.ojpa.api.TransactionExecutor
+import starstart.cgw.gamectrl.pbgens.Gamectrl.PBIssueGen
 import starstart.cgw.gamectrl.pbgens.Gamectrl.PBRetIssueGen
-import onight.tfg.ordbgens.tlt.entity.TLTIssueKey
+import starstart.cgw.gamectrl.scala.persist.Mysqls
+import starstart.cgw.gamectrl.scala.service.IssueGenerator_CQSSC
+import java.util.Date
 
 @NActorProvider
 object IssueGen extends SessionModules[PBIssueGen] {
@@ -64,24 +50,43 @@ object IssueGensService extends OLog with PBUtils with LService[PBIssueGen] {
       }
       records = pbrecords.map { x =>
         ret.addIssues(x);
-        pbBeanUtil.copyFromPB(x, new TLTIssue());
+        val rec = pbBeanUtil.copyFromPB(x, new TLTIssue());
+        rec.setCreateTime(new Date());
+        rec
       }
       Mysqls.issuesDAO.batchInsert(records);
     } catch {
       case e1: JPADuplicateIDException =>
         {
           try {
-            Mysqls.issuesDAO.doInTransaction(new TransactionExecutor {
-              def doInTransaction: Object = {
-                records.map { x =>
-                  Mysqls.issuesDAO.deleteByPrimaryKey(new TLTIssueKey(x.getIssueId))
+            if ("1".equals(pbo.getOverrideExists)) {
+              Mysqls.issuesDAO.doInTransaction(new TransactionExecutor {
+                def doInTransaction: Object = {
+                  records.map { x =>
+                    Mysqls.issuesDAO.deleteByPrimaryKey(new TLTIssueKey(x.getIssueId))
+                  }
+                  Mysqls.issuesDAO.batchInsert(records);
+                  return "";
                 }
-                Mysqls.issuesDAO.batchInsert(records);
-                return "";
-              }
-            })
+              })
+            } else { //不覆盖
+              Mysqls.issuesDAO.doInTransaction(new TransactionExecutor {
+                def doInTransaction: Object = {
+                  records.map { x =>
+                    if (Mysqls.issuesDAO.selectByPrimaryKey(new TLTIssueKey(x.getIssueId)) == null) {
+                      Mysqls.issuesDAO.insertSelective(x);
+                    }
+                  }
+
+                  return "";
+                }
+              })
+            }
           } catch {
-            case e: Throwable => log.warn("inser error:", e); ret.setRetcode("0002").setRetmsg("期号重复:" + e1)
+            case e: Throwable =>
+              log.warn("inser error:", e); ret.setRetcode("0002").setRetmsg("期号重复:" + e1);ret.clearIssues()
+              
+
           }
 
         }

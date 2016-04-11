@@ -103,17 +103,19 @@ object FlowStepCheckerService extends OLog with PBUtils with LService[PBIssueFlo
               }
             })
             nodeNeedProc.map { NodeProcessor.process(_) };
-
+            
             if (nodeNeedProc.size > 0) {
-              Thread.sleep(1000);
+              Thread.sleep(2000);
+              log.debug("wait:for next:"+nodeNeedProc.size +",rizesiz="+ nodeNeedProc.filter { _.getStepStatus.equals("1")}.size)
             }
+            
 
           } catch {
             case e: Throwable => log.debug("running ChechError:", e);
           } finally {
             runningCheck.compareAndSet(true, false);
           }
-        } while (nodeNeedProc.size > 0)
+        } while (nodeNeedProc.size > nodeNeedProc.filter { _.getStepStatus.equals("1") }.size)
       } else {
         log.debug("Cannot Check:WAIT_FOR_LAST_FINISHED::")
       }

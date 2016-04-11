@@ -44,7 +44,6 @@ object P002_PreSale extends OProcessor with OLog {
 
       val seconds = new Duration(new DateTime(curDT), new DateTime(issue.getSaleEtime));
       log.info("奖期未到开始时间，继续等待中..." + issue.getIssueId + ",status=" + issue.getIssueStatus + ",相差：" + seconds.getMillis)
-      Thread.sleep(Math.max(100, seconds.getMillis - 60 * 1000))
       
       return -1;
     }
