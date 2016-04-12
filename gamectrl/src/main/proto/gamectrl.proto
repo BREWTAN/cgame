@@ -16,6 +16,9 @@ enum PBCommand{
 	CUR = 0 ;//当前期号
 	FLS = 1 ;//根据参数生成期号流程
 	ISG = 2;//生成游戏奖期
+	
+	LST = 3;//奖期获取
+	
 	SRA = 100 ;//流程控制器
 	SRF = 101 ;//异常流程控制器
 };
@@ -93,6 +96,9 @@ message PBIssueGen
 	int32	offset = 5;//从第几期开始
 	int32	limit = 6;//个数限制，0表示无限制
 	
+	map<int32,string> pre_stimes = 10;//指定某一期预售时间格式"HH:mm:ss";
+	string pres_offsec = 11 ;//每一期提前开启销售时间
+	string prec_offsec = 12;//每一期提前截止销售时间
 }
 	
 message PBRetIssueGen
@@ -144,6 +150,23 @@ message PBRetStepCtrl
 }
 
 
+
+message PBIssueFetch
+{
+	string ltype = 1  ;//游戏类型
+	string  issue_day = 4 ;//奖期的日期
+	int32	offset = 5;//从第几期开始
+	int32	limit = 6;//个数限制，0表示无限制
+	bool showall = 7;//是否显示全部：默认不全部显示，显示比当前时间早的
+}
+	
+message PBRetIssueFetch
+{
+	string retcode = 1; //返回状态码，000000，表示成功
+	string retmsg = 2;//返回消息
+	
+	repeated PBIssue issues = 101;//奖期列表 
+}
 
 
 

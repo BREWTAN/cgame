@@ -25,6 +25,7 @@ dependencies {
 	compile 'org.slf4j:slf4j-api:1.7.12'
 	includeInJar  'com.github.nscala-time:nscala-time_2.11:2.12.0'
 	includeInJar 'org.springframework:spring-beans:4.2.5.RELEASE'
+	includeInJar 'org.scalaj:scalaj-http_2.11:2.3.0'
 	testCompile 'junit:junit:4.12'
 	compile 'org.apache.felix:org.apache.felix.ipojo.annotations:1.12.1'
 }
@@ -40,7 +41,7 @@ configurations {
 jar {
 	manifest{
 		//		attributes( 'Spring-Context': 'applicationContext-common.xml, applicationContext-beans.xml')
-		attributes( 'Import-Ignore':'com.github.nscala_time,org.springframework.beans,com.googlecode.protobuf,com.google.protobuf,com.github.mauricio,io.netty.buffer,org.joda.time')
+		attributes( 'Import-Ignore':'scalaj.http,com.github.nscala_time,org.springframework.beans,com.googlecode.protobuf,com.google.protobuf,com.github.mauricio,io.netty.buffer,org.joda.time')
 		attributes( 'DynamicImport-Package': '*')
 		attributes( 'Import-Lib': 'lib')
 	}

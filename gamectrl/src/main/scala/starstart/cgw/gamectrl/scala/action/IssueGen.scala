@@ -20,6 +20,7 @@ import starstart.cgw.gamectrl.pbgens.Gamectrl.PBRetIssueGen
 import starstart.cgw.gamectrl.scala.persist.Mysqls
 import starstart.cgw.gamectrl.scala.service.IssueGenerator_CQSSC
 import java.util.Date
+import starstart.cgame.flows.nsttl.exception.SettleException
 
 @NActorProvider
 object IssueGen extends SessionModules[PBIssueGen] {
@@ -27,6 +28,8 @@ object IssueGen extends SessionModules[PBIssueGen] {
 }
 
 // http://localhost:8081/cgc/pbisg.do?fh=VISGCGC000000J00&bd={"ltype":"CQSSC","days":["20160401","20160402"],"limit":1}
+// http://localhost:8081/cgc/pbisg.do?fh=VISGCGC000000J00&bd={"ltype":"CQSSC","days":["20160413"],"offset":10,"limit":50,"pre_stimes":{"24":"06:00:00"},"prec_offsec":"60"}
+
 object IssueGensService extends OLog with PBUtils with LService[PBIssueGen] {
 
   override def cmd: String = PBCommand.ISG.name();
@@ -35,7 +38,6 @@ object IssueGensService extends OLog with PBUtils with LService[PBIssueGen] {
     //    log.debug("guava==" + VMDaos.guCache.getIfPresent(pbo.getLogid()));      val ret = PBActRet.newBuilder();
     val ret = PBRetIssueGen.newBuilder();
     ret.setRetcode("0000").setRetmsg("ok").setRequest(pbo);
-
     var records: List[TLTIssue] = null;
     try {
       val pbrecords: List[PBIssue] = pbo.getLtype match {
@@ -90,6 +92,9 @@ object IssueGensService extends OLog with PBUtils with LService[PBIssueGen] {
           }
 
         }
+      case e1:SettleException => 
+        ret.setRetcode("0003").setRetmsg(e1.getMessage);
+        
       case e: Throwable =>
         log.warn("insert Issue ERRO:", e);
         ret.setRetcode("0001").setRetmsg(e.getMessage.replaceAll("com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry ", "").replaceAll("for key 'DDD'", ""))

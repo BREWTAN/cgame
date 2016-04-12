@@ -166,7 +166,6 @@ GL_CQSSC = {
   },
   changeBallState: function(ballcom, selected) {
     var balldom;
-    console.log("ballcom=.newstate = " + selected + ",old = " + ballcom.state.selected);
     ballcom.setState({
       "selected": selected
     });
@@ -198,7 +197,6 @@ GL_CQSSC = {
   },
   handleFuncClickBall: function(refs, lineno, event) {
     var ds, i, line, name, sel, statefor, statemap;
-    console.log("clickball:" + event.currentTarget.dataset.id + ",seletec:" + event.currentTarget.dataset.text);
     ds = event.currentTarget.dataset;
     statemap = {
       "全": "1111111111",

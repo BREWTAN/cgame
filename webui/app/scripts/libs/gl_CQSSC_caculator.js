@@ -101,17 +101,41 @@ GL_CQSSC_Caculator = {
     }
     return count;
   },
-  wgCountByZuhe: function(playballs, params) {
-    var line, lines;
+  printset: function(set) {
+    var a, cc;
+    console.log("===============");
+    cc = 0;
+    while (a = set.next()) {
+      cc++;
+      console.log(a);
+    }
+    return console.log("==============::size=" + cc);
+  },
+  printarray: function(set) {
+    var cc;
+    console.log("===============");
+    cc = 0;
+    console.log(set);
+    return console.log("==============::size=" + set.length);
+  },
+  wgCountByzuxuan: function(playballs, params) {
+    var line, lines, retcc, wagerset;
     lines = playballs.split(",");
     line = lines[0];
     if (GL_CQSSC_Caculator.getLineCount(line) < params) {
       return 0;
     }
-    return JC.C(GL_CQSSC_Caculator.getLineCount(line), params);
+    retcc = JC.C(GL_CQSSC_Caculator.getLineCount(line), params);
+    wagerset = JC.combination(line.split("|"), params);
+    console.log("line==" + line + "::wagerset=" + wagerset);
+    GL_CQSSC_Caculator.printset(wagerset);
+    return retcc;
   },
-  wgCountByDoubleZuhe: function(playballs, params) {
-    var counter, line0js, line1js, lines;
+  wgCountByzuhe: function(playballs, params) {
+    return GL_CQSSC_Caculator.wgCountByFushi(playballs, params) * 5;
+  },
+  wgCountByDoublezuxuan: function(playballs, params) {
+    var counter, line0js, line1js, lines, wagerset;
     lines = playballs.split(",");
     if (GL_CQSSC_Caculator.getLineCount(lines[0]) < params[0]) {
       return 0;
@@ -122,6 +146,7 @@ GL_CQSSC_Caculator = {
     counter = 0;
     line0js = JC.combination(lines[0].split('|'), params[0]);
     line1js = JC.combination(lines[1].split('|'), params[1]);
+    wagerset = [];
     line0js.forEach(function(a) {
       return line1js.forEach(function(b) {
         var stra, strb, unique, w;
@@ -132,10 +157,12 @@ GL_CQSSC_Caculator = {
           return index === self.indexOf(elem);
         });
         if (unique.length === params[0] + params[1]) {
-          return counter++;
+          counter++;
+          return wagerset.push(w);
         }
       });
     });
+    GL_CQSSC_Caculator.printarray(wagerset);
     return counter;
   },
   wgCountByTexts: function(playballs, ballcount, filter) {
@@ -169,39 +196,39 @@ GL_CQSSC_Caculator = {
       gl_playChecker = {
         "五星复式": [this.wgCountByFushi, 5],
         "五星单式": [this.wgCountByTexts, 5],
-        "五星组合": [this.wgCountByFushi, 5],
-        "五星组选120": [this.wgCountByZuhe, 5],
-        "五星组选60": [this.wgCountByDoubleZuhe, [1, 3]],
-        "五星组选30": [this.wgCountByDoubleZuhe, [2, 1]],
-        "五星组选20": [this.wgCountByDoubleZuhe, [1, 2]],
-        "五星组选10": [this.wgCountByDoubleZuhe, [1, 1]],
-        "五星组选5": [this.wgCountByDoubleZuhe, [1, 1]],
-        "四星组合": [this.wgCountByFushi, 4],
+        "五星组合": [this.wgCountByzuhe, 5],
+        "五星组选120": [this.wgCountByzuxuan, 5],
+        "五星组选60": [this.wgCountByDoublezuxuan, [1, 3]],
+        "五星组选30": [this.wgCountByDoublezuxuan, [2, 1]],
+        "五星组选20": [this.wgCountByDoublezuxuan, [1, 2]],
+        "五星组选10": [this.wgCountByDoublezuxuan, [1, 1]],
+        "五星组选5": [this.wgCountByDoublezuxuan, [1, 1]],
+        "四星组合": [this.wgCountByzuhe, 4],
         "四星单式": [this.wgCountByTexts, 4],
         "四星复式": [this.wgCountByFushi, 4],
-        "四星组选24": [this.wgCountByZuhe, 4],
-        "四星组选12": [this.wgCountByDoubleZuhe, [1, 2]],
-        "四星组选6": [this.wgCountByZuhe, 2],
-        "四星组选4": [this.wgCountByDoubleZuhe, [1, 1]],
+        "四星组选24": [this.wgCountByzuxuan, 4],
+        "四星组选12": [this.wgCountByDoublezuxuan, [1, 2]],
+        "四星组选6": [this.wgCountByzuxuan, 2],
+        "四星组选4": [this.wgCountByDoublezuxuan, [1, 1]],
         "后三码复式": [this.wgCountByFushi, 3],
         "后三码单式": [this.wgCountByTexts, 3],
         "后三码直选和值": [this.wgCountByHezhi, 3],
-        "后三码组三": [this.wgCountByZuhe, 2, 2],
-        "后三码组六": [this.wgCountByZuhe, 3],
+        "后三码组三": [this.wgCountByzuxuan, 2, 2],
+        "后三码组六": [this.wgCountByzuxuan, 3],
         "后三码混合组选": [this.wgCountByTextsNoSame, 3],
         "后三码组选和值": [this.wgCountByManu, [0, 1, 2, 2, 4, 5, 6, 8, 10, 11, 13, 14, 14, 15, 15, 14, 14, 13, 11, 10, 8, 6, 5, 4, 2, 2, 1, 0]],
         "前三码复式": [this.wgCountByFushi, 3],
         "前三码单式": [this.wgCountByTexts, 3],
         "前三码直选和值": [this.wgCountByHezhi, 3],
-        "前三码组三": [this.wgCountByZuhe, 2, 2],
-        "前三码组六": [this.wgCountByZuhe, 3],
+        "前三码组三": [this.wgCountByzuxuan, 2, 2],
+        "前三码组六": [this.wgCountByzuxuan, 3],
         "前三码混合组选": [this.wgCountByTextsNoSame, 3],
         "前三码组选和值": [this.wgCountByManu, [0, 1, 2, 2, 4, 5, 6, 8, 10, 11, 13, 14, 14, 15, 15, 14, 14, 13, 11, 10, 8, 6, 5, 4, 2, 2, 1, 0]],
         "中三码复式": [this.wgCountByFushi, 3],
         "中三码单式": [this.wgCountByTexts, 3],
         "中三码直选和值": [this.wgCountByHezhi, 3],
-        "中三码组三": [this.wgCountByZuhe, 2, 2],
-        "中三码组六": [this.wgCountByZuhe, 3],
+        "中三码组三": [this.wgCountByzuxuan, 2, 2],
+        "中三码组六": [this.wgCountByzuxuan, 3],
         "中三码混合组选": [this.wgCountByTextsNoSame, 3],
         "中三码组选和值": [this.wgCountByManu, [0, 1, 2, 2, 4, 5, 6, 8, 10, 11, 13, 14, 14, 15, 15, 14, 14, 13, 11, 10, 8, 6, 5, 4, 2, 2, 1, 0]],
         "二码后二直选(复式)": [this.wgCountByFushi, 2],
@@ -210,17 +237,17 @@ GL_CQSSC_Caculator = {
         "二码前二直选(单式)": [this.wgCountByTexts, 2],
         "二码后二直选和值": [this.wgCountByHezhi, 2],
         "二码前二直选和值": [this.wgCountByHezhi, 2],
-        "二码后二组选(复式)": [this.wgCountByZuhe, 2],
+        "二码后二组选(复式)": [this.wgCountByzuxuan, 2],
         "二码后二组选(单式)": [this.wgCountByTexts, 2],
-        "二码前二组选(复式)": [this.wgCountByZuhe, 2],
+        "二码前二组选(复式)": [this.wgCountByzuxuan, 2],
         "二码前二组选(单式)": [this.wgCountByTexts, 2],
         "二码后二组选和值": [this.wgCountByManu, [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 4, 4, 3, 3, 2, 2, 1, 1, 0]],
         "二码前二组选和值": [this.wgCountByManu, [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 4, 4, 3, 3, 2, 2, 1, 1, 0]],
         "定位胆定位胆": [this.wgCountByDingWei, 0],
-        "不定胆后三一码不定胆": [this.wgCountByZuhe, 1],
-        "不定胆后三二码不定胆": [this.wgCountByZuhe, 2],
-        "不定胆前三一码不定胆": [this.wgCountByZuhe, 1],
-        "不定胆前三二码不定胆": [this.wgCountByZuhe, 2],
+        "不定胆后三一码不定胆": [this.wgCountByzuxuan, 1],
+        "不定胆后三二码不定胆": [this.wgCountByzuxuan, 2],
+        "不定胆前三一码不定胆": [this.wgCountByzuxuan, 1],
+        "不定胆前三二码不定胆": [this.wgCountByzuxuan, 2],
         "大小单双后大小单双": [this.wgCountByFushi, 2],
         "大小单双前大小单双": [this.wgCountByFushi, 2],
         "趣味一帆风顺": [this.wgCountByFushi, 1],

@@ -1,0 +1,19 @@
+
+
+syntax = "proto3";
+//import "google/protobuf/any.proto";
+
+package starstart.cgw.gamectrl.pbgens.winno;
+
+message Award163SSC {
+	message AwardBoard {
+	
+		string period = 1;//
+		string winningNumber = 2;// 
+	}
+	repeated AwardBoard awardNumberInfoList=1;
+	
+}
+
+
+

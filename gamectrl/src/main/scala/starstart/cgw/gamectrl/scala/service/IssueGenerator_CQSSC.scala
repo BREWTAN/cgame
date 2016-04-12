@@ -1,13 +1,17 @@
 package starstart.cgw.gamectrl.scala.service
 
-import starstart.cgw.gamectrl.pbgens.Gamectrl.PBIssueGen
-import java.text.SimpleDateFormat
-import onight.oapi.scala.traits.OLog
-import starstart.cgw.gamectrl.pbgens.Gamectrl.PBIssue
 import java.util.Formatter.DateTime
-import com.github.nscala_time.time.Imports._
 
 import scala.collection.JavaConversions._
+
+import org.apache.commons.lang3.StringUtils
+
+import com.github.nscala_time.time.Imports._
+
+import onight.oapi.scala.traits.OLog
+import starstart.cgame.flows.nsttl.exception.SettleException
+import starstart.cgw.gamectrl.pbgens.Gamectrl.PBIssue
+import starstart.cgw.gamectrl.pbgens.Gamectrl.PBIssueGen
 
 object IssueGenerator_CQSSC extends OLog {
   val DT_FORMAT = "yyyy-MM-dd HH:mm:ss"
@@ -42,12 +46,33 @@ object IssueGenerator_CQSSC extends OLog {
         }
         val dt_start = dt_start_duration._1
         val dt_end = dt_start_duration._1 + dt_start_duration._2.minutes;
-        bd.setPreStime((dt_start - 10.seconds).toString(DT_FORMAT));
-        bd.setPreEtime((dt_end - 30.seconds).toString(DT_FORMAT));
+        val preclose =
+          if (StringUtils.isNoneBlank(pbo.getPrecOffsec) && StringUtils.isNumeric(pbo.getPrecOffsec.trim())) Integer.parseInt(pbo.getPrecOffsec) else 30
+        val presale =
+          if (StringUtils.isNoneBlank(pbo.getPresOffsec) && StringUtils.isNumeric(pbo.getPresOffsec.trim())) Integer.parseInt(pbo.getPresOffsec) else 20
+
+        bd.setPreStime((dt_start - presale.seconds).toString(DT_FORMAT));
+        bd.setPreEtime((dt_end - preclose.seconds).toString(DT_FORMAT));
         bd.setSaleStime(dt_start.toString(DT_FORMAT));
         bd.setSaleEtime(dt_end.toString(DT_FORMAT));
-        bd.setCancelLtime((dt_end - 30.seconds).toString(DT_FORMAT));
+        bd.setCancelLtime((dt_end - preclose.seconds).toString(DT_FORMAT));
         bd.setIssueStatus("0");
+
+        val prestime = pbo.getPreStimes.get(step+"");
+        prestime match {
+          case str: String =>
+            val newtime = bd.getPreStime.split(" ")(0) + " " + str;
+            val dt_base = try {
+              DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss").parseDateTime(newtime);
+              bd.setPreStime(newtime);
+            } catch {
+              case _: Throwable =>
+                log.warn("生成销售奖期["+bd.getIssueNo+"]失败，日期有误:" + newtime);
+                throw new SettleException("生成销售奖期["+bd.getIssueNo+"]失败，时间有误:" + pbo.getPreStimes.get(step) + ",格式应为HH:mm:ss")
+            }
+          case a@_ => //log.debug("unknow pretime:" + a+": step= "+step)
+        }
+
         bd.build()
       }.toList
 
