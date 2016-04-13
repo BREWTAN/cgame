@@ -278,7 +278,7 @@ public class TLTUserBankDao extends ExtendDaoSupper<TLTUserBank, TLTUserBankExam
 				if(record.getEnable()==null){
 						sb.append("'"+"1"+"'");						
 				}else{
-				// java type==Boolean
+				// java type==Integer
 						sb.append("'"+record.getEnable()+"'");
 				}
 							sb.append(")");

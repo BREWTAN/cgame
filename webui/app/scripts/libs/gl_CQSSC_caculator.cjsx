@@ -90,8 +90,8 @@ GL_CQSSC_Caculator = {
         if GL_CQSSC_Caculator.getLineCount(line) < params then return 0
         retcc =  JC.C(GL_CQSSC_Caculator.getLineCount(line),params);
         wagerset = JC.combination(line.split("|"), params);
-        console.log("line=="+line+"::wagerset="+wagerset)
-        GL_CQSSC_Caculator.printset(wagerset);
+       # console.log("line=="+line+"::wagerset="+wagerset)
+      #  GL_CQSSC_Caculator.printset(wagerset);
         return retcc
 
     wgCountByzuhe:(playballs,params) ->

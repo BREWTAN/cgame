@@ -296,7 +296,7 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getSort()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-				// java type==Byte
+				// java type==Integer
 						sb.append("'"+record.getSort()+"'");
 				}
 			
@@ -305,7 +305,7 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 				if(record.getEnable()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-				// java type==Boolean
+				// java type==Integer
 						sb.append("'"+record.getEnable()+"'");
 				}
 			

@@ -317,7 +317,7 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				if(record.getSort()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-				// java type==Byte
+				// java type==Integer
 						sb.append("'"+record.getSort()+"'");
 				}
 			
@@ -326,7 +326,7 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 				if(record.getEnable()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-				// java type==Boolean
+				// java type==Integer
 						sb.append("'"+record.getEnable()+"'");
 				}
 							sb.append(")");

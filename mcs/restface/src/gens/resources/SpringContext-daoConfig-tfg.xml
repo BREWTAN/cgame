@@ -209,12 +209,12 @@
  		<property name="mapper" ref="tLTCoreRewardMapper" />
  		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
  	</bean>
-	<bean id="tLTCoreTickMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTCoreTickMapper" />
+	<bean id="tLTCoreTicketMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTCoreTicketMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	 <bean id="tltcoretickDao" class="onight.tfg.ordbgens.tlt.dao.TLTCoreTickDao" >
- 		<property name="mapper" ref="tLTCoreTickMapper" />
+	 <bean id="tltcoreticketDao" class="onight.tfg.ordbgens.tlt.dao.TLTCoreTicketDao" >
+ 		<property name="mapper" ref="tLTCoreTicketMapper" />
  		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
  	</bean>
 	<bean id="tLTCoreWinMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">

@@ -311,7 +311,7 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getLockStatus()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-				// java type==Boolean
+				// java type==Integer
 						sb.append("'"+record.getLockStatus()+"'");
 				}
 			
@@ -329,7 +329,7 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getIsandvalue()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-				// java type==Boolean
+				// java type==Integer
 						sb.append("'"+record.getIsandvalue()+"'");
 				}
 			
@@ -401,7 +401,7 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				if(record.getEnable()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-				// java type==Boolean
+				// java type==Integer
 						sb.append("'"+record.getEnable()+"'");
 				}
 			

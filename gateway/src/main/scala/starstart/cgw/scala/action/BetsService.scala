@@ -19,23 +19,23 @@ import onight.tfw.otransio.api.beans.FramePacket
 import onight.tfw.outils.serialize.DESCoder
 import onight.tfw.outils.serialize.UUIDGenerator
 import starstart.cgw.pbgens.Cgw.PWBetResult
-import starstart.cgw.pbgens.Cgw.PWRetWager
-import starstart.cgw.pbgens.Cgw.PWWager
 import starstart.cgw.scala.service.MysqlDaos
 import java.util.Date
+import starstart.cgw.pbgens.Cgw.PWTicker
+import starstart.cgw.pbgens.Cgw.PWRetTicker
 
 @NActorProvider
-object CGWBetActor extends SessionModules[PWWager] {
+object CGWBetActor extends SessionModules[PWTicker] {
   override def service = CGWBetService
 }
 
-object CGWBetService extends OLog with PBUtils with LService[PWWager] {
+object CGWBetService extends OLog with PBUtils with LService[PWTicker] {
 
   override def cmd: String = "BET";
 
-  def onPBPacket(pack: FramePacket, pbo: PWWager, handler: CompleteHandler) = {
+  def onPBPacket(pack: FramePacket, pbo: PWTicker, handler: CompleteHandler) = {
     //    log.debug("guava==" + VMDaos.guCache.getIfPresent(pbo.getLogid()));      val ret = PBActRet.newBuilder();
-    val ret = PWRetWager.newBuilder();
+    val ret = PWRetTicker.newBuilder();
 
     log.debug("getBug from IP:{},betscount={}", pack.getExtStrProp(PackHeader.PEER_IP), pbo.getBetsCount)
     ret.setRetcode("9999").setRetmsg("UNKNOW ERROR");

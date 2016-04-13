@@ -11,7 +11,6 @@ import onight.tfw.otransio.api.PacketHelper
 import onight.tfw.otransio.api.beans.FramePacket
 import starstart.cgw.pbgens.Cgw.PBFramePacket
 import starstart.cgw.pbgens.Cgw.PWMergeProxy
-import starstart.cgw.pbgens.Cgw.PWRetWager
 import starstart.cgw.scala.service.Sender
 import onight.tfw.async.CallBack
 import scala.concurrent.Future

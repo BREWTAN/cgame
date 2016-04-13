@@ -290,7 +290,7 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				if(record.getEnable()==null){
 						sb.append("'"+"0"+"'");						
 				}else{
-				// java type==Boolean
+				// java type==Integer
 						sb.append("'"+record.getEnable()+"'");
 				}
 			

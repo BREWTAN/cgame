@@ -484,32 +484,33 @@ message PBTLTCoreBet
 	string merchantid = 6;
 	string serial_num = 7;
 	double bet_amounts = 8;
-	double bet_counts = 9;
-	double bet_multi = 10;
-	string issue_no = 11;
-	int64 bet_datetime = 12;
-	string bet_content = 13;
-	string bet_ip = 14;
-	int32 bet_money_unit = 15;
-	double bonus_money_mode = 16;
-	double bonus_rate_mode = 17;
-	string version = 18;
-	int64 print_time = 19;
-	string bet_status = 20;
-	string notifystatus = 21;
-	string region = 22;
-	string failreason = 23;
-	string merchantuserid = 24;
-	string user_id = 25;
-	string autobet_no = 26;
-	string is_auto = 27;
-	string auto_ref_tickno = 28;
-	double cost_fund0 = 29;
-	double cost_fund1 = 30;
-	double cost_fund2 = 31;
-	double cost_fund3 = 32;
-	string fund_ref_id = 33;
-	string issue_lock = 34;
+	double bet_multi = 9;
+	string issue_no = 10;
+	int64 bet_datetime = 11;
+	string bet_div_content = 12;
+	double bet_org_counts = 13;
+	string bet_org_content = 14;
+	string bet_ip = 15;
+	int32 bet_money_unit = 16;
+	double bonus_money_mode = 17;
+	double bonus_rate_mode = 18;
+	string version = 19;
+	int64 print_time = 20;
+	string bet_status = 21;
+	string notifystatus = 22;
+	string region = 23;
+	string failreason = 24;
+	string merchantuserid = 25;
+	string user_id = 26;
+	string autobet_no = 27;
+	string is_auto = 28;
+	string auto_ref_tickno = 29;
+	double cost_fund0 = 30;
+	double cost_fund1 = 31;
+	double cost_fund2 = 32;
+	double cost_fund3 = 33;
+	string fund_ref_id = 34;
+	string issue_lock = 35;
 }
 
 message PBTLTCoreReward
@@ -538,7 +539,7 @@ message PBTLTCoreReward
 	string status = 22;
 }
 
-message PBTLTCoreTick
+message PBTLTCoreTicket
 {
 	string tick_no = 1;
 	string ltype = 2;
@@ -660,8 +661,8 @@ message PBTLTIssueGenParams
 	int32 pre_close_sale_sec = 9;
 	int32 cancel_dur = 10;
 	int32 input_dur = 11;
-	string sort = 12;
-	string enable = 13;
+	int32 sort = 12;
+	int32 enable = 13;
 }
 
 message PBTLTIssueHis
@@ -777,8 +778,8 @@ message PBTLTLtype
 	string en_name = 4;
 	string code_list = 5;
 	int32 code_len = 6;
-	string sort = 7;
-	string enable = 8;
+	int32 sort = 7;
+	int32 enable = 8;
 	string remark = 9;
 	int32 delay_time = 10;
 	int32 catch_code_count = 11;
@@ -804,7 +805,7 @@ message PBTLTPlaygroup
 	string lock_table = 6;
 	int32 award_level = 7;
 	string cost = 8;
-	string enable = 9;
+	int32 enable = 9;
 	string remark = 10;
 	string rebate = 11;
 	string delo_rebate = 12;
@@ -831,9 +832,9 @@ message PBTLTPlayType
 	string en_name = 6;
 	string lock_func = 7;
 	string lock_table = 8;
-	string lock_status = 9;
+	int32 lock_status = 9;
 	string mode_yjfl = 10;
-	string isandvalue = 11;
+	int32 isandvalue = 11;
 	int32 max_buy_codenum = 12;
 	string win_func = 13;
 	int32 win_beginpos = 14;
@@ -841,7 +842,7 @@ message PBTLTPlayType
 	int32 win_discontinuouspos = 16;
 	string win_checkfunc = 17;
 	string win_paybonusfunc = 18;
-	string enable = 19;
+	int32 enable = 19;
 	string remark = 20;
 }
 
@@ -855,6 +856,6 @@ message PBTLTUserBank
 	string account = 6;
 	string mobile = 7;
 	string password = 8;
-	string enable = 9;
+	int32 enable = 9;
 }
 

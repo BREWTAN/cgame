@@ -33,7 +33,8 @@ message PWBet //投注一注
 	string vldcode = 20;//校验码
 	
 	string lname = 31;//玩法名称
-	string merchantid = 35;
+	string merchantid = 35; //商户号
+	
 	
 }
 
@@ -55,7 +56,7 @@ message PWAutoChase //追号内容
 	double total_bet_amounts = 5;//总投注金额
 }
 
-message PWWager //投注一单，包括多注
+message PWTicker //投注一单，包括多注
 {
 	//#wname,balls,count,money,moneyUnit,multi,bonnerMode
 	repeated PWBet bets = 1;//注码内容
@@ -64,6 +65,7 @@ message PWWager //投注一单，包括多注
 	string issue_no = 31 ;//投注期号（不追号的时候填写）
 	bool win_stop = 32 ;//中奖后停止追号
 	
+	
 	string submit_datetime = 33;//投注时间
 	string user_id  = 34;//投注用户
 	string channel = 35;//投注渠道
@@ -71,13 +73,21 @@ message PWWager //投注一单，包括多注
 	string version = 37;//投注单的版本
 	string merchantuserid = 38;//商户对应的用户编号
 	
+	double tick_amounts = 39;//投注总金额
+	uint32 tick_bet_counts = 40;//总注数
+	string region=41;//区域
+	double cost_fund0=50;//从用户子账户0扣除的金额
+	double cost_fund1=51;//从用户子账户1扣除的金额
+	double cost_fund2=52;//从用户子账户2扣除的金额
+	double cost_fund3=53;//从用户子账户3扣除的金额
 };
 
-message PWRetWager
+message PWRetTicker
 {
 	string retcode = 1; //返回状态码，000000，表示成功
 	string retmsg = 2;//返回消息
 	repeated PWBetResult betrets = 10 ;//投注结果返回
+	string tick_no = 100;//
 	
 };
 

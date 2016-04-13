@@ -161,9 +161,6 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getBetAmounts()!=null){
 				criteria.andBetAmountsEqualTo(record.getBetAmounts());
 				}
-				if(record.getBetCounts()!=null){
-				criteria.andBetCountsEqualTo(record.getBetCounts());
-				}
 				if(record.getBetMulti()!=null){
 				criteria.andBetMultiEqualTo(record.getBetMulti());
 				}
@@ -173,8 +170,14 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				if(record.getBetDatetime()!=null){
 				criteria.andBetDatetimeEqualTo(record.getBetDatetime());
 				}
-				if(record.getBetContent()!=null){
-				criteria.andBetContentEqualTo(record.getBetContent());
+				if(record.getBetDivContent()!=null){
+				criteria.andBetDivContentEqualTo(record.getBetDivContent());
+				}
+				if(record.getBetOrgCounts()!=null){
+				criteria.andBetOrgCountsEqualTo(record.getBetOrgCounts());
+				}
+				if(record.getBetOrgContent()!=null){
+				criteria.andBetOrgContentEqualTo(record.getBetOrgContent());
 				}
 				if(record.getBetIp()!=null){
 				criteria.andBetIpEqualTo(record.getBetIp());
@@ -350,15 +353,6 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 			
 				sb.append(",");
 			
-				if(record.getBetCounts()==null){
-						sb.append("null");
-				}else{
-				// java type==Integer
-						sb.append("'"+record.getBetCounts()+"'");
-				}
-			
-				sb.append(",");
-			
 				if(record.getBetMulti()==null){
 						sb.append("null");
 				}else{
@@ -387,11 +381,29 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 			
 				sb.append(",");
 			
-				if(record.getBetContent()==null){
+				if(record.getBetDivContent()==null){
 						sb.append("null");
 				}else{
 				// java type==String
-						sb.append("'"+record.getBetContent()+"'");
+						sb.append("'"+record.getBetDivContent()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getBetOrgCounts()==null){
+						sb.append("null");
+				}else{
+				// java type==Integer
+						sb.append("'"+record.getBetOrgCounts()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getBetOrgContent()==null){
+						sb.append("null");
+				}else{
+				// java type==String
+						sb.append("'"+record.getBetOrgContent()+"'");
 				}
 			
 				sb.append(",");
