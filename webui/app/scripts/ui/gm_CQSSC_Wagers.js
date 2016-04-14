@@ -137,7 +137,7 @@ CQSSC_Wagers = React.createClass({
       for (key in confirmitems) {
         v = confirmitems[key];
         results.push({
-          v: v
+          issue_no: "100"
         });
       }
       return results;
@@ -154,7 +154,7 @@ CQSSC_Wagers = React.createClass({
       return request.post('/pbface/cgw/pbmer.do?fh=VMERCGW000000J00').send({
         packets: [
           {
-            gcmd: "QUEACT",
+            gcmd: "CGCBET",
             jsbody: {
               act_no: UserInfo.getActNO,
               fund_no: "*"

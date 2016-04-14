@@ -99,7 +99,7 @@ CQSSC_Wagers = React.createClass(
                     <div className="msgwagertotal">总金额 : <b>{totalwagermoney}</b> 元</div>
                  </div>)
         submititems = ( {
-            v
+            issue_no:"100"
         }  for key,v of confirmitems)
 
         console.log("submititems="+JSON.stringify(submititems))
@@ -114,7 +114,7 @@ CQSSC_Wagers = React.createClass(
                .send({
                  packets: [
                    {
-                     gcmd: "QUEACT",
+                     gcmd: "CGCBET",
                      jsbody: {
                        act_no: UserInfo.getActNO,
                        fund_no: "*",
