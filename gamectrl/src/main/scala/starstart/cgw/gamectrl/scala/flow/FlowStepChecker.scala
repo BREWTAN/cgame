@@ -103,12 +103,11 @@ object FlowStepCheckerService extends OLog with PBUtils with LService[PBIssueFlo
               }
             })
             nodeNeedProc.map { NodeProcessor.process(_) };
-            
+
             if (nodeNeedProc.size > 0) {
               Thread.sleep(2000);
-              log.debug("wait:for next:"+nodeNeedProc.size +",rizesiz="+ nodeNeedProc.filter { _.getStepStatus.equals("1")}.size)
+              log.debug("wait:for next:" + nodeNeedProc.size + ",rizesiz=" + nodeNeedProc.filter { _.getStepStatus.equals("1") }.size)
             }
-            
 
           } catch {
             case e: Throwable => log.debug("running ChechError:", e);
@@ -132,7 +131,7 @@ object FlowStepCheckerService extends OLog with PBUtils with LService[PBIssueFlo
     val nextsteps = if (steprecs.size() == 0) {
       StepsGenerator.newStepForIssue(issue);
     } else {
-      steprecs.filter { step => "5".equals(step.getStepStatus) }.map { step =>
+      steprecs.filter { step => "5".equals(step.getStepStatus) && "1".equals(step.getAutoGonext) }.map { step =>
         StepsGenerator.nextStepForIssue(issue, step.asInstanceOf[TLTIssueSteps])
       }.flatten
     }
@@ -142,6 +141,7 @@ object FlowStepCheckerService extends OLog with PBUtils with LService[PBIssueFlo
     //将节点插入数据库
     if (nextsteps.size > 0) {
       nextsteps.foreach { step =>
+
         try {
           val existexample = new TLTIssueStepsExample()
           existexample.createCriteria().andIssueStepIdEqualTo(step.getIssueStepId)

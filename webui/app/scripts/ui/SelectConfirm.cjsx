@@ -51,6 +51,8 @@ SelectConfirm = React.createClass(
 
     getBonnerMoney:() ->
         return parseInt(@state.boners["rangeMoney"][0]+(@state.boners["rangeMoney"][1]-@state.boners["rangeMoney"][0])*@state.bonerValue)
+    getBonnerRatio:() ->
+        return (@state.boners["rangeRatio"][0]+(@state.boners["rangeRatio"][1]-@state.boners["rangeRatio"][0])*@state.bonerValue).toFixed(4);
 
     render:() ->
         styles = {

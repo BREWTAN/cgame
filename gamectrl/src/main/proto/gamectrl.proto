@@ -37,7 +37,6 @@ message PBIssueFlowGen
 		string node_type = 10;//节点类型
 		string auto_gonext = 11; //是否为自动节点
 		string status = 12; //当前状态
-		
 	}
 	string ltype = 1  ;//游戏类型
 	repeated PBIFlowStep steps = 2; //状态的节点

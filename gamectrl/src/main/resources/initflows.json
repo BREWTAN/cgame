@@ -34,7 +34,8 @@
           "timesec_offset":0,
           "gs_desc":"游戏暂停销售*,一般是因为手动触发",
           "gs_order": "004",
-          "next_orders":"003"
+          "next_orders":"003",
+          "auto_gonext":"0"
         },
         {
           "gs_ecode":"SALE_DONE",
@@ -56,7 +57,8 @@
           "gs_chcode":"获取开奖号码",
           "gs_desc":"获取官方开奖号码",
           "gs_order": "007",
-          "next_orders":"008,009,010,011"
+          "next_orders":"008,009,010,011",
+          "auto_gonext":"0"
         },
         {
           "gs_ecode":"WIN_OFFICIAL_BOARD_GET",

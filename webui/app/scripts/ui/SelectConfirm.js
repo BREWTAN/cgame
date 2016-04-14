@@ -61,6 +61,9 @@ SelectConfirm = React.createClass({
   getBonnerMoney: function() {
     return parseInt(this.state.boners["rangeMoney"][0] + (this.state.boners["rangeMoney"][1] - this.state.boners["rangeMoney"][0]) * this.state.bonerValue);
   },
+  getBonnerRatio: function() {
+    return (this.state.boners["rangeRatio"][0] + (this.state.boners["rangeRatio"][1] - this.state.boners["rangeRatio"][0]) * this.state.bonerValue).toFixed(4);
+  },
   render: function() {
     var bonerMoney, bonerRatio, money_total, styles;
     styles = {

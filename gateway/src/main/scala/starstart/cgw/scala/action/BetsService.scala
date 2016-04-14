@@ -24,7 +24,8 @@ import java.util.Date
 import starstart.cgw.pbgens.Cgw.PWTicker
 import starstart.cgw.pbgens.Cgw.PWRetTicker
 import onight.tfw.ojpa.api.TransactionExecutor
-import onight.tfg.ordbgens.tlt.entity.TLTCoreTick
+import onight.tfg.ordbgens.tlt.entity.TLTCoreTicket
+import onight.tfw.ojpa.api.exception.JPADuplicateIDException
 
 @NActorProvider
 object CGWBetActor extends SessionModules[PWTicker] {
@@ -42,24 +43,40 @@ object CGWBetService extends OLog with PBUtils with LService[PWTicker] {
     log.debug("getBug from IP:{},betscount={}", pack.getExtStrProp(PackHeader.PEER_IP), pbo.getBetsCount)
     ret.setRetcode("9999").setRetmsg("UNKNOW ERROR");
 
+    val tick = pbBeanUtil.copyFromPB(pbo, new TLTCoreTicket)
+    tick.setTickNo(MD5.getMD5("cwd_" + pbo.getVldcode));
+    tick.setBetIp(pack.getExtStrProp(PackHeader.PEER_IP));
+    tick.setTickStatus("1")
+    if (pbo.getIsAuto) {
+      tick.setIsAuto("1")
+    } else {
+      tick.setIsAuto("0")
+    }
+    tick.setBetDatetime(new Date())
+    log.info("bets:count="+pbo.getBetsCount+",tickno="+tick.getTickNo+":issue="+tick.getIssueNo+":ltype="+tick.getLtype)
     val bets = pbo.getBetsList().map { bet =>
       val dbbet = pbBeanUtil.copyFromPB(bet, new TLTCoreBet)
       pbBeanUtil.copyFromPB(pbo, dbbet)
-
+      dbbet.setTickNo(tick.getTickNo)
       dbbet.setBetDatetime(new Date());
+      dbbet.setBetOrgCounts(bet.getBetCounts)
       dbbet.setTickNo(UUIDGenerator.generate());
       val serialnum = MD5.getMD5(("starstart-ming:" + dbbet.getTickNo));
       dbbet.setBetIp(pack.getExtStrProp(PackHeader.PEER_IP));
       dbbet.setSerialNum(serialnum)
+      dbbet.setBetNo("cwd_" + bet.getVldcode)
+      dbbet.setBetStatus("1")
+      dbbet.setIsAuto("0")
+      dbbet.setBetDatetime(new Date());
       dbbet
     }
-    val tick = pbBeanUtil.copyFromPB(pbo, new TLTCoreTick)
+
     try {
 
       MysqlDaos.corebetDAO.doInTransaction(new TransactionExecutor {
-
         def doInTransaction: Object = {
           MysqlDaos.corebetDAO.batchInsert(bets);
+          MysqlDaos.coreticketDAO.insert(tick)
           return ""
         }
       })
@@ -69,11 +86,15 @@ object CGWBetService extends OLog with PBUtils with LService[PWTicker] {
         retbet.setBetStatus("0000").setSerialNum(dbbet.getSerialNum).setVldcode(MD5.getMD5(DESCoder.desEncrypt(dbbet.getSerialNum, "zzzz-starstartsFFFF")))
         ret.addBetrets(retbet);
       }
+      ret.setTickNo(tick.getTickNo);
       ret.setRetcode("0000").setRetmsg("ok");
     } catch {
+      case e: JPADuplicateIDException =>
+        log.warn("投注异常重复")
+        ret.setRetcode("0003").setRetmsg("重复提交相同的投注单")
       case e: Exception =>
         log.error("投注异常", e)
-        ret.setRetcode("0001").setRetmsg(e.getMessage)
+        ret.setRetcode("0009").setRetmsg(e.getMessage)
     }
     handler.onFinished(PacketHelper.toPBReturn(pack, ret.build()));
   }

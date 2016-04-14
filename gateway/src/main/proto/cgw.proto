@@ -23,13 +23,13 @@ message PWBet //投注一注
 {
 	string ltype = 1;//游戏类型
 	string play_type = 2;//玩法类型
-	string bet_content = 3;//投注内容
+	string bet_org_content = 3;//投注内容
 	uint32 bet_counts = 4;//注数
 	double bet_amounts = 5;//投注金额
 	int32  bet_money_unit = 6;//投注单元，以元为单位的
 	uint32 bet_multi = 7;//投注倍数
-	double bonner_money_mode = 8;//奖金模式
-	double bonner_rate_mode = 9;//奖金模式
+	double bonus_money_mode = 8;//奖金模式
+	double bonus_rate_mode = 9;//奖金模式
 	string vldcode = 20;//校验码
 	
 	string lname = 31;//玩法名称
@@ -58,12 +58,14 @@ message PWAutoChase //追号内容
 
 message PWTicker //投注一单，包括多注
 {
-	//#wname,balls,count,money,moneyUnit,multi,bonnerMode
+	//#wname,balls,count,money,moneyUnit,multi,bonusMode
 	repeated PWBet bets = 1;//注码内容
+	string ltype = 2;//游戏类型
 	bool is_auto = 20;//是否追号
 	repeated PWAutoChase chases = 21 ;//追号内容
 	string issue_no = 31 ;//投注期号（不追号的时候填写）
 	bool win_stop = 32 ;//中奖后停止追号
+	
 	
 	
 	string submit_datetime = 33;//投注时间
@@ -75,7 +77,9 @@ message PWTicker //投注一单，包括多注
 	
 	double tick_amounts = 39;//投注总金额
 	uint32 tick_bet_counts = 40;//总注数
+	
 	string region=41;//区域
+	string vldcode = 42;//票号的验证码，作为数据库的主键
 	double cost_fund0=50;//从用户子账户0扣除的金额
 	double cost_fund1=51;//从用户子账户1扣除的金额
 	double cost_fund2=52;//从用户子账户2扣除的金额

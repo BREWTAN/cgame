@@ -140,6 +140,10 @@ GL_CQSSC = {
     gl_cqssc_info[key] = v;
     return v;
   },
+  loadCurrentIssue: function() {
+    var curdat;
+    return curdat = 1;
+  },
   init: function(a, b) {
     return console.log("a==" + a + ",b==" + b);
   },

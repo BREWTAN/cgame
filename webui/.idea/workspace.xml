@@ -2,661 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0698c81-4666-4961-96bd-efe56520ee0b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysAction.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysActionExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysActionExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysActionKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysActionKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBranch.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBranch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBranchExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBranchExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBranchKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBranchKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBusiness.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBusiness.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBusinessExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBusinessExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBusinessKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBusinessKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysMenu.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysMenuExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysMenuExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysMenuKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysMenuKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysOpLogs.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysOpLogs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysOpLogsExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysOpLogsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysOpLogsKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysOpLogsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysParam.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysParam.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysParamExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysParamExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysParamKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysParamKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRole.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleAction.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleActionExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleActionExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleActionKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleActionKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMenu.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMenuExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMenuExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMenuKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMenuKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMutex.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMutex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMutexExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMutexExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMutexKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMutexKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRspCode.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRspCode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRspCodeExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRspCodeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRspCodeKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRspCodeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUser.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserRole.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserRoleExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserRoleExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserRoleKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserRoleKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysActionMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysActionMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysActionSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysActionSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBranchMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBranchMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBranchSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBranchSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBusinessMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBusinessMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBusinessSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBusinessSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysMenuMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysMenuMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysMenuSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysMenuSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysOpLogsMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysOpLogsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysOpLogsSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysOpLogsSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysParamMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysParamMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysParamSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysParamSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleActionMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleActionMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleActionSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleActionSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMenuMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMenuMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMenuSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMenuSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMutexMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMutexMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMutexSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMutexSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRspCodeMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRspCodeMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRspCodeSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRspCodeSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserRoleMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserRoleMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserRoleSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserRoleSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCChannelProduct.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCChannelProduct.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCChannelProductExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCChannelProductExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCChannelProductKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCChannelProductKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCCoinType.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCCoinType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCCoinTypeExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCCoinTypeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCCoinTypeKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCCoinTypeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCConfigUpdateLog.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCConfigUpdateLog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCConfigUpdateLogExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCConfigUpdateLogExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCConfigUpdateLogKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCConfigUpdateLogKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCGameSupportCoin.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCGameSupportCoin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCGameSupportCoinExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCGameSupportCoinExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCGameSupportCoinKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCGameSupportCoinKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCOrder.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCOrder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCOrderDetail.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCOrderDetail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCOrderDetailExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCOrderDetailExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCOrderDetailKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCOrderDetailKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCOrderExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCOrderExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCOrderKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCOrderKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCSequence.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCSequence.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCSequenceExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCSequenceExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCSequenceKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCSequenceKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUseLockDetail.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUseLockDetail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUseLockDetailExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUseLockDetailExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUseLockDetailKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUseLockDetailKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoin.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinChangeDetail.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinChangeDetail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinChangeDetailExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinChangeDetailExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinChangeDetailKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinChangeDetailKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinChangeLimit.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinChangeLimit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinChangeLimitExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinChangeLimitExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinChangeLimitKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinChangeLimitKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinReclaimDetail.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinReclaimDetail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinReclaimDetailExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinReclaimDetailExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinReclaimDetailKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserCoinReclaimDetailKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLock.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLock.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockChangeDetail.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockChangeDetail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockChangeDetailExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockChangeDetailExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockChangeDetailKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockChangeDetailKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockcs.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockcs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockcsExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockcsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockcsKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/entity/TFCUserLockcsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCChannelProductMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCChannelProductMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCChannelProductSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCChannelProductSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCCoinTypeMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCCoinTypeMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCCoinTypeSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCCoinTypeSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCConfigUpdateLogMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCConfigUpdateLogMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCConfigUpdateLogSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCConfigUpdateLogSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCGameSupportCoinMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCGameSupportCoinMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCGameSupportCoinSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCGameSupportCoinSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCOrderDetailMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCOrderDetailMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCOrderDetailSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCOrderDetailSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCOrderMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCOrderMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCOrderSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCOrderSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCSequenceMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCSequenceMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCSequenceSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCSequenceSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUseLockDetailMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUseLockDetailMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUseLockDetailSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUseLockDetailSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinChangeDetailMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinChangeDetailMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinChangeDetailSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinChangeDetailSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinChangeLimitMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinChangeLimitMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinChangeLimitSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinChangeLimitSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinReclaimDetailMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinReclaimDetailMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinReclaimDetailSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinReclaimDetailSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserCoinSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserLockChangeDetailMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserLockChangeDetailMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserLockChangeDetailSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserLockChangeDetailSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserLockMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserLockMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserLockSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserLockSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserLockcsMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserLockcsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserLockcsSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfc/mapper/TFCUserLockcsSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGGroup.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGGroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGGroupExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGGroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGGroupKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGGroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGLoginUser.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGLoginUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGLoginUserExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGLoginUserExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGLoginUserKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGLoginUserKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGRole.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGRoleExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGRoleExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGRoleKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGRoleKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserGroup.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserGroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserGroupExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserGroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserGroupKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserGroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserIdList.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserIdList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserIdListExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserIdListExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserIdListKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserIdListKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserInfo.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserInfoExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserInfoExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserInfoKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserInfoKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserRole.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserRoleExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserRoleExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserRoleKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserRoleKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGGroupMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGGroupMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGGroupSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGGroupSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGLoginUserMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGLoginUserMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGLoginUserSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGLoginUserSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGRoleMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGRoleMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGRoleSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGRoleSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserGroupMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserGroupMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserGroupSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserGroupSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserIdListMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserIdListMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserIdListSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserIdListSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserInfoMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserInfoSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserInfoSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserRoleMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserRoleMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserRoleSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserRoleSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/dao/TLTLimitedFeatureDao.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/dao/TLTLimitedFeatureDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBetAuto.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBetAuto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonus.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroup.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBet.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreReward.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreReward.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTicket.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTicket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTicketExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTicketExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTicketKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTicketKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWin.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTGroupType.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTGroupType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssue.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlows.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlows.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParams.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParams.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHis.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueSteps.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueSteps.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHis.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeature.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeature.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNum.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNum.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLtype.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLtype.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayType.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroup.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroup.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTUserBank.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTUserBank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankExample.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankKey.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBetAutoMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBetAutoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBetAutoSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBetAutoSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusgroupMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusgroupMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusgroupSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusgroupSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreBetMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreBetMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreBetSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreBetSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreRewardMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreRewardMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreRewardSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreRewardSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreTicketMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreTicketMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreTicketSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreTicketSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreWinMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreWinMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreWinSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreWinSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTGroupTypeMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTGroupTypeMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTGroupTypeSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTGroupTypeSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueFlowsMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueFlowsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueFlowsSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueFlowsSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueGenParamsMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueGenParamsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueGenParamsSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueGenParamsSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueHisMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueHisMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueHisSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueHisSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsHisMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsHisMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsHisSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsHisSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedFeatureMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedFeatureMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedFeatureSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedFeatureSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedNumMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedNumMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedNumSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedNumSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLtypeMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLtypeMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLtypeSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLtypeSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayTypeMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayTypeMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayTypeSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayTypeSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlaygroupMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlaygroupMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlaygroupSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlaygroupSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayvgroupMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayvgroupMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayvgroupSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayvgroupSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTUserBankMapper.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTUserBankMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTUserBankSqlProvider.java" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTUserBankSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../cmysqlimpl/src/gens/proto/pbgens.proto" afterPath="$PROJECT_DIR$/../cmysqlimpl/src/gens/proto/pbgens.proto" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBetAuto.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBetAuto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonus.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroup.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBet.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreReward.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreReward.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWin.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTGroupType.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTGroupType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssue.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlows.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlows.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParams.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParams.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHis.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueSteps.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueSteps.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHis.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeature.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeature.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNum.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNum.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLtype.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLtype.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayType.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroup.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroup.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTUserBank.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTUserBank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankExample.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankKey.java" afterPath="$PROJECT_DIR$/../gamectrl/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/models/create_tlts.sql" afterPath="$PROJECT_DIR$/../gamectrl/src/models/create_tlts.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBetAuto.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBetAuto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonus.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroup.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBet.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreReward.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreReward.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTick.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTick.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTickExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTickExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTickKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTickKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWin.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTGroupType.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTGroupType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssue.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlows.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlows.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParams.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParams.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHis.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueSteps.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueSteps.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHis.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeature.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeature.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNum.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNum.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLtype.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLtype.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayType.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroup.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroup.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTUserBank.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTUserBank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankExample.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankKey.java" afterPath="$PROJECT_DIR$/../gateway/src/main/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankKey.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/libs/md5.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gamectrl/src/main/proto/gamectrl.proto" afterPath="$PROJECT_DIR$/../gamectrl/src/main/proto/gamectrl.proto" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/proto/cgw.proto" afterPath="$PROJECT_DIR$/../gateway/src/main/proto/cgw.proto" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/scala/starstart/cgw/scala/action/BetsService.scala" afterPath="$PROJECT_DIR$/../gateway/src/main/scala/starstart/cgw/scala/action/BetsService.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/mgame/ordbgens/web/action/TLTLimitedFeatureCtrl.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/mgame/ordbgens/web/action/TLTLimitedFeatureCtrl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActFund.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActFund.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActFundExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActFundExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActFundKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActFundKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActInfo.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActInfoExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActInfoExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActInfoKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActInfoKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActInterest.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActInterest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActInterestExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActInterestExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActInterestKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActInterestKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogs.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsDebt.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsDebt.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsDebtExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsDebtExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsDebtKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsDebtKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsHis.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsHis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsHisExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsHisExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsHisKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsHisKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/entity/TActTransLogsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActFundMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActFundMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActFundSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActFundSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActInfoMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActInfoSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActInfoSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActInterestMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActInterestMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActInterestSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActInterestSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActTransLogsDebtMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActTransLogsDebtMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActTransLogsDebtSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActTransLogsDebtSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActTransLogsHisMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActTransLogsHisMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActTransLogsHisSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActTransLogsHisSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActTransLogsMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActTransLogsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActTransLogsSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/act/mapper/TActTransLogsSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysAction.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysActionExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysActionExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysActionKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysActionKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBranch.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBranch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBranchExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBranchExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBranchKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBranchKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBusiness.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBusiness.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBusinessExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBusinessExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBusinessKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysBusinessKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysMenu.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysMenuExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysMenuExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysMenuKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysMenuKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysOpLogs.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysOpLogs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysOpLogsExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysOpLogsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysOpLogsKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysOpLogsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysParam.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysParam.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysParamExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysParamExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysParamKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysParamKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRole.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleAction.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleActionExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleActionExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleActionKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleActionKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMenu.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMenuExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMenuExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMenuKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMenuKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMutex.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMutex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMutexExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMutexExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMutexKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRoleMutexKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRspCode.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRspCode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRspCodeExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRspCodeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRspCodeKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysRspCodeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUser.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserRole.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserRoleExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserRoleExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserRoleKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/entity/TSysUserRoleKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysActionMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysActionMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysActionSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysActionSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBranchMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBranchMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBranchSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBranchSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBusinessMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBusinessMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBusinessSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysBusinessSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysMenuMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysMenuMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysMenuSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysMenuSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysOpLogsMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysOpLogsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysOpLogsSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysOpLogsSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysParamMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysParamMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysParamSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysParamSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleActionMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleActionMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleActionSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleActionSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMenuMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMenuMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMenuSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMenuSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMutexMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMutexMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMutexSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleMutexSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRoleSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRspCodeMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRspCodeMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRspCodeSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysRspCodeSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserRoleMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserRoleMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserRoleSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserRoleSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/sys/mapper/TSysUserSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGGroup.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGGroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGGroupExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGGroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGGroupKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGGroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGLoginUser.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGLoginUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGLoginUserExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGLoginUserExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGLoginUserKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGLoginUserKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGRole.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGRoleExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGRoleExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGRoleKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGRoleKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserGroup.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserGroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserGroupExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserGroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserGroupKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserGroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserIdList.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserIdList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserIdListExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserIdListExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserIdListKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserIdListKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserInfo.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserInfoExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserInfoExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserInfoKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserInfoKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserRole.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserRoleExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserRoleExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserRoleKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/entity/TFGUserRoleKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGGroupMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGGroupMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGGroupSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGGroupSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGLoginUserMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGLoginUserMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGLoginUserSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGLoginUserSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGRoleMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGRoleMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGRoleSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGRoleSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserGroupMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserGroupMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserGroupSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserGroupSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserIdListMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserIdListMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserIdListSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserIdListSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserInfoMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserInfoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserInfoSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserInfoSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserRoleMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserRoleMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserRoleSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tfg/mapper/TFGUserRoleSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/dao/TLTLimitedFeatureDao.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/dao/TLTLimitedFeatureDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBetAuto.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBetAuto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBetAutoKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonus.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroup.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTBonusgroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBet.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreBetKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreReward.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreReward.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreRewardKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTicket.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTicket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTicketExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTicketExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTicketKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreTicketKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWin.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTCoreWinKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTGroupType.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTGroupType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTGroupTypeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssue.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlows.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlows.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueFlowsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParams.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParams.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueGenParamsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHis.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueHisKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueSteps.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueSteps.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHis.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsHisKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTIssueStepsKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeature.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeature.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedFeatureKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNum.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNum.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLimitedNumKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLtype.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLtype.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTLtypeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayType.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayTypeKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroup.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlaygroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroup.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroup.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTPlayvgroupKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTUserBank.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTUserBank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankExample.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankExample.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankKey.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/entity/TLTUserBankKey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBetAutoMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBetAutoMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBetAutoSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBetAutoSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusgroupMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusgroupMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusgroupSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTBonusgroupSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreBetMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreBetMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreBetSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreBetSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreRewardMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreRewardMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreRewardSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreRewardSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreTicketMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreTicketMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreTicketSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreTicketSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreWinMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreWinMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreWinSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTCoreWinSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTGroupTypeMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTGroupTypeMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTGroupTypeSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTGroupTypeSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueFlowsMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueFlowsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueFlowsSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueFlowsSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueGenParamsMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueGenParamsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueGenParamsSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueGenParamsSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueHisMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueHisMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueHisSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueHisSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsHisMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsHisMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsHisSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsHisSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTIssueStepsSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedFeatureMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedFeatureMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedFeatureSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedFeatureSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedNumMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedNumMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedNumSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLimitedNumSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLtypeMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLtypeMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLtypeSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTLtypeSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayTypeMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayTypeMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayTypeSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayTypeSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlaygroupMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlaygroupMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlaygroupSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlaygroupSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayvgroupMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayvgroupMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayvgroupSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTPlayvgroupSqlProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTUserBankMapper.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTUserBankMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTUserBankSqlProvider.java" afterPath="$PROJECT_DIR$/../mcs/restface/src/gens/java/onight/tfg/ordbgens/tlt/mapper/TLTUserBankSqlProvider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../gateway/src/main/scala/starstart/cgw/scala/service/MysqlDaos.scala" afterPath="$PROJECT_DIR$/../gateway/src/main/scala/starstart/cgw/scala/service/MysqlDaos.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC_caculator.js" afterPath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC_caculator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/PopupDialog.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/PopupDialog.cjsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/PopupDialog.js" afterPath="$PROJECT_DIR$/app/scripts/ui/PopupDialog.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx" afterPath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.js" afterPath="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/SelectConfirm.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/SelectConfirm.cjsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/SelectConfirm.js" afterPath="$PROJECT_DIR$/app/scripts/ui/SelectConfirm.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/SelectList.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/SelectList.cjsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/SelectList.js" afterPath="$PROJECT_DIR$/app/scripts/ui/SelectList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.cjsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.js" afterPath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_Wagers.cjsx" afterPath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_Wagers.cjsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_Wagers.js" afterPath="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_Wagers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/main.scss" afterPath="$PROJECT_DIR$/app/styles/main.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="webui.iws" />
@@ -678,31 +37,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="gl_CQSSC.cjsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="514" column="0" selection-start-line="514" selection-start-column="0" selection-end-line="514" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gl_CQSSC_caculator.cjsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/libs/gl_CQSSC_caculator.cjsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.814815">
-              <caret line="227" column="22" selection-start-line="227" selection-start-column="22" selection-end-line="227" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="gm_CQSSC_Wagers.cjsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_Wagers.cjsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7194245">
-              <caret line="101" column="25" selection-start-line="101" selection-start-column="25" selection-end-line="101" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.41320294">
+              <caret line="71" column="42" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PopupDialog.cjsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/ui/PopupDialog.cjsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -718,21 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gm_CQSSC.cjsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.cjsx">
+      <file leaf-file-name="SelectConfirm.cjsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/ui/SelectConfirm.cjsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="137" selection-start-line="24" selection-start-column="137" selection-end-line="24" selection-end-column="137" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PopupDialog.cjsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/ui/PopupDialog.cjsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.777778">
-              <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+            <state vertical-scroll-proportion="-29.444445">
+              <caret line="53" column="18" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -741,38 +80,38 @@
       <file leaf-file-name="SelectList.cjsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/ui/SelectList.cjsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.481482">
-              <caret line="56" column="33" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="75" column="36" selection-start-line="75" selection-start-column="36" selection-end-line="75" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderChaseItem.cjsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/ui/OrderChaseItem.cjsx">
+      <file leaf-file-name="md5.min.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/libs/md5.min.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserMenu.cjsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/scripts/ui/UserMenu.cjsx">
+      <file leaf-file-name="PBHelper.cjsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/libs/PBHelper.cjsx">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+              <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
+      <file leaf-file-name="UserInfo.cjsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/libs/UserInfo.cjsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.352941">
-              <caret line="634" column="28" selection-start-line="634" selection-start-column="28" selection-end-line="634" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -829,7 +168,6 @@
         <option value="$PROJECT_DIR$/app/scripts/ui/OrderChaseHeader.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_WagerSelector.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/ui/gm_WagerHistory.cjsx" />
-        <option value="$PROJECT_DIR$/app/scripts/ui/SelectConfirm.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/ui/TotalWagers.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/ui/loading.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/libs/PBHelper.cjsx" />
@@ -837,12 +175,13 @@
         <option value="$PROJECT_DIR$/app/scripts/libs/UserInfo.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/ui/IncludeTools.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/ui/UserMenu.cjsx" />
-        <option value="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC_caculator.cjsx" />
-        <option value="$PROJECT_DIR$/app/scripts/ui/SelectList.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/ui/PopupDialog.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC.cjsx" />
         <option value="$PROJECT_DIR$/app/styles/main.scss" />
+        <option value="$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx" />
+        <option value="$PROJECT_DIR$/app/scripts/ui/SelectConfirm.cjsx" />
+        <option value="$PROJECT_DIR$/app/scripts/ui/SelectList.cjsx" />
         <option value="$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_Wagers.cjsx" />
       </list>
     </option>
@@ -1241,15 +580,16 @@
     <frame x="0" y="23" width="1440" height="811" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24453841" sideWeight="0.49364406" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24453841" sideWeight="0.50635594" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24453841" sideWeight="0.49353448" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24453841" sideWeight="0.5064655" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294964" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.50528544" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32805756" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24453841" sideWeight="0.43220338" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3208633" sideWeight="0.4947146" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294964" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3208633" sideWeight="0.4947146" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24919355" sideWeight="0.4744186" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3323741" sideWeight="0.49753347" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3323741" sideWeight="0.49753347" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1257,7 +597,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32805756" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1277,13 +616,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/loadingDiag.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.096774">
-          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/images/mm0-l.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1352,13 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="22" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/IntroMenu.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1439,13 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/SelectItem.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/app.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.7777777">
@@ -1467,38 +785,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_WagerHistory.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/capp.coffee">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/SelectConfirm.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="136" column="132" selection-start-line="136" selection-start-column="70" selection-end-line="136" selection-end-column="132" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_WagerSelector.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="20" selection-start-line="38" selection-start-column="0" selection-end-line="41" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/TotalWagers.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1516,29 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/libs/PBHelper.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/GameMenu.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/IncludeTools.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/ui/GameMenu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.6283784">
@@ -1546,58 +813,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/UserMenu.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/ui/OrderChaseItem.cjsx">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/libs/UserInfo.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6621622">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/OrderChaseHeader.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9662162">
-          <caret line="136" column="64" selection-start-line="136" selection-start-column="49" selection-end-line="136" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/libs/gl_CQSSC_caculator.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.814815">
-          <caret line="227" column="22" selection-start-line="227" selection-start-column="22" selection-end-line="227" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/SelectList.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.481482">
-          <caret line="56" column="33" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="514" column="0" selection-start-line="514" selection-start-column="0" selection-end-line="514" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1610,18 +829,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/PopupDialog.cjsx">
+    <entry file="file://$PROJECT_DIR$/app/scripts/libs/gl_CQSSC.cjsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.777778">
-          <caret line="68" column="25" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="159" column="18" selection-start-line="159" selection-start-column="18" selection-end-line="159" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/ui/login.cjsx">
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/GameMenu.cjsx">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="56" selection-start-line="32" selection-start-column="19" selection-end-line="33" selection-end-column="56" />
+          <caret line="14" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1634,10 +853,138 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_WagerSelector.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="20" selection-start-line="38" selection-start-column="0" selection-end-line="41" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/UserMenu.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27027026">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/IncludeTools.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/TotalWagers.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4256757">
+          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/SelectItem.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.9594594">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/OrderChaseHeader.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45945945">
+          <caret line="136" column="64" selection-start-line="136" selection-start-column="49" selection-end-line="136" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_WagerHistory.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4527028">
+          <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/IntroMenu.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.8918919">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/libs/gl_CQSSC_caculator.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.054054055">
+          <caret line="227" column="22" selection-start-line="227" selection-start-column="22" selection-end-line="227" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/libs/md5.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/libs/UserInfo.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/libs/PBHelper.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/login.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="56" selection-start-line="32" selection-start-column="19" selection-end-line="33" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/SelectConfirm.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.444445">
+          <caret line="53" column="18" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/SelectList.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="36" selection-start-line="75" selection-start-column="36" selection-end-line="75" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/ui/PopupDialog.cjsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/ui/gm_CQSSC_Wagers.cjsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7194245">
-          <caret line="101" column="25" selection-start-line="101" selection-start-column="25" selection-end-line="101" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.41320294">
+          <caret line="71" column="42" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
           <folding />
         </state>
       </provider>

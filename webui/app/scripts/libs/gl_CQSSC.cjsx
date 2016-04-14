@@ -156,6 +156,9 @@ GL_CQSSC = {
         gl_cqssc_info[key] = v;
         return v;
 
+    loadCurrentIssue:() ->
+        curdat = 1
+
     init:(a,b) ->
         console.log("a=="+a+",b=="+b)
 

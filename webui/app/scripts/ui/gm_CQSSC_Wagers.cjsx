@@ -19,7 +19,7 @@ TotalWagers = require("./TotalWagers.js")
 CQSSC_WagerSelector = require("./gm_CQSSC_WagerSelector.js")
 Spinner = require('react-spinkit');
 
-
+dateFormat = require('dateformat');
 
 CQSSC_Wagers = React.createClass(
 
@@ -61,9 +61,17 @@ CQSSC_Wagers = React.createClass(
         newstate = {totalWagerCount: 0,totalWagerMoney: 0,WagerMoneyOnce:0}
         totalWagers.setState(newstate,cb)
 
+
     handleWagerCB:(err,res) ->
         console.log("handleWagerCB:"+JSON.stringify(res.body))
-        @resetWager()
+        if res.body && res.body.body
+            if res.body.body.retcode == '0000'
+                @handleDiagOpen("投注成功");
+                @resetWager()
+            else
+                @handleDiagOpen("投注异常错误:"+res.body.body.retmsg);
+        else
+            @handleDiagOpen("投注网络异常");
 
     handleSubmitWagers:() ->
         totalWagers = @refs["totalWagers"]
@@ -88,8 +96,7 @@ CQSSC_Wagers = React.createClass(
 
         confirmitems = @getConfirmItems() #wname,balls,count,money,moneyUnit,multi,bonnerMode
 
-
-        itemcom = (( <div className="row item" key={key}> {"["+v[0]+"]" +v[1]+ " ;  ￥"+v[3]+"元" }</div>   ) for key,v of confirmitems)
+        itemcom = (( <div className="row item" key={key}> {"["+v[0]+"]" +v[1]+ " ;  ￥"+v[3]+"元" }</div>  ) for key,v of confirmitems)
 
         items = ( <div>
                     <div className = "msgwageritems">
@@ -98,36 +105,21 @@ CQSSC_Wagers = React.createClass(
                     <Divider />
                     <div className="msgwagertotal">总金额 : <b>{totalwagermoney}</b> 元</div>
                  </div>)
-        submititems = ( {
-            issue_no:"100"
-        }  for key,v of confirmitems)
+        submititems = @refs["selectList"].getWagerPBPacket()
 
         console.log("submititems="+JSON.stringify(submititems))
 
         CB = (data) ->
             console.log("okok!totalWagerMoney="+data.self.wanfa+",items="+JSON.stringify(data.items))
-
-            data.self.handleDiagOpen((<Loading type='spinning-bubbles' color='#e3e3e3' />   ),"",{padding:"10px 10px 10px 20px"})
-
-
-            request.post('/pbface/cgw/pbmer.do?fh=VMERCGW000000J00')
-               .send({
-                 packets: [
-                   {
-                     gcmd: "CGCBET",
-                     jsbody: {
-                       act_no: UserInfo.getActNO,
-                       fund_no: "*",
-                     },
-                   }
-                 ]
-                })
+            request.post('/pbface/cgw/pbbet.do?fh=VBETCGW000000J00')
+               .set("Content-Type",'application/json')
+               .send(JSON.stringify(submititems))
                .end(data.self.handleWagerCB);
+            msg = <center><Spinner spinnerName='circle' noFadeIn=true overrideSpinnerClassName="cspinner"/></center>
+            console.log("openwaiting=="+msg)
+            data.self.handleDiagOpen(msg,"投注确认中",{padding:"10px 10px 10px 10px",width:"100%",height:"64px",zz:"true",size:"38px"},null,null,null,true)
 
-        #@handleDiagOpen(items,title,{padding:"10px 10px 10px 20px"},CB,{items:submititems,self:@})
-        msg = <center><Spinner spinnerName='circle' noFadeIn=true overrideSpinnerClassName="cspinner"/></center>
-        console.log("openmsg=="+msg)
-        @handleDiagOpen(msg,"投注确认中",{padding:"10px 10px 10px 10px",width:"100%",height:"64px",zz:"true",size:"38px"},null,null,null,true)
+        @handleDiagOpen(items,title,{padding:"10px 10px 10px 20px"},CB,{items:submititems,self:@})
 
     handleSelectConfirm: () ->
         wname = GL_CQSSC.getWanfaName(@refs["wagerselector"].state.wanfa,@refs["wagerselector"].state.wanfaLine2,@refs["wagerselector"].state.wanfaLine3)
@@ -139,7 +131,7 @@ CQSSC_Wagers = React.createClass(
             selectList = @refs["selectList"]
             money = scCOM.getMoneyTotal()
             bonnerMoney = scCOM.getBonnerMoney()
-            v = selectList.addItem(wname,scState.wagerballs,scState.wagercount,money,scState.moneyType,scState.multi,bonnerMoney)
+            v = selectList.addItem(wname,scState.wagerballs,scState.wagercount,money,scState.moneyType,scState.multi,bonnerMoney,scCOM.getBonnerRatio())
             if v
                 GL_CQSSC.clearWager()
                 GL_CQSSC.cleanSelectBalls()

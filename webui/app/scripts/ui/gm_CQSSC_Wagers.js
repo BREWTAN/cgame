@@ -1,4 +1,4 @@
-var CQSSC_WagerSelector, CQSSC_Wagers, Divider, FlatButton, GL_CQSSC, History, PromiseState, RaisedButton, React, Router, SelectConfirm, SelectList, Spinner, TotalWagers, UserInfo, connect, injectTapEventPlugin, ref, ref1, request;
+var CQSSC_WagerSelector, CQSSC_Wagers, Divider, FlatButton, GL_CQSSC, History, PromiseState, RaisedButton, React, Router, SelectConfirm, SelectList, Spinner, TotalWagers, UserInfo, connect, dateFormat, injectTapEventPlugin, ref, ref1, request;
 
 React = require("react");
 
@@ -29,6 +29,8 @@ TotalWagers = require("./TotalWagers.js");
 CQSSC_WagerSelector = require("./gm_CQSSC_WagerSelector.js");
 
 Spinner = require('react-spinkit');
+
+dateFormat = require('dateformat');
 
 CQSSC_Wagers = React.createClass({
   getInitialState: function() {
@@ -86,10 +88,19 @@ CQSSC_Wagers = React.createClass({
   },
   handleWagerCB: function(err, res) {
     console.log("handleWagerCB:" + JSON.stringify(res.body));
-    return this.resetWager();
+    if (res.body && res.body.body) {
+      if (res.body.body.retcode === '0000') {
+        this.handleDiagOpen("投注成功");
+        return this.resetWager();
+      } else {
+        return this.handleDiagOpen("投注异常错误:" + res.body.body.retmsg);
+      }
+    } else {
+      return this.handleDiagOpen("投注网络异常");
+    }
   },
   handleSubmitWagers: function() {
-    var CB, chaseCount, confirmitems, currentPeroid, itemcom, items, key, msg, submititems, title, totalWagers, totalwagermoney, v;
+    var CB, chaseCount, confirmitems, currentPeroid, itemcom, items, key, submititems, title, totalWagers, totalwagermoney, v;
     totalWagers = this.refs["totalWagers"];
     if (totalWagers.state.totalWagerCount <= 0) {
       this.handleDiagOpen("请选择你要投注的内容!");
@@ -131,51 +142,32 @@ CQSSC_Wagers = React.createClass({
     }, itemcom), React.createElement(Divider, null), React.createElement("div", {
       "className": "msgwagertotal"
     }, "总金额 : ", React.createElement("b", null, totalwagermoney), " 元"));
-    submititems = (function() {
-      var results;
-      results = [];
-      for (key in confirmitems) {
-        v = confirmitems[key];
-        results.push({
-          issue_no: "100"
-        });
-      }
-      return results;
-    })();
+    submititems = this.refs["selectList"].getWagerPBPacket();
     console.log("submititems=" + JSON.stringify(submititems));
     CB = function(data) {
+      var msg;
       console.log("okok!totalWagerMoney=" + data.self.wanfa + ",items=" + JSON.stringify(data.items));
-      data.self.handleDiagOpen(React.createElement(Loading, {
-        "type": 'spinning-bubbles',
-        "color": '#e3e3e3'
-      }), "", {
-        padding: "10px 10px 10px 20px"
-      });
-      return request.post('/pbface/cgw/pbmer.do?fh=VMERCGW000000J00').send({
-        packets: [
-          {
-            gcmd: "CGCBET",
-            jsbody: {
-              act_no: UserInfo.getActNO,
-              fund_no: "*"
-            }
-          }
-        ]
-      }).end(data.self.handleWagerCB);
+      request.post('/pbface/cgw/pbbet.do?fh=VBETCGW000000J00').set("Content-Type", 'application/json').send(JSON.stringify(submititems)).end(data.self.handleWagerCB);
+      msg = React.createElement("center", null, React.createElement(Spinner, {
+        "spinnerName": 'circle',
+        "noFadeIn": true,
+        "overrideSpinnerClassName": "cspinner"
+      }));
+      console.log("openwaiting==" + msg);
+      return data.self.handleDiagOpen(msg, "投注确认中", {
+        padding: "10px 10px 10px 10px",
+        width: "100%",
+        height: "64px",
+        zz: "true",
+        size: "38px"
+      }, null, null, null, true);
     };
-    msg = React.createElement("center", null, React.createElement(Spinner, {
-      "spinnerName": 'circle',
-      "noFadeIn": true,
-      "overrideSpinnerClassName": "cspinner"
-    }));
-    console.log("openmsg==" + msg);
-    return this.handleDiagOpen(msg, "投注确认中", {
-      padding: "10px 10px 10px 10px",
-      width: "100%",
-      height: "64px",
-      zz: "true",
-      size: "38px"
-    }, null, null, null, true);
+    return this.handleDiagOpen(items, title, {
+      padding: "10px 10px 10px 20px"
+    }, CB, {
+      items: submititems,
+      self: this
+    });
   },
   handleSelectConfirm: function() {
     var bonnerMoney, cb, countAnMoney, money, newstate, scCOM, scState, selectList, totalWagers, v, wname;
@@ -188,7 +180,7 @@ CQSSC_Wagers = React.createClass({
       selectList = this.refs["selectList"];
       money = scCOM.getMoneyTotal();
       bonnerMoney = scCOM.getBonnerMoney();
-      v = selectList.addItem(wname, scState.wagerballs, scState.wagercount, money, scState.moneyType, scState.multi, bonnerMoney);
+      v = selectList.addItem(wname, scState.wagerballs, scState.wagercount, money, scState.moneyType, scState.multi, bonnerMoney, scCOM.getBonnerRatio());
       if (v) {
         GL_CQSSC.clearWager();
         GL_CQSSC.cleanSelectBalls();
