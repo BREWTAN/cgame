@@ -11,6 +11,8 @@ import java.util.Date
 import onight.tfg.ordbgens.tlt.entity.TLTCoreBetExample
 import com.github.nscala_time.time.Imports._
 import scala.collection.JavaConversions._
+import starstart.cgw.scala.ssc.BetsCalc
+import onight.tfg.ordbgens.tlt.entity.TLTCoreBet
 
 object P010_WinCalculate extends OProcessor with OLog {
 
@@ -20,9 +22,13 @@ object P010_WinCalculate extends OProcessor with OLog {
 
     val example = new TLTCoreBetExample
     example.createCriteria().andIssueNoEqualTo(issue.getIssueNo).andLtypeEqualTo(issue.getLtype)
-
-    Mysqls.corebetDAO.selectByExample(example).map { bet =>
-      log.debug("bet==" + bet+",")
+    
+    
+    Mysqls.corebetDAO.selectByExample(example).map { _.asInstanceOf[TLTCoreBet] }.map { bet =>
+      
+      val winno = BetsCalc.calc(bet.getBetOrgContent,issue.getLotteryNo)
+      
+      log.debug("bet==" + bet+",winno="+winno)
     }
 
     return 1;
