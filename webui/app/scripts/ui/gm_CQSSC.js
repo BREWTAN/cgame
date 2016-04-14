@@ -25,9 +25,9 @@ gm_CQSSC = React.createClass({
       diagmessage: ""
     };
   },
-  handleDiagOpen: function(message, titlediv, contentstyle, confirmCB, cbparams) {
+  handleDiagOpen: function(message, titlediv, contentstyle, confirmCB, cbparams, titlestyle, isloading) {
     if (this.refs["popupDiag"]) {
-      return this.refs["popupDiag"].handleDiagOpen(message, titlediv, contentstyle, confirmCB, cbparams);
+      return this.refs["popupDiag"].handleDiagOpen(message, titlediv, contentstyle, confirmCB, cbparams, titlestyle, isloading);
     }
   },
   render: function() {

@@ -21,8 +21,8 @@ gm_CQSSC = React.createClass(
         diagmessage: ""
 
 
-    handleDiagOpen: (message,titlediv,contentstyle,confirmCB,cbparams) ->
-       if @refs["popupDiag"] then @refs["popupDiag"].handleDiagOpen(message,titlediv,contentstyle,confirmCB,cbparams)
+    handleDiagOpen: (message,titlediv,contentstyle,confirmCB,cbparams,titlestyle,isloading) ->
+       if @refs["popupDiag"] then @refs["popupDiag"].handleDiagOpen(message,titlediv,contentstyle,confirmCB,cbparams,titlestyle,isloading)
 
     render:() ->
         styles = {

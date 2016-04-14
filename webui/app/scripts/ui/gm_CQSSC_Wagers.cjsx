@@ -6,12 +6,19 @@ Divider = require( 'material-ui/lib/divider');
 FlatButton = require('material-ui/lib/flat-button');
 RaisedButton = require('material-ui/lib/raised-button');
 
+{ connect, PromiseState } = require( 'react-refetch');
+{ Router,History } =require( 'react-router')
+request = require('superagent');
 
 GL_CQSSC = require( '../libs/gl_CQSSC.js');
+UserInfo = require( '../libs/UserInfo.js');
+
 SelectConfirm  = require("./SelectConfirm.js");
 SelectList = require("./SelectList.js");
 TotalWagers = require("./TotalWagers.js")
 CQSSC_WagerSelector = require("./gm_CQSSC_WagerSelector.js")
+Spinner = require('react-spinkit');
+
 
 
 CQSSC_Wagers = React.createClass(
@@ -29,8 +36,8 @@ CQSSC_Wagers = React.createClass(
                 wagercount: wagercount
                 wagerballs: playballs
 
-    handleDiagOpen: (message,titlediv,contentstyle,confirmCB,cbparams) ->
-       @props.handleDiagOpen(message,titlediv,contentstyle,confirmCB,cbparams)
+    handleDiagOpen: (message,titlediv,contentstyle,confirmCB,cbparams,titlestyle,isloading) ->
+       @props.handleDiagOpen(message,titlediv,contentstyle,confirmCB,cbparams,titlestyle,isloading)
        return true
 
     onDeleteSelectListItem: () ->
@@ -54,6 +61,10 @@ CQSSC_Wagers = React.createClass(
         newstate = {totalWagerCount: 0,totalWagerMoney: 0,WagerMoneyOnce:0}
         totalWagers.setState(newstate,cb)
 
+    handleWagerCB:(err,res) ->
+        console.log("handleWagerCB:"+JSON.stringify(res.body))
+        @resetWager()
+
     handleSubmitWagers:() ->
         totalWagers = @refs["totalWagers"]
         if totalWagers.state.totalWagerCount <= 0
@@ -74,7 +85,10 @@ CQSSC_Wagers = React.createClass(
             currentPeroid = GL_CQSSC.GameState("currentPeroid")
             title = ( <div className="diagtitle"> 是否将如下选号投入:<b> { currentPeroid } </b> 期? </div>)
             totalwagermoney =  totalWagers.state.totalWagerMoney
+
         confirmitems = @getConfirmItems() #wname,balls,count,money,moneyUnit,multi,bonnerMode
+
+
         itemcom = (( <div className="row item" key={key}> {"["+v[0]+"]" +v[1]+ " ;  ￥"+v[3]+"元" }</div>   ) for key,v of confirmitems)
 
         items = ( <div>
@@ -84,12 +98,36 @@ CQSSC_Wagers = React.createClass(
                     <Divider />
                     <div className="msgwagertotal">总金额 : <b>{totalwagermoney}</b> 元</div>
                  </div>)
+        submititems = ( {
+            v
+        }  for key,v of confirmitems)
+
+        console.log("submititems="+JSON.stringify(submititems))
 
         CB = (data) ->
             console.log("okok!totalWagerMoney="+data.self.wanfa+",items="+JSON.stringify(data.items))
-            data.self.resetWager()
 
-        @handleDiagOpen(items,title,{padding:"10px 10px 10px 20px"},CB,{items:confirmitems,self:@})
+            data.self.handleDiagOpen((<Loading type='spinning-bubbles' color='#e3e3e3' />   ),"",{padding:"10px 10px 10px 20px"})
+
+
+            request.post('/pbface/cgw/pbmer.do?fh=VMERCGW000000J00')
+               .send({
+                 packets: [
+                   {
+                     gcmd: "QUEACT",
+                     jsbody: {
+                       act_no: UserInfo.getActNO,
+                       fund_no: "*",
+                     },
+                   }
+                 ]
+                })
+               .end(data.self.handleWagerCB);
+
+        #@handleDiagOpen(items,title,{padding:"10px 10px 10px 20px"},CB,{items:submititems,self:@})
+        msg = <center><Spinner spinnerName='circle' noFadeIn=true overrideSpinnerClassName="cspinner"/></center>
+        console.log("openmsg=="+msg)
+        @handleDiagOpen(msg,"投注确认中",{padding:"10px 10px 10px 10px",width:"100%",height:"64px",zz:"true",size:"38px"},null,null,null,true)
 
     handleSelectConfirm: () ->
         wname = GL_CQSSC.getWanfaName(@refs["wagerselector"].state.wanfa,@refs["wagerselector"].state.wanfaLine2,@refs["wagerselector"].state.wanfaLine3)

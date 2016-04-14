@@ -66,7 +66,7 @@ SelectList = React.createClass(
              width:"100%",
          },
         };
-        console.log("render:selectList")
+        #console.log("render:selectList")
         itemprops={ changeSel:@handleChangeItem,deleteItem:@deleteItem,selidx:@state.selidx }
         itemCOMs = (
             for key,v of @state.items #wname,balls,count,money,moneyUnit,multi,bonnerMode

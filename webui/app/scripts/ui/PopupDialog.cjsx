@@ -18,12 +18,13 @@ PopupDiag = React.createClass(
         titlediv: undefined
         contentstyle:{}
         confirmCB: undefined
+        isloading:false
 
     handleDiagClose: () ->
         @setState
             diagopen:false
 
-    handleDiagOpen: (message,titlediv,contentstyle,confirmCB,cbparams) ->
+    handleDiagOpen: (message,titlediv,contentstyle,confirmCB,cbparams,titlestyle,isloading) ->
         @setState
             diagopen:true
             diagmessage:message
@@ -31,6 +32,8 @@ PopupDiag = React.createClass(
             contentstyle:contentstyle
             confirmCB: confirmCB
             cbparams:cbparams
+            titlestyle:titlestyle
+            isloading:isloading
 
 
     handleDiagConfirm:() ->
@@ -48,7 +51,10 @@ PopupDiag = React.createClass(
             title = <div style={padding:"10px 10px 10px 20px"}><div className ="diagtitle" >提示信息</div><Divider /></div>
             body = <div style={fontSize:"16px"}>{@state.diagmessage}</div>
 
+        if(@state.isloading == true)
+            title = ""
         contentStyle = _.extend({},@state.contentstyle)
+        console.log("title="+title)
         #console.log("contentStyle="+JSON.stringify(contentStyle))
         if @state.confirmCB
            actions = [<FlatButton

@@ -736,11 +736,11 @@ message PBTLTIssueStepsHis
 message PBTLTLimitedFeature
 {
 	string caskey = 1;
-	string region = 2;
-	string issue_no = 3;
-	string play_type = 4;
-	string wagerdata = 5;
-	double createdate = 6;
+	string issue_no = 2;
+	string play_type = 3;
+	string wagerdata = 4;
+	double createdate = 5;
+	string region = 6;
 	string ltype = 7;
 	double bonus_limit = 8;
 	double bets_boards_limit = 9;

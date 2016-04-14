@@ -21,7 +21,8 @@ PopupDiag = React.createClass({
       diagmessage: "",
       titlediv: void 0,
       contentstyle: {},
-      confirmCB: void 0
+      confirmCB: void 0,
+      isloading: false
     };
   },
   handleDiagClose: function() {
@@ -29,14 +30,16 @@ PopupDiag = React.createClass({
       diagopen: false
     });
   },
-  handleDiagOpen: function(message, titlediv, contentstyle, confirmCB, cbparams) {
+  handleDiagOpen: function(message, titlediv, contentstyle, confirmCB, cbparams, titlestyle, isloading) {
     return this.setState({
       diagopen: true,
       diagmessage: message,
       titlediv: titlediv,
       contentstyle: contentstyle,
       confirmCB: confirmCB,
-      cbparams: cbparams
+      cbparams: cbparams,
+      titlestyle: titlestyle,
+      isloading: isloading
     });
   },
   handleDiagConfirm: function() {
@@ -73,7 +76,11 @@ PopupDiag = React.createClass({
         }
       }, this.state.diagmessage);
     }
+    if (this.state.isloading === true) {
+      title = "";
+    }
     contentStyle = _.extend({}, this.state.contentstyle);
+    console.log("title=" + title);
     if (this.state.confirmCB) {
       actions = [
         React.createElement(FlatButton, {

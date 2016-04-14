@@ -127,8 +127,6 @@ GL_CQSSC_Caculator = {
     }
     retcc = JC.C(GL_CQSSC_Caculator.getLineCount(line), params);
     wagerset = JC.combination(line.split("|"), params);
-    console.log("line==" + line + "::wagerset=" + wagerset);
-    GL_CQSSC_Caculator.printset(wagerset);
     return retcc;
   },
   wgCountByzuhe: function(playballs, params) {

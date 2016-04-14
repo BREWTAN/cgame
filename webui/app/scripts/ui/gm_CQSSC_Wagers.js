@@ -1,4 +1,4 @@
-var CQSSC_WagerSelector, CQSSC_Wagers, Divider, FlatButton, GL_CQSSC, RaisedButton, React, SelectConfirm, SelectList, TotalWagers, injectTapEventPlugin;
+var CQSSC_WagerSelector, CQSSC_Wagers, Divider, FlatButton, GL_CQSSC, History, PromiseState, RaisedButton, React, Router, SelectConfirm, SelectList, Spinner, TotalWagers, UserInfo, connect, injectTapEventPlugin, ref, ref1, request;
 
 React = require("react");
 
@@ -10,7 +10,15 @@ FlatButton = require('material-ui/lib/flat-button');
 
 RaisedButton = require('material-ui/lib/raised-button');
 
+ref = require('react-refetch'), connect = ref.connect, PromiseState = ref.PromiseState;
+
+ref1 = require('react-router'), Router = ref1.Router, History = ref1.History;
+
+request = require('superagent');
+
 GL_CQSSC = require('../libs/gl_CQSSC.js');
+
+UserInfo = require('../libs/UserInfo.js');
 
 SelectConfirm = require("./SelectConfirm.js");
 
@@ -19,6 +27,8 @@ SelectList = require("./SelectList.js");
 TotalWagers = require("./TotalWagers.js");
 
 CQSSC_WagerSelector = require("./gm_CQSSC_WagerSelector.js");
+
+Spinner = require('react-spinkit');
 
 CQSSC_Wagers = React.createClass({
   getInitialState: function() {
@@ -36,8 +46,8 @@ CQSSC_Wagers = React.createClass({
       });
     }
   },
-  handleDiagOpen: function(message, titlediv, contentstyle, confirmCB, cbparams) {
-    this.props.handleDiagOpen(message, titlediv, contentstyle, confirmCB, cbparams);
+  handleDiagOpen: function(message, titlediv, contentstyle, confirmCB, cbparams, titlestyle, isloading) {
+    this.props.handleDiagOpen(message, titlediv, contentstyle, confirmCB, cbparams, titlestyle, isloading);
     return true;
   },
   onDeleteSelectListItem: function() {
@@ -74,8 +84,12 @@ CQSSC_Wagers = React.createClass({
     };
     return totalWagers.setState(newstate, cb);
   },
+  handleWagerCB: function(err, res) {
+    console.log("handleWagerCB:" + JSON.stringify(res.body));
+    return this.resetWager();
+  },
   handleSubmitWagers: function() {
-    var CB, chaseCount, confirmitems, currentPeroid, itemcom, items, key, title, totalWagers, totalwagermoney, v;
+    var CB, chaseCount, confirmitems, currentPeroid, itemcom, items, key, msg, submititems, title, totalWagers, totalwagermoney, v;
     totalWagers = this.refs["totalWagers"];
     if (totalWagers.state.totalWagerCount <= 0) {
       this.handleDiagOpen("请选择你要投注的内容!");
@@ -117,16 +131,51 @@ CQSSC_Wagers = React.createClass({
     }, itemcom), React.createElement(Divider, null), React.createElement("div", {
       "className": "msgwagertotal"
     }, "总金额 : ", React.createElement("b", null, totalwagermoney), " 元"));
+    submititems = (function() {
+      var results;
+      results = [];
+      for (key in confirmitems) {
+        v = confirmitems[key];
+        results.push({
+          v: v
+        });
+      }
+      return results;
+    })();
+    console.log("submititems=" + JSON.stringify(submititems));
     CB = function(data) {
       console.log("okok!totalWagerMoney=" + data.self.wanfa + ",items=" + JSON.stringify(data.items));
-      return data.self.resetWager();
+      data.self.handleDiagOpen(React.createElement(Loading, {
+        "type": 'spinning-bubbles',
+        "color": '#e3e3e3'
+      }), "", {
+        padding: "10px 10px 10px 20px"
+      });
+      return request.post('/pbface/cgw/pbmer.do?fh=VMERCGW000000J00').send({
+        packets: [
+          {
+            gcmd: "QUEACT",
+            jsbody: {
+              act_no: UserInfo.getActNO,
+              fund_no: "*"
+            }
+          }
+        ]
+      }).end(data.self.handleWagerCB);
     };
-    return this.handleDiagOpen(items, title, {
-      padding: "10px 10px 10px 20px"
-    }, CB, {
-      items: confirmitems,
-      self: this
-    });
+    msg = React.createElement("center", null, React.createElement(Spinner, {
+      "spinnerName": 'circle',
+      "noFadeIn": true,
+      "overrideSpinnerClassName": "cspinner"
+    }));
+    console.log("openmsg==" + msg);
+    return this.handleDiagOpen(msg, "投注确认中", {
+      padding: "10px 10px 10px 10px",
+      width: "100%",
+      height: "64px",
+      zz: "true",
+      size: "38px"
+    }, null, null, null, true);
   },
   handleSelectConfirm: function() {
     var bonnerMoney, cb, countAnMoney, money, newstate, scCOM, scState, selectList, totalWagers, v, wname;

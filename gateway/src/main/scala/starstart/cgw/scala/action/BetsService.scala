@@ -23,6 +23,8 @@ import starstart.cgw.scala.service.MysqlDaos
 import java.util.Date
 import starstart.cgw.pbgens.Cgw.PWTicker
 import starstart.cgw.pbgens.Cgw.PWRetTicker
+import onight.tfw.ojpa.api.TransactionExecutor
+import onight.tfg.ordbgens.tlt.entity.TLTCoreTick
 
 @NActorProvider
 object CGWBetActor extends SessionModules[PWTicker] {
@@ -51,10 +53,17 @@ object CGWBetService extends OLog with PBUtils with LService[PWTicker] {
       dbbet.setSerialNum(serialnum)
       dbbet
     }
-
+    val tick = pbBeanUtil.copyFromPB(pbo, new TLTCoreTick)
     try {
 
-      MysqlDaos.corebetDAO.batchInsert(bets);
+      MysqlDaos.corebetDAO.doInTransaction(new TransactionExecutor {
+
+        def doInTransaction: Object = {
+          MysqlDaos.corebetDAO.batchInsert(bets);
+          return ""
+        }
+      })
+
       bets.map { dbbet =>
         val retbet = PWBetResult.newBuilder()
         retbet.setBetStatus("0000").setSerialNum(dbbet.getSerialNum).setVldcode(MD5.getMD5(DESCoder.desEncrypt(dbbet.getSerialNum, "zzzz-starstartsFFFF")))
@@ -63,7 +72,7 @@ object CGWBetService extends OLog with PBUtils with LService[PWTicker] {
       ret.setRetcode("0000").setRetmsg("ok");
     } catch {
       case e: Exception =>
-        log.error( "投注异常",e)
+        log.error("投注异常", e)
         ret.setRetcode("0001").setRetmsg(e.getMessage)
     }
     handler.onFinished(PacketHelper.toPBReturn(pack, ret.build()));

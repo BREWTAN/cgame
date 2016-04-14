@@ -80,7 +80,6 @@ SelectList = React.createClass({
         width: "100%"
       }
     };
-    console.log("render:selectList");
     itemprops = {
       changeSel: this.handleChangeItem,
       deleteItem: this.deleteItem,
