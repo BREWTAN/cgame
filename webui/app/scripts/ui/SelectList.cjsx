@@ -65,9 +65,9 @@ SelectList = React.createClass(
           	bet_multi:v[5]# = 7;//投注倍数,uint32
           	bonus_money_mode:v[6]# = 8;//奖金模式,double
           	bonus_rate_mode:v[7]# = 9;//奖金模式,double
-          	vldcode:md5(key+":"+dfstr+"_"+UserInfo.getActNO)# = 20;//校验码,string
+          	vldcode:md5(key+":"+dfstr+"_"+UserInfo.getActNO())# = 20;//校验码,string
           	lname:v[0]# 31;//玩法名称,string
-          	merchantuserid:UserInfo.getActNO,# = 38;//商户对应的用户编号
+          	merchantuserid:UserInfo.getActNO(),# = 38;//商户对应的用户编号
           	merchantid:'001'# = 35; //商户号,string
           }  for key,v of @state.items)
         tick = {
@@ -75,10 +75,10 @@ SelectList = React.createClass(
             ltype:"CQSSC"
             issue_no:"20160413-013",
             submit_datetime: dateFormat(new Date(), "yyyy-mm-dd HH:MM:ss"),
-            user_id:UserInfo.getActNO,
+            user_id:""+UserInfo.getActNO(),
             channel:"pcweb",#= 35;//投注渠道
             merchantid:"001",# = 36;//所属商户
-            merchantuserid:UserInfo.getActNO,# = 38;//商户对应的用户编号
+            merchantuserid:UserInfo.getActNO(),# = 38;//商户对应的用户编号
             tick_amounts:countAndMoney[1]# = 39;//投注总金额
             tick_bet_counts:countAndMoney[0]# = 40;//总注数
             region:'CN'#=41;//区域
@@ -86,7 +86,7 @@ SelectList = React.createClass(
             cost_fund1:costfund1,#//从用户子账户1扣除的金额
             cost_fund2:costfund2,#//从用户子账户2扣除的金额
             is_auto:false,
-            vldcode: md5(UserInfo.getActNO+"_"+dfstr+"_"+countAndMoney[1]+"_"+countAndMoney[0])
+            vldcode: md5(UserInfo.getActNO()+"_"+dfstr+"_"+countAndMoney[1]+"_"+countAndMoney[0])
          }
         console.log("tick=="+tick)
         return tick;

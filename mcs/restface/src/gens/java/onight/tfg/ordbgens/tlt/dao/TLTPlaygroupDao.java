@@ -204,7 +204,7 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_PLAYGROUP() values");
+			sb.append("INSERT INTO TLT_PLAYGROUP(ID,LTYPE,PLAY_TYPE,CN_NAME,EN_NAME,LOCK_TABLE,AWARD_LEVEL,COST,ENABLE,REMARK,REBATE,DELO_REBATE,VIEWGROUP) values");
 			int i=0;
 			for (TLTPlaygroup record : records) {
 				if(i>0){

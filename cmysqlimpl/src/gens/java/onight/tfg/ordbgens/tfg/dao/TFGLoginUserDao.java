@@ -216,7 +216,7 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFG_LOGIN_USER() values");
+			sb.append("INSERT INTO TFG_LOGIN_USER(USER_ID,LOGIN_ID,NICKNAME,EMAIL,MOBILE,THIRD_LOGINID1,THIRD_LOGINID2,REG_TYPE,STATUS,PASSWORD,TRADE_PASSWORD,UPDATE_TIME,CREATE_TIME,LAST_LOGIN_TIME,LAST_LOGIN_IP,LAST_LOGIN_TERMINAL,LAST_LOGIN_SYSINFO) values");
 			int i=0;
 			for (TFGLoginUser record : records) {
 				if(i>0){

@@ -186,7 +186,7 @@ public class TFCOrderDao extends ExtendDaoSupper<TFCOrder, TFCOrderExample, TFCO
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_ORDER() values");
+			sb.append("INSERT INTO TFC_ORDER(ORDER_ID,USER_ID,ORDER_STATUS,ITEM_ID,COIN_NUM,STORAGE_TIME,HANDLE_TIME) values");
 			int i=0;
 			for (TFCOrder record : records) {
 				if(i>0){

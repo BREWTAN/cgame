@@ -183,7 +183,7 @@ public class TLTPlayvgroupDao extends ExtendDaoSupper<TLTPlayvgroup, TLTPlayvgro
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_PLAYVGROUP() values");
+			sb.append("INSERT INTO TLT_PLAYVGROUP(ID,LTYPE,PLAY_TYPE,CN_NAME,EN_NAME,DEFAULT_PG) values");
 			int i=0;
 			for (TLTPlayvgroup record : records) {
 				if(i>0){

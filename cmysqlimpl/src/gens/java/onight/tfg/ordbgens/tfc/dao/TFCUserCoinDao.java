@@ -189,7 +189,7 @@ public class TFCUserCoinDao extends ExtendDaoSupper<TFCUserCoin, TFCUserCoinExam
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_USER_COIN() values");
+			sb.append("INSERT INTO TFC_USER_COIN(COIN_ROWID,COIN_TYPE_ID,USER_ID,START_TIME,EXPIRE_TIME,COIN_NUM,LOCK_COUNT,SHOW_CHILD) values");
 			int i=0;
 			for (TFCUserCoin record : records) {
 				if(i>0){

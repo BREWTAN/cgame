@@ -234,7 +234,7 @@ public class TLTIssueHisDao extends ExtendDaoSupper<TLTIssueHis, TLTIssueHisExam
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_ISSUE_HIS() values");
+			sb.append("INSERT INTO TLT_ISSUE_HIS(ISSUE_ID,LTYPE,ISSUE_NO,LOTTERY_NO,ISSUE_DATE,PRE_STIME,PRE_ETIME,SALE_STIME,SALE_ETIME,REAL_STIME,REAL_ETIME,CANCEL_LTIME,CLOSESHARE_DATE,REBATE_STATUS,WIN_STATUS,SEND_STATUS,AUTOBET_STATUS,LOCK_STATUS,CREATE_TIME,MODIFY_TIME,ISSUE_STATUS,STATUS,BACKUP_TIME) values");
 			int i=0;
 			for (TLTIssueHis record : records) {
 				if(i>0){

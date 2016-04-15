@@ -192,7 +192,7 @@ public class TLTUserBankDao extends ExtendDaoSupper<TLTUserBank, TLTUserBankExam
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_USER_BANK() values");
+			sb.append("INSERT INTO TLT_USER_BANK(ID,USER_ID,BANK_CODE,BANK_NAME,USERNAME,ACCOUNT,MOBILE,PASSWORD,ENABLE) values");
 			int i=0;
 			for (TLTUserBank record : records) {
 				if(i>0){

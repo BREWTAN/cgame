@@ -183,7 +183,7 @@ public class TFCCoinTypeDao extends ExtendDaoSupper<TFCCoinType, TFCCoinTypeExam
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_COIN_TYPE() values");
+			sb.append("INSERT INTO TFC_COIN_TYPE(COIN_TYPE_ID,COIN_NAME,COIN_SCRIPT,HAVE_CHILD,CAN_SPLIT,USE_LEVEL) values");
 			int i=0;
 			for (TFCCoinType record : records) {
 				if(i>0){

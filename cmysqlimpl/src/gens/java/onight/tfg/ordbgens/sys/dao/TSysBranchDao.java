@@ -201,7 +201,7 @@ public class TSysBranchDao extends ExtendDaoSupper<TSysBranch, TSysBranchExample
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_SYS_BRANCH() values");
+			sb.append("INSERT INTO T_SYS_BRANCH(ID,BRANCH_ID,BRANCH_DESC,BRANCH_NAME,BRANCH_MANAGER,MOBILE,BEGIN_TIME,END_TIME,PARENT_ID,LEAF_FLAG,BRANCH_SEQ,LEVEL) values");
 			int i=0;
 			for (TSysBranch record : records) {
 				if(i>0){

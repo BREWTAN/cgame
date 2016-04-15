@@ -198,7 +198,7 @@ public class TActInterestDao extends ExtendDaoSupper<TActInterest, TActInterestE
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_ACT_INTEREST() values");
+			sb.append("INSERT INTO T_ACT_INTEREST(INST_LOGID,INTEREST_DATE,FUND_NO,ACT_NO,INTEREST_TYPE,INTEREST_AMOUNT,GMT_CREATE,GMT_MODIFY,TRADE_DATE,RATE_VALUE,UNIT_NO) values");
 			int i=0;
 			for (TActInterest record : records) {
 				if(i>0){

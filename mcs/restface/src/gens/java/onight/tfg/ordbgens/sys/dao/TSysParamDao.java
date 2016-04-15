@@ -189,7 +189,7 @@ public class TSysParamDao extends ExtendDaoSupper<TSysParam, TSysParamExample, T
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_SYS_PARAM() values");
+			sb.append("INSERT INTO T_SYS_PARAM(PARAM_ID,PARAM_TYPE,PARAM_VALUE,DSC,CRT_TIME,FIELD1,FIELD2,FIELD3) values");
 			int i=0;
 			for (TSysParam record : records) {
 				if(i>0){

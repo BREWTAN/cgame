@@ -47,7 +47,7 @@ trait Calc {
       i3 <- bcarr(3)
       i4 <- bcarr(4)
     } yield (i0 + i1 + i2 + i3 + i4, 0)
-    //        println("r=" + r)
+//    println("r=" + r+",winno="+winno)
     r.filter { x => x._1.equals(winno) }
   }
 
@@ -74,10 +74,10 @@ trait Calc {
   }
 
   def calc_中三码复式(bc: String, winno: String): List[(String, Int)] = {
-    calc_直选复式(bc, winno.substring(1, 4) + "-" * 2).map(x => ("-" * 1 + x._1.substring(0, 3) + "-" * 1, x._2));
+    calc_直选复式(bc, winno.substring(1, 4) + "-"*2).map(x => ("-" * 1 + x._1.substring(0, 3) + "-" * 1, x._2));
   }
   def calc_后三码复式(bc: String, winno: String): List[(String, Int)] = {
-    calc_直选复式(bc, winno.substring(2, 5) + "-" * 2).map(x => ("-" * 2 + x._1.substring(0, 3), x._2));
+    calc_直选复式(bc, winno.substring(2, 5)+"-"*2).map(x => ("-" * 2 + x._1.substring(0, 3), x._2));
   }
 
   def calc_二码前二直选复式(bc: String, winno: String): List[(String, Int)] = {
@@ -429,7 +429,7 @@ object BetsCalc extends Calc {
 
   def main(args: Array[String]): Unit = {
     val buff = ListBuffer[String]();
-    implicit val winno = "01234"
+    //    implicit val winno = "01234"
     //    P(BetsCalc.calc_直选复式("0|1,1,2,3,4"))
     //        P(BetsCalc.calc_组合("0|1,1,2,3,4"))
     //            P(BetsCalc.calc_五星组选120("0|1|2|3|4|6"))
@@ -448,7 +448,7 @@ object BetsCalc extends Calc {
 
     //    P(BetsCalc.calc_前三码复式("0|1,2,3,","02345")) //
     //    P(BetsCalc.calc_中三码复式("0|1,2,3,","40234")) //
-    //    P(BetsCalc.calc_后三码复式("0|1,2,3,","63023")) //
+    P(BetsCalc.calc_后三码复式("6,6,6,,", "01666")) //
     //    P(BetsCalc.calc_前三码直选和值("9|18","63023")) //
     //    P(BetsCalc.calc_中三码直选和值("9|18|5","63023")) //
     //    P(BetsCalc.calc_后三码直选和值("9|18|5","63023")) //
@@ -484,23 +484,23 @@ object BetsCalc extends Calc {
 
     //    P(BetsCalc.calc_定位胆("9|1,2,3,4,5","12345")) //
 
-    P(BetsCalc.calc_不定胆前一码不定胆("0|1|2|3|4", "12345"))
-    P(BetsCalc.calc_不定胆后一码不定胆("0|1|2|3|4", "12345"))
-    P(BetsCalc.calc_不定胆前二码不定胆("0|1|2|3|4", "12345"))
-    P(BetsCalc.calc_不定胆后二码不定胆("0|1|2|3|4", "12345"))
-
-    P(BetsCalc.calc_大小单双前大小单双("单,小", "12345"))
-    P(BetsCalc.calc_大小单双前大小单双("小,双", "12345"))
-    P(BetsCalc.calc_大小单双前大小单双("小,大", "12345"))
-
-    P(BetsCalc.calc_大小单双后大小单双("单,小", "12349"))
-    P(BetsCalc.calc_大小单双后大小单双("小,双", "12395"))
-    P(BetsCalc.calc_大小单双后大小单双("小,大", "12325"))
-
-    P(BetsCalc.calc_一帆风顺("8", "18888"))
-    P(BetsCalc.calc_好事成双("8", "18888"))
-    P(BetsCalc.calc_三星报喜("8", "18188"))
-    P(BetsCalc.calc_四季发财("8", "88818"))
+    //    P(BetsCalc.calc_不定胆前一码不定胆("0|1|2|3|4", "12345"))
+    //    P(BetsCalc.calc_不定胆后一码不定胆("0|1|2|3|4", "12345"))
+    //    P(BetsCalc.calc_不定胆前二码不定胆("0|1|2|3|4", "12345"))
+    //    P(BetsCalc.calc_不定胆后二码不定胆("0|1|2|3|4", "12345"))
+    //
+    //    P(BetsCalc.calc_大小单双前大小单双("单,小", "12345"))
+    //    P(BetsCalc.calc_大小单双前大小单双("小,双", "12345"))
+    //    P(BetsCalc.calc_大小单双前大小单双("小,大", "12345"))
+    //
+    //    P(BetsCalc.calc_大小单双后大小单双("单,小", "12349"))
+    //    P(BetsCalc.calc_大小单双后大小单双("小,双", "12395"))
+    //    P(BetsCalc.calc_大小单双后大小单双("小,大", "12325"))
+    //
+    //    P(BetsCalc.calc_一帆风顺("8", "18888"))
+    //    P(BetsCalc.calc_好事成双("8", "18888"))
+    //    P(BetsCalc.calc_三星报喜("8", "18188"))
+    //    P(BetsCalc.calc_四季发财("8", "88818"))
 
     //    println("==================")
     //    P(SC_fushi.calc("1|2,2,3,4,5"))

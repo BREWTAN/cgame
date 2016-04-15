@@ -12,6 +12,9 @@ import onight.tfg.ordbgens.tlt.entity.TLTIssueSteps
 import onight.tfg.ordbgens.tlt.entity.TLTIssue
 import onight.tfg.ordbgens.sys.entity.TSysParam
 import org.apache.commons.lang3.StringUtils
+import onight.tfg.ordbgens.tlt.entity.TLTCoreWin
+import onight.tfg.ordbgens.tlt.entity.TLTCoreRewardExample
+import onight.tfg.ordbgens.tlt.entity.TLTCoreReward
 
 @NActorProvider
 object Mysqls extends SessionModules[Message] {
@@ -20,6 +23,15 @@ object Mysqls extends SessionModules[Message] {
   @BeanProperty
   var corebetDAO: OJpaDAO[TLTCoreBet] = null
 
+  @StoreDAO(domain = classOf[TLTCoreWin], target = "cmysql")
+  @BeanProperty
+  var corewinDAO: OJpaDAO[TLTCoreWin] = null
+
+  @StoreDAO(domain = classOf[TLTCoreReward], target = "cmysql")
+  @BeanProperty
+  var corerewardDAO: OJpaDAO[TLTCoreReward] = null
+
+  
   @StoreDAO(domain = classOf[TLTIssueFlows], target = "cmysql")
   @BeanProperty
   var issueflowDAO: OJpaDAO[TLTIssueFlows] = null

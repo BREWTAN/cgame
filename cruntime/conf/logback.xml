@@ -16,7 +16,7 @@
             </encoder>
         </appender>
 
-	<root level="info">
+	<root level="debug	">
 		<!-- <appender-ref ref="STDOUT" FILE /> -->
 		 <appender-ref ref="STDOUT" />
 	</root>
@@ -33,6 +33,9 @@
 
 	<logger name="onight.osgi.otransio" level="error">
 	</logger>
+	<logger name="onight.tfg.ordbgens.tlt.mapper.TLTIssueMapper" level="info" />
+	<logger name="onight.tfg.ordbgens.tlt.mapper.TLTIssueFlowsMapper" level="info" />
+	
 	<logger name = "org.mybatis.spring.SqlSessionUtils" level = "info"/>
 
 	<logger name="com.github.mauricio.async,io.netty" level="info"/>

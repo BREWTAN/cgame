@@ -222,7 +222,7 @@ public class TLTLimitedFeatureDao extends ExtendDaoSupper<TLTLimitedFeature, TLT
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_LIMITED_FEATURE() values");
+			sb.append("INSERT INTO TLT_LIMITED_FEATURE(CASKEY,ISSUE_NO,PLAY_TYPE,WAGERDATA,CREATEDATE,REGION,LTYPE,BONUS_LIMIT,BETS_BOARDS_LIMIT,BETS_AMOUNT_LIMIT,MERCHATID,USER_ID,LIMIT_TYPE,START_DATE,EXTRAFIELD1,EXTRAFIELD2,EXTRAFIELD3,EXTRAFIELD4,EXTRAFIELD5) values");
 			int i=0;
 			for (TLTLimitedFeature record : records) {
 				if(i>0){

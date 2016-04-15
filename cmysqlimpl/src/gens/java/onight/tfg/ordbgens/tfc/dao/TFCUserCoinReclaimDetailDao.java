@@ -207,7 +207,7 @@ public class TFCUserCoinReclaimDetailDao extends ExtendDaoSupper<TFCUserCoinRecl
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_USER_COIN_RECLAIM_DETAIL() values");
+			sb.append("INSERT INTO TFC_USER_COIN_RECLAIM_DETAIL(ROW_ID,COIN_TYPE_ID,REC_TIME,USER_ID,RECLAIM_NUM,REQ_NUM,CHANGED_NUM,LOCK_ID,CHANNEL_ID,PRODUCT_ID,FLOW_NUMBER,USER_IP,SERVER_IP,GAME_ID) values");
 			int i=0;
 			for (TFCUserCoinReclaimDetail record : records) {
 				if(i>0){

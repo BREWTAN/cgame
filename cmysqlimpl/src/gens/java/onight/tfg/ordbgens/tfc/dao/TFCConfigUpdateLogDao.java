@@ -174,7 +174,7 @@ public class TFCConfigUpdateLogDao extends ExtendDaoSupper<TFCConfigUpdateLog, T
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_CONFIG_UPDATE_LOG() values");
+			sb.append("INSERT INTO TFC_CONFIG_UPDATE_LOG(CONFIG_TYPE,UPDATE_TIME,NOTE) values");
 			int i=0;
 			for (TFCConfigUpdateLog record : records) {
 				if(i>0){

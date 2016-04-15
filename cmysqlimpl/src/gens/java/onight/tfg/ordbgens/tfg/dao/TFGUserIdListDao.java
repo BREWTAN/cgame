@@ -171,7 +171,7 @@ public class TFGUserIdListDao extends ExtendDaoSupper<TFGUserIdList, TFGUserIdLi
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFG_USER_ID_LIST() values");
+			sb.append("INSERT INTO TFG_USER_ID_LIST(USER_ID,STATUS) values");
 			int i=0;
 			for (TFGUserIdList record : records) {
 				if(i>0){

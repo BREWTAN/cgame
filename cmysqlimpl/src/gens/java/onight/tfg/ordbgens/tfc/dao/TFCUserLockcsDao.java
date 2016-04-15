@@ -174,7 +174,7 @@ public class TFCUserLockcsDao extends ExtendDaoSupper<TFCUserLockcs, TFCUserLock
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_USER_LOCKCS() values");
+			sb.append("INSERT INTO TFC_USER_LOCKCS(USER_ID,READ_COUNT,WRITE_COUNT) values");
 			int i=0;
 			for (TFCUserLockcs record : records) {
 				if(i>0){

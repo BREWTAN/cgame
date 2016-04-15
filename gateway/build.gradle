@@ -25,6 +25,8 @@ dependencies {
 	compile 'org.apache.commons:commons-lang3:3.4'
 	compile 'org.slf4j:slf4j-api:1.7.12'
 	testCompile 'junit:junit:4.12'
+	includeInJar 'org.springframework:spring-beans:4.2.5.RELEASE'
+	
 	compile 'org.apache.felix:org.apache.felix.ipojo.annotations:1.12.1'
 	
 }
@@ -40,7 +42,7 @@ configurations {
 jar {
 	manifest{
 		//		attributes( 'Spring-Context': 'applicationContext-common.xml, applicationContext-beans.xml')
-		attributes( 'Import-Ignore':'com.googlecode.protobuf,com.google.protobuf,com.github.mauricio,io.netty.buffer,org.joda.time')
+		attributes( 'Import-Ignore':'com.googlecode.protobuf,org.springframework.beans,com.google.protobuf,com.github.mauricio,io.netty.buffer,org.joda.time')
 		attributes( 'DynamicImport-Package': '*')
 		attributes( 'Import-Lib': 'lib')
 	}

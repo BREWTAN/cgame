@@ -94,6 +94,7 @@ public class DaoExamplePlugin extends PluginAdapter {
 		classinfo.setKeycol(keyCol);
 		for ( IntrospectedColumn col:columns){
 			if(sb.length()>0)sb.append(",").append(col.getActualColumnName());
+			else sb.append(col.getActualColumnName());
 			classinfo.getColumnAndProps().add(new String[]{col.getActualColumnName(),col.getDefaultValue(),
 					"get"+StringUtils.capitalize(col.getJavaProperty()),
 					col.getJavaProperty(),
@@ -106,7 +107,7 @@ public class DaoExamplePlugin extends PluginAdapter {
 		classinfo.setColumns(sb.toString());
 		clazzinfos.add(classinfo);
 		
-//		System.out.println("gen dao::"+clazzinfos);
+		System.out.println("gen dao:columns:"+sb.toString());
 		File daoDir = MyBatis3GeneratorUtil.getDirectory(targetSource,
 				StringUtils.substringBeforeLast(daoTargetSource, "."), "dao");
 		// genFtl(classinfo, tmpSource, "Mybatis3DynamicTableDao.ftl",daoDir,

@@ -201,7 +201,7 @@ public class TLTIssueFlowsDao extends ExtendDaoSupper<TLTIssueFlows, TLTIssueFlo
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_ISSUE_FLOWS() values");
+			sb.append("INSERT INTO TLT_ISSUE_FLOWS(GEN_ID,LTYPE,GS_ECODE,GS_CHCODE,GS_DESC,TIMESEC_OFFSET,GS_ORDER,NEXT_ORDERS,WAIT_ORDERS,NODE_TYPE,AUTO_GONEXT,STATUS) values");
 			int i=0;
 			for (TLTIssueFlows record : records) {
 				if(i>0){

@@ -222,7 +222,7 @@ public class TActInfoDao extends ExtendDaoSupper<TActInfo, TActInfoExample, TAct
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_ACT_INFO() values");
+			sb.append("INSERT INTO T_ACT_INFO(ACT_NO,ACT_NAME,CUST_ID,MCHNT_ID,ACT_TYPE,MNY_SMB,CHANNEL_ID,CATALOG,ACT_YINIT_BAL,ACT_DINIT_BAL,ACT_CUR_BAL,ACT_STAT,ACT_MAXOD_AMT,ACT_CTRL_BAL,ACT_BAL_WARN_FLAG,CREATE_TIME,UPDATE_TIME,MODIFY_ID,MEMO) values");
 			int i=0;
 			for (TActInfo record : records) {
 				if(i>0){

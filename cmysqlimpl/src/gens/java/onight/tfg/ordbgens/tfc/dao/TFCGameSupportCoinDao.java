@@ -174,7 +174,7 @@ public class TFCGameSupportCoinDao extends ExtendDaoSupper<TFCGameSupportCoin, T
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_GAME_SUPPORT_COIN() values");
+			sb.append("INSERT INTO TFC_GAME_SUPPORT_COIN(ROW_ID,COIN_TYPE_ID,GAME_ID) values");
 			int i=0;
 			for (TFCGameSupportCoin record : records) {
 				if(i>0){

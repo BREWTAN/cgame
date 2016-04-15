@@ -180,7 +180,7 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_SYS_OP_LOGS() values");
+			sb.append("INSERT INTO T_SYS_OP_LOGS(ID,SKEYS,CONTENTS,LEVEL,CRT_TIME) values");
 			int i=0;
 			for (TSysOpLogs record : records) {
 				if(i>0){

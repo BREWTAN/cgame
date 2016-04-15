@@ -204,7 +204,7 @@ public class TLTIssueGenParamsDao extends ExtendDaoSupper<TLTIssueGenParams, TLT
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_ISSUE_GEN_PARAMS() values");
+			sb.append("INSERT INTO TLT_ISSUE_GEN_PARAMS(GEN_ID,LTYPE,SALE_STIME,SALE_ETIME,SALE_FI_ETIME,SALE_CYCLE,WAIT_RL_DUR,PRE_SALE_SEC,PRE_CLOSE_SALE_SEC,CANCEL_DUR,INPUT_DUR,SORT,ENABLE) values");
 			int i=0;
 			for (TLTIssueGenParams record : records) {
 				if(i>0){

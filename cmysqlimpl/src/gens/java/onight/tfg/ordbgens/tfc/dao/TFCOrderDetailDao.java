@@ -189,7 +189,7 @@ public class TFCOrderDetailDao extends ExtendDaoSupper<TFCOrderDetail, TFCOrderD
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_ORDER_DETAIL() values");
+			sb.append("INSERT INTO TFC_ORDER_DETAIL(ROW_ID,USER_ID,HANDLE_TIME,HANLDE_STATUS,NUM_BEFORE,CHANGE_NUM,NUM_AFTER,NOTE) values");
 			int i=0;
 			for (TFCOrderDetail record : records) {
 				if(i>0){

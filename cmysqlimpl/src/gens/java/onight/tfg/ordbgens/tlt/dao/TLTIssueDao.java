@@ -234,7 +234,7 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_ISSUE() values");
+			sb.append("INSERT INTO TLT_ISSUE(ISSUE_ID,LTYPE,ISSUE_NO,LOTTERY_NO,ISSUE_DATE,PRE_STIME,PRE_ETIME,SALE_STIME,SALE_ETIME,REAL_STIME,REAL_ETIME,CANCEL_LTIME,CLOSESHARE_DATE,REBATE_STATUS,WIN_STATUS,SEND_STATUS,AUTOBET_STATUS,LOCK_STATUS,CREATE_TIME,MODIFY_TIME,RETRY_TIMES,FAILED_REASON,ISSUE_STATUS) values");
 			int i=0;
 			for (TLTIssue record : records) {
 				if(i>0){

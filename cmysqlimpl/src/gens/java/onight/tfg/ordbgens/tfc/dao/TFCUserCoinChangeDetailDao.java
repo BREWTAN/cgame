@@ -204,7 +204,7 @@ public class TFCUserCoinChangeDetailDao extends ExtendDaoSupper<TFCUserCoinChang
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_USER_COIN_CHANGE_DETAIL() values");
+			sb.append("INSERT INTO TFC_USER_COIN_CHANGE_DETAIL(COIN_ROW_ID,COIN_TYPE_ID,REC_TIME,USER_ID,CHANGE_NUM,REMAIN_NUM,LOCK_ID,CHANNEL_ID,PRODUCT_ID,FLOW_NUMBER,USER_IP,SERVER_IP,GAME_ID) values");
 			int i=0;
 			for (TFCUserCoinChangeDetail record : records) {
 				if(i>0){

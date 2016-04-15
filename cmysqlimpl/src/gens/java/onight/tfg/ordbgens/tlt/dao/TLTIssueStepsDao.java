@@ -219,7 +219,7 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_ISSUE_STEPS() values");
+			sb.append("INSERT INTO TLT_ISSUE_STEPS(ISSUE_STEP_ID,LTYPE,ISSUE_NO,STEP_STATUS,CREATE_TIME,MODIFY_TIME,OPERATOR_ID,GS_ECODE,GS_CHCODE,TIMESEC_OFFSET,GS_ORDER,NEXT_ORDERS,WAIT_ORDERS,NODE_TYPE,REF_PARAM_GEN_ID,AUTO_GONEXT,RETRY_TIMES,FAILED_REASON) values");
 			int i=0;
 			for (TLTIssueSteps record : records) {
 				if(i>0){

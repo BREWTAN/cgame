@@ -57,12 +57,12 @@ object FailedStepCheckerService extends OLog with PBUtils with LService[PBIssueF
                 log.info("发现异常期号个数为：" + recs.size());
                 recs.map { _.asInstanceOf[TLTIssue] }.filter { _.getIssueStatus.equals("1") }.map { issue =>
                   dealOnSaleErrorIssue(issue)
-                  
+
                 }
                 recs.map { _.asInstanceOf[TLTIssue] }.filter { _.getIssueStatus.equals("7") }.map { issue =>
                   dealOnRedoErrorIssue(issue)
                 }
-                
+
                 return ""
               }
             })
@@ -114,7 +114,14 @@ object FailedStepCheckerService extends OLog with PBUtils with LService[PBIssueF
     ex.createCriteria().andIssueNoEqualTo(issue.getIssueNo).andLtypeEqualTo(issue.getLtype) //
       .andStepStatusEqualTo("8").andGsOrderIn(lst)
     val dbcount = Mysqls.issuestepsDAO.countByExample(ex)
-    if (dbcount == lst.length) {
+
+    val subex = new TLTIssueStepsExample()
+    subex.createCriteria().andIssueNoEqualTo(issue.getIssueNo).andLtypeEqualTo(issue.getLtype) //
+      .andStepStatusNotEqualTo("8").andGsOrderNotEqualTo("999")
+    val subdbcount = Mysqls.issuestepsDAO.countByExample(subex)
+
+    if (dbcount == lst.length && subdbcount == 0) {
+
       val up = new TLTIssue();
       val curDT = new Date();
       up.setIssueStatus("8")

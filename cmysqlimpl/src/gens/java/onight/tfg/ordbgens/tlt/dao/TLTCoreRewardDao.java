@@ -137,8 +137,8 @@ public class TLTCoreRewardDao extends ExtendDaoSupper<TLTCoreReward, TLTCoreRewa
 		TLTCoreRewardExample example = new TLTCoreRewardExample();
 		if(record!=null){
 			Criteria criteria = example.createCriteria();
-							if(record.getUuid()!=null){
-				criteria.andUuidEqualTo(record.getUuid());
+							if(record.getRewardNo()!=null){
+				criteria.andRewardNoEqualTo(record.getRewardNo());
 				}
 				if(record.getTickNo()!=null){
 				criteria.andTickNoEqualTo(record.getTickNo());
@@ -175,6 +175,12 @@ public class TLTCoreRewardDao extends ExtendDaoSupper<TLTCoreReward, TLTCoreRewa
 				}
 				if(record.getRewardAmount()!=null){
 				criteria.andRewardAmountEqualTo(record.getRewardAmount());
+				}
+				if(record.getRewardType()!=null){
+				criteria.andRewardTypeEqualTo(record.getRewardType());
+				}
+				if(record.getRewardDesc()!=null){
+				criteria.andRewardDescEqualTo(record.getRewardDesc());
 				}
 				if(record.getRewardRatio()!=null){
 				criteria.andRewardRatioEqualTo(record.getRewardRatio());
@@ -231,7 +237,7 @@ public class TLTCoreRewardDao extends ExtendDaoSupper<TLTCoreReward, TLTCoreRewa
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_CORE_REWARD() values");
+			sb.append("INSERT INTO TLT_CORE_REWARD(REWARD_NO,TICK_NO,BET_NO,MERCHANTID,USER_ID,ISSUE_NO,LTYPE,PLAY_TYPE,CREATE_DATE,MODIFY_DATE,BET_AMOUNT,BET_COUNTS,REWARD_AMOUNT,REWARD_TYPE,REWARD_DESC,REWARD_RATIO,FUND_REWARD_AMOUNT,FUND_REF_ID_REWARD,FUND_REF_ID_CANCEL,FUND_REWARD_DATE,FUND_REWARD_STATUS,FUND_CANCEL_DATE,SERIAL_NUM,STATUS) values");
 			int i=0;
 			for (TLTCoreReward record : records) {
 				if(i>0){
@@ -242,11 +248,11 @@ public class TLTCoreRewardDao extends ExtendDaoSupper<TLTCoreReward, TLTCoreRewa
 			
 				sb.append("(");
 			
-				if(record.getUuid()==null){
+				if(record.getRewardNo()==null){
 						sb.append("null");
 				}else{
 				// java type==String
-						sb.append("'"+record.getUuid()+"'");
+						sb.append("'"+record.getRewardNo()+"'");
 				}
 			
 				sb.append(",");
@@ -357,6 +363,24 @@ public class TLTCoreRewardDao extends ExtendDaoSupper<TLTCoreReward, TLTCoreRewa
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getRewardAmount()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getRewardType()==null){
+						sb.append("null");
+				}else{
+				// java type==String
+						sb.append("'"+record.getRewardType()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getRewardDesc()==null){
+						sb.append("null");
+				}else{
+				// java type==String
+						sb.append("'"+record.getRewardDesc()+"'");
 				}
 			
 				sb.append(",");

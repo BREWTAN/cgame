@@ -189,7 +189,7 @@ public class TActTransLogsDebtDao extends ExtendDaoSupper<TActTransLogsDebt, TAc
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_ACT_TRANS_LOGS_DEBT() values");
+			sb.append("INSERT INTO T_ACT_TRANS_LOGS_DEBT(LOG_UUID,FROM_FUND_NO,TO_FUND_NO,FLAG_CANCEL,RELATED_TRANS_ID,STATUS,CREATE_TIME,UPDATE_TIME) values");
 			int i=0;
 			for (TActTransLogsDebt record : records) {
 				if(i>0){

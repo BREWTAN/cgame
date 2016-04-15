@@ -228,7 +228,7 @@ public class TLTLtypeDao extends ExtendDaoSupper<TLTLtype, TLTLtypeExample, TLTL
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_LTYPE() values");
+			sb.append("INSERT INTO TLT_LTYPE(LTYPE,GROUP_TYPE,CN_NAME,EN_NAME,CODE_LIST,CODE_LEN,SORT,ENABLE,REMARK,DELAY_TIME,CATCH_CODE_COUNT,CATCH_CODE_INTERVAL,MIN_LEFT,MIN_SPREAD,ISSUE_NO_FMT,CLEAR_YMD,LOTTERY_CYCLE,CLOSE_STIME,CLOSE_ETIME,REBATE,DELO_REBATE) values");
 			int i=0;
 			for (TLTLtype record : records) {
 				if(i>0){

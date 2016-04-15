@@ -195,7 +195,7 @@ public class TFCUserLockDao extends ExtendDaoSupper<TFCUserLock, TFCUserLockExam
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_USER_LOCK() values");
+			sb.append("INSERT INTO TFC_USER_LOCK(ROW_ID,LOCK_ID,USER_ID,COIN_ROW_ID,GAME_ID,SERVER_IP,SERVER_NAME,COIN_TYPE_ID,LOCK_NUM,REC_DATE) values");
 			int i=0;
 			for (TFCUserLock record : records) {
 				if(i>0){

@@ -177,7 +177,7 @@ public class TSysRoleMenuDao extends ExtendDaoSupper<TSysRoleMenu, TSysRoleMenuE
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_SYS_ROLE_MENU() values");
+			sb.append("INSERT INTO T_SYS_ROLE_MENU(ID,MENU_ID,ROLE_ID,STATUS) values");
 			int i=0;
 			for (TSysRoleMenu record : records) {
 				if(i>0){

@@ -172,11 +172,11 @@ public class TLTCoreWinCtrl extends BasicCtrl {
 				}
 				
 			
-			if(true && akey.getUuid() == null ){
+			if(true && akey.getWinNo() == null ){
 				list = new ArrayList<TLTCoreWin>();
 			}else{
 				TLTCoreWinExample example = new TLTCoreWinExample();
-				example.createCriteria().andUuidEqualTo(akey.getUuid());
+				example.createCriteria().andWinNoEqualTo(akey.getWinNo());
 				list = tLTCoreWinMapper.selectByExample(example);
 			}
 			totalCount = list.size();
@@ -208,7 +208,7 @@ public class TLTCoreWinCtrl extends BasicCtrl {
 					FieldUtils.setObjectValue(akey, keyField, key);
 				}
 				
-			if(true && akey.getUuid() != null ){
+			if(true && akey.getWinNo() != null ){
 				tLTCoreWinMapper.deleteByPrimaryKey(akey);
 				return ReturnInfo.Success;
 			}
@@ -241,7 +241,7 @@ public class TLTCoreWinCtrl extends BasicCtrl {
 					FieldUtils.setObjectValue(akey, keyField, key);
 				}
 				TLTCoreWinExample example = new TLTCoreWinExample();
-				example.createCriteria().andUuidEqualTo(akey.getUuid());
+				example.createCriteria().andWinNoEqualTo(akey.getWinNo());
 				tLTCoreWinMapper.updateByExampleSelective(info, example);
 			}
 			return ReturnInfo.Success;

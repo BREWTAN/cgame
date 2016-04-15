@@ -195,7 +195,7 @@ public class TLTLimitedNumDao extends ExtendDaoSupper<TLTLimitedNum, TLTLimitedN
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_LIMITED_NUM() values");
+			sb.append("INSERT INTO TLT_LIMITED_NUM(UUID,ISSUE_NO,LIMITED_NUM,LTYPE,PLAY_TYPE,EXTRAFIELD1,EXTRAFIELD2,EXTRAFIELD3,EXTRAFIELD4,EXTRAFIELD5) values");
 			int i=0;
 			for (TLTLimitedNum record : records) {
 				if(i>0){

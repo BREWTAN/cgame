@@ -240,7 +240,7 @@ public class TLTCoreTicketDao extends ExtendDaoSupper<TLTCoreTicket, TLTCoreTick
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_CORE_TICKET() values");
+			sb.append("INSERT INTO TLT_CORE_TICKET(TICK_NO,LTYPE,MERCHANTID,SERIAL_NUM,TICK_AMOUNTS,TICK_BET_COUNTS,ISSUE_NO,BET_DATETIME,BET_IP,PRINT_TIME,TICK_STATUS,NOTIFYSTATUS,REGION,FAILREASON,MERCHANTUSERID,USER_ID,AUTOBET_NO,IS_AUTO,AUTO_REF_TICKNO,COST_FUND0,COST_FUND1,COST_FUND2,COST_FUND3,FUND_REF_ID,ISSUE_LOCK) values");
 			int i=0;
 			for (TLTCoreTicket record : records) {
 				if(i>0){

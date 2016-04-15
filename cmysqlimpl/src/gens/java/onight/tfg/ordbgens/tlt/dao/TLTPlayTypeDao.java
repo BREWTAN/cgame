@@ -225,7 +225,7 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_PLAY_TYPE() values");
+			sb.append("INSERT INTO TLT_PLAY_TYPE(PLAY_TYPE,LTYPE,GROUP_TYPE,LPG_ID,CN_NAME,EN_NAME,LOCK_FUNC,LOCK_TABLE,LOCK_STATUS,MODE_YJFL,ISANDVALUE,MAX_BUY_CODENUM,WIN_FUNC,WIN_BEGINPOS,WIN_CODENUM,WIN_DISCONTINUOUSPOS,WIN_CHECKFUNC,WIN_PAYBONUSFUNC,ENABLE,REMARK) values");
 			int i=0;
 			for (TLTPlayType record : records) {
 				if(i>0){

@@ -210,7 +210,7 @@ public class TSysUserDao extends ExtendDaoSupper<TSysUser, TSysUserExample, TSys
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_SYS_USER() values");
+			sb.append("INSERT INTO T_SYS_USER(USER_ID,BRANCH_ID,LOGIN_NAME,USER_NAME,MOBILE,USER_WORKADDRESS,STATUS,PASSWORD,UPDATE_TIME,CREATE_TIME,CREATED_BY,MODIFIED_BY,EMAIL,DATA_ENVIRON,ICON) values");
 			int i=0;
 			for (TSysUser record : records) {
 				if(i>0){

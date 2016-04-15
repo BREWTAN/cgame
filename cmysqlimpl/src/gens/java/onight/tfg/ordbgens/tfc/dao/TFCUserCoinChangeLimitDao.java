@@ -183,7 +183,7 @@ public class TFCUserCoinChangeLimitDao extends ExtendDaoSupper<TFCUserCoinChange
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_USER_COIN_CHANGE_LIMIT() values");
+			sb.append("INSERT INTO TFC_USER_COIN_CHANGE_LIMIT(COIN_ROW_ID,IN_NUM,OUT_NUM,CHANGE_NUM,LASTUPDATETIME,RESETTIME) values");
 			int i=0;
 			for (TFCUserCoinChangeLimit record : records) {
 				if(i>0){

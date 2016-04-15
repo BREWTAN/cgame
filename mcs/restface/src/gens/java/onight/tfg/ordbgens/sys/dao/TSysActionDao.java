@@ -183,7 +183,7 @@ public class TSysActionDao extends ExtendDaoSupper<TSysAction, TSysActionExample
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_SYS_ACTION() values");
+			sb.append("INSERT INTO T_SYS_ACTION(ACTION_ID,ACTION_FLAG,ACTION_NAME,ACTION_DESC,ACTION_MENU,FIELD1) values");
 			int i=0;
 			for (TSysAction record : records) {
 				if(i>0){

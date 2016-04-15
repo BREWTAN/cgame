@@ -177,7 +177,7 @@ public class TLTGroupTypeDao extends ExtendDaoSupper<TLTGroupType, TLTGroupTypeE
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_GROUP_TYPE() values");
+			sb.append("INSERT INTO TLT_GROUP_TYPE(GROUP_TYPE,CN_NAME,EN_NAME,REMARK) values");
 			int i=0;
 			for (TLTGroupType record : records) {
 				if(i>0){

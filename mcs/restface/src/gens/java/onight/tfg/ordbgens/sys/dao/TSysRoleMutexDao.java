@@ -177,7 +177,7 @@ public class TSysRoleMutexDao extends ExtendDaoSupper<TSysRoleMutex, TSysRoleMut
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_SYS_ROLE_MUTEX() values");
+			sb.append("INSERT INTO T_SYS_ROLE_MUTEX(ROLE_MUTEX_ID,ROLE_ID_A,ROLE_ID_B,STATUS) values");
 			int i=0;
 			for (TSysRoleMutex record : records) {
 				if(i>0){

@@ -195,7 +195,7 @@ public class TSysBusinessDao extends ExtendDaoSupper<TSysBusiness, TSysBusinessE
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_SYS_BUSINESS() values");
+			sb.append("INSERT INTO T_SYS_BUSINESS(BUSINESS_ID,BUSINESS_NAME,BUSINESS_DESC,BUSINESS_MANAGER,BUSINESS_MOBILE,BUSINESS_SEQ,BEGIN_TIME,END_TIME,STATUS,BUSINESS_DATA_PERMISSION) values");
 			int i=0;
 			for (TSysBusiness record : records) {
 				if(i>0){

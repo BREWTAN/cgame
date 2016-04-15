@@ -192,7 +192,7 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_BONUSGROUP() values");
+			sb.append("INSERT INTO TLT_BONUSGROUP(ID,LTYPE,PLAY_TYPE,CN_NAME,EN_NAME,STATUS,CREATE_TIME,UPDATE_TIME,USER_ID) values");
 			int i=0;
 			for (TLTBonusgroup record : records) {
 				if(i>0){

@@ -225,7 +225,7 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_ACT_FUND() values");
+			sb.append("INSERT INTO T_ACT_FUND(FUND_NO,ACT_NO,CUST_ID,MCHNT_ID,ACT_TYPE,MNY_SMB,CATALOG,CHANNEL_ID,CUR_BAL,FREEZE_TOTAL,INCOME_TOTAL,PAYOUT_TOTAL,FOTBID_AMOUNT,FOTBID_FLAG,ACT_STAT,ACT_BAL_WARN_FLAG,UPDATE_ACT_LOG_ID,CREATE_TIME,UPDATE_TIME,MODIFY_ID) values");
 			int i=0;
 			for (TActFund record : records) {
 				if(i>0){

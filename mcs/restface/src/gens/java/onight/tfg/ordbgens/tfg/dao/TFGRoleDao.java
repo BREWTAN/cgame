@@ -180,7 +180,7 @@ public class TFGRoleDao extends ExtendDaoSupper<TFGRole, TFGRoleExample, TFGRole
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFG_ROLE() values");
+			sb.append("INSERT INTO TFG_ROLE(ROLE_ID,PARENT_ROLE_ID,ROLE_NAME,ROLE_DESC,STATUS) values");
 			int i=0;
 			for (TFGRole record : records) {
 				if(i>0){

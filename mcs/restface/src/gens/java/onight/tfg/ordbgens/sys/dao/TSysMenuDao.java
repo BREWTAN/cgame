@@ -192,7 +192,7 @@ public class TSysMenuDao extends ExtendDaoSupper<TSysMenu, TSysMenuExample, TSys
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_SYS_MENU() values");
+			sb.append("INSERT INTO T_SYS_MENU(MENU_ID,MENU_NAME,MENU_DESC,MENU_SEQ,MENU_URL,PARENT_ID,LEAF_FLAG,LEVEL,ICON) values");
 			int i=0;
 			for (TSysMenu record : records) {
 				if(i>0){

@@ -234,7 +234,7 @@ public class TActTransLogsDao extends ExtendDaoSupper<TActTransLogs, TActTransLo
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_ACT_TRANS_LOGS() values");
+			sb.append("INSERT INTO T_ACT_TRANS_LOGS(LOG_UUID,SETT_DATE,CONS_DATE,TX_SNO,TRANS_CODE,SUB_TRANS_CODE,BIZ_TYPE,BIZ_DTL_TYPE,FROM_FUND_NO,TO_FUND_NO,DC_TYPE,AMT,CNT,FLAG_CANCEL,RELATED_TRANS_ID,STATUS,ACT_BAL_AFTER,ACT_BAL_BEFORE,EXT_ID1,EXT_ID2,EXT_COMMETS,CREATE_TIME,UPDATE_TIME) values");
 			int i=0;
 			for (TActTransLogs record : records) {
 				if(i>0){

@@ -180,7 +180,7 @@ public class TFGGroupDao extends ExtendDaoSupper<TFGGroup, TFGGroupExample, TFGG
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFG_GROUP() values");
+			sb.append("INSERT INTO TFG_GROUP(GROUP_ID,PARENT_GROUP_ID,GROUP_NAME,GROUP_DESC,STATUS) values");
 			int i=0;
 			for (TFGGroup record : records) {
 				if(i>0){

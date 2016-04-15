@@ -177,7 +177,7 @@ public class TFGUserRoleDao extends ExtendDaoSupper<TFGUserRole, TFGUserRoleExam
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFG_USER_ROLE() values");
+			sb.append("INSERT INTO TFG_USER_ROLE(USER_ROLE_ID,USER_ID,ROLE_ID,STATUS) values");
 			int i=0;
 			for (TFGUserRole record : records) {
 				if(i>0){

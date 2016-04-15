@@ -83,9 +83,9 @@ SelectList = React.createClass({
           bet_multi: v[5],
           bonus_money_mode: v[6],
           bonus_rate_mode: v[7],
-          vldcode: md5(key + ":" + dfstr + "_" + UserInfo.getActNO),
+          vldcode: md5(key + ":" + dfstr + "_" + UserInfo.getActNO()),
           lname: v[0],
-          merchantuserid: UserInfo.getActNO,
+          merchantuserid: UserInfo.getActNO(),
           merchantid: '001'
         });
       }
@@ -96,10 +96,10 @@ SelectList = React.createClass({
       ltype: "CQSSC",
       issue_no: "20160413-013",
       submit_datetime: dateFormat(new Date(), "yyyy-mm-dd HH:MM:ss"),
-      user_id: UserInfo.getActNO,
+      user_id: "" + UserInfo.getActNO(),
       channel: "pcweb",
       merchantid: "001",
-      merchantuserid: UserInfo.getActNO,
+      merchantuserid: UserInfo.getActNO(),
       tick_amounts: countAndMoney[1],
       tick_bet_counts: countAndMoney[0],
       region: 'CN',
@@ -107,7 +107,7 @@ SelectList = React.createClass({
       cost_fund1: costfund1,
       cost_fund2: costfund2,
       is_auto: false,
-      vldcode: md5(UserInfo.getActNO + "_" + dfstr + "_" + countAndMoney[1] + "_" + countAndMoney[0])
+      vldcode: md5(UserInfo.getActNO() + "_" + dfstr + "_" + countAndMoney[1] + "_" + countAndMoney[0])
     };
     console.log("tick==" + tick);
     return tick;

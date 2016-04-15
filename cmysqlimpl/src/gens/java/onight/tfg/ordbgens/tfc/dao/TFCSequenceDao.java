@@ -174,7 +174,7 @@ public class TFCSequenceDao extends ExtendDaoSupper<TFCSequence, TFCSequenceExam
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_SEQUENCE() values");
+			sb.append("INSERT INTO TFC_SEQUENCE(NAME,CURRENT_VALUE,_INCREMENT) values");
 			int i=0;
 			for (TFCSequence record : records) {
 				if(i>0){

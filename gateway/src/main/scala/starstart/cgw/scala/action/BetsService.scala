@@ -26,6 +26,7 @@ import starstart.cgw.pbgens.Cgw.PWRetTicker
 import onight.tfw.ojpa.api.TransactionExecutor
 import onight.tfg.ordbgens.tlt.entity.TLTCoreTicket
 import onight.tfw.ojpa.api.exception.JPADuplicateIDException
+import org.springframework.beans.BeanUtils
 
 @NActorProvider
 object CGWBetActor extends SessionModules[PWTicker] {
@@ -57,24 +58,25 @@ object CGWBetService extends OLog with PBUtils with LService[PWTicker] {
     val bets = pbo.getBetsList().map { bet =>
       val dbbet = pbBeanUtil.copyFromPB(bet, new TLTCoreBet)
       pbBeanUtil.copyFromPB(pbo, dbbet)
-      dbbet.setTickNo(tick.getTickNo)
+      BeanUtils.copyProperties(tick, dbbet);
       dbbet.setBetDatetime(new Date());
       dbbet.setBetOrgCounts(bet.getBetCounts)
-      dbbet.setTickNo(UUIDGenerator.generate());
-      val serialnum = MD5.getMD5(("starstart-ming:" + dbbet.getTickNo));
       dbbet.setBetIp(pack.getExtStrProp(PackHeader.PEER_IP));
-      dbbet.setSerialNum(serialnum)
-      dbbet.setBetNo("cwd_" + bet.getVldcode)
+      dbbet.setBetNo(MD5.getMD5("cwd_" + bet.getVldcode))
       dbbet.setBetStatus("1")
       dbbet.setIsAuto("0")
       dbbet.setBetDatetime(new Date());
+      val serialnum = MD5.getMD5(("starstart-ming:" + dbbet.getBetNo));
+      dbbet.setSerialNum(serialnum)
+      log.debug("batchInsert.betno=::"+dbbet.getBetNo)
       dbbet
     }
-
+    
     try {
 
       MysqlDaos.corebetDAO.doInTransaction(new TransactionExecutor {
         def doInTransaction: Object = {
+          log.debug("batchInsert::"+bets)
           MysqlDaos.corebetDAO.batchInsert(bets);
           MysqlDaos.coreticketDAO.insert(tick)
           return ""

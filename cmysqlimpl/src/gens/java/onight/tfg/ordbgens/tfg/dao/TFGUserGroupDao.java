@@ -177,7 +177,7 @@ public class TFGUserGroupDao extends ExtendDaoSupper<TFGUserGroup, TFGUserGroupE
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFG_USER_GROUP() values");
+			sb.append("INSERT INTO TFG_USER_GROUP(USER_GROUP_ID,USER_ID,GROUP_ID,STATUS) values");
 			int i=0;
 			for (TFGUserGroup record : records) {
 				if(i>0){

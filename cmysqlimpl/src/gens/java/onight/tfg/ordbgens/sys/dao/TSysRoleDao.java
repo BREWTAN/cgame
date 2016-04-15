@@ -177,7 +177,7 @@ public class TSysRoleDao extends ExtendDaoSupper<TSysRole, TSysRoleExample, TSys
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_SYS_ROLE() values");
+			sb.append("INSERT INTO T_SYS_ROLE(ROLE_ID,ROLE_NAME,ROLE_DESC,STATUS) values");
 			int i=0;
 			for (TSysRole record : records) {
 				if(i>0){

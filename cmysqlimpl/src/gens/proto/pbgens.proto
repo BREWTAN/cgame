@@ -515,7 +515,7 @@ message PBTLTCoreBet
 
 message PBTLTCoreReward
 {
-	string uuid = 1;
+	string reward_no = 1;
 	string tick_no = 2;
 	string bet_no = 3;
 	string merchantid = 4;
@@ -528,15 +528,17 @@ message PBTLTCoreReward
 	double bet_amount = 11;
 	double bet_counts = 12;
 	double reward_amount = 13;
-	double reward_ratio = 14;
-	double fund_reward_amount = 15;
-	string fund_ref_id_reward = 16;
-	string fund_ref_id_cancel = 17;
-	int64 fund_reward_date = 18;
-	string fund_reward_status = 19;
-	int64 fund_cancel_date = 20;
-	string serial_num = 21;
-	string status = 22;
+	string reward_type = 14;
+	string reward_desc = 15;
+	double reward_ratio = 16;
+	double fund_reward_amount = 17;
+	string fund_ref_id_reward = 18;
+	string fund_ref_id_cancel = 19;
+	int64 fund_reward_date = 20;
+	string fund_reward_status = 21;
+	int64 fund_cancel_date = 22;
+	string serial_num = 23;
+	string status = 24;
 }
 
 message PBTLTCoreTicket
@@ -570,7 +572,7 @@ message PBTLTCoreTicket
 
 message PBTLTCoreWin
 {
-	string uuid = 1;
+	string win_no = 1;
 	string tick_no = 2;
 	string bet_no = 3;
 	string merchantid = 4;
@@ -578,23 +580,24 @@ message PBTLTCoreWin
 	double issue_no = 6;
 	string ltype = 7;
 	string play_type = 8;
-	string division_type = 9;
-	string division_level = 10;
-	double division_num = 11;
-	double level_bonus_amount = 12;
-	string status = 13;
+	string win_type = 9;
+	string win_level = 10;
+	string win_pattern = 11;
+	double win_num = 12;
+	double level_bonus_amount = 13;
 	double award_money = 14;
 	double bonus_money = 15;
-	int32 sum_division_type = 16;
-	int64 create_date = 17;
-	int64 modify_date = 18;
-	double fund_return_amount = 19;
-	string fund_ref_id_return = 20;
-	string fund_ref_id_cancel = 21;
-	int64 fund_return_date = 22;
-	string fund_return_status = 23;
-	int64 fund_cancel_date = 24;
-	string serial_num = 25;
+	string status = 16;
+	int32 sum_division_type = 17;
+	int64 create_date = 18;
+	int64 modify_date = 19;
+	double fund_return_amount = 20;
+	string fund_ref_id_return = 21;
+	string fund_ref_id_cancel = 22;
+	int64 fund_return_date = 23;
+	string fund_return_status = 24;
+	int64 fund_cancel_date = 25;
+	string serial_num = 26;
 }
 
 message PBTLTGroupType

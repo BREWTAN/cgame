@@ -204,7 +204,7 @@ public class TFCUserLockChangeDetailDao extends ExtendDaoSupper<TFCUserLockChang
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_USER_LOCK_CHANGE_DETAIL() values");
+			sb.append("INSERT INTO TFC_USER_LOCK_CHANGE_DETAIL(ROW_ID,COIN_TYPE_ID,REC_TIME,LOCK_ID,USER_ID,CHANGE_NUM,LOCKED_NUM,CHANNEL_ID,PRODUCT_ID,FLOW_NUMBER,USER_IP,SERVER_IP,GAME_ID) values");
 			int i=0;
 			for (TFCUserLockChangeDetail record : records) {
 				if(i>0){

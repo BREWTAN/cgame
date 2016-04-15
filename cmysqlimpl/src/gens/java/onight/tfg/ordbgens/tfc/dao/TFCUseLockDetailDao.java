@@ -204,7 +204,7 @@ public class TFCUseLockDetailDao extends ExtendDaoSupper<TFCUseLockDetail, TFCUs
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_USE_LOCK_DETAIL() values");
+			sb.append("INSERT INTO TFC_USE_LOCK_DETAIL(ROW_ID,COIN_TYPE_ID,REC_TIME,ACTIONTYPE,LOCK_ID,USER_ID,SERVER_IP,GAME_ID,SERVER_NAME,LOCK_NUM,CHANGE_NUM,REMAIN_NUM,OTHER_LOCK_NUM) values");
 			int i=0;
 			for (TFCUseLockDetail record : records) {
 				if(i>0){

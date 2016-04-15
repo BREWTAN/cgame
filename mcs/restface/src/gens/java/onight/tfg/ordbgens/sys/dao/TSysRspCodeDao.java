@@ -180,7 +180,7 @@ public class TSysRspCodeDao extends ExtendDaoSupper<TSysRspCode, TSysRspCodeExam
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_SYS_RSP_CODE() values");
+			sb.append("INSERT INTO T_SYS_RSP_CODE(ID,PROD_ID,OUT_RSP_CODE,IN_RSP_CODE2,RSP_DESC) values");
 			int i=0;
 			for (TSysRspCode record : records) {
 				if(i>0){

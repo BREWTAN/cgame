@@ -172,11 +172,11 @@ public class TLTCoreRewardCtrl extends BasicCtrl {
 				}
 				
 			
-			if(true && akey.getUuid() == null ){
+			if(true && akey.getRewardNo() == null ){
 				list = new ArrayList<TLTCoreReward>();
 			}else{
 				TLTCoreRewardExample example = new TLTCoreRewardExample();
-				example.createCriteria().andUuidEqualTo(akey.getUuid());
+				example.createCriteria().andRewardNoEqualTo(akey.getRewardNo());
 				list = tLTCoreRewardMapper.selectByExample(example);
 			}
 			totalCount = list.size();
@@ -208,7 +208,7 @@ public class TLTCoreRewardCtrl extends BasicCtrl {
 					FieldUtils.setObjectValue(akey, keyField, key);
 				}
 				
-			if(true && akey.getUuid() != null ){
+			if(true && akey.getRewardNo() != null ){
 				tLTCoreRewardMapper.deleteByPrimaryKey(akey);
 				return ReturnInfo.Success;
 			}
@@ -241,7 +241,7 @@ public class TLTCoreRewardCtrl extends BasicCtrl {
 					FieldUtils.setObjectValue(akey, keyField, key);
 				}
 				TLTCoreRewardExample example = new TLTCoreRewardExample();
-				example.createCriteria().andUuidEqualTo(akey.getUuid());
+				example.createCriteria().andRewardNoEqualTo(akey.getRewardNo());
 				tLTCoreRewardMapper.updateByExampleSelective(info, example);
 			}
 			return ReturnInfo.Success;

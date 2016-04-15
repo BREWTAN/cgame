@@ -231,7 +231,7 @@ public class TLTBetAutoDao extends ExtendDaoSupper<TLTBetAuto, TLTBetAutoExample
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_BET_AUTO() values");
+			sb.append("INSERT INTO TLT_BET_AUTO(AUTOBET_NO,USER_ID,LTYPE,LNAME,PLAY_TYPE,LPG_ID,LP_ID,CREATE_TIME,START_ISSUE,ISSUE_NUM,TOTAL_TICK_AMOUNTS,TOTAL_TICK_COUNTS,COMPLETE_NUM,CANCEL_NUM,BET_DATA,COMPLETE_COINS,CANCEL_COINS,MODE,TIMES,WIN_STOP,STATUS,TICK_NO) values");
 			int i=0;
 			for (TLTBetAuto record : records) {
 				if(i>0){

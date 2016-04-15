@@ -137,8 +137,8 @@ public class TLTCoreWinDao extends ExtendDaoSupper<TLTCoreWin, TLTCoreWinExample
 		TLTCoreWinExample example = new TLTCoreWinExample();
 		if(record!=null){
 			Criteria criteria = example.createCriteria();
-							if(record.getUuid()!=null){
-				criteria.andUuidEqualTo(record.getUuid());
+							if(record.getWinNo()!=null){
+				criteria.andWinNoEqualTo(record.getWinNo());
 				}
 				if(record.getTickNo()!=null){
 				criteria.andTickNoEqualTo(record.getTickNo());
@@ -161,26 +161,29 @@ public class TLTCoreWinDao extends ExtendDaoSupper<TLTCoreWin, TLTCoreWinExample
 				if(record.getPlayType()!=null){
 				criteria.andPlayTypeEqualTo(record.getPlayType());
 				}
-				if(record.getDivisionType()!=null){
-				criteria.andDivisionTypeEqualTo(record.getDivisionType());
+				if(record.getWinType()!=null){
+				criteria.andWinTypeEqualTo(record.getWinType());
 				}
-				if(record.getDivisionLevel()!=null){
-				criteria.andDivisionLevelEqualTo(record.getDivisionLevel());
+				if(record.getWinLevel()!=null){
+				criteria.andWinLevelEqualTo(record.getWinLevel());
 				}
-				if(record.getDivisionNum()!=null){
-				criteria.andDivisionNumEqualTo(record.getDivisionNum());
+				if(record.getWinPattern()!=null){
+				criteria.andWinPatternEqualTo(record.getWinPattern());
+				}
+				if(record.getWinNum()!=null){
+				criteria.andWinNumEqualTo(record.getWinNum());
 				}
 				if(record.getLevelBonusAmount()!=null){
 				criteria.andLevelBonusAmountEqualTo(record.getLevelBonusAmount());
-				}
-				if(record.getStatus()!=null){
-				criteria.andStatusEqualTo(record.getStatus());
 				}
 				if(record.getAwardMoney()!=null){
 				criteria.andAwardMoneyEqualTo(record.getAwardMoney());
 				}
 				if(record.getBonusMoney()!=null){
 				criteria.andBonusMoneyEqualTo(record.getBonusMoney());
+				}
+				if(record.getStatus()!=null){
+				criteria.andStatusEqualTo(record.getStatus());
 				}
 				if(record.getSumDivisionType()!=null){
 				criteria.andSumDivisionTypeEqualTo(record.getSumDivisionType());
@@ -240,7 +243,7 @@ public class TLTCoreWinDao extends ExtendDaoSupper<TLTCoreWin, TLTCoreWinExample
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_CORE_WIN() values");
+			sb.append("INSERT INTO TLT_CORE_WIN(WIN_NO,TICK_NO,BET_NO,MERCHANTID,USER_ID,ISSUE_NO,LTYPE,PLAY_TYPE,WIN_TYPE,WIN_LEVEL,WIN_PATTERN,WIN_NUM,LEVEL_BONUS_AMOUNT,AWARD_MONEY,BONUS_MONEY,STATUS,SUM_DIVISION_TYPE,CREATE_DATE,MODIFY_DATE,FUND_RETURN_AMOUNT,FUND_REF_ID_RETURN,FUND_REF_ID_CANCEL,FUND_RETURN_DATE,FUND_RETURN_STATUS,FUND_CANCEL_DATE,SERIAL_NUM) values");
 			int i=0;
 			for (TLTCoreWin record : records) {
 				if(i>0){
@@ -251,11 +254,11 @@ public class TLTCoreWinDao extends ExtendDaoSupper<TLTCoreWin, TLTCoreWinExample
 			
 				sb.append("(");
 			
-				if(record.getUuid()==null){
+				if(record.getWinNo()==null){
 						sb.append("null");
 				}else{
 				// java type==String
-						sb.append("'"+record.getUuid()+"'");
+						sb.append("'"+record.getWinNo()+"'");
 				}
 			
 				sb.append(",");
@@ -323,29 +326,38 @@ public class TLTCoreWinDao extends ExtendDaoSupper<TLTCoreWin, TLTCoreWinExample
 			
 				sb.append(",");
 			
-				if(record.getDivisionType()==null){
+				if(record.getWinType()==null){
 						sb.append("'"+"1"+"'");						
 				}else{
 				// java type==String
-						sb.append("'"+record.getDivisionType()+"'");
+						sb.append("'"+record.getWinType()+"'");
 				}
 			
 				sb.append(",");
 			
-				if(record.getDivisionLevel()==null){
+				if(record.getWinLevel()==null){
 						sb.append("null");
 				}else{
 				// java type==String
-						sb.append("'"+record.getDivisionLevel()+"'");
+						sb.append("'"+record.getWinLevel()+"'");
 				}
 			
 				sb.append(",");
 			
-				if(record.getDivisionNum()==null){
+				if(record.getWinPattern()==null){
+						sb.append("null");
+				}else{
+				// java type==String
+						sb.append("'"+record.getWinPattern()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getWinNum()==null){
 						sb.append("null");
 				}else{
 				// java type==Long
-						sb.append("'"+record.getDivisionNum()+"'");
+						sb.append("'"+record.getWinNum()+"'");
 				}
 			
 				sb.append(",");
@@ -355,15 +367,6 @@ public class TLTCoreWinDao extends ExtendDaoSupper<TLTCoreWin, TLTCoreWinExample
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getLevelBonusAmount()+"'");
-				}
-			
-				sb.append(",");
-			
-				if(record.getStatus()==null){
-						sb.append("'"+"1"+"'");						
-				}else{
-				// java type==String
-						sb.append("'"+record.getStatus()+"'");
 				}
 			
 				sb.append(",");
@@ -382,6 +385,15 @@ public class TLTCoreWinDao extends ExtendDaoSupper<TLTCoreWin, TLTCoreWinExample
 				}else{
 				// java type==Long
 						sb.append("'"+record.getBonusMoney()+"'");
+				}
+			
+				sb.append(",");
+			
+				if(record.getStatus()==null){
+						sb.append("'"+"1"+"'");						
+				}else{
+				// java type==String
+						sb.append("'"+record.getStatus()+"'");
 				}
 			
 				sb.append(",");

@@ -186,7 +186,7 @@ public class TFCChannelProductDao extends ExtendDaoSupper<TFCChannelProduct, TFC
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TFC_CHANNEL_PRODUCT() values");
+			sb.append("INSERT INTO TFC_CHANNEL_PRODUCT(ROW_ID,GAME_ID,CHANNEL_ID,PRODUCT_ID,NOTE,AUTHOR,RECTIME) values");
 			int i=0;
 			for (TFCChannelProduct record : records) {
 				if(i>0){

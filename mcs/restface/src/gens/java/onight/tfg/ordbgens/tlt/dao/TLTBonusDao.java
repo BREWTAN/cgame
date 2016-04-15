@@ -198,7 +198,7 @@ public class TLTBonusDao extends ExtendDaoSupper<TLTBonus, TLTBonusExample, TLTB
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO TLT_BONUS() values");
+			sb.append("INSERT INTO TLT_BONUS(ID,BONUSGROUP_ID,LTYPE,PLAY_TYPE,LPG_ID,CN_NAME,EN_NAME,BONUS,BET_NUM,TOTAL_MARGIN,STATUS) values");
 			int i=0;
 			for (TLTBonus record : records) {
 				if(i>0){

@@ -177,7 +177,7 @@ public class TSysUserRoleDao extends ExtendDaoSupper<TSysUserRole, TSysUserRoleE
 			
 			st = conn.createStatement();
 			StringBuffer sb=new StringBuffer();
-			sb.append("INSERT INTO T_SYS_USER_ROLE() values");
+			sb.append("INSERT INTO T_SYS_USER_ROLE(USER_ROLE_ID,ROLE_ID,USER_ID,STATUS) values");
 			int i=0;
 			for (TSysUserRole record : records) {
 				if(i>0){
