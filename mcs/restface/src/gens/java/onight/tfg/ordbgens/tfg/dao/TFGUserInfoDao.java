@@ -477,7 +477,9 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				sb.append(",");
 			
 				if(record.getProvince()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getProvince()+"'");
@@ -486,7 +488,9 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				sb.append(",");
 			
 				if(record.getCity()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getCity()+"'");
@@ -495,7 +499,9 @@ public class TFGUserInfoDao extends ExtendDaoSupper<TFGUserInfo, TFGUserInfoExam
 				sb.append(",");
 			
 				if(record.getHomeAddress()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getHomeAddress()+"'");

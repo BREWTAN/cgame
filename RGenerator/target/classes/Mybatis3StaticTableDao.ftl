@@ -183,7 +183,14 @@ public class ${domainClazz}Dao extends ExtendDaoSupper<${domainClazz}, ${domainC
 			
 				if(record.${columns[2]}()==null){
 				<#if columns[1]?exists >
-						sb.append("'"+"${columns[1]}"+"'");						
+//						sb.append("'"+"${columns[1]}"+"'");
+					<#if columns[4] == "Date" >
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+					<#else>
+						sb.append("'"+"${columns[1]}"+"'");
+					</#if>
+						
 				<#else>
 						sb.append("null");
 				</#if> 

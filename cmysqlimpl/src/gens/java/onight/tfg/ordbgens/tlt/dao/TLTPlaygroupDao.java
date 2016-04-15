@@ -243,7 +243,9 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				sb.append(",");
 			
 				if(record.getCnName()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getCnName()+"'");
@@ -252,7 +254,9 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				sb.append(",");
 			
 				if(record.getEnName()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getEnName()+"'");
@@ -270,7 +274,9 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				sb.append(",");
 			
 				if(record.getAwardLevel()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getAwardLevel()+"'");
@@ -279,7 +285,9 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				sb.append(",");
 			
 				if(record.getCost()==null){
-						sb.append("'"+"0.00"+"'");						
+//						sb.append("'"+"0.00"+"'");
+						sb.append("'"+"0.00"+"'");
+						
 				}else{
 				// java type==Float
 						sb.append("'"+record.getCost()+"'");
@@ -288,7 +296,9 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				sb.append(",");
 			
 				if(record.getEnable()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getEnable()+"'");
@@ -306,7 +316,9 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				sb.append(",");
 			
 				if(record.getRebate()==null){
-						sb.append("'"+"0.0"+"'");						
+//						sb.append("'"+"0.0"+"'");
+						sb.append("'"+"0.0"+"'");
+						
 				}else{
 				// java type==Float
 						sb.append("'"+record.getRebate()+"'");
@@ -315,7 +327,9 @@ public class TLTPlaygroupDao extends ExtendDaoSupper<TLTPlaygroup, TLTPlaygroupE
 				sb.append(",");
 			
 				if(record.getDeloRebate()==null){
-						sb.append("'"+"0.0"+"'");						
+//						sb.append("'"+"0.0"+"'");
+						sb.append("'"+"0.0"+"'");
+						
 				}else{
 				// java type==Float
 						sb.append("'"+record.getDeloRebate()+"'");

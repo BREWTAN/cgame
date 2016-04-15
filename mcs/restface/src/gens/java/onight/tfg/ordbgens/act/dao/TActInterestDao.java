@@ -264,7 +264,10 @@ public class TActInterestDao extends ExtendDaoSupper<TActInterest, TActInterestE
 				sb.append(",");
 			
 				if(record.getGmtCreate()==null){
-						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
+//						sb.append("'"+"CURRENT_TIMESTAMP"+"'");
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+						
 				}else{
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -274,7 +277,10 @@ public class TActInterestDao extends ExtendDaoSupper<TActInterest, TActInterestE
 				sb.append(",");
 			
 				if(record.getGmtModify()==null){
-						sb.append("'"+"0000-00-00 00:00:00"+"'");						
+//						sb.append("'"+"0000-00-00 00:00:00"+"'");
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+						
 				}else{
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");

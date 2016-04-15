@@ -264,7 +264,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				sb.append(",");
 			
 				if(record.getIssueNo()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getIssueNo()+"'");
@@ -273,7 +275,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				sb.append(",");
 			
 				if(record.getLotteryNo()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getLotteryNo()+"'");
@@ -371,7 +375,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				sb.append(",");
 			
 				if(record.getRebateStatus()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getRebateStatus()+"'");
@@ -380,7 +386,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				sb.append(",");
 			
 				if(record.getWinStatus()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getWinStatus()+"'");
@@ -389,7 +397,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				sb.append(",");
 			
 				if(record.getSendStatus()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getSendStatus()+"'");
@@ -398,7 +408,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				sb.append(",");
 			
 				if(record.getAutobetStatus()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getAutobetStatus()+"'");
@@ -407,7 +419,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				sb.append(",");
 			
 				if(record.getLockStatus()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getLockStatus()+"'");
@@ -436,7 +450,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				sb.append(",");
 			
 				if(record.getRetryTimes()==null){
-						sb.append("'"+"10"+"'");						
+//						sb.append("'"+"10"+"'");
+						sb.append("'"+"10"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getRetryTimes()+"'");
@@ -445,7 +461,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				sb.append(",");
 			
 				if(record.getFailedReason()==null){
-						sb.append("'"+"10"+"'");						
+//						sb.append("'"+"10"+"'");
+						sb.append("'"+"10"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getFailedReason()+"'");
@@ -454,7 +472,9 @@ public class TLTIssueDao extends ExtendDaoSupper<TLTIssue, TLTIssueExample, TLTI
 				sb.append(",");
 			
 				if(record.getIssueStatus()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getIssueStatus()+"'");

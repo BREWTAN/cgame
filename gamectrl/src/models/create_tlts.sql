@@ -596,24 +596,23 @@ CREATE TABLE TLT_CORE_WIN
    BET_NO              VARCHAR(64) NOT NULL COMMENT '注号',
    MERCHANTID          VARCHAR(64) NOT NULL COMMENT '商户编号',
    USER_ID				VARCHAR(64) NOT NULL COMMENT '用户编号',
-   ISSUE_NO            DECIMAL(24,0) NOT NULL COMMENT '游戏期号',
+   ISSUE_NO             VARCHAR(64) NOT NULL COMMENT '期号',   
    LTYPE                VARCHAR(8) NOT NULL COMMENT '游戏代码',
    PLAY_TYPE             VARCHAR(64) COMMENT '投注方式（玩法）',
-   
+
    WIN_TYPE         VARCHAR(1) DEFAULT '1' COMMENT '大小奖(1:小奖;2:大奖)',
    WIN_LEVEL        VARCHAR(64) NOT NULL COMMENT '中奖奖等',
    WIN_PATTERN			VARCHAR(64)  NOT NULL COMMENT '中奖内容，方便查询',
    WIN_NUM          DECIMAL(14,0) NOT NULL COMMENT '某一票中奖中的某个特定奖等个数，比如中了5个二等奖',
-   LEVEL_BONUS_AMOUNT     DECIMAL(14,6) NOT NULL COMMENT '每个奖等金额(单位：分)',
+   LEVEL_BONUS_AMOUNT     DECIMAL(14,6) COMMENT '每个奖等金额(单位：分)',
    AWARD_MONEY     		DECIMAL(16,6) COMMENT '税后金额',
    BONUS_MONEY     		DECIMAL(16,0) COMMENT 'Bonus金额，目前为空',
 
    STATUS              VARCHAR(1) NOT NULL DEFAULT '1' COMMENT '状态(0:算奖完成，1：返奖中，2：返奖完成,3:撤单中，4:撤单完成，9：未知错误',
    
    SUM_DIVISION_TYPE      INT(2) COMMENT '总体大小奖(1:小奖;2:大奖)',
-   CREATE_DATE           DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-   MODIFY_DATE           DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
-
+   CREATE_DATE           DATETIME DEFAULT now() COMMENT '创建时间',
+   MODIFY_DATE           DATETIME DEFAULT now() COMMENT '修改时间',
    
    FUND_RETURN_AMOUNT   NUMERIC(16,6) DEFAULT 0 COMMENT '返奖金额',
    FUND_REF_ID_RETURN			VARCHAR(128) COMMENT '资金操作关联ID',
@@ -636,6 +635,10 @@ CREATE UNIQUE INDEX IDX_T_CORE_WIN_BET_NO ON TLT_CORE_WIN
    BET_NO
 );
 
+CREATE UNIQUE INDEX IDX_T_CORE_WIN_TICK_NO ON TLT_CORE_WIN
+(
+   TICK_NO
+);
 
 -- -- -返点管理-- -- -- -- -- -- -- -- -- -- -- -- -- --
 /*==============================================================*/
@@ -693,3 +696,48 @@ CREATE UNIQUE INDEX IDX_T_CORE_REWARD_BET_NO ON TLT_CORE_REWARD
 
 
 
+
+DROP TABLE IF EXISTS TLT_CORE_DEF_PRIZE;
+/*==============================================================*/
+/* Table: TLT_CORE_DEF_PRIZE                                      */
+/*==============================================================*/
+CREATE TABLE TLT_CORE_DEF_PRIZE
+(
+   UUID                 VARCHAR(64) NOT NULL COMMENT '序列号规则：LTYPE_PLAYTYPE_WIN_LEVEL',
+   CATALOG				VARCHAR(64) DEFAULT '*' COMMENT '所属归类',
+   LTYPE                VARCHAR(32) NOT NULL COMMENT '游戏编号',
+   PLAY_TYPE 			varchar(64) NOT NULL COMMENT '玩法类型',
+   WIN_LEVEL       	 	VARCHAR(64) NOT NULL COMMENT '中奖奖等',
+   REGION               VARCHAR(16) COMMENT '区域',
+   DIVISION             VARCHAR(16) COMMENT '奖等',
+   WONBOARDS            DECIMAL(16,4) COMMENT '奖等中奖注数',
+   WIN_AMOUNT       	DECIMAL(16,4) COMMENT '单注中奖金额',
+   BONUS_AMOUNT       	DECIMAL(16,4) COMMENT '单注bonus金额',
+   PRIORITY				int(4) COMMENT '优先级，用来指定用户有多个属性时',
+   INSERTTIME           datetime DEFAULT now() COMMENT '入库时间',
+
+   PRIMARY KEY (UUID)
+) ENGINE=INNODB DEFAULT CHARSET=UTF8 COMMENT='奖等信息表';
+CREATE  INDEX IDX_TLT_CORE_PRIZEINFO_LTYPE ON TLT_CORE_DEF_PRIZE
+(
+   LTYPE
+);
+
+DROP TABLE IF EXISTS TLT_CORE_USERID_PRIZE;
+/*==============================================================*/
+/* Table: TLT_CORE_USERID_PRIZE                                      */
+/*==============================================================*/
+CREATE TABLE TLT_CORE_USERID_PRIZE
+(
+   UUID                 VARCHAR(128) NOT NULL COMMENT '序列号规则：USERID_LTYPE_PLAYTYPE_WIN_LEVEL',
+   CATALOG				VARCHAR(64) DEFAULT 'ALL' COMMENT '所属归类',
+   USER_ID				VARCHAR(64) DEFAULT 'ALL' COMMENT '用户ID',
+   LTYPE                VARCHAR(32) NOT NULL COMMENT '游戏编号',
+
+   PRIMARY KEY (UUID)
+) ENGINE=INNODB DEFAULT CHARSET=UTF8 COMMENT='用户奖等关系表，先找到用户所属的归类，覆盖掉默认的prize表';
+
+CREATE  INDEX IDX_TLT_CORE_USERID_PRIZE_REF_LTYPE_USERID_CATALOG ON TLT_CORE_USERID_PRIZE
+(
+   USER_ID,CATALOG
+);

@@ -258,7 +258,9 @@ public class TLTIssueFlowsDao extends ExtendDaoSupper<TLTIssueFlows, TLTIssueFlo
 				sb.append(",");
 			
 				if(record.getTimesecOffset()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getTimesecOffset()+"'");
@@ -267,7 +269,9 @@ public class TLTIssueFlowsDao extends ExtendDaoSupper<TLTIssueFlows, TLTIssueFlo
 				sb.append(",");
 			
 				if(record.getGsOrder()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getGsOrder()+"'");
@@ -276,7 +280,9 @@ public class TLTIssueFlowsDao extends ExtendDaoSupper<TLTIssueFlows, TLTIssueFlo
 				sb.append(",");
 			
 				if(record.getNextOrders()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getNextOrders()+"'");
@@ -285,7 +291,9 @@ public class TLTIssueFlowsDao extends ExtendDaoSupper<TLTIssueFlows, TLTIssueFlo
 				sb.append(",");
 			
 				if(record.getWaitOrders()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getWaitOrders()+"'");
@@ -294,7 +302,9 @@ public class TLTIssueFlowsDao extends ExtendDaoSupper<TLTIssueFlows, TLTIssueFlo
 				sb.append(",");
 			
 				if(record.getNodeType()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getNodeType()+"'");
@@ -303,7 +313,9 @@ public class TLTIssueFlowsDao extends ExtendDaoSupper<TLTIssueFlows, TLTIssueFlo
 				sb.append(",");
 			
 				if(record.getAutoGonext()==null){
-						sb.append("'"+"1"+"'");						
+//						sb.append("'"+"1"+"'");
+						sb.append("'"+"1"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getAutoGonext()+"'");
@@ -312,7 +324,9 @@ public class TLTIssueFlowsDao extends ExtendDaoSupper<TLTIssueFlows, TLTIssueFlo
 				sb.append(",");
 			
 				if(record.getStatus()==null){
-						sb.append("'"+"1"+"'");						
+//						sb.append("'"+"1"+"'");
+						sb.append("'"+"1"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getStatus()+"'");

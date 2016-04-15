@@ -240,7 +240,9 @@ public class TLTIssueStepsHisDao extends ExtendDaoSupper<TLTIssueStepsHis, TLTIs
 				sb.append(",");
 			
 				if(record.getIssueNo()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getIssueNo()+"'");
@@ -249,7 +251,9 @@ public class TLTIssueStepsHisDao extends ExtendDaoSupper<TLTIssueStepsHis, TLTIs
 				sb.append(",");
 			
 				if(record.getStepStatus()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getStepStatus()+"'");
@@ -258,7 +262,10 @@ public class TLTIssueStepsHisDao extends ExtendDaoSupper<TLTIssueStepsHis, TLTIs
 				sb.append(",");
 			
 				if(record.getCreateTime()==null){
-						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
+//						sb.append("'"+"CURRENT_TIMESTAMP"+"'");
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+						
 				}else{
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -268,7 +275,10 @@ public class TLTIssueStepsHisDao extends ExtendDaoSupper<TLTIssueStepsHis, TLTIs
 				sb.append(",");
 			
 				if(record.getModifyTime()==null){
-						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
+//						sb.append("'"+"CURRENT_TIMESTAMP"+"'");
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+						
 				}else{
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -278,7 +288,9 @@ public class TLTIssueStepsHisDao extends ExtendDaoSupper<TLTIssueStepsHis, TLTIs
 				sb.append(",");
 			
 				if(record.getOperatorId()==null){
-						sb.append("'"+"AUTO"+"'");						
+//						sb.append("'"+"AUTO"+"'");
+						sb.append("'"+"AUTO"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getOperatorId()+"'");
@@ -305,7 +317,9 @@ public class TLTIssueStepsHisDao extends ExtendDaoSupper<TLTIssueStepsHis, TLTIs
 				sb.append(",");
 			
 				if(record.getTimesecOffset()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getTimesecOffset()+"'");
@@ -314,7 +328,9 @@ public class TLTIssueStepsHisDao extends ExtendDaoSupper<TLTIssueStepsHis, TLTIs
 				sb.append(",");
 			
 				if(record.getGsOrder()==null){
-						sb.append("'"+"999"+"'");						
+//						sb.append("'"+"999"+"'");
+						sb.append("'"+"999"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getGsOrder()+"'");
@@ -323,7 +339,9 @@ public class TLTIssueStepsHisDao extends ExtendDaoSupper<TLTIssueStepsHis, TLTIs
 				sb.append(",");
 			
 				if(record.getNextOrders()==null){
-						sb.append("'"+"999"+"'");						
+//						sb.append("'"+"999"+"'");
+						sb.append("'"+"999"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getNextOrders()+"'");
@@ -341,7 +359,9 @@ public class TLTIssueStepsHisDao extends ExtendDaoSupper<TLTIssueStepsHis, TLTIs
 				sb.append(",");
 			
 				if(record.getAutoGonext()==null){
-						sb.append("'"+"1"+"'");						
+//						sb.append("'"+"1"+"'");
+						sb.append("'"+"1"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getAutoGonext()+"'");
@@ -350,7 +370,10 @@ public class TLTIssueStepsHisDao extends ExtendDaoSupper<TLTIssueStepsHis, TLTIs
 				sb.append(",");
 			
 				if(record.getBackupTime()==null){
-						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
+//						sb.append("'"+"CURRENT_TIMESTAMP"+"'");
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+						
 				}else{
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");

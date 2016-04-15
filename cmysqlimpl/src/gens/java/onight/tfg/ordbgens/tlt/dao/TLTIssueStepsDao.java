@@ -249,7 +249,9 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				sb.append(",");
 			
 				if(record.getIssueNo()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getIssueNo()+"'");
@@ -258,7 +260,9 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				sb.append(",");
 			
 				if(record.getStepStatus()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getStepStatus()+"'");
@@ -267,7 +271,10 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				sb.append(",");
 			
 				if(record.getCreateTime()==null){
-						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
+//						sb.append("'"+"CURRENT_TIMESTAMP"+"'");
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+						
 				}else{
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -277,7 +284,10 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				sb.append(",");
 			
 				if(record.getModifyTime()==null){
-						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
+//						sb.append("'"+"CURRENT_TIMESTAMP"+"'");
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+						
 				}else{
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -287,7 +297,9 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				sb.append(",");
 			
 				if(record.getOperatorId()==null){
-						sb.append("'"+"AUTO"+"'");						
+//						sb.append("'"+"AUTO"+"'");
+						sb.append("'"+"AUTO"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getOperatorId()+"'");
@@ -314,7 +326,9 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				sb.append(",");
 			
 				if(record.getTimesecOffset()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getTimesecOffset()+"'");
@@ -323,7 +337,9 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				sb.append(",");
 			
 				if(record.getGsOrder()==null){
-						sb.append("'"+"999"+"'");						
+//						sb.append("'"+"999"+"'");
+						sb.append("'"+"999"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getGsOrder()+"'");
@@ -332,7 +348,9 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				sb.append(",");
 			
 				if(record.getNextOrders()==null){
-						sb.append("'"+"999"+"'");						
+//						sb.append("'"+"999"+"'");
+						sb.append("'"+"999"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getNextOrders()+"'");
@@ -341,7 +359,9 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				sb.append(",");
 			
 				if(record.getWaitOrders()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getWaitOrders()+"'");
@@ -350,7 +370,9 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				sb.append(",");
 			
 				if(record.getNodeType()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getNodeType()+"'");
@@ -368,7 +390,9 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				sb.append(",");
 			
 				if(record.getAutoGonext()==null){
-						sb.append("'"+"1"+"'");						
+//						sb.append("'"+"1"+"'");
+						sb.append("'"+"1"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getAutoGonext()+"'");
@@ -377,7 +401,9 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				sb.append(",");
 			
 				if(record.getRetryTimes()==null){
-						sb.append("'"+"3"+"'");						
+//						sb.append("'"+"3"+"'");
+						sb.append("'"+"3"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getRetryTimes()+"'");
@@ -386,7 +412,9 @@ public class TLTIssueStepsDao extends ExtendDaoSupper<TLTIssueSteps, TLTIssueSte
 				sb.append(",");
 			
 				if(record.getFailedReason()==null){
-						sb.append("'"+"10"+"'");						
+//						sb.append("'"+"10"+"'");
+						sb.append("'"+"10"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getFailedReason()+"'");

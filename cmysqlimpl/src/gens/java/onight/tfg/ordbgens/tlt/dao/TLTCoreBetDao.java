@@ -372,7 +372,10 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				sb.append(",");
 			
 				if(record.getBetDatetime()==null){
-						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
+//						sb.append("'"+"CURRENT_TIMESTAMP"+"'");
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+						
 				}else{
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -409,7 +412,9 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				sb.append(",");
 			
 				if(record.getBetIp()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getBetIp()+"'");
@@ -418,7 +423,9 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				sb.append(",");
 			
 				if(record.getBetMoneyUnit()==null){
-						sb.append("'"+"1"+"'");						
+//						sb.append("'"+"1"+"'");
+						sb.append("'"+"1"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getBetMoneyUnit()+"'");
@@ -464,7 +471,9 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				sb.append(",");
 			
 				if(record.getBetStatus()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getBetStatus()+"'");
@@ -527,7 +536,9 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				sb.append(",");
 			
 				if(record.getIsAuto()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getIsAuto()+"'");
@@ -545,7 +556,9 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				sb.append(",");
 			
 				if(record.getCostFund0()==null){
-						sb.append("'"+"0.000000"+"'");						
+//						sb.append("'"+"0.000000"+"'");
+						sb.append("'"+"0.000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getCostFund0()+"'");
@@ -554,7 +567,9 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				sb.append(",");
 			
 				if(record.getCostFund1()==null){
-						sb.append("'"+"0.000000"+"'");						
+//						sb.append("'"+"0.000000"+"'");
+						sb.append("'"+"0.000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getCostFund1()+"'");
@@ -563,7 +578,9 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				sb.append(",");
 			
 				if(record.getCostFund2()==null){
-						sb.append("'"+"0.000000"+"'");						
+//						sb.append("'"+"0.000000"+"'");
+						sb.append("'"+"0.000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getCostFund2()+"'");
@@ -572,7 +589,9 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				sb.append(",");
 			
 				if(record.getCostFund3()==null){
-						sb.append("'"+"0.000000"+"'");						
+//						sb.append("'"+"0.000000"+"'");
+						sb.append("'"+"0.000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getCostFund3()+"'");
@@ -590,7 +609,9 @@ public class TLTCoreBetDao extends ExtendDaoSupper<TLTCoreBet, TLTCoreBetExample
 				sb.append(",");
 			
 				if(record.getIssueLock()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getIssueLock()+"'");

@@ -231,7 +231,9 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				sb.append(",");
 			
 				if(record.getCnName()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getCnName()+"'");
@@ -240,7 +242,9 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				sb.append(",");
 			
 				if(record.getEnName()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getEnName()+"'");
@@ -249,7 +253,9 @@ public class TLTBonusgroupDao extends ExtendDaoSupper<TLTBonusgroup, TLTBonusgro
 				sb.append(",");
 			
 				if(record.getStatus()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getStatus()+"'");

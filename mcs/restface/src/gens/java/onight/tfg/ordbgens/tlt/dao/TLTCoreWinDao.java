@@ -302,7 +302,7 @@ public class TLTCoreWinDao extends ExtendDaoSupper<TLTCoreWin, TLTCoreWinExample
 				if(record.getIssueNo()==null){
 						sb.append("null");
 				}else{
-				// java type==BigDecimal
+				// java type==String
 						sb.append("'"+record.getIssueNo()+"'");
 				}
 			
@@ -327,7 +327,9 @@ public class TLTCoreWinDao extends ExtendDaoSupper<TLTCoreWin, TLTCoreWinExample
 				sb.append(",");
 			
 				if(record.getWinType()==null){
-						sb.append("'"+"1"+"'");						
+//						sb.append("'"+"1"+"'");
+						sb.append("'"+"1"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getWinType()+"'");
@@ -390,7 +392,9 @@ public class TLTCoreWinDao extends ExtendDaoSupper<TLTCoreWin, TLTCoreWinExample
 				sb.append(",");
 			
 				if(record.getStatus()==null){
-						sb.append("'"+"1"+"'");						
+//						sb.append("'"+"1"+"'");
+						sb.append("'"+"1"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getStatus()+"'");
@@ -408,7 +412,10 @@ public class TLTCoreWinDao extends ExtendDaoSupper<TLTCoreWin, TLTCoreWinExample
 				sb.append(",");
 			
 				if(record.getCreateDate()==null){
-						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
+//						sb.append("'"+"CURRENT_TIMESTAMP"+"'");
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+						
 				}else{
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -418,7 +425,10 @@ public class TLTCoreWinDao extends ExtendDaoSupper<TLTCoreWin, TLTCoreWinExample
 				sb.append(",");
 			
 				if(record.getModifyDate()==null){
-						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
+//						sb.append("'"+"CURRENT_TIMESTAMP"+"'");
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+						
 				}else{
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -428,7 +438,9 @@ public class TLTCoreWinDao extends ExtendDaoSupper<TLTCoreWin, TLTCoreWinExample
 				sb.append(",");
 			
 				if(record.getFundReturnAmount()==null){
-						sb.append("'"+"0.000000"+"'");						
+//						sb.append("'"+"0.000000"+"'");
+						sb.append("'"+"0.000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getFundReturnAmount()+"'");

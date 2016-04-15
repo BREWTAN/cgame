@@ -21,6 +21,7 @@ enum PBCommand{
 	
 	SRA = 100 ;//流程控制器
 	SRF = 101 ;//异常流程控制器
+	PZG = 102 ;//生成奖等
 };
 
 message PBIssueFlowGen
@@ -42,7 +43,9 @@ message PBIssueFlowGen
 	repeated PBIFlowStep steps = 2; //状态的节点
 	string override_exists = 3;//是否覆盖当前的
 	string 	reload_type = 4 ;//重新加载类型,1:从资源文件里面，从数据库	
-} 
+}
+
+
 message PBIssueFlowInit{
 	repeated PBIssueFlowGen  flows = 1;//
 }
@@ -167,5 +170,31 @@ message PBRetIssueFetch
 	repeated PBIssue issues = 101;//奖期列表 
 }
 
+
+message PBPrizeInit
+{
+	message PBPrizeDef{
+		string play_type = 4;//玩法
+		string win_level = 5;//奖等
+		string region = 6;//区域
+		double wonboards = 8;//奖等中奖注数
+		double win_amount = 9;//奖金金额
+		double bonus_amount = 10;//bonus金额
+		int32 priority = 11;//优先级
+	}
+	string ltype = 1  ;//游戏类型
+	string catalog = 2;//类别
+	repeated PBPrizeDef defs = 3; //prize列表
+	string override_exists = 10;//是否覆盖当前的
+	string 	reload_type = 11;//重新加载类型,1:从资源文件里面，从数据库	
+}
+
+message PBRetPrizeInit
+{
+	string retcode = 1; //返回状态码，000000，表示成功
+	string retmsg = 2;//返回消息
+	
+	int32 gen_count = 3;//一共生成的个数 
+}
 
 

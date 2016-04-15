@@ -321,6 +321,14 @@
  		<property name="mapper" ref="tLTCoreBetMapper" />
  		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
  	</bean>
+	<bean id="tLTCoreDefPrizeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTCoreDefPrizeMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tltcoredefprizeDao" class="onight.tfg.ordbgens.tlt.dao.TLTCoreDefPrizeDao" >
+ 		<property name="mapper" ref="tLTCoreDefPrizeMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
 	<bean id="tLTCoreRewardMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTCoreRewardMapper" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
@@ -335,6 +343,14 @@
 	</bean>
 	 <bean id="tltcoreticketDao" class="onight.tfg.ordbgens.tlt.dao.TLTCoreTicketDao" >
  		<property name="mapper" ref="tLTCoreTicketMapper" />
+ 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+ 	</bean>
+	<bean id="tLTCoreUseridPrizeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="onight.tfg.ordbgens.tlt.mapper.TLTCoreUseridPrizeMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	 <bean id="tltcoreuseridprizeDao" class="onight.tfg.ordbgens.tlt.dao.TLTCoreUseridPrizeDao" >
+ 		<property name="mapper" ref="tLTCoreUseridPrizeMapper" />
  		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
  	</bean>
 	<bean id="tLTCoreWinMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">

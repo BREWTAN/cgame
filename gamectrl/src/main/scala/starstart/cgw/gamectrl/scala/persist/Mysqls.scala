@@ -15,6 +15,8 @@ import org.apache.commons.lang3.StringUtils
 import onight.tfg.ordbgens.tlt.entity.TLTCoreWin
 import onight.tfg.ordbgens.tlt.entity.TLTCoreRewardExample
 import onight.tfg.ordbgens.tlt.entity.TLTCoreReward
+import onight.tfg.ordbgens.tlt.entity.TLTCoreDefPrize
+import onight.tfg.ordbgens.tlt.entity.TLTCoreUseridPrize
 
 @NActorProvider
 object Mysqls extends SessionModules[Message] {
@@ -27,15 +29,23 @@ object Mysqls extends SessionModules[Message] {
   @BeanProperty
   var corewinDAO: OJpaDAO[TLTCoreWin] = null
 
-  @StoreDAO(domain = classOf[TLTCoreReward], target = "cmysql")
+  @StoreDAO(domain = classOf[TLTCoreDefPrize], target = "cmysql")
+  @BeanProperty
+  var coredefprizeDAO: OJpaDAO[TLTCoreDefPrize] = null
+
+  @StoreDAO(domain = classOf[TLTCoreUseridPrize], target = "cmysql")
+  @BeanProperty
+  var coreuseridprizeDAO: OJpaDAO[TLTCoreUseridPrize] = null
+
+  @StoreDAO(domain = classOf[TLTCoreDefPrize], target = "cmysql")
   @BeanProperty
   var corerewardDAO: OJpaDAO[TLTCoreReward] = null
 
-  
   @StoreDAO(domain = classOf[TLTIssueFlows], target = "cmysql")
   @BeanProperty
   var issueflowDAO: OJpaDAO[TLTIssueFlows] = null
 
+  
   @StoreDAO(domain = classOf[TLTIssueSteps], target = "cmysql")
   @BeanProperty
   var issuestepsDAO: OJpaDAO[TLTIssueSteps] = null

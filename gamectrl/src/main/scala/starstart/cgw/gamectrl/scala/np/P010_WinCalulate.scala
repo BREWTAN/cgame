@@ -17,6 +17,12 @@ import onight.tfg.ordbgens.tlt.entity.TLTCoreWin
 import org.springframework.beans.BeanUtils
 import scala.collection.mutable.ListBuffer
 import onight.tfw.ojpa.api.exception.JPADuplicateIDException
+import onight.tfg.ordbgens.tlt.entity.TLTCoreDefPrize
+import onight.tfg.ordbgens.tlt.entity.TLTCoreDefPrizeExample
+import scala.collection.mutable.HashMap
+import java.math.BigDecimal
+import onight.tfg.ordbgens.tlt.entity.TLTCoreUseridPrize
+import onight.tfg.ordbgens.tlt.entity.TLTCoreUseridPrizeExample
 
 object P010_WinCalculate extends OProcessor with OLog {
 
@@ -39,6 +45,49 @@ object P010_WinCalculate extends OProcessor with OLog {
         throw e;
     }
   }
+
+  def prizemap: HashMap[String, TLTCoreDefPrize] = new HashMap[String, TLTCoreDefPrize];
+
+  def userPrizemap: HashMap[String, TLTCoreUseridPrize] = new HashMap[String, TLTCoreUseridPrize];
+
+  def loadDefaultPrizeInfo(ltype: String) = {
+    val example = new TLTCoreDefPrizeExample
+    example.createCriteria().andLtypeEqualTo(ltype);
+    Mysqls.coredefprizeDAO.selectByExample(example).map { x =>
+      val defp = x.asInstanceOf[TLTCoreDefPrize];
+      prizemap.put(defp.getCatalog + "_" + defp.getLtype + "_" + defp.getPlayType + "_" + defp.getWinLevel, defp);
+    }
+    log.info("共找到奖等表:[" + prizemap.size + "]个")
+
+  }
+  def loadUserPrizeInfo(ltype: String) = {
+    val example = new TLTCoreUseridPrizeExample
+    example.createCriteria().andLtypeEqualTo(ltype);
+    Mysqls.coreuseridprizeDAO.selectByExample(example).map { x =>
+      val defp = x.asInstanceOf[TLTCoreUseridPrize];
+      userPrizemap.put(defp.getLtype + "_" + defp.getUserId, defp);
+    }
+    log.info("共找到用户定义特殊奖等表:[" + prizemap.size + "]个")
+
+  }
+
+  def getWinAmount(win: TLTCoreWin): Double = {
+    userPrizemap.get(win.getLtype + "_" + win.getUserId) match {
+      case Some(defp) =>
+        return getCatalogWinAmount(defp.getCatalog, win)
+      case None =>
+        getCatalogWinAmount("*", win)
+    }
+  }
+  def getCatalogWinAmount(cata: String, win: TLTCoreWin): Double = {
+    prizemap.get(cata + "_" + win.getLtype + "_" + win.getPlayType + "_" + win.getWinLevel) match {
+      case Some(defp) =>
+        return defp.getWinAmount().doubleValue() * win.getWinNum
+      case None =>
+        log.warn("未找到对应的奖等：" + win);
+        0.0
+    }
+  }
   def proc(issue: TLTIssue, issueStep: TLTIssueSteps, operator: String): Int = {
     log.info("PS::" + issueStep.getGsChcode + ":" + issue.getIssueId + ",status=" + issue.getIssueStatus)
     //算奖
@@ -49,7 +98,6 @@ object P010_WinCalculate extends OProcessor with OLog {
     var wincount = 0;
     var betwincount = 0;
     do {
-
       val example = new TLTCoreBetExample
       example.createCriteria().andIssueNoEqualTo(issue.getIssueNo).andLtypeEqualTo(issue.getLtype)
       example.setOffset(offset)
@@ -75,7 +123,13 @@ object P010_WinCalculate extends OProcessor with OLog {
           corewin.setWinType("1")
           corewin.setWinNum(bet.getBetMulti.toLong)
           corewin.setSumDivisionType(bet.getBetMulti)
-          corewin.setStatus("0");
+          val winmoney = getWinAmount(corewin);
+          if (winmoney > 0) {
+            corewin.setAwardMoney(new BigDecimal(winmoney))
+            corewin.setStatus("1");
+          } else { //未找到奖金的，返奖失败
+            corewin.setStatus("0");
+          }
           buffer.+=:(corewin)
           log.debug("bet==" + bet.getBetOrgContent + ",lotterno=" + issue.getLotteryNo + ",winno=" + winno)
         }
@@ -91,8 +145,8 @@ object P010_WinCalculate extends OProcessor with OLog {
       insertOrUpdateBatch(buffer.toList)
       buffer.clear();
     }
-    log.info("算奖：" + "Ltype=" + issue.getLtype + ",期号:" + issue.getIssueNo 
-        + ",共有[" + betwincount + "]条中奖投注，产生[" + wincount + "]条中奖记录")
+    log.info("算奖：" + "Ltype=" + issue.getLtype + ",期号:" + issue.getIssueNo
+      + ",共有[" + betwincount + "]条中奖投注，产生[" + wincount + "]条中奖记录")
 
     return 1;
   }

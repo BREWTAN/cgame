@@ -366,7 +366,9 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				sb.append(",");
 			
 				if(record.getLastLoginTerminal()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getLastLoginTerminal()+"'");
@@ -375,7 +377,9 @@ public class TFGLoginUserDao extends ExtendDaoSupper<TFGLoginUser, TFGLoginUserE
 				sb.append(",");
 			
 				if(record.getLastLoginSysinfo()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getLastLoginSysinfo()+"'");

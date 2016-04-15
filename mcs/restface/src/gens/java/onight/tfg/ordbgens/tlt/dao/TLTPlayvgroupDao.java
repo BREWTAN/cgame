@@ -222,7 +222,9 @@ public class TLTPlayvgroupDao extends ExtendDaoSupper<TLTPlayvgroup, TLTPlayvgro
 				sb.append(",");
 			
 				if(record.getCnName()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getCnName()+"'");
@@ -231,7 +233,9 @@ public class TLTPlayvgroupDao extends ExtendDaoSupper<TLTPlayvgroup, TLTPlayvgro
 				sb.append(",");
 			
 				if(record.getEnName()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getEnName()+"'");

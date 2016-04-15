@@ -219,7 +219,9 @@ public class TSysOpLogsDao extends ExtendDaoSupper<TSysOpLogs, TSysOpLogsExample
 				sb.append(",");
 			
 				if(record.getLevel()==null){
-						sb.append("'"+"INFO"+"'");						
+//						sb.append("'"+"INFO"+"'");
+						sb.append("'"+"INFO"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getLevel()+"'");

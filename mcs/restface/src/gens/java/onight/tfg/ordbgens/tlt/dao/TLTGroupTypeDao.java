@@ -198,7 +198,9 @@ public class TLTGroupTypeDao extends ExtendDaoSupper<TLTGroupType, TLTGroupTypeE
 				sb.append(",");
 			
 				if(record.getCnName()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getCnName()+"'");
@@ -207,7 +209,9 @@ public class TLTGroupTypeDao extends ExtendDaoSupper<TLTGroupType, TLTGroupTypeE
 				sb.append(",");
 			
 				if(record.getEnName()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getEnName()+"'");
@@ -216,7 +220,9 @@ public class TLTGroupTypeDao extends ExtendDaoSupper<TLTGroupType, TLTGroupTypeE
 				sb.append(",");
 			
 				if(record.getRemark()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getRemark()+"'");

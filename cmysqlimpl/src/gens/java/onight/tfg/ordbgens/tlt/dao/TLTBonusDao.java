@@ -255,7 +255,9 @@ public class TLTBonusDao extends ExtendDaoSupper<TLTBonus, TLTBonusExample, TLTB
 				sb.append(",");
 			
 				if(record.getCnName()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getCnName()+"'");
@@ -264,7 +266,9 @@ public class TLTBonusDao extends ExtendDaoSupper<TLTBonus, TLTBonusExample, TLTB
 				sb.append(",");
 			
 				if(record.getEnName()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getEnName()+"'");
@@ -273,7 +277,9 @@ public class TLTBonusDao extends ExtendDaoSupper<TLTBonus, TLTBonusExample, TLTB
 				sb.append(",");
 			
 				if(record.getBonus()==null){
-						sb.append("'"+"0.0000"+"'");						
+//						sb.append("'"+"0.0000"+"'");
+						sb.append("'"+"0.0000"+"'");
+						
 				}else{
 				// java type==Float
 						sb.append("'"+record.getBonus()+"'");
@@ -282,7 +288,9 @@ public class TLTBonusDao extends ExtendDaoSupper<TLTBonus, TLTBonusExample, TLTB
 				sb.append(",");
 			
 				if(record.getBetNum()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getBetNum()+"'");
@@ -291,7 +299,9 @@ public class TLTBonusDao extends ExtendDaoSupper<TLTBonus, TLTBonusExample, TLTB
 				sb.append(",");
 			
 				if(record.getTotalMargin()==null){
-						sb.append("'"+"0.000"+"'");						
+//						sb.append("'"+"0.000"+"'");
+						sb.append("'"+"0.000"+"'");
+						
 				}else{
 				// java type==Float
 						sb.append("'"+record.getTotalMargin()+"'");
@@ -300,7 +310,9 @@ public class TLTBonusDao extends ExtendDaoSupper<TLTBonus, TLTBonusExample, TLTB
 				sb.append(",");
 			
 				if(record.getStatus()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getStatus()+"'");

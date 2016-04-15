@@ -321,7 +321,10 @@ public class TLTCoreRewardDao extends ExtendDaoSupper<TLTCoreReward, TLTCoreRewa
 				sb.append(",");
 			
 				if(record.getCreateDate()==null){
-						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
+//						sb.append("'"+"CURRENT_TIMESTAMP"+"'");
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+						
 				}else{
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -331,7 +334,10 @@ public class TLTCoreRewardDao extends ExtendDaoSupper<TLTCoreReward, TLTCoreRewa
 				sb.append(",");
 			
 				if(record.getModifyDate()==null){
-						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
+//						sb.append("'"+"CURRENT_TIMESTAMP"+"'");
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+						
 				}else{
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -341,7 +347,9 @@ public class TLTCoreRewardDao extends ExtendDaoSupper<TLTCoreReward, TLTCoreRewa
 				sb.append(",");
 			
 				if(record.getBetAmount()==null){
-						sb.append("'"+"0.000000"+"'");						
+//						sb.append("'"+"0.000000"+"'");
+						sb.append("'"+"0.000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getBetAmount()+"'");
@@ -350,7 +358,9 @@ public class TLTCoreRewardDao extends ExtendDaoSupper<TLTCoreReward, TLTCoreRewa
 				sb.append(",");
 			
 				if(record.getBetCounts()==null){
-						sb.append("'"+"0.000000"+"'");						
+//						sb.append("'"+"0.000000"+"'");
+						sb.append("'"+"0.000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getBetCounts()+"'");
@@ -359,7 +369,9 @@ public class TLTCoreRewardDao extends ExtendDaoSupper<TLTCoreReward, TLTCoreRewa
 				sb.append(",");
 			
 				if(record.getRewardAmount()==null){
-						sb.append("'"+"0.000000"+"'");						
+//						sb.append("'"+"0.000000"+"'");
+						sb.append("'"+"0.000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getRewardAmount()+"'");
@@ -386,7 +398,9 @@ public class TLTCoreRewardDao extends ExtendDaoSupper<TLTCoreReward, TLTCoreRewa
 				sb.append(",");
 			
 				if(record.getRewardRatio()==null){
-						sb.append("'"+"0.000000"+"'");						
+//						sb.append("'"+"0.000000"+"'");
+						sb.append("'"+"0.000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getRewardRatio()+"'");
@@ -395,7 +409,9 @@ public class TLTCoreRewardDao extends ExtendDaoSupper<TLTCoreReward, TLTCoreRewa
 				sb.append(",");
 			
 				if(record.getFundRewardAmount()==null){
-						sb.append("'"+"0.000000"+"'");						
+//						sb.append("'"+"0.000000"+"'");
+						sb.append("'"+"0.000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getFundRewardAmount()+"'");
@@ -460,7 +476,9 @@ public class TLTCoreRewardDao extends ExtendDaoSupper<TLTCoreReward, TLTCoreRewa
 				sb.append(",");
 			
 				if(record.getStatus()==null){
-						sb.append("'"+"1"+"'");						
+//						sb.append("'"+"1"+"'");
+						sb.append("'"+"1"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getStatus()+"'");

@@ -273,7 +273,9 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				sb.append(",");
 			
 				if(record.getActType()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getActType()+"'");
@@ -282,7 +284,9 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				sb.append(",");
 			
 				if(record.getMnySmb()==null){
-						sb.append("'"+"CNY"+"'");						
+//						sb.append("'"+"CNY"+"'");
+						sb.append("'"+"CNY"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getMnySmb()+"'");
@@ -291,7 +295,9 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				sb.append(",");
 			
 				if(record.getCatalog()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getCatalog()+"'");
@@ -309,7 +315,9 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				sb.append(",");
 			
 				if(record.getCurBal()==null){
-						sb.append("'"+"0.00000000"+"'");						
+//						sb.append("'"+"0.00000000"+"'");
+						sb.append("'"+"0.00000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getCurBal()+"'");
@@ -318,7 +326,9 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				sb.append(",");
 			
 				if(record.getFreezeTotal()==null){
-						sb.append("'"+"0.00000000"+"'");						
+//						sb.append("'"+"0.00000000"+"'");
+						sb.append("'"+"0.00000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getFreezeTotal()+"'");
@@ -327,7 +337,9 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				sb.append(",");
 			
 				if(record.getIncomeTotal()==null){
-						sb.append("'"+"0.00000000"+"'");						
+//						sb.append("'"+"0.00000000"+"'");
+						sb.append("'"+"0.00000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getIncomeTotal()+"'");
@@ -336,7 +348,9 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				sb.append(",");
 			
 				if(record.getPayoutTotal()==null){
-						sb.append("'"+"0.00000000"+"'");						
+//						sb.append("'"+"0.00000000"+"'");
+						sb.append("'"+"0.00000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getPayoutTotal()+"'");
@@ -345,7 +359,9 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				sb.append(",");
 			
 				if(record.getFotbidAmount()==null){
-						sb.append("'"+"0.00000000"+"'");						
+//						sb.append("'"+"0.00000000"+"'");
+						sb.append("'"+"0.00000000"+"'");
+						
 				}else{
 				// java type==BigDecimal
 						sb.append("'"+record.getFotbidAmount()+"'");
@@ -363,7 +379,9 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				sb.append(",");
 			
 				if(record.getActStat()==null){
-						sb.append("'"+"0.0"+"'");						
+//						sb.append("'"+"0.0"+"'");
+						sb.append("'"+"0.0"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getActStat()+"'");
@@ -390,7 +408,10 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				sb.append(",");
 			
 				if(record.getCreateTime()==null){
-						sb.append("'"+"CURRENT_TIMESTAMP"+"'");						
+//						sb.append("'"+"CURRENT_TIMESTAMP"+"'");
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+						
 				}else{
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -400,7 +421,10 @@ public class TActFundDao extends ExtendDaoSupper<TActFund, TActFundExample, TAct
 				sb.append(",");
 			
 				if(record.getUpdateTime()==null){
-						sb.append("'"+"0000-00-00 00:00:00"+"'");						
+//						sb.append("'"+"0000-00-00 00:00:00"+"'");
+					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+						sb.append("'"+sdf.format(new java.util.Date())+"'");
+						
 				}else{
 				// java type==Date
 					    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");

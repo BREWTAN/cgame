@@ -513,6 +513,22 @@ message PBTLTCoreBet
 	string issue_lock = 35;
 }
 
+message PBTLTCoreDefPrize
+{
+	string uuid = 1;
+	string catalog = 2;
+	string ltype = 3;
+	string play_type = 4;
+	string win_level = 5;
+	string region = 6;
+	string division = 7;
+	double wonboards = 8;
+	double win_amount = 9;
+	double bonus_amount = 10;
+	int32 priority = 11;
+	int64 inserttime = 12;
+}
+
 message PBTLTCoreReward
 {
 	string reward_no = 1;
@@ -570,6 +586,14 @@ message PBTLTCoreTicket
 	string issue_lock = 25;
 }
 
+message PBTLTCoreUseridPrize
+{
+	string uuid = 1;
+	string catalog = 2;
+	string user_id = 3;
+	string ltype = 4;
+}
+
 message PBTLTCoreWin
 {
 	string win_no = 1;
@@ -577,7 +601,7 @@ message PBTLTCoreWin
 	string bet_no = 3;
 	string merchantid = 4;
 	string user_id = 5;
-	double issue_no = 6;
+	string issue_no = 6;
 	string ltype = 7;
 	string play_type = 8;
 	string win_type = 9;

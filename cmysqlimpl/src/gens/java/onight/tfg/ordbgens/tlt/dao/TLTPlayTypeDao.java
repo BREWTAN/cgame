@@ -273,7 +273,9 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				sb.append(",");
 			
 				if(record.getCnName()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getCnName()+"'");
@@ -282,7 +284,9 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				sb.append(",");
 			
 				if(record.getEnName()==null){
-						sb.append("'"+""+"'");						
+//						sb.append("'"+""+"'");
+						sb.append("'"+""+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getEnName()+"'");
@@ -309,7 +313,9 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				sb.append(",");
 			
 				if(record.getLockStatus()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getLockStatus()+"'");
@@ -318,7 +324,9 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				sb.append(",");
 			
 				if(record.getModeYjfl()==null){
-						sb.append("'"+"1,2,3,4"+"'");						
+//						sb.append("'"+"1,2,3,4"+"'");
+						sb.append("'"+"1,2,3,4"+"'");
+						
 				}else{
 				// java type==String
 						sb.append("'"+record.getModeYjfl()+"'");
@@ -327,7 +335,9 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				sb.append(",");
 			
 				if(record.getIsandvalue()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getIsandvalue()+"'");
@@ -336,7 +346,9 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				sb.append(",");
 			
 				if(record.getMaxBuyCodenum()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getMaxBuyCodenum()+"'");
@@ -399,7 +411,9 @@ public class TLTPlayTypeDao extends ExtendDaoSupper<TLTPlayType, TLTPlayTypeExam
 				sb.append(",");
 			
 				if(record.getEnable()==null){
-						sb.append("'"+"0"+"'");						
+//						sb.append("'"+"0"+"'");
+						sb.append("'"+"0"+"'");
+						
 				}else{
 				// java type==Integer
 						sb.append("'"+record.getEnable()+"'");
