@@ -19,10 +19,10 @@ import scala.collection.mutable.ListBuffer
 import onight.tfw.ojpa.api.exception.JPADuplicateIDException
 import onight.tfg.ordbgens.tlt.entity.TLTCoreDefPrize
 import onight.tfg.ordbgens.tlt.entity.TLTCoreDefPrizeExample
-import scala.collection.mutable.HashMap
 import java.math.BigDecimal
 import onight.tfg.ordbgens.tlt.entity.TLTCoreUseridPrize
 import onight.tfg.ordbgens.tlt.entity.TLTCoreUseridPrizeExample
+import java.util.HashMap
 
 object P010_WinCalculate extends OProcessor with OLog {
 
@@ -53,10 +53,11 @@ object P010_WinCalculate extends OProcessor with OLog {
   def loadDefaultPrizeInfo(ltype: String) = {
     val example = new TLTCoreDefPrizeExample
     example.createCriteria().andLtypeEqualTo(ltype);
-    Mysqls.coredefprizeDAO.selectByExample(example).map { x =>
+    Mysqls.coredefprizeDAO.selectByExample(example).foreach {  x =>
       val defp = x.asInstanceOf[TLTCoreDefPrize];
       prizemap.put(defp.getCatalog + "_" + defp.getLtype + "_" + defp.getPlayType + "_" + defp.getWinLevel, defp);
     }
+    log.debug("共找到奖等表:[" + prizemap.size + "]个:"+prizemap)
     log.info("共找到奖等表:[" + prizemap.size + "]个")
 
   }
@@ -73,17 +74,17 @@ object P010_WinCalculate extends OProcessor with OLog {
 
   def getWinAmount(win: TLTCoreWin): Double = {
     userPrizemap.get(win.getLtype + "_" + win.getUserId) match {
-      case Some(defp) =>
+      case defp if defp!=null =>
         return getCatalogWinAmount(defp.getCatalog, win)
-      case None =>
+      case null =>
         getCatalogWinAmount("*", win)
     }
   }
   def getCatalogWinAmount(cata: String, win: TLTCoreWin): Double = {
     prizemap.get(cata + "_" + win.getLtype + "_" + win.getPlayType + "_" + win.getWinLevel) match {
-      case Some(defp) =>
+      case defp if defp!=null =>
         return defp.getWinAmount().doubleValue() * win.getWinNum
-      case None =>
+      case null =>
         log.warn("未找到对应的奖等：" + win);
         0.0
     }
@@ -96,6 +97,8 @@ object P010_WinCalculate extends OProcessor with OLog {
     val limit = 1000;
     val buffer = ListBuffer[TLTCoreWin]()
     var wincount = 0;
+    loadUserPrizeInfo(issue.getLtype)
+    loadDefaultPrizeInfo(issue.getLtype)
     var betwincount = 0;
     do {
       val example = new TLTCoreBetExample
@@ -104,7 +107,7 @@ object P010_WinCalculate extends OProcessor with OLog {
       example.setLimit(limit)
       val res = Mysqls.corebetDAO.selectByExample(example);
       log.debug("proc--selectCount==" + res.size())
-      res.map { v =>
+      res.foreach { v =>
         val bet = v.asInstanceOf[TLTCoreBet]
 
         val winno = BetsCalc.calc(bet.getBetOrgContent, bet.getPlayType, issue.getLotteryNo)
@@ -131,7 +134,7 @@ object P010_WinCalculate extends OProcessor with OLog {
             corewin.setStatus("0");
           }
           buffer.+=:(corewin)
-          log.debug("bet==" + bet.getBetOrgContent + ",lotterno=" + issue.getLotteryNo + ",winno=" + winno)
+          log.debug("bet==" + bet.getBetOrgContent + ",lotterno=" + issue.getLotteryNo + ",winno=" + winno+",money="+corewin.getAwardMoney)
         }
         if (buffer.size >= limit) {
           insertOrUpdateBatch(buffer.toList)
