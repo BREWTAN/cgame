@@ -46,48 +46,64 @@ object P010_WinCalculate extends OProcessor with OLog {
     }
   }
 
-  def prizemap: HashMap[String, TLTCoreDefPrize] = new HashMap[String, TLTCoreDefPrize];
+  val prizemap: HashMap[String, TLTCoreDefPrize] = new HashMap[String, TLTCoreDefPrize];
 
-  def userPrizemap: HashMap[String, TLTCoreUseridPrize] = new HashMap[String, TLTCoreUseridPrize];
+  val userPrizemap: HashMap[String, TLTCoreUseridPrize] = new HashMap[String, TLTCoreUseridPrize];
 
   def loadDefaultPrizeInfo(ltype: String) = {
     val example = new TLTCoreDefPrizeExample
     example.createCriteria().andLtypeEqualTo(ltype);
-    Mysqls.coredefprizeDAO.selectByExample(example).foreach {  x =>
+    val ret = Mysqls.coredefprizeDAO.selectByExample(example).map { x =>
       val defp = x.asInstanceOf[TLTCoreDefPrize];
+      log.debug("获取奖等信息：" + defp.getCatalog + "_" + defp.getLtype + "_" + defp.getPlayType + "_" + defp.getWinLevel + "::" + prizemap.size())
       prizemap.put(defp.getCatalog + "_" + defp.getLtype + "_" + defp.getPlayType + "_" + defp.getWinLevel, defp);
+      defp.getUuid
     }
-    log.debug("共找到奖等表:[" + prizemap.size + "]个:"+prizemap)
-    log.info("共找到奖等表:[" + prizemap.size + "]个")
+
+    log.info("共找到奖等表:[" + prizemap.size + "]个:" + ret.size)
 
   }
   def loadUserPrizeInfo(ltype: String) = {
     val example = new TLTCoreUseridPrizeExample
     example.createCriteria().andLtypeEqualTo(ltype);
-    Mysqls.coreuseridprizeDAO.selectByExample(example).map { x =>
+    val ret = Mysqls.coreuseridprizeDAO.selectByExample(example).map { x =>
       val defp = x.asInstanceOf[TLTCoreUseridPrize];
       userPrizemap.put(defp.getLtype + "_" + defp.getUserId, defp);
+      defp.getUuid
+
     }
-    log.info("共找到用户定义特殊奖等表:[" + prizemap.size + "]个")
+    log.info("共找到用户定义特殊奖等表:[" + prizemap.size + "]个:" + ret.size)
 
   }
 
-  def getWinAmount(win: TLTCoreWin): Double = {
+  def getWinAmountAndBonus(win: TLTCoreWin): (Double, Double) = {
     userPrizemap.get(win.getLtype + "_" + win.getUserId) match {
-      case defp if defp!=null =>
-        return getCatalogWinAmount(defp.getCatalog, win)
+      case defp if defp != null =>
+        return getCatalogWinAmountAndBonus(defp.getCatalog, win)
       case null =>
-        getCatalogWinAmount("*", win)
+        getCatalogWinAmountAndBonus("*", win)
     }
   }
-  def getCatalogWinAmount(cata: String, win: TLTCoreWin): Double = {
+  def getCatalogWinAmountAndBonus(cata: String, win: TLTCoreWin): (Double, Double) = {
     prizemap.get(cata + "_" + win.getLtype + "_" + win.getPlayType + "_" + win.getWinLevel) match {
-      case defp if defp!=null =>
-        return defp.getWinAmount().doubleValue() * win.getWinNum
+      case defp if defp != null =>
+        return (defp.getWinAmount().doubleValue() * win.getWinNum,
+          (defp.getBonusAmount() match {
+            case null => 0.0
+            case b if b != null => b.doubleValue()
+          }) * win.getWinNum)
       case null =>
         log.warn("未找到对应的奖等：" + win);
-        0.0
+        (0.0, 0.0)
     }
+  }
+
+  def getMoneyFromUnit(unit: Int): Double = {
+    if (unit == 2) return 0.1;
+    if (unit == 3) return 0.01;
+    if (unit == 4) return 0.001;
+    return 1.0;
+
   }
   def proc(issue: TLTIssue, issueStep: TLTIssueSteps, operator: String): Int = {
     log.info("PS::" + issueStep.getGsChcode + ":" + issue.getIssueId + ",status=" + issue.getIssueStatus)
@@ -126,15 +142,21 @@ object P010_WinCalculate extends OProcessor with OLog {
           corewin.setWinType("1")
           corewin.setWinNum(bet.getBetMulti.toLong)
           corewin.setSumDivisionType(bet.getBetMulti)
-          val winmoney = getWinAmount(corewin);
-          if (winmoney > 0) {
-            corewin.setAwardMoney(new BigDecimal(winmoney))
+          val winmoney = getWinAmountAndBonus(corewin);
+          if (winmoney._1 > 0) {
+            corewin.setAwardMoney(new BigDecimal(winmoney._1 * getMoneyFromUnit(bet.getBetMoneyUnit)))
             corewin.setStatus("1");
           } else { //未找到奖金的，返奖失败
             corewin.setStatus("0");
           }
+          if (winmoney._1 > 0.0) {
+            corewin.setBonusMoney(new BigDecimal(winmoney._2 * getMoneyFromUnit(bet.getBetMoneyUnit)));
+          } else {
+            corewin.setBonusMoney(new BigDecimal(0.0))
+          }
+
           buffer.+=:(corewin)
-          log.debug("bet==" + bet.getBetOrgContent + ",lotterno=" + issue.getLotteryNo + ",winno=" + winno+",money="+corewin.getAwardMoney)
+          log.debug("bet==" + bet.getBetOrgContent + ",lotterno=" + issue.getLotteryNo + ",winno=" + winno + ",money=" + corewin.getAwardMoney)
         }
         if (buffer.size >= limit) {
           insertOrUpdateBatch(buffer.toList)

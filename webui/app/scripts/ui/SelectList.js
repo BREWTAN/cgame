@@ -45,6 +45,19 @@ SelectList = React.createClass({
     }
     return [count, money, moneyOneMulti];
   },
+  getMoneyUnit: function(yuanbase) {
+    var yunbase;
+    if (yunbase = 0.1) {
+      return 2;
+    }
+    if (yunbase = 0.01) {
+      return 3;
+    }
+    if (yunbase = 0.001) {
+      return 4;
+    }
+    return 1;
+  },
   getWagerPBPacket: function() {
     var bets, costfund0, costfund1, costfund2, countAndMoney, dfstr, key, tick, usermoney, v;
     countAndMoney = this.getTotalWagerCountAndMoney();

@@ -385,7 +385,7 @@ public class TLTCoreWinDao extends ExtendDaoSupper<TLTCoreWin, TLTCoreWinExample
 				if(record.getBonusMoney()==null){
 						sb.append("null");
 				}else{
-				// java type==Long
+				// java type==BigDecimal
 						sb.append("'"+record.getBonusMoney()+"'");
 				}
 			

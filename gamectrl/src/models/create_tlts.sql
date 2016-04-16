@@ -606,7 +606,7 @@ CREATE TABLE TLT_CORE_WIN
    WIN_NUM          DECIMAL(14,0) NOT NULL COMMENT '某一票中奖中的某个特定奖等个数，比如中了5个二等奖',
    LEVEL_BONUS_AMOUNT     DECIMAL(14,6) COMMENT '每个奖等金额(单位：分)',
    AWARD_MONEY     		DECIMAL(16,6) COMMENT '税后金额',
-   BONUS_MONEY     		DECIMAL(16,0) COMMENT 'Bonus金额，目前为空',
+   BONUS_MONEY     		DECIMAL(16,6) COMMENT 'Bonus金额，目前为空',
 
    STATUS              VARCHAR(1) NOT NULL DEFAULT '1' COMMENT '状态(0:算奖完成，1：返奖中，2：返奖完成,3:撤单中，4:撤单完成，9：未知错误',
    

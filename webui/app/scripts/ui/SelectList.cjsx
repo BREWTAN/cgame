@@ -32,6 +32,11 @@ SelectList = React.createClass(
             money+=parseFloat(v[3])
             moneyOneMulti+= parseFloat(v[3])/parseFloat(v[5])
         return [count,money,moneyOneMulti]
+    getMoneyUnit:(yuanbase) ->#1元 2角 3分 4厘
+        if yunbase = 0.1 then return 2;
+        if yunbase = 0.01 then return 3;
+        if yunbase = 0.001 then return 4;
+        return 1;
 
     getWagerPBPacket:() ->
         countAndMoney = @getTotalWagerCountAndMoney()
