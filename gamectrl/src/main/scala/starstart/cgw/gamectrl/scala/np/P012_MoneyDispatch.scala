@@ -13,7 +13,7 @@ import onight.tfg.ordbgens.tlt.entity.TLTCoreWinExample
 import onight.tfg.ordbgens.tlt.entity.TLTIssue
 import onight.tfg.ordbgens.tlt.entity.TLTIssueSteps
 import onight.tfw.otransio.api.beans.FixHeader
-import onight.tfw.otransio.api.beans.FramePacket
+import onight.tfw.otransio.api.beans.FramePacket 
 import onight.tfw.outils.serialize.SerializerFactory
 import starstart.cgw.gamectrl.scala.persist.Mysqls
 import onight.tfw.otransio.api.IPacketSender
@@ -64,8 +64,11 @@ object P012_MoneyDispatch extends OProcessor with OLog {
         up.setStatus("2")
         Mysqls.corewinDAO.updateByPrimaryKey(up);
       }
+      def onFailed(e: Exception, v: FramePacket) {
+        log.warn("failed in send money:",e)
+      }
     }
-    Sender.ps.send(fp, cb)
+    Sender.ps.asyncSend(fp, cb)
 
     //    forwordpack.setBody(proxypack.getJsbody.getBytes)
 

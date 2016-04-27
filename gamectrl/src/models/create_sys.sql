@@ -27,19 +27,18 @@ drop table if exists T_SYS_USER_ROLE;
 /*==============================================================*/
 create table T_SYS_BRANCH
 (
-   ID					VARCHAR(32) not null,
    BRANCH_ID            VARCHAR(38) not null,
-   BRANCH_DESC          VARCHAR(200),
-   BRANCH_NAME          VARCHAR(100),
-   BRANCH_MANAGER       VARCHAR(50),
-   MOBILE               VARCHAR(20),
+   BRANCH_DESC          VARCHAR(200) COMMENT '机构描述', 
+   BRANCH_NAME          VARCHAR(100) COMMENT '机构名称',
+   BRANCH_MANAGER       VARCHAR(50) COMMENT '管理员',
+   MOBILE               VARCHAR(20) COMMENT '机构名称',
    BEGIN_TIME           datetime,
    END_TIME             datetime,
    PARENT_ID            VARCHAR(38) not null,
    LEAF_FLAG            int not null COMMENT '1是，0不是',
    BRANCH_SEQ           int not null,
    LEVEL                int not null,
-   primary key (ID)
+   primary key (BRANCH_ID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT = "(按层级编码，三位一级，100开头，顺序递增，有系统自动控制)',";
 
 /*==============================================================*/

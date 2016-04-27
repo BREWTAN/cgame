@@ -37,7 +37,7 @@ public class MyBatis3GeneratorUtil {
 	public static void main(String[] args) throws Exception {
 
 
-		for (String name : new String[] { "tfg" }) {
+		for (String name : new String[] { "app" }) {
 			packShortName = name;
 			
 //			String xmlName = "generator-" + name + "-config-osgi.xml";
@@ -49,17 +49,17 @@ public class MyBatis3GeneratorUtil {
 			
 		}
 		
-		for (String name : new String[] { "tfg" }) {
-			packShortName = name;
-			
-			String xmlName = "generator-" + name + "-config-osgi.xml";
-//			String xmlName = "generator-" + name + "-config.xml";
-			
-			Def.GEN_CTRL = xmlName.endsWith("config.xml");
-			testGenerateMyBatis(xmlName, tmpSource);
-			
-			
-		}
+//		for (String name : new String[] { "tfg" }) {
+//			packShortName = name;
+//			
+//			String xmlName = "generator-" + name + "-config-osgi.xml";
+////			String xmlName = "generator-" + name + "-config.xml";
+//			
+//			Def.GEN_CTRL = xmlName.endsWith("config.xml");
+//			testGenerateMyBatis(xmlName, tmpSource);
+//			
+//			
+//		}
 
 	}
 
