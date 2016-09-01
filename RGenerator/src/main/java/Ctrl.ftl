@@ -1,4 +1,4 @@
-package onight.mgame.ordbgens.web.action;
+package ${packageName}.action;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -254,14 +254,56 @@ public class ${domainClazz}Ctrl extends BasicCtrl {
 				</#list>
 				${domainClazz}Example example = new ${domainClazz}Example();
 				example.createCriteria()<#list keyList as keyStr>.and${keyStr}EqualTo(akey.get${keyStr}())</#list>;
+				try{
+					${domainClazz?uncap_first}Mapper.updateByExample(info, example);
+				}catch (Exception e) {
+					log.warn("${domainClazz} update by key error..",e);
+					${domainClazz?uncap_first}Mapper.updateByExampleSelective(info, example);
+				}
+			}
+			return ReturnInfo.Success;
+		} catch (Exception e) {
+			log.warn("${domainClazz} update by key error..",e);
+		}
+		return ReturnInfo.Faild;
+	}
+	
+	
+	/**
+	 * ajax根据主键部分单条修改 
+	 * url:'http://ip/app/${domainClazz?lower_case}/selective/(_id值)' 
+	 * data:'{"key1":"value1","key2":"value2",...}' 
+	 * type:'PUT'
+	 */
+	@RequestMapping(value="/selective/{key}",method=RequestMethod.PUT)
+	@ResponseBody
+	public ReturnInfo updateSelective(@PathVariable String key,@RequestBody ${domainClazz} info,HttpServletRequest req) {
+		try {
+			if(info!=null){
+				${domainClazz} akey = new ${domainClazz}();
+				<#list keyList as keyStr>
+				
+				Field keyField=FieldUtils.allDeclaredField(${domainClazz}Key.class).get(0);
+
+				if(keyField.getType().isInstance(1)){
+					FieldUtils.setObjectValue(akey, keyField, Integer.parseInt(key));
+				}else if(keyField.getType().isInstance(1L)){
+					FieldUtils.setObjectValue(akey, keyField, Long.parseLong(key));
+				}else{
+					FieldUtils.setObjectValue(akey, keyField, key);
+				}
+				</#list>
+				${domainClazz}Example example = new ${domainClazz}Example();
+				example.createCriteria()<#list keyList as keyStr>.and${keyStr}EqualTo(akey.get${keyStr}())</#list>;
 				${domainClazz?uncap_first}Mapper.updateByExampleSelective(info, example);
 			}
 			return ReturnInfo.Success;
 		} catch (Exception e) {
-			log.warn("${domainClazz} update by key error..");
+			log.warn("${domainClazz} update by key error..",e);
 		}
 		return ReturnInfo.Faild;
 	}
+	
 	
 	private void setTableName(DbCondi dc){
 		String tName = DBBean.getTableName2Class(${domainClazz}.class);

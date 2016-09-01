@@ -21,19 +21,19 @@
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 
-		<javaModelGenerator targetPackage="onight.tfg.ordbgens"
+		<javaModelGenerator targetPackage="onight.zjfae.ordbgens"
 			targetProject="/Users/brew/Documents/KJ/MING/git/appadmin/src/gens/java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="false" />
 		</javaModelGenerator>
 
-		<sqlMapGenerator targetPackage="onight.tfg.ordbgens"
+		<sqlMapGenerator targetPackage="onight.zjfae.ordbgens"
 			targetProject="/Users/brew/Documents/KJ/MING/git/appadmin/src/gens/java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
 		<javaClientGenerator type="ANNOTATEDMAPPER"
-			targetPackage="onight.tfg.ordbgens"
+			targetPackage="onight.zjfae.ordbgens"
 			targetProject="/Users/brew/Documents/KJ/MING/git/appadmin/src/gens/java">
 			<property name="enableSubPackages" value="true" />
 			<!-- <property name="pbdir"

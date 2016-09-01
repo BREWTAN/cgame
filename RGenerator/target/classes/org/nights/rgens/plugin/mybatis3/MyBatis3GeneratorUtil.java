@@ -36,6 +36,7 @@ public class MyBatis3GeneratorUtil {
 
 	public static void main(String[] args) throws Exception {
 
+		Def.ACTION_PACK = "onight.zjfae.ordbgens.app";
 
 		for (String name : new String[] { "app" }) {
 			packShortName = name;
@@ -48,18 +49,19 @@ public class MyBatis3GeneratorUtil {
 			
 			
 		}
+//		if(t	rue) return;
 		
-//		for (String name : new String[] { "tfg" }) {
-//			packShortName = name;
-//			
-//			String xmlName = "generator-" + name + "-config-osgi.xml";
-////			String xmlName = "generator-" + name + "-config.xml";
-//			
-//			Def.GEN_CTRL = xmlName.endsWith("config.xml");
-//			testGenerateMyBatis(xmlName, tmpSource);
-//			
-//			
-//		}
+		for (String name : new String[] { "app" }) {
+			packShortName = name;
+			
+			String xmlName = "generator-" + name + "-config-osgi.xml";
+//			String xmlName = "generator-" + name + "-config.xml";
+			
+			Def.GEN_CTRL = xmlName.endsWith("config.xml");
+			testGenerateMyBatis(xmlName, tmpSource);
+			
+			
+		}
 
 	}
 

@@ -21,13 +21,13 @@
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 
-		<javaModelGenerator targetPackage="onight.tfg.ordbgens"
+		<javaModelGenerator targetPackage="onight.zjfae.app.ordbgens"
 			targetProject="../cmysqlimpl/src/gens/java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="false" />
 		</javaModelGenerator>
 
-		<sqlMapGenerator targetPackage="onight.tfg.ordbgens"
+		<sqlMapGenerator targetPackage="onight.zjfae.app.ordbgens"
 			targetProject="../cmysqlimpl/src/gens/java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>

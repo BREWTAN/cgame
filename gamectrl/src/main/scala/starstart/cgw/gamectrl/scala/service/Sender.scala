@@ -13,7 +13,7 @@ import onight.tfw.otransio.api.IPacketSender
 object Sender extends SessionModules[Message] {
   
   
-   override def getCmds(): Array[String] = Array( "***" )
+   override def getCmds(): Array[String] = Array( "_Se" )
 
   @BeanProperty
   @PSender

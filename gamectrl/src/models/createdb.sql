@@ -3,4 +3,7 @@ CREATE USER tfw@'localhost' IDENTIFIED BY 'tfw001';
 CREATE USER tfw@'%' IDENTIFIED BY 'tfw001';
 GRANT ALL PRIVILEGES ON tfg.* TO tfw;
 
+CREATE USER tfg@'%' IDENTIFIED BY 'tfg';
+GRANT ALL PRIVILEGES ON tfg.* TO tfg;
+
 flush privileges;
